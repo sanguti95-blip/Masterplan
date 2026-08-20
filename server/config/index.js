@@ -11,6 +11,7 @@ module.exports = {
   SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
   GOOGLE_APPS_SCRIPT_URL: process.env.GOOGLE_APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbxNLOOjTlzp-WLcIiQXpoxw510xMvu3hgXF1Bec8mvhdVR3Kpi8GVN2VcIFZKnAvH21Cg/exec',
   DEFAULT_SAFETY_STOCK_DAYS: Number(process.env.DEFAULT_SAFETY_STOCK_DAYS) || 1,
+  DEFAULT_VDP_DAYS: Number(process.env.DEFAULT_VDP_DAYS) || 60,
   DEFAULT_LEAD_TIME_HOURS: 72,
   CURRENCY: 'CRC',
   CURRENCY_SYMBOL: '₡'

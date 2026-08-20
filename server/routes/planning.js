@@ -20,6 +20,7 @@ router.get('/calculate', (req, res) => {
     const rawDay = req.query.day || 'Lunes';
     const executionDay = mrpEngine.normalizeDayName(rawDay);
     const safetyStock = Number(req.query.safetyStock) || db.memoryStore.settings.safetyStockDays || 1;
+    const vdpDays = Number(req.query.vdpDays) || 60;
 
     const products = db.memoryStore.products || [];
     const activeOrders = (db.memoryStore.orders || []).filter(o => o.status === 'EN_TRANSITO');
@@ -31,7 +32,8 @@ router.get('/calculate', (req, res) => {
     let totalBoxes = 0;
 
     const calculatedItems = products.map(product => {
-      const calc = mrpEngine.calculateSkuReplenishment(product, executionDay, activeOrders, safetyStock);
+      const prodCopy = { ...product, days_period: vdpDays, daysPeriod: vdpDays };
+      const calc = mrpEngine.calculateSkuReplenishment(prodCopy, executionDay, activeOrders, safetyStock);
 
       totalCost += calc.totalOrderCost;
       if (calc.finalQty > 0) {

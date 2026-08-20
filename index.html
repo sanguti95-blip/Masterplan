@@ -236,6 +236,16 @@
             </select>
           </div>
 
+          <div class="period-select-wrapper">
+            <i class="fa-solid fa-chart-line select-icon"></i>
+            <select id="period-filter" class="category-select font-mono" title="Ventana estadística de Venta Diaria Promedio">
+              <option value="60" selected>Ventana VDP: 60 días</option>
+              <option value="30">Ventana VDP: 30 días</option>
+              <option value="90">Ventana VDP: 90 días</option>
+              <option value="191">Ventana VDP: 191 días (Total)</option>
+            </select>
+          </div>
+
           <div class="filter-group">
             <button class="filter-btn active" data-filter="all">Todos</button>
             <button class="filter-btn" data-filter="critical">
@@ -280,31 +290,31 @@
             <table class="mrp-table" id="orders-table">
               <thead>
                 <tr class="header-super">
-                  <th colspan="3" class="grp-col grp-id">Identificación</th>
-                  <th colspan="4" class="grp-col grp-inv">Inventario & Demanda</th>
-                  <th colspan="3" class="grp-col grp-mrp">Reglas MRP</th>
-                  <th colspan="2" class="grp-col grp-order">Orden de Compra</th>
-                  <th colspan="2" class="grp-col grp-fin">Valorización (₡)</th>
+                  <th colspan="3" class="grp-col grp-id">Identificación & Catálogo</th>
+                  <th colspan="4" class="grp-col grp-inv">Inventario & Demanda Diaria</th>
+                  <th colspan="3" class="grp-col grp-mrp">Parámetros MRP</th>
+                  <th colspan="2" class="grp-col grp-order">Sugerido & Pedido</th>
+                  <th colspan="2" class="grp-col grp-fin">Valorización Financiera (₡)</th>
                   <th class="grp-col grp-act"></th>
                 </tr>
                 <tr class="header-main">
-                  <th style="width: 40px;" class="text-center">
+                  <th style="width: 36px;" class="text-center">
                     <input type="checkbox" id="chk-select-all" title="Seleccionar todos">
                   </th>
-                  <th style="width: 100px;" class="sortable" data-sort="codeSku">Código SKU <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="sortable" data-sort="description">Descripción del Producto <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 80px;" class="text-right sortable" data-sort="vdp" title="Venta Diaria Promedio (Consumo)">VDP <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 85px;" class="text-right sortable" data-sort="stockActual" title="Stock Actual en Codisa">Stock Act. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 85px;" class="text-right sortable" data-sort="activeTransit" title="Órdenes en Tránsito Activas (72h)">Tránsito <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 90px;" class="text-right sortable" data-sort="projectedStock" title="Stock Actual + Tránsito Activo">Inv. Proy. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 75px;" class="text-center sortable" data-sort="targetCoverageDays" title="Días a cubrir + Stock de Seguridad">Cob. Meta <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 100px;" class="text-center sortable" data-sort="coverageDaysResult">Estado Cob. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 70px;" class="text-center sortable" data-sort="packMultiple" title="Múltiplo de empaque (caja/bulto)">Múlt. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 95px;" class="text-right sortable" data-sort="suggestedUnits" title="Sugerido por Algoritmo MRP">Sugerido <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 110px;" class="text-right sortable" data-sort="finalQty" title="Pedido Final Editable">Pedido Final <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 95px;" class="text-right sortable" data-sort="unitCost">Costo Unit. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 110px;" class="text-right sortable" data-sort="totalOrderCost">Costo Total <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 60px;" class="text-center">Detalle</th>
+                  <th style="width: 90px;" class="sortable" data-sort="codeSku" title="Código de artículo Frumusa y ERP">SKU <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="sortable col-header-desc" data-sort="description" title="Descripción oficial y familia">Artículo & Familia <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 85px;" class="text-right sortable" data-sort="vdp" title="Venta Diaria Promedio (Ventana activa)">VDP (60d) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 85px;" class="text-right sortable" data-sort="stockActual" title="Saldo físico disponible en Bodega CODISA">Stock Bodega <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 90px;" class="text-right sortable" data-sort="activeTransit" title="Órdenes en Tránsito Activas (72h Lead Time)">Tránsito (72h) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 85px;" class="text-right sortable" data-sort="projectedStock" title="Inventario Proyectado = Stock Actual + Tránsito">Inv. Proy. <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 75px;" class="text-center sortable" data-sort="targetCoverageDays" title="Días a cubrir según matriz + Stock de Seguridad">Colchón <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 95px;" class="text-center sortable" data-sort="coverageDaysResult" title="Días de cobertura efectiva con inventario proyectado">Cobertura <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 65px;" class="text-center sortable" data-sort="packMultiple" title="Múltiplo de empaque (unidades por bulto/caja)">Múlt. <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 95px;" class="text-right sortable" data-sort="suggestedUnits" title="Sugerido automático por Algoritmo MRP">Sugerido MRP <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 105px;" class="text-right sortable" data-sort="finalQty" title="Pedido Final Editable por el Planificador">Pedido Final <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 95px;" class="text-right sortable" data-sort="unitCost" title="Costo Unitario de Compra en Colones">Costo Unit. <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 110px;" class="text-right sortable" data-sort="totalOrderCost" title="Inversión total autorizada en Colones">Inversión ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 50px;" class="text-center" title="Ficha técnica y rentabilidad GMROI">GMROI</th>
                 </tr>
               </thead>
               <tbody id="table-body">

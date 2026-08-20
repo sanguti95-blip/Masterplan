@@ -7,6 +7,7 @@ class MrpApp {
   constructor() {
     this.executionDay = 'Lunes';
     this.safetyStock = 1;
+    this.vdpDays = 60;
     this.searchQuery = '';
     this.activeFilter = 'all';
     this.selectedCategory = 'all';
@@ -94,6 +95,23 @@ class MrpApp {
       catFilter.addEventListener('change', (e) => {
         this.selectedCategory = e.target.value;
         this.recalculateAndRender();
+      });
+    }
+
+    // Period / VDP Window Filter Dropdown
+    const periodFilter = document.getElementById('period-filter');
+    if (periodFilter) {
+      periodFilter.addEventListener('change', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (!isNaN(val) && val > 0) {
+          this.vdpDays = val;
+          this.items.forEach(item => {
+            item.days_period = this.vdpDays;
+            item.daysPeriod = this.vdpDays;
+          });
+          this.recalculateAndRender();
+          window.Toast.show(`Ventana estadística de VDP ajustada a ${val} días.`, 'info');
+        }
       });
     }
 
@@ -211,7 +229,7 @@ class MrpApp {
       // 1. Try fetching from Backend API
       if (window.ApiClient) {
         const [planRes, transitRes] = await Promise.allSettled([
-          window.ApiClient.getPlanningCalculation(this.executionDay, this.safetyStock),
+          window.ApiClient.getPlanningCalculation(this.executionDay, this.safetyStock, this.vdpDays),
           window.ApiClient.getTransitOrders()
         ]);
 
@@ -287,7 +305,7 @@ class MrpApp {
           category: row['Categoría'] || (match ? match['CATEGORIA'] : 'General'),
           stock_actual: stock,
           sales_period: sales,
-          days_period: Number(row['Días del período'] || 30),
+          days_period: this.vdpDays || Number(row['Días del período'] || 60),
           unit_cost: cost,
           unit_price: match ? Number(match['PRECIO'] || 0) : cost * 1.35,
           transit_qty: transit,

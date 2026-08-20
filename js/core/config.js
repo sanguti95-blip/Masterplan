@@ -11,6 +11,7 @@ const APP_CONFIG = {
   defaultExecutionDay: 'Lunes',
   defaultSafetyStockDays: 1,
   defaultLeadTimeHours: 72,
+  defaultVdpDays: 60,
   cacheTTL: 5 * 60 * 1000, // 5 minutes in memory/localstorage
   googleAppsScriptUrl: 'https://script.google.com/macros/s/AKfycbxNLOOjTlzp-WLcIiQXpoxw510xMvu3hgXF1Bec8mvhdVR3Kpi8GVN2VcIFZKnAvH21Cg/exec',
   planningMatrix: {

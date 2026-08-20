@@ -57,8 +57,8 @@ const ApiClient = {
   },
 
   // Planning APIs
-  getPlanningCalculation(day = 'Lunes', safetyStock = 1) {
-    return this.request(`/api/planning/calculate?day=${encodeURIComponent(day)}&safetyStock=${safetyStock}`);
+  getPlanningCalculation(day = 'Lunes', safetyStock = 1, vdpDays = 60) {
+    return this.request(`/api/planning/calculate?day=${encodeURIComponent(day)}&safetyStock=${safetyStock}&vdpDays=${vdpDays}`);
   },
 
   approveOrder(payload) {

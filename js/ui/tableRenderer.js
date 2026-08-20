@@ -147,7 +147,7 @@ const TableRenderer = {
             <span class="product-name" title="${item.description}">${item.description}</span>
             <span class="product-category-tag">${item.category || 'General'}</span>
           </td>
-          <td class="col-vdp font-mono text-right" title="Consumo histórico: ${AppFormatter.number(item.salesPeriod)} en ${item.daysPeriod} días">
+          <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio: ${item.vdp.toFixed(2)} und/día (Base: ${item.daysPeriod || 60} días)">
             ${item.vdp.toFixed(2)}
           </td>
           <td class="col-stock">
