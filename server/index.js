@@ -111,6 +111,19 @@ function bootstrapCatalog() {
 
         db.initMemoryStore(merged);
         console.log(`✅ [Master MRP]: Catálogo inicial cargado con ${merged.length} SKUs.`);
+
+        const ordersFilePath = path.join(__dirname, '..', 'data', 'active_orders.json');
+        if (fs.existsSync(ordersFilePath)) {
+          try {
+            const savedOrders = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
+            if (Array.isArray(savedOrders) && savedOrders.length > 0) {
+              db.memoryStore.orders = savedOrders;
+              console.log(`📦 [Orders Store]: ${savedOrders.length} órdenes cargadas desde almacenamiento.`);
+            }
+          } catch (e) {
+            console.warn('⚠️ Error al cargar órdenes persistidas:', e.message);
+          }
+        }
       }
     }
   } catch (err) {
