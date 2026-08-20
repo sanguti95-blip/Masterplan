@@ -2,7 +2,7 @@ services:
   - type: web
     name: masterplan-mrp-codisa
     env: node
-    plan: starter
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/planning/matrix
