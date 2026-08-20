@@ -294,7 +294,7 @@
             <table class="mrp-table" id="orders-table">
               <thead>
                 <tr class="header-super">
-                  <th colspan="3" class="grp-col grp-id">Código & Artículo</th>
+                  <th colspan="3" class="grp-col grp-id">Identificación del Artículo</th>
                   <th colspan="4" class="grp-col grp-inv">Existencia & Venta Diaria</th>
                   <th colspan="3" class="grp-col grp-mrp">Parámetros de Reposición</th>
                   <th colspan="2" class="grp-col grp-order">Sugerido & Pedido Autorizado</th>
@@ -302,23 +302,23 @@
                   <th class="grp-col grp-act"></th>
                 </tr>
                 <tr class="header-main">
-                  <th style="width: 28px;" class="text-center">
+                  <th class="text-center col-checkbox">
                     <input type="checkbox" id="chk-select-all" title="Seleccionar todos">
                   </th>
-                  <th style="width: 68px;" class="sortable" data-sort="codeSku" title="Código de artículo Frumusa y ERP">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="sortable col-header-desc" data-sort="description" title="Descripción oficial y familia">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 68px;" class="text-right sortable" data-sort="vdp" title="Venta Diaria Promedio (Ventana activa)">VENTA D. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 65px;" class="text-right sortable" data-sort="stockActual" title="Existencia física disponible en Bodega Central CODISA">STOCK <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 65px;" class="text-right sortable" data-sort="activeTransit" title="Pedidos en Tránsito Activos (72h Lead Time)">TRÁNS. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 65px;" class="text-right sortable" data-sort="projectedStock" title="Disponibilidad Proyectada = Stock Físico + En Tránsito">PROY. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 58px;" class="text-center sortable" data-sort="minCoverageUnits" title="Cobertura Mínima requerida en Unidades (Stock de Seguridad fijo)">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 68px;" class="text-center sortable" data-sort="coverageDaysResult" title="Días de cobertura efectiva con inventario proyectado">COBERT. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 50px;" class="text-center sortable" data-sort="packMultiple" title="Unidades por bulto / caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 76px;" class="text-right sortable" data-sort="suggestedUnits" title="Sugerido automático de reposición">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 80px;" class="text-right sortable" data-sort="finalQty" title="Pedido Autorizado por el Planificador">PEDIDO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 75px;" class="text-right sortable" data-sort="unitCost" title="Costo Unitario de Compra en Colones">COSTO ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 88px;" class="text-right sortable" data-sort="totalOrderCost" title="Inversión total autorizada en Colones">INVERSIÓN ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 36px;" class="text-center" title="Ficha técnica del producto y rentabilidad">VER</th>
+                  <th class="sortable col-sku" data-sort="codeSku" title="Código de artículo Frumusa y ERP">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="sortable col-desc border-right-group" data-sort="description" title="Descripción oficial y familia">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-vdp" data-sort="vdp" title="Venta Diaria Promedio (Ventana activa)">VENTA D. <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-stock" data-sort="stockActual" title="Existencia física disponible en Bodega Central CODISA">STOCK <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-transit" data-sort="activeTransit" title="Pedidos en Tránsito Activos (72h Lead Time)">TRÁNSITO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-projected border-right-group" data-sort="projectedStock" title="Disponibilidad Proyectada = Stock Físico + En Tránsito">PROYECT. <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-target-cov" data-sort="minCoverageUnits" title="Cobertura Mínima requerida en Unidades (Stock de Seguridad fijo)">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-cov-status" data-sort="coverageDaysResult" title="Días de cobertura efectiva con inventario proyectado">COBERTURA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-multiple border-right-group" data-sort="packMultiple" title="Unidades por bulto / caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-suggested" data-sort="suggestedUnits" title="Sugerido automático de reposición">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-final-order border-right-group" data-sort="finalQty" title="Pedido Autorizado por el Planificador">PEDIDO FINAL <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-unit-cost" data-sort="unitCost" title="Costo Unitario de Compra en Colones">COSTO ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-total-cost border-right-group" data-sort="totalOrderCost" title="Inversión total autorizada en Colones">INVERSIÓN ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center col-actions" title="Ficha técnica del producto y rentabilidad">VER</th>
                 </tr>
               </thead>
               <tbody id="table-body">

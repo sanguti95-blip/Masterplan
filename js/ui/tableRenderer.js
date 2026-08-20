@@ -122,45 +122,54 @@ const TableRenderer = {
       const hasOverride = item.manualOverride !== null;
       const isOrdered = item.finalQty > 0;
 
-      // Badge for coverage status
+      // Map category to thematic style
+      const cat = item.category || 'Otros Perecederos';
+      let catClass = 'tag-cat-otros';
+      if (cat.includes('Frutas')) catClass = 'tag-cat-frutas';
+      else if (cat.includes('Hortalizas')) catClass = 'tag-cat-hortalizas';
+      else if (cat.includes('Tubérculos') || cat.includes('Tuberculos')) catClass = 'tag-cat-tuberculos';
+      else if (cat.includes('Vegetales')) catClass = 'tag-cat-vegetales';
+      else if (cat.includes('Hierbas')) catClass = 'tag-cat-hierbas';
+
+      // Badge for coverage status (High Contrast)
       let coverageBadge = '';
       if (item.coverageDaysResult >= 999) {
         coverageBadge = '<span class="status-pill pill-neutral">Sin Venta (∞)</span>';
       } else if (item.coverageDaysResult < item.daysToCover) {
-        coverageBadge = `<span class="status-pill pill-danger">${item.coverageDaysResult.toFixed(1)} d (Crítico)</span>`;
+        coverageBadge = `<span class="status-pill pill-danger"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Crítico)</span>`;
       } else if (item.coverageDaysResult >= item.targetCoverageDays) {
-        coverageBadge = `<span class="status-pill pill-success">${item.coverageDaysResult.toFixed(1)} d (Cubierto)</span>`;
+        coverageBadge = `<span class="status-pill pill-success"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Cubierto)</span>`;
       } else {
-        coverageBadge = `<span class="status-pill pill-warning">${item.coverageDaysResult.toFixed(1)} d (Ajustado)</span>`;
+        coverageBadge = `<span class="status-pill pill-warning"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Ajustado)</span>`;
       }
 
       return `
         <tr class="table-row ${isCritical ? 'row-critical' : ''} ${isOrdered ? 'row-ordered' : ''}" data-sku="${item.codeSku}" data-row="${rowIndex}">
-          <td class="col-checkbox">
+          <td class="col-checkbox text-center">
             <input type="checkbox" class="row-checkbox" data-sku="${item.codeSku}" ${isSelected ? 'checked' : ''} aria-label="Seleccionar ${item.description}">
           </td>
           <td class="col-sku font-mono">
             <strong>${item.codeSku}</strong>
             ${item.codeCountry && item.codeCountry !== item.codeSku ? `<span class="sku-subcode">${item.codeCountry}</span>` : ''}
           </td>
-          <td class="col-desc">
+          <td class="col-desc border-right-group">
             <span class="product-name" title="${item.description}">${item.description}</span>
-            <span class="product-category-tag">${item.category || 'General'}</span>
+            <span class="product-category-tag ${catClass}">${cat}</span>
           </td>
           <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio: ${item.vdp.toFixed(2)} und/día (Base: ${item.daysPeriod || 60} días)">
             ${item.vdp.toFixed(2)}
           </td>
-          <td class="col-stock">
+          <td class="col-stock text-right">
             <input type="number" step="any" min="0" class="input-table stock-input font-mono" 
                    data-sku="${item.codeSku}" data-col="stock" data-row="${rowIndex}" value="${item.stockActual}" 
                    aria-label="Stock físico para ${item.description}" title="Existencia física en Bodega Central CODISA">
           </td>
-          <td class="col-transit">
+          <td class="col-transit text-right">
             <input type="number" step="any" min="0" class="input-table transit-input font-mono ${item.activeTransit > 0 ? 'transit-active' : ''}" 
                    data-sku="${item.codeSku}" data-col="transit" data-row="${rowIndex}" value="${item.activeTransit}" 
                    aria-label="Tránsito activo para ${item.description}" title="Pedidos en tránsito activos (72h)">
           </td>
-          <td class="col-projected font-mono text-right font-semibold">
+          <td class="col-projected font-mono text-right font-semibold border-right-group">
             ${AppFormatter.number(item.projectedStock)}
           </td>
           <td class="col-target-cov text-center font-mono" title="Cobertura Mínima requerida: ${item.minCoverageUnits} und (Colchón de seguridad en bodega)">
@@ -169,14 +178,14 @@ const TableRenderer = {
           <td class="col-cov-status text-center">
             ${coverageBadge}
           </td>
-          <td class="col-multiple text-center font-mono">
-            ${item.packMultiple}
+          <td class="col-multiple text-center font-mono border-right-group">
+            <strong>${item.packMultiple}</strong>
           </td>
-          <td class="col-suggested text-right font-mono text-muted">
-            <div>${AppFormatter.number(item.suggestedUnits)} und</div>
+          <td class="col-suggested text-right font-mono">
+            <div class="font-semibold ${item.suggestedUnits > 0 ? 'text-primary' : 'text-muted'}">${AppFormatter.number(item.suggestedUnits)} und</div>
             <div class="sub-boxes">${item.suggestedBoxes} cjas</div>
           </td>
-          <td class="col-final-order">
+          <td class="col-final-order text-right border-right-group">
             <input type="number" step="any" min="0" class="input-table order-input font-mono ${hasOverride ? 'override-active' : ''}" 
                    data-sku="${item.codeSku}" data-col="order" data-row="${rowIndex}" placeholder="${item.suggestedUnits}" 
                    value="${hasOverride ? item.manualOverride : (item.suggestedUnits > 0 ? item.suggestedUnits : '')}"
@@ -186,7 +195,7 @@ const TableRenderer = {
           <td class="col-unit-cost font-mono text-right">
             ${AppFormatter.currency(item.unitCost)}
           </td>
-          <td class="col-total-cost font-mono text-right font-semibold">
+          <td class="col-total-cost font-mono text-right font-semibold border-right-group">
             ${AppFormatter.currency(item.totalOrderCost)}
           </td>
           <td class="col-actions text-center">
