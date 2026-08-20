@@ -240,7 +240,9 @@ class MrpApp {
         }
       });
 
-      this.items = INITIAL_PEDIDOS.map(row => {
+      this.items = INITIAL_PEDIDOS
+        .filter(row => row && ((row['Codigo frumusa'] !== undefined && row['Codigo frumusa'] !== '') || (row['Código country'] !== undefined && row['Código country'] !== '') || row['Descripción']))
+        .map(row => {
         const codeFrumusa = (row['Codigo frumusa'] !== undefined ? row['Codigo frumusa'] : '').toString().trim();
         const codeCountry = (row['Código country'] !== undefined ? row['Código country'] : '').toString().trim();
         const desc = (row['Descripción'] || '').toString().trim().toUpperCase();
