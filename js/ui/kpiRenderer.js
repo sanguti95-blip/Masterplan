@@ -43,15 +43,15 @@ const KpiRenderer = {
       
       if (variance === 0) {
         this.elements.varianceCost.className = 'kpi-value';
-        if (this.elements.varianceSubtext) this.elements.varianceSubtext.innerText = '100% apego a algoritmo MRP';
+        if (this.elements.varianceSubtext) this.elements.varianceSubtext.innerText = '100% apego al sugerido de compra';
       } else if (variance > 0) {
         this.elements.varianceCost.className = 'kpi-value text-amber';
         const pct = kpiData.suggestedCost > 0 ? ((variance / kpiData.suggestedCost) * 100).toFixed(1) : '100';
-        if (this.elements.varianceSubtext) this.elements.varianceSubtext.innerText = `+${pct}% sobre sugerido por algoritmo`;
+        if (this.elements.varianceSubtext) this.elements.varianceSubtext.innerText = `+${pct}% sobre pedido sugerido`;
       } else {
         this.elements.varianceCost.className = 'kpi-value text-primary';
         const pct = kpiData.suggestedCost > 0 ? ((Math.abs(variance) / kpiData.suggestedCost) * 100).toFixed(1) : '100';
-        if (this.elements.varianceSubtext) this.elements.varianceSubtext.innerText = `-${pct}% bajo sugerido por algoritmo`;
+        if (this.elements.varianceSubtext) this.elements.varianceSubtext.innerText = `-${pct}% bajo pedido sugerido`;
       }
     }
   }

@@ -50,7 +50,7 @@ class MrpApp {
     // 6. Update Status
     const statusEl = document.getElementById('data-status-text');
     if (statusEl) {
-      statusEl.innerText = `Sistema MRP listo. ${this.items.length} SKUs en catálogo maestro.`;
+      statusEl.innerText = `Sistema de Abastecimiento listo. ${this.items.length} SKUs en catálogo maestro.`;
     }
   }
 
@@ -213,7 +213,7 @@ class MrpApp {
     if (bannerCoverage) bannerCoverage.innerText = `${matrix.coverageDays} día(s)`;
     if (bannerTransit) bannerTransit.innerText = matrix.activeTransitDays.join(', ');
 
-    window.Toast.show(`Cálculo MRP actualizado para ${matrix.dayName} (Ingreso: ${matrix.deliveryDay})`, 'info');
+    window.Toast.show(`Plan de pedidos actualizado para ${matrix.dayName} (Ingreso a Bodega: ${matrix.deliveryDay})`, 'info');
     this.recalculateAndRender();
   }
 

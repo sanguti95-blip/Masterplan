@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master Planning MRP CODISA v2.0</title>
+  <title>CODISA - Plan Maestro de Abastecimiento & Pedidos</title>
   
   <!-- PWA Manifest & Meta -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Motor de Planificación Maestra (MRP) e Inventario CODISA con Tránsito Dinámico 72h y Exportación Excel">
+  <meta name="description" content="Sistema de Planificación de Compras y Reposición para Retail CODISA con Tránsito Dinámico 72h y Exportación Excel">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,27 +35,27 @@
           <i class="fa-solid fa-boxes-stacked"></i>
         </div>
         <div class="brand-info">
-          <h2>CODISA MRP</h2>
-          <span class="brand-badge">v2.0 Master Plan</span>
+          <h2>CODISA</h2>
+          <span class="brand-badge">Abastecimiento Retail</span>
         </div>
       </div>
 
       <nav class="sidebar-nav">
         <button class="nav-tab active" data-tab="planner">
           <i class="fa-solid fa-table-list"></i>
-          <span>Planeador MRP</span>
+          <span>Plan de Pedidos</span>
         </button>
         <button class="nav-tab" data-tab="gmroi">
           <i class="fa-solid fa-chart-scatter"></i>
-          <span>Matriz GMROI</span>
+          <span>Rentabilidad (GMROI)</span>
         </button>
         <button class="nav-tab" data-tab="analytics">
           <i class="fa-solid fa-chart-pie"></i>
-          <span>Análisis & Eficiencia</span>
+          <span>Análisis & Demanda</span>
         </button>
         <button class="nav-tab" data-tab="transit">
           <i class="fa-solid fa-truck-fast"></i>
-          <span>Órdenes en Tránsito</span>
+          <span>Pedidos en Tránsito</span>
         </button>
         <button class="nav-tab" data-tab="sync">
           <i class="fa-solid fa-cloud-arrow-down"></i>
@@ -85,7 +85,7 @@
       <!-- Top App Header -->
       <header class="app-header">
         <div class="header-left">
-          <h1 id="view-title">Planificación Maestra de Pedidos</h1>
+          <h1 id="view-title">Plan de Abastecimiento & Pedidos</h1>
           <p id="data-status-text" class="header-subtitle">Cargando base de datos inicial CODISA...</p>
         </div>
 
@@ -99,12 +99,12 @@
 
           <!-- Day Matrix Quick Selector -->
           <div class="day-matrix-selector">
-            <span class="selector-label">Día MRP:</span>
+            <span class="selector-label">Día de Pedido:</span>
             <div class="day-button-group">
-              <button class="day-btn active" data-day="Lunes" title="Ejecución Lunes -> Entrega Jueves (72h)">Lun</button>
-              <button class="day-btn" data-day="Martes" title="Ejecución Martes -> Entrega Viernes (72h)">Mar</button>
-              <button class="day-btn" data-day="Miercoles" title="Ejecución Miércoles -> Entrega Sábado (72h / 3 días)">Mié</button>
-              <button class="day-btn" data-day="Jueves" title="Ejecución Jueves -> Entrega Martes (72h / 2 días)">Jue</button>
+              <button class="day-btn active" data-day="Lunes" title="Pedido Lunes -> Entrega Jueves (72h)">Lun</button>
+              <button class="day-btn" data-day="Martes" title="Pedido Martes -> Entrega Viernes (72h)">Mar</button>
+              <button class="day-btn" data-day="Miercoles" title="Pedido Miércoles -> Entrega Sábado (72h / 3 días)">Mié</button>
+              <button class="day-btn" data-day="Jueves" title="Pedido Jueves -> Entrega Martes (72h / 2 días)">Jue</button>
             </div>
           </div>
 
@@ -182,36 +182,36 @@
           <div class="kpi-card">
             <div class="kpi-icon items"><i class="fa-solid fa-list-check"></i></div>
             <div class="kpi-details">
-              <span class="kpi-title">Artículos a Pedir</span>
+              <span class="kpi-title">Artículos en Pedido</span>
               <span class="kpi-value" id="kpi-items-count">0</span>
-              <span class="kpi-subtext">SKUs activos en pedido final</span>
+              <span class="kpi-subtext">SKUs con pedido autorizado</span>
             </div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-icon critical"><i class="fa-solid fa-triangle-exclamation"></i></div>
             <div class="kpi-details">
-              <span class="kpi-title">SKUs Críticos</span>
+              <span class="kpi-title">Alerta de Agotados</span>
               <span class="kpi-value warning-val" id="kpi-critical-count">0</span>
-              <span class="kpi-subtext">Cobertura menor al colchón meta</span>
+              <span class="kpi-subtext">Existencia menor a días meta</span>
             </div>
           </div>
 
           <div class="kpi-card">
             <div class="kpi-icon units"><i class="fa-solid fa-layer-group"></i></div>
             <div class="kpi-details">
-              <span class="kpi-title">Unidades Físicas</span>
+              <span class="kpi-title">Unidades / Kilos</span>
               <span class="kpi-value" id="kpi-total-units">0</span>
-              <span class="kpi-subtext">Suma de unidades a ordenar</span>
+              <span class="kpi-subtext">Volumen físico total de pedido</span>
             </div>
           </div>
 
           <div class="kpi-card kpi-variance-card">
             <div class="kpi-icon variance"><i class="fa-solid fa-scale-balanced"></i></div>
             <div class="kpi-details">
-              <span class="kpi-title">Varianza Manual (₡)</span>
+              <span class="kpi-title">Varianza de Ajustes (₡)</span>
               <span class="kpi-value" id="kpi-variance-cost">₡0</span>
-              <span class="kpi-subtext" id="kpi-variance-subtext">100% apego a algoritmo MRP</span>
+              <span class="kpi-subtext" id="kpi-variance-subtext">100% apego al sugerido de compra</span>
             </div>
           </div>
         </div>
@@ -220,7 +220,7 @@
         <div class="action-toolbar">
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="search-input" placeholder="Buscar por código SKU, descripción...">
+            <input type="text" id="search-input" placeholder="Buscar por código, artículo o familia...">
           </div>
 
           <div class="category-select-wrapper">
@@ -238,7 +238,7 @@
 
           <div class="period-select-wrapper">
             <i class="fa-solid fa-chart-line select-icon"></i>
-            <select id="period-filter" class="category-select font-mono" title="Ventana estadística de Venta Diaria Promedio">
+            <select id="period-filter" class="category-select font-mono" title="Ventana estadística de Venta Promedio Diaria">
               <option value="60" selected>Ventana VDP: 60 días</option>
               <option value="30">Ventana VDP: 30 días</option>
               <option value="90">Ventana VDP: 90 días</option>
@@ -249,7 +249,7 @@
           <div class="filter-group">
             <button class="filter-btn active" data-filter="all">Todos</button>
             <button class="filter-btn" data-filter="critical">
-              <span class="pill-dot red"></span>Críticos
+              <span class="pill-dot red"></span>Agotados / Alerta
             </button>
             <button class="filter-btn" data-filter="transit">
               <span class="pill-dot blue"></span>En Tránsito
@@ -264,9 +264,9 @@
               <i class="fa-solid fa-file-excel"></i>
               <span>Exportar Excel</span>
             </button>
-            <button id="btn-approve-order" class="btn-primary" title="Aprobar orden, pasar a tránsito y descargar .xlsx">
+            <button id="btn-approve-order" class="btn-primary" title="Autorizar orden, registrar tránsito y descargar .xlsx">
               <i class="fa-solid fa-check-double"></i>
-              <span>Aprobar Pedido y Exportar (.xlsx)</span>
+              <span>Autorizar Pedido y Descargar Excel</span>
             </button>
           </div>
         </div>
@@ -276,7 +276,7 @@
           <span id="selected-items-count">0 seleccionados</span>
           <div class="batch-buttons">
             <button id="btn-batch-apply-suggested" class="btn-small btn-secondary">
-              <i class="fa-solid fa-rotate-left"></i> Aplicar Sugerido Algoritmo
+              <i class="fa-solid fa-rotate-left"></i> Restablecer Sugerido de Compra
             </button>
             <button id="btn-batch-set-zero" class="btn-small btn-danger">
               <i class="fa-solid fa-ban"></i> Fijar a 0
@@ -284,37 +284,37 @@
           </div>
         </div>
 
-        <!-- MRP Replenishment Data Table with Grouped Headers & Column Sorting -->
+        <!-- Replenishment Data Table with Grouped Headers & Column Sorting -->
         <div class="table-card">
           <div class="table-scroll-container">
             <table class="mrp-table" id="orders-table">
               <thead>
                 <tr class="header-super">
-                  <th colspan="3" class="grp-col grp-id">Identificación & Catálogo</th>
-                  <th colspan="4" class="grp-col grp-inv">Inventario & Demanda Diaria</th>
-                  <th colspan="3" class="grp-col grp-mrp">Parámetros MRP</th>
-                  <th colspan="2" class="grp-col grp-order">Sugerido & Pedido</th>
-                  <th colspan="2" class="grp-col grp-fin">Valorización Financiera (₡)</th>
+                  <th colspan="3" class="grp-col grp-id">Código & Artículo</th>
+                  <th colspan="4" class="grp-col grp-inv">Existencia & Venta Diaria</th>
+                  <th colspan="3" class="grp-col grp-mrp">Parámetros de Cobertura</th>
+                  <th colspan="2" class="grp-col grp-order">Sugerido & Pedido Autorizado</th>
+                  <th colspan="2" class="grp-col grp-fin">Valorización de Compra (₡)</th>
                   <th class="grp-col grp-act"></th>
                 </tr>
                 <tr class="header-main">
                   <th style="width: 36px;" class="text-center">
                     <input type="checkbox" id="chk-select-all" title="Seleccionar todos">
                   </th>
-                  <th style="width: 90px;" class="sortable" data-sort="codeSku" title="Código de artículo Frumusa y ERP">SKU <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="sortable col-header-desc" data-sort="description" title="Descripción oficial y familia">Artículo & Familia <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 85px;" class="text-right sortable" data-sort="vdp" title="Venta Diaria Promedio (Ventana activa)">VDP (60d) <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 85px;" class="text-right sortable" data-sort="stockActual" title="Saldo físico disponible en Bodega CODISA">Stock Bodega <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 90px;" class="text-right sortable" data-sort="activeTransit" title="Órdenes en Tránsito Activas (72h Lead Time)">Tránsito (72h) <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 85px;" class="text-right sortable" data-sort="projectedStock" title="Inventario Proyectado = Stock Actual + Tránsito">Inv. Proy. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 75px;" class="text-center sortable" data-sort="targetCoverageDays" title="Días a cubrir según matriz + Stock de Seguridad">Colchón <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 95px;" class="text-center sortable" data-sort="coverageDaysResult" title="Días de cobertura efectiva con inventario proyectado">Cobertura <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 65px;" class="text-center sortable" data-sort="packMultiple" title="Múltiplo de empaque (unidades por bulto/caja)">Múlt. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 95px;" class="text-right sortable" data-sort="suggestedUnits" title="Sugerido automático por Algoritmo MRP">Sugerido MRP <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 105px;" class="text-right sortable" data-sort="finalQty" title="Pedido Final Editable por el Planificador">Pedido Final <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 95px;" class="text-right sortable" data-sort="unitCost" title="Costo Unitario de Compra en Colones">Costo Unit. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 110px;" class="text-right sortable" data-sort="totalOrderCost" title="Inversión total autorizada en Colones">Inversión ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 50px;" class="text-center" title="Ficha técnica y rentabilidad GMROI">GMROI</th>
+                  <th style="width: 90px;" class="sortable" data-sort="codeSku" title="Código de artículo Frumusa y ERP">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="sortable col-header-desc" data-sort="description" title="Descripción oficial y familia">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 85px;" class="text-right sortable" data-sort="vdp" title="Venta Diaria Promedio (Ventana activa)">VENTA DIARIA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 85px;" class="text-right sortable" data-sort="stockActual" title="Existencia física disponible en Bodega Central CODISA">STOCK FÍSICO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 90px;" class="text-right sortable" data-sort="activeTransit" title="Pedidos en Tránsito Activos (72h Lead Time)">PENDIENTE (72h) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 85px;" class="text-right sortable" data-sort="projectedStock" title="Disponibilidad Proyectada = Stock Físico + Pendiente">DISP. PROY. <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 75px;" class="text-center sortable" data-sort="targetCoverageDays" title="Días de venta a cubrir + Stock de Seguridad">DÍAS META <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 95px;" class="text-center sortable" data-sort="coverageDaysResult" title="Días de cobertura efectiva con inventario proyectado">COBERTURA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 65px;" class="text-center sortable" data-sort="packMultiple" title="Unidades por bulto / caja">UNID / BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 95px;" class="text-right sortable" data-sort="suggestedUnits" title="Sugerido automático de reposición">PEDIDO SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 105px;" class="text-right sortable" data-sort="finalQty" title="Pedido Autorizado por el Planificador">PEDIDO AUTORIZADO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 95px;" class="text-right sortable" data-sort="unitCost" title="Costo Unitario de Compra en Colones">COSTO COMPRA ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 110px;" class="text-right sortable" data-sort="totalOrderCost" title="Inversión total autorizada en Colones">INVERSIÓN TOTAL ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 50px;" class="text-center" title="Ficha técnica del producto y rentabilidad">DETALLE</th>
                 </tr>
               </thead>
               <tbody id="table-body">
@@ -397,7 +397,7 @@
         </div>
 
         <div class="chart-container-card" style="margin-top: 24px;">
-          <h3>Curvas de Consumo y Demanda Proyectada MRP</h3>
+          <h3>Tendencias de Consumo y Demanda Proyectada</h3>
           <canvas id="chart-trends-curves"></canvas>
         </div>
       </section>
@@ -406,8 +406,8 @@
       <section id="view-transit" class="view-panel">
         <div class="section-header">
           <div>
-            <h2>Gestión de Inventario en Tránsito (72 Horas)</h2>
-            <p>Órdenes aprobadas que están en camino a bodega. Se liberan automáticamente al conciliar con CODISA.</p>
+            <h2>Gestión de Pedidos en Tránsito (72 Horas)</h2>
+            <p>Pedidos aprobados que están en camino a bodega. Se concilian automáticamente con los ingresos de CODISA.</p>
           </div>
         </div>
 
@@ -438,7 +438,7 @@
           </div>
           <div class="sync-help-text">
             <i class="fa-solid fa-circle-info"></i>
-            <span>La sincronización descarga automáticamente el archivo crudo de CODISA, actualiza el saldo actual de stock, ventas históricas y costos unitarios.</span>
+            <span>La sincronización descarga automáticamente el archivo crudo de CODISA, actualiza la existencia en bodega, ventas históricas y costos de compra.</span>
           </div>
         </div>
       </section>
@@ -447,7 +447,7 @@
       <section id="view-config" class="view-panel">
         <div class="section-header">
           <div>
-            <h2>Configuración del Motor MRP</h2>
+            <h2>Configuración de Reposición e Inventario</h2>
             <p>Parámetros globales de cálculo y reglas de abastecimiento.</p>
           </div>
         </div>
@@ -456,19 +456,19 @@
           <div class="config-card">
             <h3>Parámetros de Reposición</h3>
             <div class="form-group">
-              <label for="cfg-safety-stock">Stock de Seguridad (SS en días)</label>
+              <label for="cfg-safety-stock">Stock de Seguridad (Días Meta Adicionales)</label>
               <input type="number" id="cfg-safety-stock" min="0" max="30" step="0.5" value="1">
-              <span class="field-help">Colchón de seguridad añadido a los días a cubrir de la matriz.</span>
+              <span class="field-help">Días de inventario de seguridad añadidos al ciclo de abastecimiento.</span>
             </div>
 
             <div class="form-group">
-              <label>Lead Time Fijo</label>
+              <label>Lead Time de Entrega</label>
               <input type="text" value="72 Horas (3 Días)" disabled>
-              <span class="field-help">Tiempo establecido entre colocación de orden e ingreso físico.</span>
+              <span class="field-help">Tiempo establecido entre colocación de pedido e ingreso físico a bodega.</span>
             </div>
 
             <div class="form-group">
-              <label>Frecuencia de Órdenes</label>
+              <label>Frecuencia de Pedidos</label>
               <input type="text" value="4 Pedidos Semanales (Lun, Mar, Mié, Jue)" disabled>
             </div>
           </div>
@@ -509,15 +509,15 @@
             <span class="stat-val font-mono" id="modal-val-vdp">0.00 und/día</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Stock Actual (Codisa)</span>
+            <span class="stat-label">Stock Físico (Bodega 401)</span>
             <span class="stat-val font-mono" id="modal-val-stock">0 und</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Tránsito Activo (72h)</span>
+            <span class="stat-label">Pendiente Ingreso (72h)</span>
             <span class="stat-val font-mono" id="modal-val-transit">0 und</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Inventario Proyectado</span>
+            <span class="stat-label">Disponibilidad Proyectada</span>
             <span class="stat-val font-mono font-semibold" id="modal-val-projected">0 und</span>
           </div>
           <div class="stat-box">
@@ -525,15 +525,15 @@
             <span class="stat-val font-mono" id="modal-val-coverage-days">1 días</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Stock de Seguridad (SS)</span>
+            <span class="stat-label">Stock de Seguridad</span>
             <span class="stat-val font-mono" id="modal-val-safety-stock">1 días</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Cobertura Meta Total</span>
+            <span class="stat-label">Días Meta Totales</span>
             <span class="stat-val font-mono font-semibold" id="modal-val-target-coverage">2 días</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Múltiplo Empaque</span>
+            <span class="stat-label">Unid por Bulto</span>
             <span class="stat-val font-mono" id="modal-val-multiple">1 und/cja</span>
           </div>
           <div class="stat-box">
@@ -545,15 +545,15 @@
             <span class="stat-val font-mono font-semibold" id="modal-val-suggested-units">0 und</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Costo Unitario (₡)</span>
+            <span class="stat-label">Costo de Compra (₡)</span>
             <span class="stat-val font-mono" id="modal-val-unit-cost">₡0</span>
           </div>
           <div class="stat-box">
-            <span class="stat-label">Precio Unitario (₡)</span>
+            <span class="stat-label">Precio de Venta (₡)</span>
             <span class="stat-val font-mono" id="modal-val-unit-price">₡0</span>
           </div>
           <div class="stat-box span-2">
-            <span class="stat-label">Costo Total del Pedido (₡)</span>
+            <span class="stat-label">Inversión Total del Pedido (₡)</span>
             <span class="stat-val font-mono font-bold" id="modal-val-total-cost">₡0</span>
           </div>
         </div>
@@ -570,15 +570,15 @@
     <div class="modal-card modal-confirm">
       <div class="modal-header">
         <div>
-          <h3>Confirmación de Orden de Compra</h3>
-          <span class="modal-subtitle">Master Planning MRP CODISA v2.0</span>
+          <h3>Confirmación de Pedido de Compra</h3>
+          <span class="modal-subtitle">CODISA - Plan Maestro de Abastecimiento</span>
         </div>
         <button class="modal-close" data-close-modal>&times;</button>
       </div>
       <div class="modal-body">
         <div class="confirm-summary-banner">
           <div class="confirm-item">
-            <span class="stat-label">Día de Ejecución</span>
+            <span class="stat-label">Día de Pedido</span>
             <strong id="confirm-exec-day">Lunes</strong>
           </div>
           <div class="confirm-item">
@@ -598,19 +598,19 @@
             <strong id="confirm-total-cost" class="font-mono text-xl text-primary font-bold">₡0</strong>
           </div>
           <div class="confirm-item span-2 variance-box">
-            <span class="stat-label">Impacto de Ajustes Manuales vs. Algoritmo MRP</span>
-            <span id="confirm-variance-text" class="font-mono font-semibold">Sin varianza (100% apego a algoritmo)</span>
+            <span class="stat-label">Varianza de Ajustes vs. Sugerido de Compra</span>
+            <span id="confirm-variance-text" class="font-mono font-semibold">Sin varianza (100% apego al sugerido)</span>
           </div>
         </div>
         <p class="confirm-disclaimer">
           <i class="fa-solid fa-triangle-exclamation text-amber"></i>
-          Al confirmar, esta orden pasará inmediatamente a <strong>Inventario en Tránsito Activo</strong> y se generará el archivo oficial <strong>Excel (.xlsx)</strong> para el proveedor.
+          Al autorizar, este pedido pasará a <strong>Pedidos en Tránsito (72h)</strong> y se generará el archivo oficial <strong>Excel (.xlsx)</strong> para el proveedor.
         </p>
       </div>
       <div class="modal-footer">
         <button class="btn-secondary" data-close-modal>Cancelar</button>
         <button id="btn-modal-confirm-submit" class="btn-primary">
-          <i class="fa-solid fa-file-excel"></i> Confirmar y Descargar Excel (.xlsx)
+          <i class="fa-solid fa-file-excel"></i> Autorizar y Descargar Excel (.xlsx)
         </button>
       </div>
     </div>

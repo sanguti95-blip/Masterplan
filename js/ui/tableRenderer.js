@@ -153,17 +153,17 @@ const TableRenderer = {
           <td class="col-stock">
             <input type="number" step="any" min="0" class="input-table stock-input font-mono" 
                    data-sku="${item.codeSku}" data-col="stock" data-row="${rowIndex}" value="${item.stockActual}" 
-                   aria-label="Stock físico para ${item.description}" title="Stock Físico en Codisa">
+                   aria-label="Stock físico para ${item.description}" title="Existencia física en Bodega Central CODISA">
           </td>
           <td class="col-transit">
             <input type="number" step="any" min="0" class="input-table transit-input font-mono ${item.activeTransit > 0 ? 'transit-active' : ''}" 
                    data-sku="${item.codeSku}" data-col="transit" data-row="${rowIndex}" value="${item.activeTransit}" 
-                   aria-label="Tránsito activo para ${item.description}" title="Órdenes en Tránsito Activas (72h)">
+                   aria-label="Tránsito activo para ${item.description}" title="Pedidos pendientes de ingreso (72h)">
           </td>
           <td class="col-projected font-mono text-right font-semibold">
             ${AppFormatter.number(item.projectedStock)}
           </td>
-          <td class="col-target-cov text-center font-mono" title="${item.daysToCover}d matriz + ${item.safetyStockDays}d colchón SS">
+          <td class="col-target-cov text-center font-mono" title="${item.daysToCover}d ciclo de venta + ${item.safetyStockDays}d stock de seguridad">
             ${item.targetCoverageDays}d
           </td>
           <td class="col-cov-status text-center">
@@ -180,8 +180,8 @@ const TableRenderer = {
             <input type="number" step="any" min="0" class="input-table order-input font-mono ${hasOverride ? 'override-active' : ''}" 
                    data-sku="${item.codeSku}" data-col="order" data-row="${rowIndex}" placeholder="${item.suggestedUnits}" 
                    value="${hasOverride ? item.manualOverride : (item.suggestedUnits > 0 ? item.suggestedUnits : '')}"
-                   aria-label="Pedido final para ${item.description}"
-                   title="${hasOverride ? 'Cantidad modificada manualmente' : 'Sugerido por algoritmo MRP'}">
+                   aria-label="Pedido autorizado para ${item.description}"
+                   title="${hasOverride ? 'Cantidad ajustada manualmente' : 'Sugerido por el sistema de compras'}">
           </td>
           <td class="col-unit-cost font-mono text-right">
             ${AppFormatter.currency(item.unitCost)}
@@ -190,7 +190,7 @@ const TableRenderer = {
             ${AppFormatter.currency(item.totalOrderCost)}
           </td>
           <td class="col-actions text-center">
-            <button class="btn-icon btn-view-sku" data-sku="${item.codeSku}" title="Ver detalle del SKU y GMROI" aria-label="Ver detalle de ${item.description}">
+            <button class="btn-icon btn-view-sku" data-sku="${item.codeSku}" title="Ver ficha técnica y rentabilidad" aria-label="Ver detalle de ${item.description}">
               <i class="fa-solid fa-chart-line"></i>
             </button>
           </td>

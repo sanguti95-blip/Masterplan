@@ -152,11 +152,11 @@ async function runUiAuditor() {
     // --- FLUJO 8: Modal de Confirmación de Aprobación ---
     console.log('🔹 [Flujo 8/10]: Probando modal de confirmación ejecutiva al aprobar...');
     await page.click('#btn-approve-order');
-    await new Promise(r => setTimeout(r, 300));
+    await new Promise(r => setTimeout(r, 400));
     const isConfirmModalOpen = await page.$eval('#modal-confirm-approval', el => el.classList.contains('active'));
     if (isConfirmModalOpen) {
-      await page.click('#modal-confirm-approval [data-close-modal]');
-      await new Promise(r => setTimeout(r, 200));
+      await page.click('#modal-confirm-approval .modal-close');
+      await new Promise(r => setTimeout(r, 400));
       console.log('  ✓ OK: Modal de confirmación ejecutiva con desglose de varianza verificado.');
       passedFlows++;
     } else {
@@ -165,19 +165,19 @@ async function runUiAuditor() {
 
     // --- FLUJO 9: Modal de SKU Detail & GMROI ---
     console.log('🔹 [Flujo 9/10]: Probando apertura de modal de detalle de SKU...');
-    const firstViewBtn = await page.$('.mrp-table tbody tr:first-child .btn-view-sku');
-    if (firstViewBtn) {
-      await firstViewBtn.click();
+    await page.evaluate(() => {
+      const btn = document.querySelector('.mrp-table tbody tr:first-child .btn-view-sku');
+      if (btn) btn.click();
+    });
+    await new Promise(r => setTimeout(r, 400));
+    const isModalOpen = await page.$eval('#modal-sku-detail', el => el.classList.contains('active'));
+    if (isModalOpen) {
+      await page.click('#modal-sku-detail .modal-close');
       await new Promise(r => setTimeout(r, 300));
-      const isModalOpen = await page.$eval('#modal-sku-detail', el => el.classList.contains('active'));
-      if (isModalOpen) {
-        await page.click('#modal-sku-detail [data-close-modal]');
-        await new Promise(r => setTimeout(r, 200));
-        console.log('  ✓ OK: Modal de detalle de SKU y análisis financiero verificado.');
-        passedFlows++;
-      } else {
-        throw new Error('Modal de SKU no se abrió.');
-      }
+      console.log('  ✓ OK: Modal de detalle de SKU y análisis financiero verificado.');
+      passedFlows++;
+    } else {
+      throw new Error('Modal de SKU no se abrió.');
     }
 
     // --- FLUJO 10: Alternancia de Temas (OLED, Dark, Light) y Pestañas ---

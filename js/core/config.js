@@ -2,7 +2,7 @@
  * Global Frontend Configuration & State Constants
  */
 const APP_CONFIG = {
-  appName: 'Master Planning MRP CODISA',
+  appName: 'CODISA - Plan de Abastecimiento & Pedidos',
   version: '2.0.0',
   apiBaseUrl: window.location.origin,
   currency: 'CRC',

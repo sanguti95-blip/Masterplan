@@ -13,23 +13,23 @@ const ExcelExporter = {
     const now = new Date();
 
     const wsData = [
-      ['MASTER PLANNING MRP CODISA - ORDEN DE COMPRA APROBADA'],
-      [`Código de Orden: ${orderCode || 'ORD-PLAN-01'}`, `Fecha de Generación: ${now.toLocaleDateString('es-CR')} ${now.toLocaleTimeString('es-CR')}`],
-      [`Día de Ejecución: ${executionDay || 'Lunes'}`, `Día Estimado de Ingreso Físico: ${deliveryDay || 'Jueves'}`],
-      [`Lead Time: 72 Horas`, `Moneda: Colones Costarricenses (CRC - ₡)`],
+      ['CODISA - ORDEN DE COMPRA Y PEDIDO DE REPOSICIÓN'],
+      [`Código de Pedido: ${orderCode || 'PED-COD-01'}`, `Fecha de Generación: ${now.toLocaleDateString('es-CR')} ${now.toLocaleTimeString('es-CR')}`],
+      [`Día de Pedido: ${executionDay || 'Lunes'}`, `Fecha Estimada de Ingreso a Bodega: ${deliveryDay || 'Jueves'}`],
+      [`Tiempo de Entrega (Lead Time): 72 Horas`, `Moneda: Colones Costarricenses (CRC - ₡)`],
       [], // Espacio
       [
         'Código SKU',
-        'Descripción del Producto',
+        'Descripción del Artículo',
         'Venta Diaria (VDP)',
-        'Stock Codisa',
-        'Tránsito Activo',
-        'Inv. Proyectado',
-        'Múltiplo Empaque',
-        'Cantidad en Cajas',
-        'Cantidad a Pedir (Unid.)',
+        'Stock Físico (Bodega 401)',
+        'Pendiente Tránsito (72h)',
+        'Disponibilidad Proyectada',
+        'Unid por Bulto / Caja',
+        'Total Cajas / Bultos',
+        'Total Unidades / Kilos',
         'Costo Unitario (₡)',
-        'Costo Total Pedido (₡)'
+        'Inversión Total Pedido (₡)'
       ]
     ];
 
