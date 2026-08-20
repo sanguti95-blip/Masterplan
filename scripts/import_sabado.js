@@ -62,10 +62,10 @@ function processSaturdayOrder() {
     const parts = line.split('\t');
     if (parts.length >= 1) {
       const codeKey = parts[0].trim();
-      const boxesStr = parts.length > 1 ? parts[1].trim() : '';
-      const totalBoxes = parseFloat(boxesStr.replace(',', '.')) || 0;
+      const unitsStr = parts.length > 1 ? parts[1].trim() : '';
+      const totalUnits = parseFloat(unitsStr.replace(',', '.')) || 0;
 
-      if (totalBoxes > 0) {
+      if (totalUnits > 0) {
         const prod = products.find(p => 
           (p.code_country && p.code_country.toUpperCase() === codeKey.toUpperCase()) ||
           (p.code_frumusa && p.code_frumusa.toUpperCase() === codeKey.toUpperCase())
@@ -80,10 +80,13 @@ function processSaturdayOrder() {
 
         const mult = Number(prod.pack_multiple || 1);
         const cost = Number(prod.unit_cost || 0);
-        const units = totalBoxes * mult;
-        const totalCost = units * cost;
 
-        totalSabadoUnits += units;
+        // El valor ingresado son UNIDADES FÍSICAS:
+        // Cajas = Unidades / Múltiplo de empaque
+        const boxes = Math.round((totalUnits / mult) * 100) / 100;
+        const totalCost = totalUnits * cost;
+
+        totalSabadoUnits += totalUnits;
         totalSabadoCost += totalCost;
 
         sabadoItems.push({
@@ -92,8 +95,8 @@ function processSaturdayOrder() {
           codeFrumusa: prod.code_frumusa || codeKey,
           description: prod.description,
           category: prod.category || 'Perecederos',
-          boxes: totalBoxes,
-          quantity: units,
+          boxes: boxes,
+          quantity: totalUnits,
           unitCost: cost,
           totalCost: totalCost,
           packMultiple: mult
@@ -114,7 +117,7 @@ function processSaturdayOrder() {
     createdAt: now.toISOString(),
     approvedBy: 'Milton Sánchez Gutiérrez',
     totalItems: sabadoItems.length,
-    totalBoxes: sabadoItems.reduce((acc, i) => acc + i.boxes, 0),
+    totalBoxes: Math.round(sabadoItems.reduce((acc, i) => acc + i.boxes, 0) * 10) / 10,
     totalUnits: totalSabadoUnits,
     totalCost: totalSabadoCost,
     items: sabadoItems
@@ -129,13 +132,14 @@ function processSaturdayOrder() {
     } catch (e) {}
   }
 
-  // Remove existing Saturday orders if any, and append new order
+  // Remove existing Saturday orders if any, and append updated order
   currentOrders = currentOrders.filter(o => o.executionDay !== 'Sábado' && o.day !== 'Sábado');
   currentOrders.push(orderSabado);
 
+  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
   fs.writeFileSync(ordersFilePath, JSON.stringify(currentOrders, null, 2), 'utf8');
 
-  console.log('✅ Orden de SÁBADO registrada exitosamente en la base de datos:');
+  console.log('✅ Orden de SÁBADO corregida (Unidades vs Cajas):');
   console.log(`📦 ORDEN SÁBADO (${orderSabado.orderNumber}): ${orderSabado.totalItems} SKUs | ${orderSabado.totalBoxes} cajas | ${orderSabado.totalUnits} und | ₡${orderSabado.totalCost.toLocaleString('es-CR')}`);
 
   return orderSabado;

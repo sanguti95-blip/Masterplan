@@ -67,9 +67,9 @@ function processAndSave() {
     if (parts.length >= 3) {
       const codeCountry = parts[0].trim();
       const codeFrumusa = parts[1].trim();
-      const totalBoxes = parseFloat(parts[2].replace(',', '.')) || 0;
+      const totalUnits = parseFloat(parts[2].replace(',', '.')) || 0;
 
-      if (totalBoxes > 0) {
+      if (totalUnits > 0) {
         const prod = products.find(p => 
           (p.code_frumusa && p.code_frumusa.toUpperCase() === codeFrumusa.toUpperCase()) ||
           (p.code_country && p.code_country.toUpperCase() === codeCountry.toUpperCase())
@@ -83,17 +83,18 @@ function processAndSave() {
         const mult = Number(prod.pack_multiple || 1);
         const cost = Number(prod.unit_cost || 0);
 
-        // Split boxes 50 / 50 between Jueves and Viernes
-        const boxesJueves = Math.ceil(totalBoxes / 2);
-        const boxesViernes = totalBoxes - boxesJueves;
+        // El valor ingresado son UNIDADES FÍSICAS. Las dividimos 50/50:
+        const unitsJueves = Math.ceil(totalUnits / 2);
+        const unitsViernes = totalUnits - unitsJueves;
 
-        const unitsJueves = boxesJueves * mult;
-        const unitsViernes = boxesViernes * mult;
+        // Cajas / Bultos = Unidades / Múltiplo de Empaque
+        const boxesJueves = Math.round((unitsJueves / mult) * 100) / 100;
+        const boxesViernes = Math.round((unitsViernes / mult) * 100) / 100;
 
         const costJueves = unitsJueves * cost;
         const costViernes = unitsViernes * cost;
 
-        if (boxesJueves > 0) {
+        if (unitsJueves > 0) {
           totalJuevesUnits += unitsJueves;
           totalJuevesCost += costJueves;
           juevesItems.push({
@@ -110,7 +111,7 @@ function processAndSave() {
           });
         }
 
-        if (boxesViernes > 0) {
+        if (unitsViernes > 0) {
           totalViernesUnits += unitsViernes;
           totalViernesCost += costViernes;
           viernesItems.push({
@@ -142,7 +143,7 @@ function processAndSave() {
     createdAt: now.toISOString(),
     approvedBy: 'Milton Sánchez Gutiérrez',
     totalItems: juevesItems.length,
-    totalBoxes: juevesItems.reduce((acc, i) => acc + i.boxes, 0),
+    totalBoxes: Math.round(juevesItems.reduce((acc, i) => acc + i.boxes, 0) * 10) / 10,
     totalUnits: totalJuevesUnits,
     totalCost: totalJuevesCost,
     items: juevesItems
@@ -158,19 +159,29 @@ function processAndSave() {
     createdAt: new Date(Date.now() + 1000).toISOString(),
     approvedBy: 'Milton Sánchez Gutiérrez',
     totalItems: viernesItems.length,
-    totalBoxes: viernesItems.reduce((acc, i) => acc + i.boxes, 0),
+    totalBoxes: Math.round(viernesItems.reduce((acc, i) => acc + i.boxes, 0) * 10) / 10,
     totalUnits: totalViernesUnits,
     totalCost: totalViernesCost,
     items: viernesItems
   };
 
-  db.memoryStore.orders = [orderJueves, orderViernes];
-
   const dataDir = path.join(__dirname, '..', 'data');
-  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-  fs.writeFileSync(path.join(dataDir, 'active_orders.json'), JSON.stringify(db.memoryStore.orders, null, 2), 'utf8');
+  const ordersFilePath = path.join(dataDir, 'active_orders.json');
+  let currentOrders = [];
+  if (fs.existsSync(ordersFilePath)) {
+    try {
+      currentOrders = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
+    } catch (e) {}
+  }
 
-  console.log('✅ Órdenes registradas exitosamente en la base de datos:');
+  // Preserve other days (like Sábado) while replacing Jueves & Viernes
+  const otherOrders = currentOrders.filter(o => o.executionDay !== 'Jueves' && o.executionDay !== 'Viernes');
+  const updatedOrders = [...otherOrders, orderJueves, orderViernes];
+
+  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+  fs.writeFileSync(ordersFilePath, JSON.stringify(updatedOrders, null, 2), 'utf8');
+
+  console.log('✅ Órdenes de JUEVES y VIERNES corregidas (Unidades vs Cajas):');
   console.log(`📦 ORDEN JUEVES (${orderJueves.orderNumber}): ${orderJueves.totalItems} SKUs | ${orderJueves.totalBoxes} cajas | ${orderJueves.totalUnits} und | ₡${orderJueves.totalCost.toLocaleString('es-CR')}`);
   console.log(`📦 ORDEN VIERNES (${orderViernes.orderNumber}): ${orderViernes.totalItems} SKUs | ${orderViernes.totalBoxes} cajas | ${orderViernes.totalUnits} und | ₡${orderViernes.totalCost.toLocaleString('es-CR')}`);
 

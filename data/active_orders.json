@@ -1,17 +1,17 @@
 [
   {
-    "id": "ORD-JUEVES-1787192029753",
+    "id": "ORD-JUEVES-1787192222092",
     "orderNumber": "PED-JUE-20260819-01",
     "day": "Jueves",
     "executionDay": "Jueves",
     "deliveryDay": "Martes",
     "status": "EN_TRANSITO",
-    "createdAt": "2026-08-20T02:13:49.753Z",
+    "createdAt": "2026-08-20T02:17:02.092Z",
     "approvedBy": "Milton Sánchez Gutiérrez",
     "totalItems": 79,
-    "totalBoxes": 1599,
-    "totalUnits": 22478,
-    "totalCost": 8438926.889999999,
+    "totalBoxes": 535.2,
+    "totalUnits": 1599,
+    "totalCost": 742139.97,
     "items": [
       {
         "codeSku": "704",
@@ -19,10 +19,10 @@
         "codeFrumusa": "704",
         "description": "AGUACATE HASS MEX SUPER EXTRA CAJA ",
         "category": "Perecederos",
-        "boxes": 1,
-        "quantity": 40,
+        "boxes": 0.03,
+        "quantity": 1,
         "unitCost": 380.43,
-        "totalCost": 15217.2,
+        "totalCost": 380.43,
         "packMultiple": 40
       },
       {
@@ -31,10 +31,10 @@
         "codeFrumusa": "670",
         "description": "AGUACATE HASS MINI PAQ 1 KG",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 1346.69,
-        "totalCost": 134669,
+        "totalCost": 13466.900000000001,
         "packMultiple": 10
       },
       {
@@ -43,10 +43,10 @@
         "codeFrumusa": "775",
         "description": "AJO 3 CABEZA CAJA ",
         "category": "Perecederos",
-        "boxes": 1,
-        "quantity": 85,
+        "boxes": 0.01,
+        "quantity": 1,
         "unitCost": 122.8,
-        "totalCost": 10438,
+        "totalCost": 122.8,
         "packMultiple": 85
       },
       {
@@ -55,10 +55,10 @@
         "codeFrumusa": "11554X",
         "description": "ALBAHACA BOLSA GRANDE 250 GR",
         "category": "Perecederos",
-        "boxes": 9,
-        "quantity": 36,
+        "boxes": 2.25,
+        "quantity": 9,
         "unitCost": 960.89,
-        "totalCost": 34592.04,
+        "totalCost": 8648.01,
         "packMultiple": 4
       },
       {
@@ -127,10 +127,10 @@
         "codeFrumusa": "12511",
         "description": "AYOTE SAZON",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 120,
+        "boxes": 0.83,
+        "quantity": 10,
         "unitCost": 337.87,
-        "totalCost": 40544.4,
+        "totalCost": 3378.7,
         "packMultiple": 12
       },
       {
@@ -163,10 +163,10 @@
         "codeFrumusa": "12531",
         "description": "BROCOLI  KILO",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 56,
+        "boxes": 1.14,
+        "quantity": 8,
         "unitCost": 1098.9,
-        "totalCost": 61538.40000000001,
+        "totalCost": 8791.2,
         "packMultiple": 7
       },
       {
@@ -175,10 +175,10 @@
         "codeFrumusa": "1351",
         "description": "CAMOTE GRANEL",
         "category": "Perecederos",
-        "boxes": 13,
-        "quantity": 195,
+        "boxes": 0.87,
+        "quantity": 13,
         "unitCost": 750.84,
-        "totalCost": 146413.80000000002,
+        "totalCost": 9760.92,
         "packMultiple": 15
       },
       {
@@ -211,10 +211,10 @@
         "codeFrumusa": "12554P",
         "description": "CEBOLLA COSECHA COMPLETA PAQ 1",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 120,
+        "boxes": 0.53,
+        "quantity": 8,
         "unitCost": 495.54,
-        "totalCost": 59464.8,
+        "totalCost": 3964.32,
         "packMultiple": 15
       },
       {
@@ -223,10 +223,10 @@
         "codeFrumusa": "12554",
         "description": "CEBOLLA GRANEL",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 120,
+        "boxes": 0.53,
+        "quantity": 8,
         "unitCost": 737.81,
-        "totalCost": 88537.2,
+        "totalCost": 5902.48,
         "packMultiple": 15
       },
       {
@@ -235,10 +235,10 @@
         "codeFrumusa": "125542",
         "description": "CEBOLLA INDUSTRIAL",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 120,
+        "boxes": 0.53,
+        "quantity": 8,
         "unitCost": 796.25,
-        "totalCost": 95550,
+        "totalCost": 6370,
         "packMultiple": 15
       },
       {
@@ -247,10 +247,10 @@
         "codeFrumusa": "12552",
         "description": "CEBOLLINO ROLLO 5 UND.",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 314.63,
-        "totalCost": 70791.75,
+        "totalCost": 4719.45,
         "packMultiple": 15
       },
       {
@@ -259,10 +259,10 @@
         "codeFrumusa": "12563",
         "description": "CHAYOTE TIERNO MALLA DE 3 UND",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 236.69,
-        "totalCost": 23669,
+        "totalCost": 2366.9,
         "packMultiple": 10
       },
       {
@@ -271,10 +271,10 @@
         "codeFrumusa": "12603",
         "description": "CHILE QUETZAL O SELECTO",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 400,
+        "boxes": 0.25,
+        "quantity": 10,
         "unitCost": 388.89,
-        "totalCost": 155556,
+        "totalCost": 3888.8999999999996,
         "packMultiple": 40
       },
       {
@@ -283,10 +283,10 @@
         "codeFrumusa": "14522",
         "description": "COCO",
         "category": "Perecederos",
-        "boxes": 3,
-        "quantity": 30,
+        "boxes": 0.3,
+        "quantity": 3,
         "unitCost": 532.63,
-        "totalCost": 15978.9,
+        "totalCost": 1597.8899999999999,
         "packMultiple": 10
       },
       {
@@ -295,10 +295,10 @@
         "codeFrumusa": "12591",
         "description": "COLIFLOR",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 18,
+        "boxes": 2,
+        "quantity": 6,
         "unitCost": 827.42,
-        "totalCost": 14893.56,
+        "totalCost": 4964.5199999999995,
         "packMultiple": 3
       },
       {
@@ -307,10 +307,10 @@
         "codeFrumusa": "11522",
         "description": "CULANTRO CASTILLA 3 R.",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 800,
+        "boxes": 2,
+        "quantity": 40,
         "unitCost": 380.5,
-        "totalCost": 304400,
+        "totalCost": 15220,
         "packMultiple": 20
       },
       {
@@ -319,10 +319,10 @@
         "codeFrumusa": "11524",
         "description": "CULANTRO COYOTE 3 R.",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 200,
+        "boxes": 0.5,
+        "quantity": 10,
         "unitCost": 320.11,
-        "totalCost": 64022,
+        "totalCost": 3201.1000000000004,
         "packMultiple": 20
       },
       {
@@ -331,10 +331,10 @@
         "codeFrumusa": "16592",
         "description": "ELOTE BLANCO 2 UND",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 160,
+        "boxes": 0.4,
+        "quantity": 8,
         "unitCost": 307.88,
-        "totalCost": 49260.8,
+        "totalCost": 2463.04,
         "packMultiple": 20
       },
       {
@@ -343,10 +343,10 @@
         "codeFrumusa": "125112",
         "description": "ESPARRAGO CJ 5 KG  11 UND( 300 GR)",
         "category": "Perecederos",
-        "boxes": 1,
-        "quantity": 11,
+        "boxes": 0.09,
+        "quantity": 1,
         "unitCost": 2240.32,
-        "totalCost": 24643.52,
+        "totalCost": 2240.32,
         "packMultiple": 11
       },
       {
@@ -355,10 +355,10 @@
         "codeFrumusa": "11531",
         "description": "ESPINACA POR ROLLO",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 408.93,
-        "totalCost": 40893,
+        "totalCost": 4089.3,
         "packMultiple": 10
       },
       {
@@ -391,10 +391,10 @@
         "codeFrumusa": "14561",
         "description": "GUAYABA KILOS",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 40,
+        "boxes": 1.6,
+        "quantity": 8,
         "unitCost": 863.29,
-        "totalCost": 34531.6,
+        "totalCost": 6906.32,
         "packMultiple": 5
       },
       {
@@ -403,10 +403,10 @@
         "codeFrumusa": "16624X",
         "description": "HIERBA BUENA BOLSA 250GR",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 40,
+        "boxes": 1.6,
+        "quantity": 8,
         "unitCost": 968.38,
-        "totalCost": 38735.2,
+        "totalCost": 7747.04,
         "packMultiple": 5
       },
       {
@@ -439,10 +439,10 @@
         "codeFrumusa": "13513",
         "description": "JENJIBRE GRANEL",
         "category": "Perecederos",
-        "boxes": 3,
-        "quantity": 6,
+        "boxes": 1.5,
+        "quantity": 3,
         "unitCost": 973.32,
-        "totalCost": 5839.92,
+        "totalCost": 2919.96,
         "packMultiple": 2
       },
       {
@@ -463,10 +463,10 @@
         "codeFrumusa": "115412",
         "description": "LECHUGA AMERICANA TWO PACK",
         "category": "Perecederos",
-        "boxes": 35,
-        "quantity": 140,
+        "boxes": 8.75,
+        "quantity": 35,
         "unitCost": 582.94,
-        "totalCost": 81611.6,
+        "totalCost": 20402.9,
         "packMultiple": 4
       },
       {
@@ -475,10 +475,10 @@
         "codeFrumusa": "11590",
         "description": "LECHUGA ICEBERG",
         "category": "Perecederos",
-        "boxes": 5,
-        "quantity": 50,
+        "boxes": 0.5,
+        "quantity": 5,
         "unitCost": 243.92,
-        "totalCost": 12196,
+        "totalCost": 1219.6,
         "packMultiple": 10
       },
       {
@@ -487,10 +487,10 @@
         "codeFrumusa": "11548",
         "description": "LECHUGA LOLOROSA",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 36,
+        "boxes": 1,
+        "quantity": 6,
         "unitCost": 295.54,
-        "totalCost": 10639.44,
+        "totalCost": 1773.2400000000002,
         "packMultiple": 6
       },
       {
@@ -499,10 +499,10 @@
         "codeFrumusa": "11547",
         "description": "LECHUGA ROMANA",
         "category": "Perecederos",
-        "boxes": 9,
-        "quantity": 54,
+        "boxes": 1.5,
+        "quantity": 9,
         "unitCost": 294.92,
-        "totalCost": 15925.68,
+        "totalCost": 2654.28,
         "packMultiple": 6
       },
       {
@@ -523,10 +523,10 @@
         "codeFrumusa": "14587",
         "description": "LIMON MANDARINO MALLA 10 UND",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 400,
+        "boxes": 4,
+        "quantity": 40,
         "unitCost": 1157.1,
-        "totalCost": 462839.99999999994,
+        "totalCost": 46284,
         "packMultiple": 10
       },
       {
@@ -535,10 +535,10 @@
         "codeFrumusa": "14574",
         "description": "LIMON MESINA PAQ. 10",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 1424.93,
-        "totalCost": 142493,
+        "totalCost": 14249.300000000001,
         "packMultiple": 10
       },
       {
@@ -559,10 +559,10 @@
         "codeFrumusa": "14607",
         "description": "MANGA KILOS",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 680,
+        "boxes": 2.35,
+        "quantity": 40,
         "unitCost": 660.3,
-        "totalCost": 449003.99999999994,
+        "totalCost": 26412,
         "packMultiple": 17
       },
       {
@@ -571,10 +571,10 @@
         "codeFrumusa": "145102",
         "description": "MARACUYA GRANEL",
         "category": "Perecederos",
-        "boxes": 3,
-        "quantity": 15,
+        "boxes": 0.6,
+        "quantity": 3,
         "unitCost": 1086.36,
-        "totalCost": 16295.399999999998,
+        "totalCost": 3259.08,
         "packMultiple": 5
       },
       {
@@ -607,10 +607,10 @@
         "codeFrumusa": "11551",
         "description": "MOSTAZA CHINA",
         "category": "Perecederos",
-        "boxes": 3,
-        "quantity": 12,
+        "boxes": 0.75,
+        "quantity": 3,
         "unitCost": 412.27,
-        "totalCost": 4947.24,
+        "totalCost": 1236.81,
         "packMultiple": 4
       },
       {
@@ -619,10 +619,10 @@
         "codeFrumusa": "13521",
         "description": "NAMPI KILOS",
         "category": "Perecederos",
-        "boxes": 5,
-        "quantity": 25,
+        "boxes": 1,
+        "quantity": 5,
         "unitCost": 1058.56,
-        "totalCost": 26464,
+        "totalCost": 5292.799999999999,
         "packMultiple": 5
       },
       {
@@ -679,10 +679,10 @@
         "codeFrumusa": "13556",
         "description": "PAPA GRANEL",
         "category": "Perecederos",
-        "boxes": 90,
-        "quantity": 1350,
+        "boxes": 6,
+        "quantity": 90,
         "unitCost": 621.58,
-        "totalCost": 839133,
+        "totalCost": 55942.200000000004,
         "packMultiple": 15
       },
       {
@@ -691,10 +691,10 @@
         "codeFrumusa": "13557",
         "description": "PAPA SEMILLA ",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 120,
+        "boxes": 0.53,
+        "quantity": 8,
         "unitCost": 421.11,
-        "totalCost": 50533.200000000004,
+        "totalCost": 3368.88,
         "packMultiple": 15
       },
       {
@@ -715,10 +715,10 @@
         "codeFrumusa": "16510",
         "description": "PEJIBAYE COCINADO",
         "category": "Perecederos",
-        "boxes": 18,
-        "quantity": 180,
+        "boxes": 1.8,
+        "quantity": 18,
         "unitCost": 2267.81,
-        "totalCost": 408205.8,
+        "totalCost": 40820.58,
         "packMultiple": 10
       },
       {
@@ -727,10 +727,10 @@
         "codeFrumusa": "125131",
         "description": "PEPINO GRANEL",
         "category": "Perecederos",
-        "boxes": 12,
-        "quantity": 144,
+        "boxes": 1,
+        "quantity": 12,
         "unitCost": 432.68,
-        "totalCost": 62305.92,
+        "totalCost": 5192.16,
         "packMultiple": 12
       },
       {
@@ -751,10 +751,10 @@
         "codeFrumusa": "145168IN",
         "description": "PIPA PELADA",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 375,
+        "boxes": 0.6,
+        "quantity": 15,
         "unitCost": 369.63,
-        "totalCost": 138611.25,
+        "totalCost": 5544.45,
         "packMultiple": 25
       },
       {
@@ -763,10 +763,10 @@
         "codeFrumusa": "145168",
         "description": "PIPA VERDE",
         "category": "Perecederos",
-        "boxes": 50,
-        "quantity": 500,
+        "boxes": 5,
+        "quantity": 50,
         "unitCost": 329.93,
-        "totalCost": 164965,
+        "totalCost": 16496.5,
         "packMultiple": 10
       },
       {
@@ -775,10 +775,10 @@
         "codeFrumusa": "145174",
         "description": "PLATANO PRIMERA UND",
         "category": "Perecederos",
-        "boxes": 315,
-        "quantity": 11025,
+        "boxes": 9,
+        "quantity": 315,
         "unitCost": 190.13,
-        "totalCost": 2096183.25,
+        "totalCost": 59890.95,
         "packMultiple": 35
       },
       {
@@ -787,10 +787,10 @@
         "codeFrumusa": "13543",
         "description": "RABANO ROLLO",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 36,
+        "boxes": 1,
+        "quantity": 6,
         "unitCost": 301.27,
-        "totalCost": 10845.72,
+        "totalCost": 1807.62,
         "packMultiple": 6
       },
       {
@@ -799,10 +799,10 @@
         "codeFrumusa": "13553",
         "description": "REMOLACHA  CON HOJAS",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 300,
+        "boxes": 0.75,
+        "quantity": 15,
         "unitCost": 269.13,
-        "totalCost": 80739,
+        "totalCost": 4036.95,
         "packMultiple": 20
       },
       {
@@ -811,10 +811,10 @@
         "codeFrumusa": "125142",
         "description": "REPOLLO BLANCO",
         "category": "Perecederos",
-        "boxes": 125,
-        "quantity": 1250,
+        "boxes": 12.5,
+        "quantity": 125,
         "unitCost": 347.14,
-        "totalCost": 433925,
+        "totalCost": 43392.5,
         "packMultiple": 10
       },
       {
@@ -871,10 +871,10 @@
         "codeFrumusa": "411",
         "description": "TAPA DULCE 600 GRS NEGRO",
         "category": "Perecederos",
-        "boxes": 1,
-        "quantity": 12,
+        "boxes": 0.08,
+        "quantity": 1,
         "unitCost": 944.65,
-        "totalCost": 11335.8,
+        "totalCost": 944.65,
         "packMultiple": 12
       },
       {
@@ -883,10 +883,10 @@
         "codeFrumusa": "125150",
         "description": "TOMATE BOLITA PROMOCION",
         "category": "Perecederos",
-        "boxes": 48,
-        "quantity": 768,
+        "boxes": 3,
+        "quantity": 48,
         "unitCost": 357.74,
-        "totalCost": 274744.32,
+        "totalCost": 17171.52,
         "packMultiple": 16
       },
       {
@@ -895,10 +895,10 @@
         "codeFrumusa": "125153",
         "description": "TOMATE PRIMERA KILO( 1 ER)",
         "category": "Perecederos",
-        "boxes": 48,
-        "quantity": 768,
+        "boxes": 3,
+        "quantity": 48,
         "unitCost": 871.1,
-        "totalCost": 669004.8,
+        "totalCost": 41812.8,
         "packMultiple": 16
       },
       {
@@ -931,10 +931,10 @@
         "codeFrumusa": "13571",
         "description": "YUCA PARAFINADA",
         "category": "Perecederos",
-        "boxes": 23,
-        "quantity": 345,
+        "boxes": 1.53,
+        "quantity": 23,
         "unitCost": 547.29,
-        "totalCost": 188815.05,
+        "totalCost": 12587.669999999998,
         "packMultiple": 15
       },
       {
@@ -955,27 +955,27 @@
         "codeFrumusa": "125191",
         "description": "ZUCHINI",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 332.13,
-        "totalCost": 74729.25,
+        "totalCost": 4981.95,
         "packMultiple": 15
       }
     ]
   },
   {
-    "id": "ORD-VIERNES-1787192029756",
+    "id": "ORD-VIERNES-1787192222094",
     "orderNumber": "PED-VIE-20260820-02",
     "day": "Viernes",
     "executionDay": "Viernes",
     "deliveryDay": "Miércoles",
     "status": "EN_TRANSITO",
-    "createdAt": "2026-08-20T02:13:50.755Z",
+    "createdAt": "2026-08-20T02:17:03.093Z",
     "approvedBy": "Milton Sánchez Gutiérrez",
     "totalItems": 75,
-    "totalBoxes": 1582,
-    "totalUnits": 22220,
-    "totalCost": 8281392.03,
+    "totalBoxes": 532.4,
+    "totalUnits": 1582,
+    "totalCost": 726617.4199999999,
     "items": [
       {
         "codeSku": "704",
@@ -983,10 +983,10 @@
         "codeFrumusa": "704",
         "description": "AGUACATE HASS MEX SUPER EXTRA CAJA ",
         "category": "Perecederos",
-        "boxes": 1,
-        "quantity": 40,
+        "boxes": 0.03,
+        "quantity": 1,
         "unitCost": 380.43,
-        "totalCost": 15217.2,
+        "totalCost": 380.43,
         "packMultiple": 40
       },
       {
@@ -995,10 +995,10 @@
         "codeFrumusa": "670",
         "description": "AGUACATE HASS MINI PAQ 1 KG",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 1346.69,
-        "totalCost": 134669,
+        "totalCost": 13466.900000000001,
         "packMultiple": 10
       },
       {
@@ -1007,10 +1007,10 @@
         "codeFrumusa": "11554X",
         "description": "ALBAHACA BOLSA GRANDE 250 GR",
         "category": "Perecederos",
-        "boxes": 9,
-        "quantity": 36,
+        "boxes": 2.25,
+        "quantity": 9,
         "unitCost": 960.89,
-        "totalCost": 34592.04,
+        "totalCost": 8648.01,
         "packMultiple": 4
       },
       {
@@ -1079,10 +1079,10 @@
         "codeFrumusa": "12511",
         "description": "AYOTE SAZON",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 120,
+        "boxes": 0.83,
+        "quantity": 10,
         "unitCost": 337.87,
-        "totalCost": 40544.4,
+        "totalCost": 3378.7,
         "packMultiple": 12
       },
       {
@@ -1115,10 +1115,10 @@
         "codeFrumusa": "12531",
         "description": "BROCOLI  KILO",
         "category": "Perecederos",
-        "boxes": 7,
-        "quantity": 49,
+        "boxes": 1,
+        "quantity": 7,
         "unitCost": 1098.9,
-        "totalCost": 53846.100000000006,
+        "totalCost": 7692.300000000001,
         "packMultiple": 7
       },
       {
@@ -1127,10 +1127,10 @@
         "codeFrumusa": "1351",
         "description": "CAMOTE GRANEL",
         "category": "Perecederos",
-        "boxes": 12,
-        "quantity": 180,
+        "boxes": 0.8,
+        "quantity": 12,
         "unitCost": 750.84,
-        "totalCost": 135151.2,
+        "totalCost": 9010.08,
         "packMultiple": 15
       },
       {
@@ -1163,10 +1163,10 @@
         "codeFrumusa": "12554P",
         "description": "CEBOLLA COSECHA COMPLETA PAQ 1",
         "category": "Perecederos",
-        "boxes": 7,
-        "quantity": 105,
+        "boxes": 0.47,
+        "quantity": 7,
         "unitCost": 495.54,
-        "totalCost": 52031.700000000004,
+        "totalCost": 3468.78,
         "packMultiple": 15
       },
       {
@@ -1175,10 +1175,10 @@
         "codeFrumusa": "12554",
         "description": "CEBOLLA GRANEL",
         "category": "Perecederos",
-        "boxes": 7,
-        "quantity": 105,
+        "boxes": 0.47,
+        "quantity": 7,
         "unitCost": 737.81,
-        "totalCost": 77470.04999999999,
+        "totalCost": 5164.67,
         "packMultiple": 15
       },
       {
@@ -1187,10 +1187,10 @@
         "codeFrumusa": "125542",
         "description": "CEBOLLA INDUSTRIAL",
         "category": "Perecederos",
-        "boxes": 7,
-        "quantity": 105,
+        "boxes": 0.47,
+        "quantity": 7,
         "unitCost": 796.25,
-        "totalCost": 83606.25,
+        "totalCost": 5573.75,
         "packMultiple": 15
       },
       {
@@ -1199,10 +1199,10 @@
         "codeFrumusa": "12552",
         "description": "CEBOLLINO ROLLO 5 UND.",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 314.63,
-        "totalCost": 70791.75,
+        "totalCost": 4719.45,
         "packMultiple": 15
       },
       {
@@ -1211,10 +1211,10 @@
         "codeFrumusa": "12563",
         "description": "CHAYOTE TIERNO MALLA DE 3 UND",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 236.69,
-        "totalCost": 23669,
+        "totalCost": 2366.9,
         "packMultiple": 10
       },
       {
@@ -1223,10 +1223,10 @@
         "codeFrumusa": "12603",
         "description": "CHILE QUETZAL O SELECTO",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 400,
+        "boxes": 0.25,
+        "quantity": 10,
         "unitCost": 388.89,
-        "totalCost": 155556,
+        "totalCost": 3888.8999999999996,
         "packMultiple": 40
       },
       {
@@ -1235,10 +1235,10 @@
         "codeFrumusa": "14522",
         "description": "COCO",
         "category": "Perecederos",
-        "boxes": 2,
-        "quantity": 20,
+        "boxes": 0.2,
+        "quantity": 2,
         "unitCost": 532.63,
-        "totalCost": 10652.6,
+        "totalCost": 1065.26,
         "packMultiple": 10
       },
       {
@@ -1247,10 +1247,10 @@
         "codeFrumusa": "12591",
         "description": "COLIFLOR",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 18,
+        "boxes": 2,
+        "quantity": 6,
         "unitCost": 827.42,
-        "totalCost": 14893.56,
+        "totalCost": 4964.5199999999995,
         "packMultiple": 3
       },
       {
@@ -1259,10 +1259,10 @@
         "codeFrumusa": "11522",
         "description": "CULANTRO CASTILLA 3 R.",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 800,
+        "boxes": 2,
+        "quantity": 40,
         "unitCost": 380.5,
-        "totalCost": 304400,
+        "totalCost": 15220,
         "packMultiple": 20
       },
       {
@@ -1271,10 +1271,10 @@
         "codeFrumusa": "11524",
         "description": "CULANTRO COYOTE 3 R.",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 200,
+        "boxes": 0.5,
+        "quantity": 10,
         "unitCost": 320.11,
-        "totalCost": 64022,
+        "totalCost": 3201.1000000000004,
         "packMultiple": 20
       },
       {
@@ -1283,10 +1283,10 @@
         "codeFrumusa": "16592",
         "description": "ELOTE BLANCO 2 UND",
         "category": "Perecederos",
-        "boxes": 7,
-        "quantity": 140,
+        "boxes": 0.35,
+        "quantity": 7,
         "unitCost": 307.88,
-        "totalCost": 43103.2,
+        "totalCost": 2155.16,
         "packMultiple": 20
       },
       {
@@ -1295,10 +1295,10 @@
         "codeFrumusa": "11531",
         "description": "ESPINACA POR ROLLO",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 408.93,
-        "totalCost": 40893,
+        "totalCost": 4089.3,
         "packMultiple": 10
       },
       {
@@ -1331,10 +1331,10 @@
         "codeFrumusa": "14561",
         "description": "GUAYABA KILOS",
         "category": "Perecederos",
-        "boxes": 7,
-        "quantity": 35,
+        "boxes": 1.4,
+        "quantity": 7,
         "unitCost": 863.29,
-        "totalCost": 30215.149999999998,
+        "totalCost": 6043.03,
         "packMultiple": 5
       },
       {
@@ -1343,10 +1343,10 @@
         "codeFrumusa": "16624X",
         "description": "HIERBA BUENA BOLSA 250GR",
         "category": "Perecederos",
-        "boxes": 8,
-        "quantity": 40,
+        "boxes": 1.6,
+        "quantity": 8,
         "unitCost": 968.38,
-        "totalCost": 38735.2,
+        "totalCost": 7747.04,
         "packMultiple": 5
       },
       {
@@ -1379,10 +1379,10 @@
         "codeFrumusa": "13513",
         "description": "JENJIBRE GRANEL",
         "category": "Perecederos",
-        "boxes": 2,
-        "quantity": 4,
+        "boxes": 1,
+        "quantity": 2,
         "unitCost": 973.32,
-        "totalCost": 3893.28,
+        "totalCost": 1946.64,
         "packMultiple": 2
       },
       {
@@ -1403,10 +1403,10 @@
         "codeFrumusa": "115412",
         "description": "LECHUGA AMERICANA TWO PACK",
         "category": "Perecederos",
-        "boxes": 35,
-        "quantity": 140,
+        "boxes": 8.75,
+        "quantity": 35,
         "unitCost": 582.94,
-        "totalCost": 81611.6,
+        "totalCost": 20402.9,
         "packMultiple": 4
       },
       {
@@ -1415,10 +1415,10 @@
         "codeFrumusa": "11590",
         "description": "LECHUGA ICEBERG",
         "category": "Perecederos",
-        "boxes": 5,
-        "quantity": 50,
+        "boxes": 0.5,
+        "quantity": 5,
         "unitCost": 243.92,
-        "totalCost": 12196,
+        "totalCost": 1219.6,
         "packMultiple": 10
       },
       {
@@ -1427,10 +1427,10 @@
         "codeFrumusa": "11548",
         "description": "LECHUGA LOLOROSA",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 36,
+        "boxes": 1,
+        "quantity": 6,
         "unitCost": 295.54,
-        "totalCost": 10639.44,
+        "totalCost": 1773.2400000000002,
         "packMultiple": 6
       },
       {
@@ -1439,10 +1439,10 @@
         "codeFrumusa": "11547",
         "description": "LECHUGA ROMANA",
         "category": "Perecederos",
-        "boxes": 9,
-        "quantity": 54,
+        "boxes": 1.5,
+        "quantity": 9,
         "unitCost": 294.92,
-        "totalCost": 15925.68,
+        "totalCost": 2654.28,
         "packMultiple": 6
       },
       {
@@ -1463,10 +1463,10 @@
         "codeFrumusa": "14587",
         "description": "LIMON MANDARINO MALLA 10 UND",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 400,
+        "boxes": 4,
+        "quantity": 40,
         "unitCost": 1157.1,
-        "totalCost": 462839.99999999994,
+        "totalCost": 46284,
         "packMultiple": 10
       },
       {
@@ -1475,10 +1475,10 @@
         "codeFrumusa": "14574",
         "description": "LIMON MESINA PAQ. 10",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 1424.93,
-        "totalCost": 142493,
+        "totalCost": 14249.300000000001,
         "packMultiple": 10
       },
       {
@@ -1499,10 +1499,10 @@
         "codeFrumusa": "14607",
         "description": "MANGA KILOS",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 680,
+        "boxes": 2.35,
+        "quantity": 40,
         "unitCost": 660.3,
-        "totalCost": 449003.99999999994,
+        "totalCost": 26412,
         "packMultiple": 17
       },
       {
@@ -1511,10 +1511,10 @@
         "codeFrumusa": "145102",
         "description": "MARACUYA GRANEL",
         "category": "Perecederos",
-        "boxes": 2,
-        "quantity": 10,
+        "boxes": 0.4,
+        "quantity": 2,
         "unitCost": 1086.36,
-        "totalCost": 10863.599999999999,
+        "totalCost": 2172.72,
         "packMultiple": 5
       },
       {
@@ -1547,10 +1547,10 @@
         "codeFrumusa": "11551",
         "description": "MOSTAZA CHINA",
         "category": "Perecederos",
-        "boxes": 3,
-        "quantity": 12,
+        "boxes": 0.75,
+        "quantity": 3,
         "unitCost": 412.27,
-        "totalCost": 4947.24,
+        "totalCost": 1236.81,
         "packMultiple": 4
       },
       {
@@ -1559,10 +1559,10 @@
         "codeFrumusa": "13521",
         "description": "NAMPI KILOS",
         "category": "Perecederos",
-        "boxes": 5,
-        "quantity": 25,
+        "boxes": 1,
+        "quantity": 5,
         "unitCost": 1058.56,
-        "totalCost": 26464,
+        "totalCost": 5292.799999999999,
         "packMultiple": 5
       },
       {
@@ -1619,10 +1619,10 @@
         "codeFrumusa": "13556",
         "description": "PAPA GRANEL",
         "category": "Perecederos",
-        "boxes": 90,
-        "quantity": 1350,
+        "boxes": 6,
+        "quantity": 90,
         "unitCost": 621.58,
-        "totalCost": 839133,
+        "totalCost": 55942.200000000004,
         "packMultiple": 15
       },
       {
@@ -1631,10 +1631,10 @@
         "codeFrumusa": "13557",
         "description": "PAPA SEMILLA ",
         "category": "Perecederos",
-        "boxes": 7,
-        "quantity": 105,
+        "boxes": 0.47,
+        "quantity": 7,
         "unitCost": 421.11,
-        "totalCost": 44216.55,
+        "totalCost": 2947.77,
         "packMultiple": 15
       },
       {
@@ -1655,10 +1655,10 @@
         "codeFrumusa": "16510",
         "description": "PEJIBAYE COCINADO",
         "category": "Perecederos",
-        "boxes": 17,
-        "quantity": 170,
+        "boxes": 1.7,
+        "quantity": 17,
         "unitCost": 2267.81,
-        "totalCost": 385527.7,
+        "totalCost": 38552.77,
         "packMultiple": 10
       },
       {
@@ -1667,10 +1667,10 @@
         "codeFrumusa": "125131",
         "description": "PEPINO GRANEL",
         "category": "Perecederos",
-        "boxes": 12,
-        "quantity": 144,
+        "boxes": 1,
+        "quantity": 12,
         "unitCost": 432.68,
-        "totalCost": 62305.92,
+        "totalCost": 5192.16,
         "packMultiple": 12
       },
       {
@@ -1691,10 +1691,10 @@
         "codeFrumusa": "145168IN",
         "description": "PIPA PELADA",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 375,
+        "boxes": 0.6,
+        "quantity": 15,
         "unitCost": 369.63,
-        "totalCost": 138611.25,
+        "totalCost": 5544.45,
         "packMultiple": 25
       },
       {
@@ -1703,10 +1703,10 @@
         "codeFrumusa": "145168",
         "description": "PIPA VERDE",
         "category": "Perecederos",
-        "boxes": 50,
-        "quantity": 500,
+        "boxes": 5,
+        "quantity": 50,
         "unitCost": 329.93,
-        "totalCost": 164965,
+        "totalCost": 16496.5,
         "packMultiple": 10
       },
       {
@@ -1715,10 +1715,10 @@
         "codeFrumusa": "145174",
         "description": "PLATANO PRIMERA UND",
         "category": "Perecederos",
-        "boxes": 315,
-        "quantity": 11025,
+        "boxes": 9,
+        "quantity": 315,
         "unitCost": 190.13,
-        "totalCost": 2096183.25,
+        "totalCost": 59890.95,
         "packMultiple": 35
       },
       {
@@ -1727,10 +1727,10 @@
         "codeFrumusa": "13543",
         "description": "RABANO ROLLO",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 36,
+        "boxes": 1,
+        "quantity": 6,
         "unitCost": 301.27,
-        "totalCost": 10845.72,
+        "totalCost": 1807.62,
         "packMultiple": 6
       },
       {
@@ -1739,10 +1739,10 @@
         "codeFrumusa": "13553",
         "description": "REMOLACHA  CON HOJAS",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 300,
+        "boxes": 0.75,
+        "quantity": 15,
         "unitCost": 269.13,
-        "totalCost": 80739,
+        "totalCost": 4036.95,
         "packMultiple": 20
       },
       {
@@ -1751,10 +1751,10 @@
         "codeFrumusa": "125142",
         "description": "REPOLLO BLANCO",
         "category": "Perecederos",
-        "boxes": 125,
-        "quantity": 1250,
+        "boxes": 12.5,
+        "quantity": 125,
         "unitCost": 347.14,
-        "totalCost": 433925,
+        "totalCost": 43392.5,
         "packMultiple": 10
       },
       {
@@ -1799,10 +1799,10 @@
         "codeFrumusa": "125150",
         "description": "TOMATE BOLITA PROMOCION",
         "category": "Perecederos",
-        "boxes": 48,
-        "quantity": 768,
+        "boxes": 3,
+        "quantity": 48,
         "unitCost": 357.74,
-        "totalCost": 274744.32,
+        "totalCost": 17171.52,
         "packMultiple": 16
       },
       {
@@ -1811,10 +1811,10 @@
         "codeFrumusa": "125153",
         "description": "TOMATE PRIMERA KILO( 1 ER)",
         "category": "Perecederos",
-        "boxes": 48,
-        "quantity": 768,
+        "boxes": 3,
+        "quantity": 48,
         "unitCost": 871.1,
-        "totalCost": 669004.8,
+        "totalCost": 41812.8,
         "packMultiple": 16
       },
       {
@@ -1847,10 +1847,10 @@
         "codeFrumusa": "13571",
         "description": "YUCA PARAFINADA",
         "category": "Perecederos",
-        "boxes": 22,
-        "quantity": 330,
+        "boxes": 1.47,
+        "quantity": 22,
         "unitCost": 547.29,
-        "totalCost": 180605.69999999998,
+        "totalCost": 12040.38,
         "packMultiple": 15
       },
       {
@@ -1871,27 +1871,27 @@
         "codeFrumusa": "125191",
         "description": "ZUCHINI",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 332.13,
-        "totalCost": 74729.25,
+        "totalCost": 4981.95,
         "packMultiple": 15
       }
     ]
   },
   {
-    "id": "ORD-SABADO-1787192127439",
+    "id": "ORD-SABADO-1787192222227",
     "orderNumber": "PED-SAB-20260821-03",
     "day": "Sábado",
     "executionDay": "Sábado",
     "deliveryDay": "Miércoles",
     "status": "EN_TRANSITO",
-    "createdAt": "2026-08-20T02:15:27.439Z",
+    "createdAt": "2026-08-20T02:17:02.227Z",
     "approvedBy": "Milton Sánchez Gutiérrez",
     "totalItems": 39,
-    "totalBoxes": 669,
-    "totalUnits": 7566,
-    "totalCost": 4623040.819999999,
+    "totalBoxes": 191.5,
+    "totalUnits": 669,
+    "totalCost": 468910.67,
     "items": [
       {
         "codeSku": "704",
@@ -1899,10 +1899,10 @@
         "codeFrumusa": "704",
         "description": "AGUACATE HASS MEX SUPER EXTRA CAJA ",
         "category": "Perecederos",
-        "boxes": 4,
-        "quantity": 160,
+        "boxes": 0.1,
+        "quantity": 4,
         "unitCost": 380.43,
-        "totalCost": 60868.8,
+        "totalCost": 1521.72,
         "packMultiple": 40
       },
       {
@@ -1911,10 +1911,10 @@
         "codeFrumusa": "670",
         "description": "AGUACATE HASS MINI PAQ 1 KG",
         "category": "Perecederos",
-        "boxes": 60,
-        "quantity": 600,
+        "boxes": 6,
+        "quantity": 60,
         "unitCost": 1346.69,
-        "totalCost": 808014,
+        "totalCost": 80801.40000000001,
         "packMultiple": 10
       },
       {
@@ -1923,10 +1923,10 @@
         "codeFrumusa": "11554X",
         "description": "ALBAHACA BOLSA GRANDE 250 GR",
         "category": "Perecederos",
-        "boxes": 20,
-        "quantity": 80,
+        "boxes": 5,
+        "quantity": 20,
         "unitCost": 960.89,
-        "totalCost": 76871.2,
+        "totalCost": 19217.8,
         "packMultiple": 4
       },
       {
@@ -1959,10 +1959,10 @@
         "codeFrumusa": "11511",
         "description": "APIO VERDE KILO",
         "category": "Perecederos",
-        "boxes": 30,
-        "quantity": 300,
+        "boxes": 3,
+        "quantity": 30,
         "unitCost": 1121.98,
-        "totalCost": 336594,
+        "totalCost": 33659.4,
         "packMultiple": 10
       },
       {
@@ -1971,10 +1971,10 @@
         "codeFrumusa": "5125",
         "description": "ARANDANO BANDEJA 125 GR",
         "category": "Perecederos",
-        "boxes": 24,
-        "quantity": 288,
+        "boxes": 2,
+        "quantity": 24,
         "unitCost": 836.47,
-        "totalCost": 240903.36000000002,
+        "totalCost": 20075.28,
         "packMultiple": 12
       },
       {
@@ -2007,10 +2007,10 @@
         "codeFrumusa": "12531",
         "description": "BROCOLI  KILO",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 70,
+        "boxes": 1.43,
+        "quantity": 10,
         "unitCost": 1098.9,
-        "totalCost": 76923,
+        "totalCost": 10989,
         "packMultiple": 7
       },
       {
@@ -2019,10 +2019,10 @@
         "codeFrumusa": "1351",
         "description": "CAMOTE GRANEL",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 750.84,
-        "totalCost": 168939,
+        "totalCost": 11262.6,
         "packMultiple": 15
       },
       {
@@ -2031,10 +2031,10 @@
         "codeFrumusa": "12554P",
         "description": "CEBOLLA COSECHA COMPLETA PAQ 1",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 495.54,
-        "totalCost": 111496.5,
+        "totalCost": 7433.1,
         "packMultiple": 15
       },
       {
@@ -2043,10 +2043,10 @@
         "codeFrumusa": "12554",
         "description": "CEBOLLA GRANEL",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 737.81,
-        "totalCost": 166007.25,
+        "totalCost": 11067.15,
         "packMultiple": 15
       },
       {
@@ -2055,10 +2055,10 @@
         "codeFrumusa": "12552",
         "description": "CEBOLLINO ROLLO 5 UND.",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 314.63,
-        "totalCost": 70791.75,
+        "totalCost": 4719.45,
         "packMultiple": 15
       },
       {
@@ -2079,10 +2079,10 @@
         "codeFrumusa": "12563",
         "description": "CHAYOTE TIERNO MALLA DE 3 UND",
         "category": "Perecederos",
-        "boxes": 20,
-        "quantity": 200,
+        "boxes": 2,
+        "quantity": 20,
         "unitCost": 236.69,
-        "totalCost": 47338,
+        "totalCost": 4733.8,
         "packMultiple": 10
       },
       {
@@ -2103,10 +2103,10 @@
         "codeFrumusa": "12603",
         "description": "CHILE QUETZAL O SELECTO",
         "category": "Perecederos",
-        "boxes": 60,
-        "quantity": 2400,
+        "boxes": 1.5,
+        "quantity": 60,
         "unitCost": 388.89,
-        "totalCost": 933336,
+        "totalCost": 23333.399999999998,
         "packMultiple": 40
       },
       {
@@ -2115,10 +2115,10 @@
         "codeFrumusa": "12591",
         "description": "COLIFLOR",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 18,
+        "boxes": 2,
+        "quantity": 6,
         "unitCost": 827.42,
-        "totalCost": 14893.56,
+        "totalCost": 4964.5199999999995,
         "packMultiple": 3
       },
       {
@@ -2127,10 +2127,10 @@
         "codeFrumusa": "11522",
         "description": "CULANTRO CASTILLA 3 R.",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 800,
+        "boxes": 2,
+        "quantity": 40,
         "unitCost": 380.5,
-        "totalCost": 304400,
+        "totalCost": 15220,
         "packMultiple": 20
       },
       {
@@ -2139,10 +2139,10 @@
         "codeFrumusa": "11531",
         "description": "ESPINACA POR ROLLO",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 150,
+        "boxes": 1.5,
+        "quantity": 15,
         "unitCost": 408.93,
-        "totalCost": 61339.5,
+        "totalCost": 6133.95,
         "packMultiple": 10
       },
       {
@@ -2199,10 +2199,10 @@
         "codeFrumusa": "16624X",
         "description": "HIERBA BUENA BOLSA 250GR",
         "category": "Perecederos",
-        "boxes": 20,
-        "quantity": 100,
+        "boxes": 4,
+        "quantity": 20,
         "unitCost": 968.38,
-        "totalCost": 96838,
+        "totalCost": 19367.6,
         "packMultiple": 5
       },
       {
@@ -2247,10 +2247,10 @@
         "codeFrumusa": "115412",
         "description": "LECHUGA AMERICANA TWO PACK",
         "category": "Perecederos",
-        "boxes": 60,
-        "quantity": 240,
+        "boxes": 15,
+        "quantity": 60,
         "unitCost": 582.94,
-        "totalCost": 139905.6,
+        "totalCost": 34976.4,
         "packMultiple": 4
       },
       {
@@ -2259,10 +2259,10 @@
         "codeFrumusa": "11548",
         "description": "LECHUGA LOLOROSA",
         "category": "Perecederos",
-        "boxes": 12,
-        "quantity": 72,
+        "boxes": 2,
+        "quantity": 12,
         "unitCost": 295.54,
-        "totalCost": 21278.88,
+        "totalCost": 3546.4800000000005,
         "packMultiple": 6
       },
       {
@@ -2271,10 +2271,10 @@
         "codeFrumusa": "11547",
         "description": "LECHUGA ROMANA",
         "category": "Perecederos",
-        "boxes": 12,
-        "quantity": 72,
+        "boxes": 2,
+        "quantity": 12,
         "unitCost": 294.92,
-        "totalCost": 21234.24,
+        "totalCost": 3539.04,
         "packMultiple": 6
       },
       {
@@ -2295,10 +2295,10 @@
         "codeFrumusa": "14587",
         "description": "LIMON MANDARINO MALLA 10 UND",
         "category": "Perecederos",
-        "boxes": 40,
-        "quantity": 400,
+        "boxes": 4,
+        "quantity": 40,
         "unitCost": 1157.1,
-        "totalCost": 462839.99999999994,
+        "totalCost": 46284,
         "packMultiple": 10
       },
       {
@@ -2307,10 +2307,10 @@
         "codeFrumusa": "14574",
         "description": "LIMON MESINA PAQ. 10",
         "category": "Perecederos",
-        "boxes": 10,
-        "quantity": 100,
+        "boxes": 1,
+        "quantity": 10,
         "unitCost": 1424.93,
-        "totalCost": 142493,
+        "totalCost": 14249.300000000001,
         "packMultiple": 10
       },
       {
@@ -2319,10 +2319,10 @@
         "codeFrumusa": "13557",
         "description": "PAPA SEMILLA ",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 421.11,
-        "totalCost": 94749.75,
+        "totalCost": 6316.650000000001,
         "packMultiple": 15
       },
       {
@@ -2343,10 +2343,10 @@
         "codeFrumusa": "13543",
         "description": "RABANO ROLLO",
         "category": "Perecederos",
-        "boxes": 6,
-        "quantity": 36,
+        "boxes": 1,
+        "quantity": 6,
         "unitCost": 301.27,
-        "totalCost": 10845.72,
+        "totalCost": 1807.62,
         "packMultiple": 6
       },
       {
@@ -2355,10 +2355,10 @@
         "codeFrumusa": "13582",
         "description": "ZANAHORIA GRANEL",
         "category": "Perecederos",
-        "boxes": 15,
-        "quantity": 225,
+        "boxes": 1,
+        "quantity": 15,
         "unitCost": 335.47,
-        "totalCost": 75480.75,
+        "totalCost": 5032.05,
         "packMultiple": 15
       }
     ]
