@@ -37,8 +37,18 @@ function bootstrapCatalog() {
         const merged = loaded.INITIAL_PEDIDOS.map(row => {
           const codeFrumusa = (row['Codigo frumusa'] !== undefined ? row['Codigo frumusa'] : '').toString().trim();
           const codeCountry = (row['Código country'] !== undefined ? row['Código country'] : '').toString().trim();
-          const lookup = codeFrumusa || codeCountry;
-          const dataMatch = dataMap.get(codeFrumusa.toUpperCase()) || dataMap.get(codeCountry.toUpperCase());
+          let dataMatch = (codeFrumusa ? dataMap.get(codeFrumusa.toUpperCase()) : null) || (codeCountry ? dataMap.get(codeCountry.toUpperCase()) : null);
+          if (!dataMatch && row['Descripción']) {
+            const descNorm = row['Descripción'].trim().toUpperCase();
+            if (Array.isArray(loaded.INITIAL_DATA)) {
+              for (const d of loaded.INITIAL_DATA) {
+                if (d.ARTICULO && d.ARTICULO.trim().toUpperCase() === descNorm) {
+                  dataMatch = d;
+                  break;
+                }
+              }
+            }
+          }
 
           let stock = Number(row['Stock'] || 0);
           if (dataMatch && dataMatch['SALDO_ACTUAL'] !== undefined) {

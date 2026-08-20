@@ -110,12 +110,22 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
   const category = product.category || product.categoria || 'General';
 
   // 1. Stock Actual (Codisa)
-  const stockActual = Number(product.stock_actual !== undefined ? product.stock_actual : (product.stock !== undefined ? product.stock : (product.SALDO_ACTUAL || 0))) || 0;
+  const stockActual = Number(
+    product.stock_actual !== undefined ? product.stock_actual :
+    product.stockActual !== undefined ? product.stockActual :
+    product.stock !== undefined ? product.stock :
+    (product.SALDO_ACTUAL || 0)
+  ) || 0;
 
   // 2. Venta Diaria Promedio (VDP)
   let vdp = 0;
-  const salesPeriod = Number(product.sales_period !== undefined ? product.sales_period : (product.ventas !== undefined ? product.ventas : (product.CANTIDAD || 0))) || 0;
-  const daysPeriod = Number(product.days_period || product.diasPeriodo || 30);
+  const salesPeriod = Number(
+    product.sales_period !== undefined ? product.sales_period :
+    product.salesPeriod !== undefined ? product.salesPeriod :
+    product.ventas !== undefined ? product.ventas :
+    (product.CANTIDAD || 0)
+  ) || 0;
+  const daysPeriod = Number(product.days_period || product.daysPeriod || product.diasPeriodo || 30);
   
   if (product.vdp !== undefined && product.vdp !== null && !isNaN(product.vdp) && Number(product.vdp) > 0) {
     vdp = Number(product.vdp);
@@ -124,17 +134,39 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
   }
 
   // 3. Múltiplo de Pedido (Empaque)
-  const packMultiple = Math.max(1, Number(product.pack_multiple || product.multiplo || 1));
+  const packMultiple = Math.max(1, Number(
+    product.pack_multiple !== undefined ? product.pack_multiple :
+    product.packMultiple !== undefined ? product.packMultiple :
+    (product.multiplo || 1)
+  ));
 
   // 4. Stock de Seguridad (SS)
-  const safetyStockDays = Number(product.safety_stock_days !== undefined ? product.safety_stock_days : (product.coberturaMeta !== undefined && product.coberturaMeta !== null ? product.coberturaMeta : globalSafetyStock)) || globalSafetyStock;
+  const safetyStockDays = Number(
+    product.safety_stock_days !== undefined ? product.safety_stock_days :
+    product.safetyStockDays !== undefined ? product.safetyStockDays :
+    (product.coberturaMeta !== undefined && product.coberturaMeta !== null ? product.coberturaMeta : globalSafetyStock)
+  ) || globalSafetyStock;
 
   // 5. Costo Unitario y Precio
-  const unitCost = Number(product.unit_cost !== undefined ? product.unit_cost : (product.cost !== undefined ? product.cost : (product.COSTO_UNITARIO || 0))) || 0;
-  const unitPrice = Number(product.unit_price !== undefined ? product.unit_price : (product.PRECIO || 0)) || 0;
+  const unitCost = Number(
+    product.unit_cost !== undefined ? product.unit_cost :
+    product.unitCost !== undefined ? product.unitCost :
+    product.cost !== undefined ? product.cost :
+    (product.COSTO_UNITARIO || 0)
+  ) || 0;
+  const unitPrice = Number(
+    product.unit_price !== undefined ? product.unit_price :
+    product.unitPrice !== undefined ? product.unitPrice :
+    (product.PRECIO || 0)
+  ) || 0;
 
   // === PASO 1: Inventario Proyectado ===
-  const transitManual = Number(product.transit_qty || product.transit || 0);
+  const transitManual = Number(
+    product.transit_qty !== undefined ? product.transit_qty :
+    product.transitQty !== undefined ? product.transitQty :
+    product.activeTransit !== undefined ? product.activeTransit :
+    (product.transit || 0)
+  );
   const activeTransit = calculateActiveTransitForSku(skuCode, normDay, activeOrders, transitManual);
   const projectedStock = stockActual + activeTransit;
 

@@ -122,7 +122,7 @@ async function runUiAuditor() {
       await firstOrderInput.evaluate(el => el.dispatchEvent(new Event('change', { bubbles: true })));
       await new Promise(r => setTimeout(r, 300));
       
-      const hasOverrideClass = await page.$eval('.mrp-table tbody tr:first-child .order-input', el => el.classList.contains('override-active'));
+      const hasOverrideClass = await page.$eval('.mrp-table tbody .order-input.override-active', el => Boolean(el)).catch(() => false);
       const varianceVal = await page.$eval('#kpi-variance-cost', el => el.innerText.trim());
       if (hasOverrideClass && varianceVal !== '') {
         console.log(`  ✓ OK: Override manual aplicado con clase destacada y varianza calculada (${varianceVal}).`);

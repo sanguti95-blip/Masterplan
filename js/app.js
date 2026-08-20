@@ -239,7 +239,16 @@ class MrpApp {
       this.items = INITIAL_PEDIDOS.map(row => {
         const codeFrumusa = (row['Codigo frumusa'] !== undefined ? row['Codigo frumusa'] : '').toString().trim();
         const codeCountry = (row['Código country'] !== undefined ? row['Código country'] : '').toString().trim();
-        const match = dataMap.get(codeFrumusa.toUpperCase()) || dataMap.get(codeCountry.toUpperCase());
+        let match = (codeFrumusa ? dataMap.get(codeFrumusa.toUpperCase()) : null) || (codeCountry ? dataMap.get(codeCountry.toUpperCase()) : null);
+        if (!match && row['Descripción']) {
+          const descNorm = row['Descripción'].trim().toUpperCase();
+          for (const d of INITIAL_DATA) {
+            if (d.ARTICULO && d.ARTICULO.trim().toUpperCase() === descNorm) {
+              match = d;
+              break;
+            }
+          }
+        }
 
         let stock = Number(row['Stock'] || 0);
         if (match && match['SALDO_ACTUAL'] !== undefined) stock = Number(match['SALDO_ACTUAL']);
@@ -248,7 +257,15 @@ class MrpApp {
         if (match && match['CANTIDAD'] !== undefined) sales = Number(match['CANTIDAD']);
 
         let cost = 0;
-        if (match && match['COSTO_UNITARIO'] !== undefined) cost = Number(match['COSTO_UNITARIO']);
+        if (match && match['COSTO_UNITARIO'] !== undefined) {
+          cost = Number(match['COSTO_UNITARIO']);
+        } else if (Number(row['Costo unitario'] || row['Costo'] || 0) > 0) {
+          cost = Number(row['Costo unitario'] || row['Costo']);
+        } else {
+          const origFinal = Number(row['Pedido sugerido'] || row['PEDIDO FINAL'] || 0);
+          const origCost = Number(row['Costo de pedido'] || 0);
+          if (origFinal > 0 && origCost > 0) cost = origCost / origFinal;
+        }
 
         const transitSaved = localStorage.getItem(`mrp_transit_${codeFrumusa || codeCountry}`);
         const transit = transitSaved !== null ? Number(transitSaved) : Number(row['Transito'] || 0);
