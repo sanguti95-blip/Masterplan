@@ -129,12 +129,33 @@ async function syncFromGoogleAppsScript(customUrl) {
       throw new Error('El archivo CSV descargado no contiene registros válidos.');
     }
 
-    // Mapear filas crudas de Codisa a estructura estandarizada
+    // Función para parsear fecha de proceso y asegurar el registro del MES ACTUAL más reciente
+    function parseDateTimestamp(dateStr) {
+      if (!dateStr) return 0;
+      const parts = dateStr.toString().trim().split(/[/.-]/);
+      if (parts.length === 3) {
+        if (parts[0].length === 4) {
+          // YYYY-MM-DD
+          return new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)).getTime();
+        } else {
+          // DD/MM/YYYY
+          const yr = parseInt(parts[2], 10) < 100 ? 2000 + parseInt(parts[2], 10) : parseInt(parts[2], 10);
+          return new Date(yr, parseInt(parts[1], 10) - 1, parseInt(parts[0], 10)).getTime();
+        }
+      }
+      const t = Date.parse(dateStr);
+      return isNaN(t) ? 0 : t;
+    }
+
+    // Mapear filas crudas de Codisa agrupando por SKU y seleccionando exclusivamente el MES ACTUAL más reciente
     const codisaMap = new Map();
     const codisaByDesc = new Map();
+
     parsedRows.forEach(row => {
       const sku = (row.NO_ARTI || '').toString().trim().toUpperCase();
       const articulo = (row.ARTICULO || '').toString().trim().toUpperCase();
+      const rowTimestamp = parseDateTimestamp(row.FECHA_PROCESO);
+
       const record = {
         noArti: sku,
         articulo: row.ARTICULO || '',
@@ -148,10 +169,24 @@ async function syncFromGoogleAppsScript(customUrl) {
         costoBrutoMerma: parseLocaleNumber(row.COSTO_BRUTO_MERMA, 0),
         unidadesMerma: parseLocaleNumber(row.UNIDADES_MERMA, 0),
         transito: parseLocaleNumber(row.transito, 0),
-        fechaProceso: row.FECHA_PROCESO || new Date().toISOString()
+        fechaProceso: row.FECHA_PROCESO || new Date().toISOString(),
+        timestamp: rowTimestamp
       };
-      if (sku) codisaMap.set(sku, record);
-      if (articulo) codisaByDesc.set(articulo, record);
+
+      if (sku) {
+        const existing = codisaMap.get(sku);
+        if (!existing || rowTimestamp >= existing.timestamp) {
+          // Si el nuevo registro es del mes más reciente, actualizamos saldo y costo del mes actual
+          codisaMap.set(sku, record);
+        }
+      }
+
+      if (articulo) {
+        const existingDesc = codisaByDesc.get(articulo);
+        if (!existingDesc || rowTimestamp >= existingDesc.timestamp) {
+          codisaByDesc.set(articulo, record);
+        }
+      }
     });
 
     // Actualizar catálogo en memoria
