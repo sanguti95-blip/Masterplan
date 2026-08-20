@@ -410,6 +410,8 @@ class MrpApp {
 
         const descText = row['Descripción'] || (match ? match['ARTICULO'] : '');
         const cat = row['Categoría'] || (match ? match['CATEGORIA'] : null) || this.getProduceCategory(descText);
+        const packMultiple = Number(row['Múltiplo de pedido'] || 1);
+        const minCoverage = Number(row['Cobertura minima'] || row['Covertura meta'] || (packMultiple * 6));
 
         return {
           code_country: codeCountry,
@@ -422,7 +424,9 @@ class MrpApp {
           unit_cost: cost,
           unit_price: match ? Number(match['PRECIO'] || 0) : cost * 1.35,
           transit_qty: transit,
-          pack_multiple: Number(row['Múltiplo de pedido'] || 1),
+          pack_multiple: packMultiple,
+          min_coverage_qty: minCoverage,
+          safety_stock_units: minCoverage,
           safety_stock_days: Number(row['Covertura meta'] || 1),
           pedidoFinalOverride: null
         };
@@ -816,16 +820,28 @@ class MrpApp {
       if (saved) {
         const overrides = JSON.parse(saved);
         this.items.forEach(item => {
-          const k1 = (item.code_frumusa || '').toString().trim().toUpperCase();
-          const k2 = (item.code_country || '').toString().trim().toUpperCase();
+          const k1 = (item.code_frumusa || item.codeFrumusa || '').toString().trim().toUpperCase();
+          const k2 = (item.code_country || item.codeCountry || '').toString().trim().toUpperCase();
           const k3 = (item.codeSku || '').toString().trim().toUpperCase();
           const ov = overrides[k1] || overrides[k2] || overrides[k3];
           if (ov) {
-            if (ov.pack_multiple !== undefined) item.pack_multiple = Number(ov.pack_multiple);
-            if (ov.min_coverage_qty !== undefined) item.min_coverage_qty = Number(ov.min_coverage_qty);
-            if (ov.safety_stock_units !== undefined) item.safety_stock_units = Number(ov.safety_stock_units);
-            if (ov.code_frumusa) item.code_frumusa = ov.code_frumusa;
-            if (ov.code_country) item.code_country = ov.code_country;
+            if (ov.pack_multiple !== undefined) {
+              item.pack_multiple = Number(ov.pack_multiple);
+              item.packMultiple = Number(ov.pack_multiple);
+            }
+            if (ov.min_coverage_qty !== undefined) {
+              item.min_coverage_qty = Number(ov.min_coverage_qty);
+              item.minCoverageUnits = Number(ov.min_coverage_qty);
+              item.safety_stock_units = Number(ov.min_coverage_qty);
+            }
+            if (ov.code_frumusa) {
+              item.code_frumusa = ov.code_frumusa;
+              item.codeFrumusa = ov.code_frumusa;
+            }
+            if (ov.code_country) {
+              item.code_country = ov.code_country;
+              item.codeCountry = ov.code_country;
+            }
             if (ov.unit_eq) item.unit_eq = ov.unit_eq;
             if (ov.description) item.description = ov.description;
           }
@@ -844,9 +860,9 @@ class MrpApp {
     const cat = this.catalogSelectedCategory || 'all';
 
     const filtered = this.items.filter(item => {
-      const sku1 = (item.code_frumusa || '').toString().toLowerCase();
-      const sku2 = (item.code_country || '').toString().toLowerCase();
-      const desc = (item.description || '').toString().toLowerCase();
+      const sku1 = (item.code_frumusa || item.codeFrumusa || '').toString().toLowerCase();
+      const sku2 = (item.code_country || item.codeCountry || item.codeSku || '').toString().toLowerCase();
+      const desc = (item.description || item.ARTICULO || '').toString().toLowerCase();
       const matchQuery = !q || sku1.includes(q) || sku2.includes(q) || desc.includes(q);
       const matchCat = cat === 'all' || item.category === cat;
       return matchQuery && matchCat;
@@ -865,24 +881,29 @@ class MrpApp {
     }
 
     tbody.innerHTML = filtered.map(item => {
-      const skuKey = (item.code_frumusa || item.code_country || item.codeSku || '').toString().trim();
-      const minQty = Math.round(Number(item.min_coverage_qty || item.safety_stock_units || item.pack_multiple || 1));
+      const skuKey = (item.code_frumusa || item.codeFrumusa || item.code_country || item.codeCountry || item.codeSku || '').toString().trim();
+      const frumusaVal = item.code_frumusa || item.codeFrumusa || item.codeSku || '';
+      const countryVal = item.code_country || item.codeCountry || item.codeSku || '';
+      const descVal = item.description || item.ARTICULO || '';
+      const unitVal = item.unit_eq || item.UNIDAD_EQ || 'UD';
+      const packVal = Number(item.pack_multiple || item.packMultiple || 1);
+      const minQty = Math.round(Number(item.min_coverage_qty || item.minCoverageUnits || item.safety_stock_units || packVal || 1));
       return `
         <tr data-sku="${skuKey}">
           <td>
-            <input type="text" class="input-catalog font-mono field-frumusa" data-sku="${skuKey}" value="${item.code_frumusa || ''}" title="Código Frumusa (Proveedor)">
+            <input type="text" class="input-catalog font-mono field-frumusa" data-sku="${skuKey}" value="${frumusaVal}" title="Código Frumusa (Proveedor)">
           </td>
           <td>
-            <input type="text" class="input-catalog font-mono field-country" data-sku="${skuKey}" value="${item.code_country || ''}" title="Código Country (CODISA)">
+            <input type="text" class="input-catalog font-mono field-country" data-sku="${skuKey}" value="${countryVal}" title="Código Country (CODISA)">
           </td>
           <td>
-            <input type="text" class="input-catalog field-desc" data-sku="${skuKey}" value="${item.description || ''}" title="Descripción del Artículo">
+            <input type="text" class="input-catalog field-desc" data-sku="${skuKey}" value="${descVal}" title="Descripción del Artículo">
           </td>
           <td class="text-center">
-            <input type="text" class="input-catalog font-mono text-center field-unit" data-sku="${skuKey}" value="${item.unit_eq || item.UNIDAD_EQ || 'UD'}" style="max-width: 60px;" title="Unidad de Medida">
+            <input type="text" class="input-catalog font-mono text-center field-unit" data-sku="${skuKey}" value="${unitVal}" style="max-width: 60px;" title="Unidad de Medida">
           </td>
           <td class="text-center">
-            <input type="number" step="any" min="1" class="input-catalog font-mono text-center field-pack" data-sku="${skuKey}" value="${item.pack_multiple || 1}" style="max-width: 80px;" title="Unidades por Bulto / Caja">
+            <input type="number" step="any" min="1" class="input-catalog font-mono text-center field-pack" data-sku="${skuKey}" value="${packVal}" style="max-width: 80px;" title="Unidades por Bulto / Caja">
           </td>
           <td class="text-center">
             <input type="number" step="1" min="0" class="input-catalog font-mono text-center field-ss" data-sku="${skuKey}" value="${minQty}" style="max-width: 90px;" title="Cobertura Mínima en Unidades (Stock de Seguridad requerido)">
@@ -926,14 +947,22 @@ class MrpApp {
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
     // Update in-memory item
-    const item = this.items.find(i => (i.code_frumusa === skuKey || i.code_country === skuKey || i.codeSku === skuKey));
+    const item = this.items.find(i => (
+      i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
+      i.code_country === skuKey || i.codeCountry === skuKey || 
+      i.codeSku === skuKey
+    ));
     if (item) {
       item.code_frumusa = frumusa;
+      item.codeFrumusa = frumusa;
       item.code_country = country;
+      item.codeCountry = country;
       item.description = desc;
       item.unit_eq = unit;
       item.pack_multiple = pack;
+      item.packMultiple = pack;
       item.min_coverage_qty = minQty;
+      item.minCoverageUnits = minQty;
       item.safety_stock_units = minQty;
     }
 
@@ -967,14 +996,22 @@ class MrpApp {
         safety_stock_units: minQty
       };
 
-      const item = this.items.find(i => (i.code_frumusa === skuKey || i.code_country === skuKey || i.codeSku === skuKey));
+      const item = this.items.find(i => (
+        i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
+        i.code_country === skuKey || i.codeCountry === skuKey || 
+        i.codeSku === skuKey
+      ));
       if (item) {
         item.code_frumusa = frumusa;
+        item.codeFrumusa = frumusa;
         item.code_country = country;
+        item.codeCountry = country;
         item.description = desc;
         item.unit_eq = unit;
         item.pack_multiple = pack;
+        item.packMultiple = pack;
         item.min_coverage_qty = minQty;
+        item.minCoverageUnits = minQty;
         item.safety_stock_units = minQty;
       }
     });
