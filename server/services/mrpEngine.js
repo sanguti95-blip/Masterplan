@@ -129,6 +129,10 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
   
   if (product.vdp !== undefined && product.vdp !== null && !isNaN(product.vdp) && Number(product.vdp) > 0) {
     vdp = Number(product.vdp);
+  } else if (daysPeriod === 60 && product.sales_60d && Number(product.sales_60d) > 0) {
+    vdp = Number(product.sales_60d) / 50; // 50 días efectivos acumulados (Julio 31d + Agosto 19d)
+  } else if (daysPeriod <= 30 && product.days_in_month_cut && Number(product.days_in_month_cut) > 0) {
+    vdp = salesPeriod / Number(product.days_in_month_cut);
   } else {
     vdp = daysPeriod > 0 ? (salesPeriod / daysPeriod) : 0;
   }

@@ -147,9 +147,10 @@ async function syncFromGoogleAppsScript(customUrl) {
       return isNaN(t) ? 0 : t;
     }
 
-    // Mapear filas crudas de Codisa agrupando por SKU y seleccionando exclusivamente el MES ACTUAL más reciente
+    // Mapear filas crudas de Codisa agrupando por SKU y conservando histórico de cortes
     const codisaMap = new Map();
     const codisaByDesc = new Map();
+    const historyMap = new Map();
 
     parsedRows.forEach(row => {
       const sku = (row.NO_ARTI || '').toString().trim().toUpperCase();
@@ -174,11 +175,14 @@ async function syncFromGoogleAppsScript(customUrl) {
       };
 
       if (sku) {
+        if (!historyMap.has(sku)) historyMap.set(sku, []);
+        historyMap.get(sku).push(record);
+
         const existing = codisaMap.get(sku);
         if (!existing || rowTimestamp > existing.timestamp) {
           codisaMap.set(sku, { ...record });
         } else if (rowTimestamp === existing.timestamp) {
-          // Mismo corte de fecha de proceso: acumular ventas, montos y saldos de múltiples líneas
+          // Mismo corte de fecha de proceso: acumular ventas de tienda (401) + ruta (400)
           existing.cantidadVentas += record.cantidadVentas;
           existing.montoBruto += record.montoBruto;
           existing.saldoActual += record.saldoActual;
@@ -204,6 +208,12 @@ async function syncFromGoogleAppsScript(customUrl) {
         }
       }
     });
+
+    // Determinar días transcurridos en el mes actual del último corte
+    let maxTimestamp = 0;
+    codisaMap.forEach(r => { if (r.timestamp > maxTimestamp) maxTimestamp = r.timestamp; });
+    const latestDate = new Date(maxTimestamp || Date.now());
+    const daysInCurrentMonthCut = latestDate.getDate() > 0 ? latestDate.getDate() : 19;
 
     // Actualizar catálogo en memoria
     let updatedCount = 0;
@@ -236,6 +246,18 @@ async function syncFromGoogleAppsScript(customUrl) {
           prod.sales_period = match.cantidadVentas;
           prod.ventas = match.cantidadVentas;
           prod.CANTIDAD = match.cantidadVentas;
+          prod.days_in_month_cut = daysInCurrentMonthCut;
+
+          // Calcular ventas acumuladas de los últimos 60 días si hay histórico disponible
+          const history = historyMap.get(match.noArti) || [];
+          if (history.length > 0) {
+            const sixtyDaysAgo = maxTimestamp - (60 * 24 * 60 * 60 * 1000);
+            const recentHistory = history.filter(h => h.timestamp >= sixtyDaysAgo);
+            const sum60d = recentHistory.reduce((acc, h) => acc + h.cantidadVentas, 0);
+            if (sum60d > 0) {
+              prod.sales_60d = sum60d;
+            }
+          }
           
           if (match.costoUnitario > 0) {
             prod.unit_cost = match.costoUnitario;
