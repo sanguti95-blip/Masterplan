@@ -768,7 +768,8 @@ class MrpApp {
           const ov = overrides[k1] || overrides[k2] || overrides[k3];
           if (ov) {
             if (ov.pack_multiple !== undefined) item.pack_multiple = Number(ov.pack_multiple);
-            if (ov.safety_stock_days !== undefined) item.safety_stock_days = Number(ov.safety_stock_days);
+            if (ov.min_coverage_qty !== undefined) item.min_coverage_qty = Number(ov.min_coverage_qty);
+            if (ov.safety_stock_units !== undefined) item.safety_stock_units = Number(ov.safety_stock_units);
             if (ov.code_frumusa) item.code_frumusa = ov.code_frumusa;
             if (ov.code_country) item.code_country = ov.code_country;
             if (ov.unit_eq) item.unit_eq = ov.unit_eq;
@@ -811,6 +812,7 @@ class MrpApp {
 
     tbody.innerHTML = filtered.map(item => {
       const skuKey = (item.code_frumusa || item.code_country || item.codeSku || '').toString().trim();
+      const minQty = Math.round(Number(item.min_coverage_qty || item.safety_stock_units || item.pack_multiple || 1));
       return `
         <tr data-sku="${skuKey}">
           <td>
@@ -829,7 +831,7 @@ class MrpApp {
             <input type="number" step="any" min="1" class="input-catalog font-mono text-center field-pack" data-sku="${skuKey}" value="${item.pack_multiple || 1}" style="max-width: 80px;" title="Unidades por Bulto / Caja">
           </td>
           <td class="text-center">
-            <input type="number" step="0.5" min="0" max="30" class="input-catalog font-mono text-center field-ss" data-sku="${skuKey}" value="${item.safety_stock_days || 1}" style="max-width: 80px;" title="Días de Cobertura Mínima (Stock de Seguridad)">
+            <input type="number" step="1" min="0" class="input-catalog font-mono text-center field-ss" data-sku="${skuKey}" value="${minQty}" style="max-width: 90px;" title="Cobertura Mínima en Unidades (Stock de Seguridad requerido)">
           </td>
           <td class="text-center">
             <button class="btn-row-save" onclick="window.MrpAppInstance.saveSingleCatalogRow('${skuKey}')" title="Guardar fila">
@@ -850,7 +852,7 @@ class MrpApp {
     const desc = row.querySelector('.field-desc').value.trim();
     const unit = row.querySelector('.field-unit').value.trim();
     const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
-    const ss = parseFloat(row.querySelector('.field-ss').value) || 1;
+    const minQty = Math.round(parseFloat(row.querySelector('.field-ss').value) || 0);
 
     let overrides = {};
     try {
@@ -863,7 +865,8 @@ class MrpApp {
       description: desc,
       unit_eq: unit,
       pack_multiple: pack,
-      safety_stock_days: ss
+      min_coverage_qty: minQty,
+      safety_stock_units: minQty
     };
 
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
@@ -876,11 +879,12 @@ class MrpApp {
       item.description = desc;
       item.unit_eq = unit;
       item.pack_multiple = pack;
-      item.safety_stock_days = ss;
+      item.min_coverage_qty = minQty;
+      item.safety_stock_units = minQty;
     }
 
     this.recalculateAndRender();
-    window.Toast.show(`Artículo ${desc || skuKey} guardado en el maestro.`, 'success');
+    window.Toast.show(`Artículo ${desc || skuKey} guardado en el maestro (Cobertura Mínima: ${minQty} und).`, 'success');
   }
 
   saveAllCatalogChanges() {
@@ -897,7 +901,7 @@ class MrpApp {
       const desc = row.querySelector('.field-desc').value.trim();
       const unit = row.querySelector('.field-unit').value.trim();
       const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
-      const ss = parseFloat(row.querySelector('.field-ss').value) || 1;
+      const minQty = Math.round(parseFloat(row.querySelector('.field-ss').value) || 0);
 
       overrides[skuKey.toUpperCase()] = {
         code_frumusa: frumusa,
@@ -905,7 +909,8 @@ class MrpApp {
         description: desc,
         unit_eq: unit,
         pack_multiple: pack,
-        safety_stock_days: ss
+        min_coverage_qty: minQty,
+        safety_stock_units: minQty
       };
 
       const item = this.items.find(i => (i.code_frumusa === skuKey || i.code_country === skuKey || i.codeSku === skuKey));
@@ -915,7 +920,8 @@ class MrpApp {
         item.description = desc;
         item.unit_eq = unit;
         item.pack_multiple = pack;
-        item.safety_stock_days = ss;
+        item.min_coverage_qty = minQty;
+        item.safety_stock_units = minQty;
       }
     });
 

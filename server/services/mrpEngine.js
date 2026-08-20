@@ -144,12 +144,16 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
     (product.multiplo || 1)
   ));
 
-  // 4. Stock de Seguridad (SS)
-  const safetyStockDays = Number(
-    product.safety_stock_days !== undefined ? product.safety_stock_days :
-    product.safetyStockDays !== undefined ? product.safetyStockDays :
-    (product.coberturaMeta !== undefined && product.coberturaMeta !== null ? product.coberturaMeta : globalSafetyStock)
-  ) || globalSafetyStock;
+  // 4. Cobertura Mínima (Cantidad / Unidades)
+  const minCoverageUnits = Math.round(Number(
+    product.min_coverage_qty !== undefined ? product.min_coverage_qty :
+    product.minCoverageQty !== undefined ? product.minCoverageQty :
+    product.safety_stock_units !== undefined ? product.safety_stock_units :
+    product.safetyStockUnits !== undefined ? product.safetyStockUnits :
+    product.min_coverage !== undefined ? product.min_coverage :
+    (product.cobertura_minima !== undefined ? product.cobertura_minima :
+     (product.safety_stock_days !== undefined ? (vdp * Number(product.safety_stock_days)) : packMultiple))
+  ) || 0);
 
   // 5. Costo Unitario y Precio
   const unitCost = Number(
@@ -174,15 +178,15 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
   const activeTransit = calculateActiveTransitForSku(skuCode, normDay, activeOrders, transitManual);
   const projectedStock = stockActual + activeTransit;
 
-  // === PASO 2: Cobertura Meta (Días) ===
+  // === PASO 2: Demanda del Ciclo e Inventario Meta Total (Unidades) ===
   const daysToCover = matrix.coverageDays;
-  const targetCoverageDays = daysToCover + safetyStockDays;
+  const cycleDemand = vdp * daysToCover;
+  const targetStockUnits = cycleDemand + minCoverageUnits;
 
-  // === PASO 3: Pedido Base ===
-  const targetStockUnits = vdp * targetCoverageDays;
+  // === PASO 3: Faltante / Pedido Base (Unidades) ===
   const baseOrder = Math.max(0, targetStockUnits - projectedStock);
 
-  // === PASO 4: Generación de Orden Final (Sugerido Final en Múltiplos) ===
+  // === PASO 4: Generación de Orden Final (Sugerido Final en Múltiplos de Bulto) ===
   let suggestedUnits = 0;
   let suggestedBoxes = 0;
 
@@ -207,9 +211,9 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
     coverageDaysResult = (projectedStock + finalQty) > 0 ? 999 : 0;
   }
 
-  // Stockout Risk: Si el stock actual + tránsito antes del nuevo pedido no cubre los días necesarios
+  // Stockout Risk: Si el inventario proyectado no cubre la cobertura mínima
   const preOrderCoverageDays = vdp > 0 ? (projectedStock / vdp) : 999;
-  const isCritical = (vdp > 0) && (preOrderCoverageDays < daysToCover);
+  const isCritical = (projectedStock <= minCoverageUnits);
 
   return {
     codeSku: skuCode,
@@ -226,9 +230,11 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
     daysPeriod,
     salesPeriod,
     packMultiple,
-    safetyStockDays,
+    minCoverageUnits,
+    safetyStockDays: vdp > 0 ? (minCoverageUnits / vdp) : 0,
     daysToCover,
-    targetCoverageDays,
+    cycleDemand,
+    targetStockUnits,
     baseOrder,
     suggestedUnits,
     suggestedBoxes,

@@ -89,7 +89,7 @@ function bootstrapCatalog() {
 
           const transit = Number(row['Transito'] || 0);
           const packMultiple = Number(row['Múltiplo de pedido'] || 1);
-          const safetyStock = Number(row['Covertura meta'] || 1);
+          const minCoverage = Number(row['Cobertura minima'] || row['Covertura meta'] || (packMultiple * 2));
 
           return {
             code_country: codeCountry,
@@ -102,7 +102,8 @@ function bootstrapCatalog() {
             unit_price: price,
             transit_qty: transit,
             pack_multiple: packMultiple > 0 ? packMultiple : 1,
-            safety_stock_days: safetyStock > 0 ? safetyStock : 1,
+            min_coverage_qty: minCoverage > 0 ? minCoverage : packMultiple,
+            safety_stock_units: minCoverage > 0 ? minCoverage : packMultiple,
             merma_units: dataMatch ? Number(dataMatch['UNIDADES_MERMA'] || 0) : 0,
             merma_cost: dataMatch ? Number(dataMatch['COSTO_BRUTO_MERMA'] || 0) : 0,
             category: 'Perecederos'

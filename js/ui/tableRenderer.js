@@ -163,8 +163,8 @@ const TableRenderer = {
           <td class="col-projected font-mono text-right font-semibold">
             ${AppFormatter.number(item.projectedStock)}
           </td>
-          <td class="col-target-cov text-center font-mono" title="${item.daysToCover}d ciclo de venta + ${item.safetyStockDays}d stock de seguridad">
-            ${item.targetCoverageDays}d
+          <td class="col-target-cov text-center font-mono" title="Cobertura Mínima requerida: ${item.minCoverageUnits} und (Colchón de seguridad en bodega)">
+            <strong>${AppFormatter.number(item.minCoverageUnits, 0)}</strong>
           </td>
           <td class="col-cov-status text-center">
             ${coverageBadge}

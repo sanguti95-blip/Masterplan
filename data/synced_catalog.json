@@ -22,7 +22,10 @@
     "cost": 924.63,
     "COSTO_UNITARIO": 924.63,
     "PRECIO": 2298.02,
-    "transit": 30
+    "transit": 30,
+    "min_coverage_qty": 7,
+    "min_coverage": 7,
+    "safety_stock_units": 7
   },
   {
     "code_country": "683",
@@ -48,7 +51,10 @@
     "cost": 403.94,
     "COSTO_UNITARIO": 403.94,
     "PRECIO": 588.12,
-    "transit": 3
+    "transit": 3,
+    "min_coverage_qty": 160,
+    "min_coverage": 160,
+    "safety_stock_units": 160
   },
   {
     "code_country": "684p",
@@ -73,7 +79,10 @@
     "sales_60d": 958.1667,
     "cost": 1188.59,
     "COSTO_UNITARIO": 1188.59,
-    "PRECIO": 2078.68
+    "PRECIO": 2078.68,
+    "min_coverage_qty": 60,
+    "min_coverage": 60,
+    "safety_stock_units": 60
   },
   {
     "code_country": "775",
@@ -98,7 +107,10 @@
     "sales_60d": 374,
     "cost": 118.89,
     "COSTO_UNITARIO": 118.89,
-    "PRECIO": 220.79
+    "PRECIO": 220.79,
+    "min_coverage_qty": 85,
+    "min_coverage": 85,
+    "safety_stock_units": 85
   },
   {
     "code_country": "773",
@@ -123,7 +135,10 @@
     "sales_60d": 82,
     "cost": 482.5,
     "COSTO_UNITARIO": 482.5,
-    "PRECIO": 957.43
+    "PRECIO": 957.43,
+    "min_coverage_qty": 20,
+    "min_coverage": 20,
+    "safety_stock_units": 20
   },
   {
     "code_country": "700",
@@ -148,7 +163,10 @@
     "sales_60d": 46,
     "cost": 912.5,
     "COSTO_UNITARIO": 912.5,
-    "PRECIO": 1787.13
+    "PRECIO": 1787.13,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "779",
@@ -173,7 +191,10 @@
     "sales_60d": 60,
     "cost": 1153.71,
     "COSTO_UNITARIO": 1153.71,
-    "PRECIO": 1842.57
+    "PRECIO": 1842.57,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "11554X",
@@ -199,7 +220,10 @@
     "cost": 735.29,
     "COSTO_UNITARIO": 735.29,
     "PRECIO": 1135.4,
-    "transit": 4
+    "transit": 4,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "11554",
@@ -224,7 +248,10 @@
     "sales_60d": 61,
     "cost": 176.25,
     "COSTO_UNITARIO": 176.25,
-    "PRECIO": 358.41
+    "PRECIO": 358.41,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "11555B",
@@ -248,7 +275,10 @@
     "days_in_month_cut": 19,
     "cost": 1764.71,
     "COSTO_UNITARIO": 1764.71,
-    "PRECIO": 442.48
+    "PRECIO": 442.48,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "11556",
@@ -274,7 +304,10 @@
     "cost": 647.06,
     "COSTO_UNITARIO": 647.06,
     "PRECIO": 1141.54,
-    "transit": 2
+    "transit": 2,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "11511",
@@ -299,7 +332,10 @@
     "sales_60d": 201.68,
     "cost": 1115.82,
     "COSTO_UNITARIO": 1115.82,
-    "PRECIO": 1881.19
+    "PRECIO": 1881.19,
+    "min_coverage_qty": 20,
+    "min_coverage": 20,
+    "safety_stock_units": 20
   },
   {
     "code_country": "5125",
@@ -324,7 +360,10 @@
     "sales_60d": 159,
     "cost": 919.74,
     "COSTO_UNITARIO": 919.74,
-    "PRECIO": 1548.67
+    "PRECIO": 1548.67,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "5125B",
@@ -349,7 +388,10 @@
     "sales_60d": 21,
     "cost": 3470,
     "COSTO_UNITARIO": 3470,
-    "PRECIO": 4380.53
+    "PRECIO": 4380.53,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "16579",
@@ -374,7 +416,10 @@
     "sales_60d": 42,
     "cost": 2941.18,
     "COSTO_UNITARIO": 2941.18,
-    "PRECIO": 3451.33
+    "PRECIO": 3451.33,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "17512",
@@ -399,7 +444,10 @@
     "sales_60d": 3,
     "cost": 705.88,
     "COSTO_UNITARIO": 705.88,
-    "PRECIO": 1238.94
+    "PRECIO": 1238.94,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "16875",
@@ -425,7 +473,10 @@
     "cost": 1176.46,
     "COSTO_UNITARIO": 1176.46,
     "PRECIO": 1592.92,
-    "transit": 2
+    "transit": 2,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "12597",
@@ -450,7 +501,10 @@
     "sales_60d": 42.72,
     "cost": 737.35,
     "COSTO_UNITARIO": 737.35,
-    "PRECIO": 1316.83
+    "PRECIO": 1316.83,
+    "min_coverage_qty": 5,
+    "min_coverage": 5,
+    "safety_stock_units": 5
   },
   {
     "code_country": "12511",
@@ -476,7 +530,10 @@
     "cost": 293.85,
     "COSTO_UNITARIO": 293.85,
     "PRECIO": 611.88,
-    "transit": 40
+    "transit": 40,
+    "min_coverage_qty": 24,
+    "min_coverage": 24,
+    "safety_stock_units": 24
   },
   {
     "code_country": "12512",
@@ -502,7 +559,10 @@
     "cost": 556.28,
     "COSTO_UNITARIO": 556.28,
     "PRECIO": 890.03,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 8,
+    "min_coverage": 8,
+    "safety_stock_units": 8
   },
   {
     "code_country": "12521",
@@ -527,7 +587,10 @@
     "sales_60d": 150,
     "cost": 410.53,
     "COSTO_UNITARIO": 410.53,
-    "PRECIO": 637.52
+    "PRECIO": 637.52,
+    "min_coverage_qty": 11,
+    "min_coverage": 11,
+    "safety_stock_units": 11
   },
   {
     "code_country": "12531",
@@ -552,7 +615,10 @@
     "sales_60d": 238.26,
     "cost": 1608.83,
     "COSTO_UNITARIO": 1608.83,
-    "PRECIO": 2681.95
+    "PRECIO": 2681.95,
+    "min_coverage_qty": 21,
+    "min_coverage": 21,
+    "safety_stock_units": 21
   },
   {
     "code_country": "1351",
@@ -578,7 +644,10 @@
     "cost": 1031.12,
     "COSTO_UNITARIO": 1031.12,
     "PRECIO": 1652.76,
-    "transit": 10
+    "transit": 10,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   },
   {
     "code_country": "1353",
@@ -602,7 +671,10 @@
     "days_in_month_cut": 19,
     "cost": 919.6,
     "COSTO_UNITARIO": 919.6,
-    "PRECIO": 1084.07
+    "PRECIO": 1084.07,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "14511",
@@ -627,7 +699,10 @@
     "sales_60d": 28,
     "cost": 470.45,
     "COSTO_UNITARIO": 470.45,
-    "PRECIO": 919.01
+    "PRECIO": 919.01,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "14514",
@@ -653,7 +728,10 @@
     "cost": 588.24,
     "COSTO_UNITARIO": 588.24,
     "PRECIO": 879.65,
-    "transit": 2
+    "transit": 2,
+    "min_coverage_qty": 5,
+    "min_coverage": 5,
+    "safety_stock_units": 5
   },
   {
     "code_country": "14565",
@@ -678,7 +756,10 @@
     "sales_60d": 36.06,
     "cost": 941.18,
     "COSTO_UNITARIO": 941.18,
-    "PRECIO": 1324.27
+    "PRECIO": 1324.27,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "12554P",
@@ -703,7 +784,10 @@
     "sales_60d": 84,
     "cost": 535.91,
     "COSTO_UNITARIO": 535.91,
-    "PRECIO": 940.59
+    "PRECIO": 940.59,
+    "min_coverage_qty": 15,
+    "min_coverage": 15,
+    "safety_stock_units": 15
   },
   {
     "code_country": "125581",
@@ -728,7 +812,10 @@
     "sales_60d": 117.93,
     "cost": 953.82,
     "COSTO_UNITARIO": 953.82,
-    "PRECIO": 1485.91
+    "PRECIO": 1485.91,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "12554",
@@ -754,7 +841,10 @@
     "cost": 958.45,
     "COSTO_UNITARIO": 958.45,
     "PRECIO": 1376.38,
-    "transit": 45
+    "transit": 45,
+    "min_coverage_qty": 45,
+    "min_coverage": 45,
+    "safety_stock_units": 45
   },
   {
     "code_country": "125542",
@@ -780,7 +870,10 @@
     "cost": 962.85,
     "COSTO_UNITARIO": 962.85,
     "PRECIO": 1544.12,
-    "transit": 30
+    "transit": 30,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   },
   {
     "code_country": "12547G",
@@ -806,7 +899,10 @@
     "cost": 1103.03,
     "COSTO_UNITARIO": 1103.03,
     "PRECIO": 1513.86,
-    "transit": 15
+    "transit": 15,
+    "min_coverage_qty": 15,
+    "min_coverage": 15,
+    "safety_stock_units": 15
   },
   {
     "code_country": "12553K",
@@ -830,7 +926,10 @@
     "days_in_month_cut": 19,
     "cost": 444.45,
     "COSTO_UNITARIO": 444.45,
-    "PRECIO": 693.07
+    "PRECIO": 693.07,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "12552",
@@ -856,7 +955,10 @@
     "cost": 294.14,
     "COSTO_UNITARIO": 294.14,
     "PRECIO": 495.88,
-    "transit": 15
+    "transit": 15,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   },
   {
     "code_country": "12561",
@@ -881,7 +983,10 @@
     "sales_60d": 144,
     "cost": 635.3,
     "COSTO_UNITARIO": 635.3,
-    "PRECIO": 759.52
+    "PRECIO": 759.52,
+    "min_coverage_qty": 11,
+    "min_coverage": 11,
+    "safety_stock_units": 11
   },
   {
     "code_country": "12562",
@@ -907,7 +1012,10 @@
     "cost": 532.21,
     "COSTO_UNITARIO": 532.21,
     "PRECIO": 887.13,
-    "transit": 4
+    "transit": 4,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "12563",
@@ -933,7 +1041,10 @@
     "cost": 312.9,
     "COSTO_UNITARIO": 312.9,
     "PRECIO": 519.8,
-    "transit": 20
+    "transit": 20,
+    "min_coverage_qty": 40,
+    "min_coverage": 40,
+    "safety_stock_units": 40
   },
   {
     "code_country": "12613",
@@ -959,7 +1070,10 @@
     "cost": 517.56,
     "COSTO_UNITARIO": 517.56,
     "PRECIO": 611.88,
-    "transit": 10
+    "transit": 10,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "125641",
@@ -984,7 +1098,10 @@
     "sales_60d": 16,
     "cost": 588.2,
     "COSTO_UNITARIO": 588.2,
-    "PRECIO": 643.57
+    "PRECIO": 643.57,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "12570",
@@ -1009,7 +1126,10 @@
     "sales_60d": 90,
     "cost": 287.26,
     "COSTO_UNITARIO": 287.26,
-    "PRECIO": 544.55
+    "PRECIO": 544.55,
+    "min_coverage_qty": 8,
+    "min_coverage": 8,
+    "safety_stock_units": 8
   },
   {
     "code_country": "13617",
@@ -1034,7 +1154,10 @@
     "sales_60d": 1,
     "cost": 791.5,
     "COSTO_UNITARIO": 791.5,
-    "PRECIO": 1946.9
+    "PRECIO": 1946.9,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "12570P",
@@ -1058,7 +1181,10 @@
     "days_in_month_cut": 19,
     "cost": 505.19,
     "COSTO_UNITARIO": 505.19,
-    "PRECIO": 940.59
+    "PRECIO": 940.59,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "12575",
@@ -1083,7 +1209,10 @@
     "sales_60d": 21,
     "cost": 1117.64,
     "COSTO_UNITARIO": 1117.64,
-    "PRECIO": 1601.98
+    "PRECIO": 1601.98,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "12576",
@@ -1107,7 +1236,10 @@
     "days_in_month_cut": 19,
     "cost": 538.62,
     "COSTO_UNITARIO": 538.62,
-    "PRECIO": 884.96
+    "PRECIO": 884.96,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "12584",
@@ -1132,7 +1264,10 @@
     "sales_60d": 8.47,
     "cost": 2106.47,
     "COSTO_UNITARIO": 2106.47,
-    "PRECIO": 3950.5
+    "PRECIO": 3950.5,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "12603",
@@ -1158,7 +1293,10 @@
     "cost": 512.92,
     "COSTO_UNITARIO": 512.92,
     "PRECIO": 833.66,
-    "transit": 120
+    "transit": 120,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "12588",
@@ -1183,7 +1321,10 @@
     "sales_60d": 11,
     "cost": 1058.82,
     "COSTO_UNITARIO": 1058.82,
-    "PRECIO": 1485.15
+    "PRECIO": 1485.15,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "4341",
@@ -1208,7 +1349,10 @@
     "sales_60d": 93.03,
     "cost": 2634.85,
     "COSTO_UNITARIO": 2634.85,
-    "PRECIO": 3448.51
+    "PRECIO": 3448.51,
+    "min_coverage_qty": 9,
+    "min_coverage": 9,
+    "safety_stock_units": 9
   },
   {
     "code_country": "14522",
@@ -1233,7 +1377,10 @@
     "sales_60d": 57,
     "cost": 566.58,
     "COSTO_UNITARIO": 566.58,
-    "PRECIO": 841.58
+    "PRECIO": 841.58,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "12591",
@@ -1259,7 +1406,10 @@
     "cost": 871.55,
     "COSTO_UNITARIO": 871.55,
     "PRECIO": 1233.04,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 15,
+    "min_coverage": 15,
+    "safety_stock_units": 15
   },
   {
     "code_country": "11522N",
@@ -1283,7 +1433,10 @@
     "days_in_month_cut": 19,
     "cost": 293.01,
     "COSTO_UNITARIO": 293.01,
-    "PRECIO": 406.59
+    "PRECIO": 406.59,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "11524",
@@ -1308,7 +1461,10 @@
     "sales_60d": 702,
     "cost": 319.03,
     "COSTO_UNITARIO": 319.03,
-    "PRECIO": 611.88
+    "PRECIO": 611.88,
+    "min_coverage_qty": 40,
+    "min_coverage": 40,
+    "safety_stock_units": 40
   },
   {
     "code_country": "13111CU",
@@ -1333,7 +1489,10 @@
     "sales_60d": 3.4,
     "cost": 1123.16,
     "COSTO_UNITARIO": 1123.16,
-    "PRECIO": 1725.66
+    "PRECIO": 1725.66,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "16592",
@@ -1358,7 +1517,10 @@
     "sales_60d": 250,
     "cost": 352.9,
     "COSTO_UNITARIO": 352.9,
-    "PRECIO": 558.91
+    "PRECIO": 558.91,
+    "min_coverage_qty": 20,
+    "min_coverage": 20,
+    "safety_stock_units": 20
   },
   {
     "code_country": "16593",
@@ -1383,7 +1545,10 @@
     "sales_60d": 470,
     "cost": 178.08,
     "COSTO_UNITARIO": 178.08,
-    "PRECIO": 247.52
+    "PRECIO": 247.52,
+    "min_coverage_qty": 18,
+    "min_coverage": 18,
+    "safety_stock_units": 18
   },
   {
     "code_country": "125111",
@@ -1408,7 +1573,10 @@
     "sales_60d": 84,
     "cost": 4087.37,
     "COSTO_UNITARIO": 4087.37,
-    "PRECIO": 2900.88
+    "PRECIO": 2900.88,
+    "min_coverage_qty": 11,
+    "min_coverage": 11,
+    "safety_stock_units": 11
   },
   {
     "code_country": "11531",
@@ -1434,7 +1602,10 @@
     "cost": 350.53,
     "COSTO_UNITARIO": 350.53,
     "PRECIO": 610.62,
-    "transit": 20
+    "transit": 20,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   },
   {
     "code_country": "15524A",
@@ -1460,7 +1631,10 @@
     "cost": 1151.48,
     "COSTO_UNITARIO": 1151.48,
     "PRECIO": 1638.94,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 8,
+    "min_coverage": 8,
+    "safety_stock_units": 8
   },
   {
     "code_country": "15521",
@@ -1485,7 +1659,10 @@
     "sales_60d": 156,
     "cost": 752.02,
     "COSTO_UNITARIO": 752.02,
-    "PRECIO": 973.45
+    "PRECIO": 973.45,
+    "min_coverage_qty": 8,
+    "min_coverage": 8,
+    "safety_stock_units": 8
   },
   {
     "code_country": "17558",
@@ -1510,7 +1687,10 @@
     "sales_60d": 21,
     "cost": 811.76,
     "COSTO_UNITARIO": 811.76,
-    "PRECIO": 1485.15
+    "PRECIO": 1485.15,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "17557",
@@ -1536,7 +1716,10 @@
     "cost": 1000.15,
     "COSTO_UNITARIO": 1000.15,
     "PRECIO": 1504.95,
-    "transit": 40
+    "transit": 40,
+    "min_coverage_qty": 14,
+    "min_coverage": 14,
+    "safety_stock_units": 14
   },
   {
     "code_country": "15531",
@@ -1560,7 +1743,10 @@
     "days_in_month_cut": 19,
     "cost": 250.99,
     "COSTO_UNITARIO": 250.99,
-    "PRECIO": 334.35
+    "PRECIO": 334.35,
+    "min_coverage_qty": 50,
+    "min_coverage": 50,
+    "safety_stock_units": 50
   },
   {
     "code_country": "14551",
@@ -1585,7 +1771,10 @@
     "sales_60d": 21.130000000000003,
     "cost": 1000,
     "COSTO_UNITARIO": 1000,
-    "PRECIO": 1849.56
+    "PRECIO": 1849.56,
+    "min_coverage_qty": 5,
+    "min_coverage": 5,
+    "safety_stock_units": 5
   },
   {
     "code_country": "14561",
@@ -1611,7 +1800,10 @@
     "cost": 798.2,
     "COSTO_UNITARIO": 798.2,
     "PRECIO": 1296.46,
-    "transit": 10
+    "transit": 10,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "14515",
@@ -1637,7 +1829,10 @@
     "cost": 35.3,
     "COSTO_UNITARIO": 35.3,
     "PRECIO": 77.23,
-    "transit": 120
+    "transit": 120,
+    "min_coverage_qty": 60,
+    "min_coverage": 60,
+    "safety_stock_units": 60
   },
   {
     "code_country": "16624",
@@ -1663,7 +1858,10 @@
     "cost": 176.48,
     "COSTO_UNITARIO": 176.48,
     "PRECIO": 489.23,
-    "transit": 4
+    "transit": 4,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "16624X",
@@ -1688,7 +1886,10 @@
     "sales_60d": 128,
     "cost": 734.75,
     "COSTO_UNITARIO": 734.75,
-    "PRECIO": 1326.02
+    "PRECIO": 1326.02,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "13580H",
@@ -1713,7 +1914,10 @@
     "sales_60d": 28,
     "cost": 823.53,
     "COSTO_UNITARIO": 823.53,
-    "PRECIO": 1106.19
+    "PRECIO": 1106.19,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "5533",
@@ -1738,7 +1942,10 @@
     "sales_60d": 89,
     "cost": 1294.12,
     "COSTO_UNITARIO": 1294.12,
-    "PRECIO": 1849.56
+    "PRECIO": 1849.56,
+    "min_coverage_qty": 6,
+    "min_coverage": 6,
+    "safety_stock_units": 6
   },
   {
     "code_country": "5536",
@@ -1763,7 +1970,10 @@
     "sales_60d": 16,
     "cost": 1411.76,
     "COSTO_UNITARIO": 1411.76,
-    "PRECIO": 2234.51
+    "PRECIO": 2234.51,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "5535",
@@ -1788,7 +1998,10 @@
     "sales_60d": 51,
     "cost": 1568.86,
     "COSTO_UNITARIO": 1568.86,
-    "PRECIO": 2265.31
+    "PRECIO": 2265.31,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "5538",
@@ -1813,7 +2026,10 @@
     "sales_60d": 63,
     "cost": 1294.06,
     "COSTO_UNITARIO": 1294.06,
-    "PRECIO": 2200.75
+    "PRECIO": 2200.75,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "13513",
@@ -1838,7 +2054,10 @@
     "sales_60d": 33.23,
     "cost": 1014.71,
     "COSTO_UNITARIO": 1014.71,
-    "PRECIO": 1651.82
+    "PRECIO": 1651.82,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "125972",
@@ -1863,7 +2082,10 @@
     "sales_60d": 48,
     "cost": 411.76,
     "COSTO_UNITARIO": 411.76,
-    "PRECIO": 530.97
+    "PRECIO": 530.97,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "5341",
@@ -1888,7 +2110,10 @@
     "sales_60d": 743,
     "cost": 177.27,
     "COSTO_UNITARIO": 177.27,
-    "PRECIO": 310.03
+    "PRECIO": 310.03,
+    "min_coverage_qty": 37,
+    "min_coverage": 37,
+    "safety_stock_units": 37
   },
   {
     "code_country": "115412",
@@ -1914,7 +2139,10 @@
     "cost": 588.24,
     "COSTO_UNITARIO": 588.24,
     "PRECIO": 835.26,
-    "transit": 30
+    "transit": 30,
+    "min_coverage_qty": 56,
+    "min_coverage": 56,
+    "safety_stock_units": 56
   },
   {
     "code_country": "11541",
@@ -1939,7 +2167,10 @@
     "sales_60d": 106,
     "cost": 294.12,
     "COSTO_UNITARIO": 294.12,
-    "PRECIO": 486.73
+    "PRECIO": 486.73,
+    "min_coverage_qty": 4,
+    "min_coverage": 4,
+    "safety_stock_units": 4
   },
   {
     "code_country": "11580",
@@ -1963,7 +2194,10 @@
     "days_in_month_cut": 19,
     "cost": 237.36,
     "COSTO_UNITARIO": 237.36,
-    "PRECIO": 486.26
+    "PRECIO": 486.26,
+    "min_coverage_qty": 18,
+    "min_coverage": 18,
+    "safety_stock_units": 18
   },
   {
     "code_country": "11590",
@@ -1989,7 +2223,10 @@
     "cost": 235.38,
     "COSTO_UNITARIO": 235.38,
     "PRECIO": 530.49,
-    "transit": 10
+    "transit": 10,
+    "min_coverage_qty": 20,
+    "min_coverage": 20,
+    "safety_stock_units": 20
   },
   {
     "code_country": "11548",
@@ -2015,7 +2252,10 @@
     "cost": 294.12,
     "COSTO_UNITARIO": 294.12,
     "PRECIO": 485.85,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 6,
+    "min_coverage": 6,
+    "safety_stock_units": 6
   },
   {
     "code_country": "11547",
@@ -2041,7 +2281,10 @@
     "cost": 294.12,
     "COSTO_UNITARIO": 294.12,
     "PRECIO": 470.8,
-    "transit": 12
+    "transit": 12,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "11540",
@@ -2067,7 +2310,10 @@
     "cost": 470.58,
     "COSTO_UNITARIO": 470.58,
     "PRECIO": 840.71,
-    "transit": 12
+    "transit": 12,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "14585",
@@ -2092,7 +2338,10 @@
     "sales_60d": 861,
     "cost": 75.73,
     "COSTO_UNITARIO": 75.73,
-    "PRECIO": 176.24
+    "PRECIO": 176.24,
+    "min_coverage_qty": 125,
+    "min_coverage": 125,
+    "safety_stock_units": 125
   },
   {
     "code_country": "14585P",
@@ -2118,7 +2367,10 @@
     "cost": 765.98,
     "COSTO_UNITARIO": 765.98,
     "PRECIO": 1429.12,
-    "transit": 20
+    "transit": 20,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   },
   {
     "code_country": "14575P",
@@ -2144,7 +2396,10 @@
     "cost": 994.07,
     "COSTO_UNITARIO": 994.07,
     "PRECIO": 1664.49,
-    "transit": 20
+    "transit": 20,
+    "min_coverage_qty": 20,
+    "min_coverage": 20,
+    "safety_stock_units": 20
   },
   {
     "code_country": "14575",
@@ -2169,7 +2424,10 @@
     "sales_60d": 540,
     "cost": 124.26,
     "COSTO_UNITARIO": 124.26,
-    "PRECIO": 157.43
+    "PRECIO": 157.43,
+    "min_coverage_qty": 100,
+    "min_coverage": 100,
+    "safety_stock_units": 100
   },
   {
     "code_country": "12593",
@@ -2194,7 +2452,10 @@
     "sales_60d": 190,
     "cost": 1529.38,
     "COSTO_UNITARIO": 1529.38,
-    "PRECIO": 1681.81
+    "PRECIO": 1681.81,
+    "min_coverage_qty": 13,
+    "min_coverage": 13,
+    "safety_stock_units": 13
   },
   {
     "code_country": "14590",
@@ -2220,7 +2481,10 @@
     "cost": 2559.05,
     "COSTO_UNITARIO": 2559.05,
     "PRECIO": 1769.91,
-    "transit": 8
+    "transit": 8,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "14607",
@@ -2246,7 +2510,10 @@
     "cost": 891.54,
     "COSTO_UNITARIO": 891.54,
     "PRECIO": 1047.31,
-    "transit": 40
+    "transit": 40,
+    "min_coverage_qty": 68,
+    "min_coverage": 68,
+    "safety_stock_units": 68
   },
   {
     "code_country": "13150B",
@@ -2271,7 +2538,10 @@
     "sales_60d": 417,
     "cost": 1130.51,
     "COSTO_UNITARIO": 1130.51,
-    "PRECIO": 1901.78
+    "PRECIO": 1901.78,
+    "min_coverage_qty": 19,
+    "min_coverage": 19,
+    "safety_stock_units": 19
   },
   {
     "code_country": "145137K",
@@ -2297,7 +2567,10 @@
     "cost": 588.24,
     "COSTO_UNITARIO": 588.24,
     "PRECIO": 879.65,
-    "transit": 2
+    "transit": 2,
+    "min_coverage_qty": 5,
+    "min_coverage": 5,
+    "safety_stock_units": 5
   },
   {
     "code_country": "11080F",
@@ -2321,7 +2594,10 @@
     "days_in_month_cut": 19,
     "cost": 297.66,
     "COSTO_UNITARIO": 297.66,
-    "PRECIO": 426.5
+    "PRECIO": 426.5,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "11080G",
@@ -2346,7 +2622,10 @@
     "sales_60d": 269,
     "cost": 223.7,
     "COSTO_UNITARIO": 223.7,
-    "PRECIO": 330.03
+    "PRECIO": 330.03,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "11080A",
@@ -2370,7 +2649,10 @@
     "days_in_month_cut": 19,
     "cost": 297.5,
     "COSTO_UNITARIO": 297.5,
-    "PRECIO": 426.38
+    "PRECIO": 426.38,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "11080S",
@@ -2395,7 +2677,10 @@
     "sales_60d": 545,
     "cost": 227.61,
     "COSTO_UNITARIO": 227.61,
-    "PRECIO": 330.03
+    "PRECIO": 330.03,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "11080",
@@ -2420,7 +2705,10 @@
     "sales_60d": 482,
     "cost": 283.64,
     "COSTO_UNITARIO": 283.64,
-    "PRECIO": 328.38
+    "PRECIO": 328.38,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "145102",
@@ -2445,7 +2733,10 @@
     "sales_60d": 70.73,
     "cost": 1525.81,
     "COSTO_UNITARIO": 1525.81,
-    "PRECIO": 1663.59
+    "PRECIO": 1663.59,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "4321",
@@ -2470,7 +2761,10 @@
     "sales_60d": 36.93,
     "cost": 1713.6,
     "COSTO_UNITARIO": 1713.6,
-    "PRECIO": 2438.05
+    "PRECIO": 2438.05,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "911",
@@ -2494,7 +2788,10 @@
     "days_in_month_cut": 19,
     "cost": 728.59,
     "COSTO_UNITARIO": 728.59,
-    "PRECIO": 1023.23
+    "PRECIO": 1023.23,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "145128",
@@ -2519,7 +2816,10 @@
     "sales_60d": 75.2,
     "cost": 905.88,
     "COSTO_UNITARIO": 905.88,
-    "PRECIO": 1135.64
+    "PRECIO": 1135.64,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "16535",
@@ -2544,7 +2844,10 @@
     "sales_60d": 2,
     "cost": 176.47,
     "COSTO_UNITARIO": 176.47,
-    "PRECIO": 398.23
+    "PRECIO": 398.23,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "125121",
@@ -2569,7 +2872,10 @@
     "sales_60d": 14,
     "cost": 1411.76,
     "COSTO_UNITARIO": 1411.76,
-    "PRECIO": 1858.41
+    "PRECIO": 1858.41,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "12617",
@@ -2594,7 +2900,10 @@
     "sales_60d": 18,
     "cost": 500.02,
     "COSTO_UNITARIO": 500.02,
-    "PRECIO": 1429.2
+    "PRECIO": 1429.2,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "11551",
@@ -2620,7 +2929,10 @@
     "cost": 411.76,
     "COSTO_UNITARIO": 411.76,
     "PRECIO": 735.64,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 8,
+    "min_coverage": 8,
+    "safety_stock_units": 8
   },
   {
     "code_country": "13521",
@@ -2646,7 +2958,10 @@
     "cost": 1239.88,
     "COSTO_UNITARIO": 1239.88,
     "PRECIO": 1740.59,
-    "transit": 5
+    "transit": 5,
+    "min_coverage_qty": 5,
+    "min_coverage": 5,
+    "safety_stock_units": 5
   },
   {
     "code_country": "145143",
@@ -2672,7 +2987,10 @@
     "cost": 130.49,
     "COSTO_UNITARIO": 130.49,
     "PRECIO": 221.24,
-    "transit": 100
+    "transit": 100,
+    "min_coverage_qty": 45,
+    "min_coverage": 45,
+    "safety_stock_units": 45
   },
   {
     "code_country": "145143P15",
@@ -2698,7 +3016,10 @@
     "cost": 1553.04,
     "COSTO_UNITARIO": 1553.04,
     "PRECIO": 2228.32,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 7,
+    "min_coverage": 7,
+    "safety_stock_units": 7
   },
   {
     "code_country": "145142",
@@ -2723,7 +3044,10 @@
     "sales_60d": 111.88999999999999,
     "cost": 2375.22,
     "COSTO_UNITARIO": 2375.22,
-    "PRECIO": 1408.55
+    "PRECIO": 1408.55,
+    "min_coverage_qty": 8,
+    "min_coverage": 8,
+    "safety_stock_units": 8
   },
   {
     "code_country": "4131",
@@ -2748,7 +3072,10 @@
     "sales_60d": 58.33,
     "cost": 2098.86,
     "COSTO_UNITARIO": 2098.86,
-    "PRECIO": 3088.85
+    "PRECIO": 3088.85,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "16540",
@@ -2774,7 +3101,10 @@
     "cost": 176.48,
     "COSTO_UNITARIO": 176.48,
     "PRECIO": 427.72,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "16553",
@@ -2799,7 +3129,10 @@
     "sales_60d": 25,
     "cost": 1026.73,
     "COSTO_UNITARIO": 1026.73,
-    "PRECIO": 1415.93
+    "PRECIO": 1415.93,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "13556",
@@ -2825,7 +3158,10 @@
     "cost": 561.22,
     "COSTO_UNITARIO": 561.22,
     "PRECIO": 716.21,
-    "transit": 45
+    "transit": 45,
+    "min_coverage_qty": 90,
+    "min_coverage": 90,
+    "safety_stock_units": 90
   },
   {
     "code_country": "13556R",
@@ -2851,7 +3187,10 @@
     "cost": 556.73,
     "COSTO_UNITARIO": 556.73,
     "PRECIO": 817.49,
-    "transit": 15
+    "transit": 15,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   },
   {
     "code_country": "13557",
@@ -2876,7 +3215,10 @@
     "sales_60d": 18.04,
     "cost": 285.12,
     "COSTO_UNITARIO": 285.12,
-    "PRECIO": 564.36
+    "PRECIO": 564.36,
+    "min_coverage_qty": 15,
+    "min_coverage": 15,
+    "safety_stock_units": 15
   },
   {
     "code_country": "1451633",
@@ -2902,7 +3244,10 @@
     "cost": 529.42,
     "COSTO_UNITARIO": 529.42,
     "PRECIO": 805.24,
-    "transit": 80
+    "transit": 80,
+    "min_coverage_qty": 72,
+    "min_coverage": 72,
+    "safety_stock_units": 72
   },
   {
     "code_country": "16510",
@@ -2927,7 +3272,10 @@
     "sales_60d": 206.31,
     "cost": 2294.12,
     "COSTO_UNITARIO": 2294.12,
-    "PRECIO": 2831.04
+    "PRECIO": 2831.04,
+    "min_coverage_qty": 20,
+    "min_coverage": 20,
+    "safety_stock_units": 20
   },
   {
     "code_country": "125131",
@@ -2952,7 +3300,10 @@
     "sales_60d": 418.56,
     "cost": 560.25,
     "COSTO_UNITARIO": 560.25,
-    "PRECIO": 887.47
+    "PRECIO": 887.47,
+    "min_coverage_qty": 24,
+    "min_coverage": 24,
+    "safety_stock_units": 24
   },
   {
     "code_country": "31090",
@@ -2977,7 +3328,10 @@
     "sales_60d": 565,
     "cost": 320.72,
     "COSTO_UNITARIO": 320.72,
-    "PRECIO": 407.08
+    "PRECIO": 407.08,
+    "min_coverage_qty": 90,
+    "min_coverage": 90,
+    "safety_stock_units": 90
   },
   {
     "code_country": "3344",
@@ -3002,7 +3356,10 @@
     "sales_60d": 75,
     "cost": 986.03,
     "COSTO_UNITARIO": 986.03,
-    "PRECIO": 2101.77
+    "PRECIO": 2101.77,
+    "min_coverage_qty": 5,
+    "min_coverage": 5,
+    "safety_stock_units": 5
   },
   {
     "code_country": "11561",
@@ -3027,7 +3384,10 @@
     "sales_60d": 170,
     "cost": 176.48,
     "COSTO_UNITARIO": 176.48,
-    "PRECIO": 436.9
+    "PRECIO": 436.9,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "145168IN",
@@ -3053,7 +3413,10 @@
     "cost": 401.64,
     "COSTO_UNITARIO": 401.64,
     "PRECIO": 530.71,
-    "transit": 25
+    "transit": 25,
+    "min_coverage_qty": 50,
+    "min_coverage": 50,
+    "safety_stock_units": 50
   },
   {
     "code_country": "145168",
@@ -3078,7 +3441,10 @@
     "cost": 332.52,
     "COSTO_UNITARIO": 332.52,
     "PRECIO": 486.73,
-    "transit": 50
+    "transit": 50,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "145174",
@@ -3104,7 +3470,10 @@
     "cost": 161.11,
     "COSTO_UNITARIO": 161.11,
     "PRECIO": 283.08,
-    "transit": 315
+    "transit": 315,
+    "min_coverage_qty": 210,
+    "min_coverage": 210,
+    "safety_stock_units": 210
   },
   {
     "code_country": "14547",
@@ -3129,7 +3498,10 @@
     "sales_60d": 16.64,
     "cost": 1006.77,
     "COSTO_UNITARIO": 1006.77,
-    "PRECIO": 1793.2
+    "PRECIO": 1793.2,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "13545R",
@@ -3155,7 +3527,10 @@
     "cost": 235.3,
     "COSTO_UNITARIO": 235.3,
     "PRECIO": 453.47,
-    "transit": 12
+    "transit": 12,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "13543",
@@ -3180,7 +3555,10 @@
     "sales_60d": 125,
     "cost": 271.81,
     "COSTO_UNITARIO": 271.81,
-    "PRECIO": 495.05
+    "PRECIO": 495.05,
+    "min_coverage_qty": 6,
+    "min_coverage": 6,
+    "safety_stock_units": 6
   },
   {
     "code_country": "13553",
@@ -3206,7 +3584,10 @@
     "cost": 223.37,
     "COSTO_UNITARIO": 223.37,
     "PRECIO": 349.5,
-    "transit": 20
+    "transit": 20,
+    "min_coverage_qty": 40,
+    "min_coverage": 40,
+    "safety_stock_units": 40
   },
   {
     "code_country": "125142",
@@ -3231,7 +3612,10 @@
     "sales_60d": 2047.1,
     "cost": 945.96,
     "COSTO_UNITARIO": 945.96,
-    "PRECIO": 1407.69
+    "PRECIO": 1407.69,
+    "min_coverage_qty": 100,
+    "min_coverage": 100,
+    "safety_stock_units": 100
   },
   {
     "code_country": "125143",
@@ -3256,7 +3640,10 @@
     "sales_60d": 150.24,
     "cost": 1343.71,
     "COSTO_UNITARIO": 1343.71,
-    "PRECIO": 1598.26
+    "PRECIO": 1598.26,
+    "min_coverage_qty": 10,
+    "min_coverage": 10,
+    "safety_stock_units": 10
   },
   {
     "code_country": "13560",
@@ -3282,7 +3669,10 @@
     "cost": 176.47,
     "COSTO_UNITARIO": 176.47,
     "PRECIO": 382.3,
-    "transit": 8
+    "transit": 8,
+    "min_coverage_qty": 6,
+    "min_coverage": 6,
+    "safety_stock_units": 6
   },
   {
     "code_country": "145182IN",
@@ -3306,7 +3696,10 @@
     "days_in_month_cut": 19,
     "cost": 301.26,
     "COSTO_UNITARIO": 301.26,
-    "PRECIO": 346.53
+    "PRECIO": 346.53,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "125130",
@@ -3331,7 +3724,10 @@
     "sales_60d": 5,
     "cost": 1352.94,
     "COSTO_UNITARIO": 1352.94,
-    "PRECIO": 1681.42
+    "PRECIO": 1681.42,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "13568",
@@ -3356,7 +3752,10 @@
     "sales_60d": 13.98,
     "cost": 2117.63,
     "COSTO_UNITARIO": 2117.63,
-    "PRECIO": 2956.8
+    "PRECIO": 2956.8,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "145191",
@@ -3381,7 +3780,10 @@
     "sales_60d": 68,
     "cost": 1294.13,
     "COSTO_UNITARIO": 1294.13,
-    "PRECIO": 1922.77
+    "PRECIO": 1922.77,
+    "min_coverage_qty": 6,
+    "min_coverage": 6,
+    "safety_stock_units": 6
   },
   {
     "code_country": "411",
@@ -3406,7 +3808,10 @@
     "sales_60d": 14,
     "cost": 889.29,
     "COSTO_UNITARIO": 889.29,
-    "PRECIO": 1089.11
+    "PRECIO": 1089.11,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "13561",
@@ -3431,7 +3836,10 @@
     "sales_60d": 108.43999999999998,
     "cost": 2941.18,
     "COSTO_UNITARIO": 2941.18,
-    "PRECIO": 3386.14
+    "PRECIO": 3386.14,
+    "min_coverage_qty": 5,
+    "min_coverage": 5,
+    "safety_stock_units": 5
   },
   {
     "code_country": "125150",
@@ -3457,7 +3865,10 @@
     "cost": 712.91,
     "COSTO_UNITARIO": 712.91,
     "PRECIO": 1425.25,
-    "transit": 96
+    "transit": 96,
+    "min_coverage_qty": 16,
+    "min_coverage": 16,
+    "safety_stock_units": 16
   },
   {
     "code_country": "125153",
@@ -3483,7 +3894,10 @@
     "cost": 1421.57,
     "COSTO_UNITARIO": 1421.57,
     "PRECIO": 1936.53,
-    "transit": 48
+    "transit": 48,
+    "min_coverage_qty": 80,
+    "min_coverage": 80,
+    "safety_stock_units": 80
   },
   {
     "code_country": "125180P",
@@ -3508,7 +3922,10 @@
     "sales_60d": 16.52,
     "cost": 1396.57,
     "COSTO_UNITARIO": 1396.57,
-    "PRECIO": 1905.94
+    "PRECIO": 1905.94,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "125159",
@@ -3534,7 +3951,10 @@
     "cost": 1122.89,
     "COSTO_UNITARIO": 1122.89,
     "PRECIO": 1693.07,
-    "transit": 96
+    "transit": 96,
+    "min_coverage_qty": 16,
+    "min_coverage": 16,
+    "safety_stock_units": 16
   },
   {
     "code_country": "125152N",
@@ -3560,7 +3980,10 @@
     "cost": 764.78,
     "COSTO_UNITARIO": 764.78,
     "PRECIO": 1176.24,
-    "transit": 20
+    "transit": 20,
+    "min_coverage_qty": 18,
+    "min_coverage": 18,
+    "safety_stock_units": 18
   },
   {
     "code_country": "13573",
@@ -3586,7 +4009,10 @@
     "cost": 201.92,
     "COSTO_UNITARIO": 201.92,
     "PRECIO": 427.72,
-    "transit": 8
+    "transit": 8,
+    "min_coverage_qty": 7,
+    "min_coverage": 7,
+    "safety_stock_units": 7
   },
   {
     "code_country": "2324",
@@ -3611,7 +4037,10 @@
     "sales_60d": 81,
     "cost": 1159.8,
     "COSTO_UNITARIO": 1159.8,
-    "PRECIO": 1681.42
+    "PRECIO": 1681.42,
+    "min_coverage_qty": 12,
+    "min_coverage": 12,
+    "safety_stock_units": 12
   },
   {
     "code_country": "21021",
@@ -3636,7 +4065,10 @@
     "sales_60d": 36.59,
     "cost": 2443.05,
     "COSTO_UNITARIO": 2443.05,
-    "PRECIO": 3088.5
+    "PRECIO": 3088.5,
+    "min_coverage_qty": 3,
+    "min_coverage": 3,
+    "safety_stock_units": 3
   },
   {
     "code_country": "2125",
@@ -3661,7 +4093,10 @@
     "sales_60d": 28,
     "cost": 1482.83,
     "COSTO_UNITARIO": 1482.83,
-    "PRECIO": 2566.37
+    "PRECIO": 2566.37,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "2331",
@@ -3686,7 +4121,10 @@
     "sales_60d": 152,
     "cost": 2077.31,
     "COSTO_UNITARIO": 2077.31,
-    "PRECIO": 2294.29
+    "PRECIO": 2294.29,
+    "min_coverage_qty": 9,
+    "min_coverage": 9,
+    "safety_stock_units": 9
   },
   {
     "code_country": "2131",
@@ -3711,7 +4149,10 @@
     "sales_60d": 100.89,
     "cost": 3115.46,
     "COSTO_UNITARIO": 3115.46,
-    "PRECIO": 4119.47
+    "PRECIO": 4119.47,
+    "min_coverage_qty": 8.2,
+    "min_coverage": 8.2,
+    "safety_stock_units": 8.2
   },
   {
     "code_country": "125170",
@@ -3737,7 +4178,10 @@
     "cost": 1465.25,
     "COSTO_UNITARIO": 1465.25,
     "PRECIO": 1758.42,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "125162",
@@ -3763,7 +4207,10 @@
     "cost": 764.7,
     "COSTO_UNITARIO": 764.7,
     "PRECIO": 1139.16,
-    "transit": 6
+    "transit": 6,
+    "min_coverage_qty": 20,
+    "min_coverage": 20,
+    "safety_stock_units": 20
   },
   {
     "code_country": "13571",
@@ -3789,7 +4236,10 @@
     "cost": 352.9,
     "COSTO_UNITARIO": 352.9,
     "PRECIO": 611.88,
-    "transit": 45
+    "transit": 45,
+    "min_coverage_qty": 45,
+    "min_coverage": 45,
+    "safety_stock_units": 45
   },
   {
     "code_country": "13581",
@@ -3814,7 +4264,10 @@
     "sales_60d": 3,
     "cost": 1259.95,
     "COSTO_UNITARIO": 1259.95,
-    "PRECIO": 1782.18
+    "PRECIO": 1782.18,
+    "min_coverage_qty": 1,
+    "min_coverage": 1,
+    "safety_stock_units": 1
   },
   {
     "code_country": "13582",
@@ -3840,7 +4293,10 @@
     "cost": 530.66,
     "COSTO_UNITARIO": 530.66,
     "PRECIO": 782.18,
-    "transit": 15
+    "transit": 15,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   },
   {
     "code_country": "13588",
@@ -3866,7 +4322,10 @@
     "cost": 519.6,
     "COSTO_UNITARIO": 519.6,
     "PRECIO": 791.29,
-    "transit": 45
+    "transit": 45,
+    "min_coverage_qty": 39,
+    "min_coverage": 39,
+    "safety_stock_units": 39
   },
   {
     "code_country": "1800",
@@ -3891,7 +4350,10 @@
     "sales_60d": 10.16,
     "cost": 824.09,
     "COSTO_UNITARIO": 824.09,
-    "PRECIO": 1061.95
+    "PRECIO": 1061.95,
+    "min_coverage_qty": 2,
+    "min_coverage": 2,
+    "safety_stock_units": 2
   },
   {
     "code_country": "125191",
@@ -3917,6 +4379,9 @@
     "cost": 476.89,
     "COSTO_UNITARIO": 476.89,
     "PRECIO": 614.3,
-    "transit": 45
+    "transit": 45,
+    "min_coverage_qty": 30,
+    "min_coverage": 30,
+    "safety_stock_units": 30
   }
 ]

@@ -296,7 +296,7 @@
                 <tr class="header-super">
                   <th colspan="3" class="grp-col grp-id">Código & Artículo</th>
                   <th colspan="4" class="grp-col grp-inv">Existencia & Venta Diaria</th>
-                  <th colspan="3" class="grp-col grp-mrp">Parámetros de Cobertura</th>
+                  <th colspan="3" class="grp-col grp-mrp">Parámetros de Reposición</th>
                   <th colspan="2" class="grp-col grp-order">Sugerido & Pedido Autorizado</th>
                   <th colspan="2" class="grp-col grp-fin">Valorización de Compra (₡)</th>
                   <th class="grp-col grp-act"></th>
@@ -311,7 +311,7 @@
                   <th style="width: 65px;" class="text-right sortable" data-sort="stockActual" title="Existencia física disponible en Bodega Central CODISA">STOCK <i class="fa-solid fa-sort sort-icon"></i></th>
                   <th style="width: 65px;" class="text-right sortable" data-sort="activeTransit" title="Pedidos en Tránsito Activos (72h Lead Time)">TRÁNS. <i class="fa-solid fa-sort sort-icon"></i></th>
                   <th style="width: 65px;" class="text-right sortable" data-sort="projectedStock" title="Disponibilidad Proyectada = Stock Físico + En Tránsito">PROY. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th style="width: 52px;" class="text-center sortable" data-sort="targetCoverageDays" title="Días de venta a cubrir + Stock de Seguridad">META <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th style="width: 58px;" class="text-center sortable" data-sort="minCoverageUnits" title="Cobertura Mínima requerida en Unidades (Stock de Seguridad fijo)">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
                   <th style="width: 68px;" class="text-center sortable" data-sort="coverageDaysResult" title="Días de cobertura efectiva con inventario proyectado">COBERT. <i class="fa-solid fa-sort sort-icon"></i></th>
                   <th style="width: 50px;" class="text-center sortable" data-sort="packMultiple" title="Unidades por bulto / caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
                   <th style="width: 76px;" class="text-right sortable" data-sort="suggestedUnits" title="Sugerido automático de reposición">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
@@ -334,7 +334,7 @@
         <div class="section-header">
           <div>
             <h2>Maestro de Artículos & Parámetros Base</h2>
-            <p>Configuración directa de códigos de venta (Country), códigos de pedido (Frumusa), unidades, múltiplos de bulto y días de cobertura mínima.</p>
+            <p>Configuración directa de códigos de venta (Country), códigos de pedido (Frumusa), unidades, múltiplos de bulto y cobertura mínima (unidades).</p>
           </div>
         </div>
 
@@ -379,7 +379,7 @@
                   <th>DESCRIPCIÓN DEL ARTÍCULO</th>
                   <th style="width: 85px;" class="text-center">UNIDAD</th>
                   <th style="width: 110px;" class="text-center">UNID / BULTO</th>
-                  <th style="width: 130px;" class="text-center">COBERTURA MÍNIMA (DÍAS)</th>
+                  <th style="width: 130px;" class="text-center">COBERTURA MÍNIMA (UND)</th>
                   <th style="width: 70px;" class="text-center">ACCIÓN</th>
                 </tr>
               </thead>

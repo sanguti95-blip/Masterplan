@@ -6347,7 +6347,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.911361256544503,
     "Stock": 0,
-    "Covertura meta": 3,
+    "Covertura meta": 7,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -6355,7 +6355,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 19,
     "Costo de pedido": 0,
     "Costo unitario": 924.63,
-    "Transito": 30
+    "Transito": 30,
+    "Cobertura minima": 7
   },
   {
     "Código country": 683,
@@ -6366,7 +6367,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 56.70157068062827,
     "Stock": 253,
     "Transito": 3,
-    "Covertura meta": 3,
+    "Covertura meta": 160,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 40,
     "Cobertura actual": 4.162142197599262,
@@ -6374,7 +6375,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 160,
     "PEDIDO FINAL": 4,
     "Costo de pedido": 1521.72,
-    "Costo unitario": 403.94
+    "Costo unitario": 403.94,
+    "Cobertura minima": 160
   },
   {
     "Código country": "684p",
@@ -6385,7 +6387,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 21.554973821989527,
     "Stock": 33.8333,
     "Transito": 80,
-    "Covertura meta": 3,
+    "Covertura meta": 60,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 8.675491863007045,
@@ -6393,7 +6395,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 53867.600000000006,
-    "Costo unitario": 1188.59
+    "Costo unitario": 1188.59,
+    "Cobertura minima": 60
   },
   {
     "Código country": 775,
@@ -6403,7 +6406,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 8.31413612565445,
     "Stock": 47,
-    "Covertura meta": 5,
+    "Covertura meta": 85,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 85,
     "Cobertura actual": 8.539672544080604,
@@ -6411,7 +6414,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 118.89,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 85
   },
   {
     "Código country": 773,
@@ -6421,7 +6425,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.8324607329842932,
     "Stock": 56,
-    "Covertura meta": 5,
+    "Covertura meta": 20,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 20,
     "Cobertura actual": 14.734285714285713,
@@ -6430,7 +6434,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 1,
     "Costo de pedido": 527.27,
     "Costo unitario": 482.5,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 20
   },
   {
     "Código country": 700,
@@ -6440,7 +6445,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.8848167539267016,
     "Stock": 25,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 0.5305555555555556,
@@ -6449,7 +6454,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 1,
     "Costo de pedido": 1150.69,
     "Costo unitario": 912.5,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 10
   },
   {
     "Código country": 779,
@@ -6459,7 +6465,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.33507853403141363,
     "Stock": 21,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 14.921874999999998,
@@ -6468,7 +6474,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 1,
     "Costo de pedido": 1200.36,
     "Costo unitario": 1153.71,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 10
   },
   {
     "Código country": "11554X",
@@ -6479,7 +6486,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.518324607329843,
     "Stock": 3,
     "Transito": 4,
-    "Covertura meta": 3,
+    "Covertura meta": 12,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 4,
     "Cobertura actual": 13.5010395010395,
@@ -6487,7 +6494,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 6,
     "Costo de pedido": 5765.34,
-    "Costo unitario": 735.29
+    "Costo unitario": 735.29,
+    "Cobertura minima": 12
   },
   {
     "Código country": 11554,
@@ -6497,7 +6505,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.7382198952879582,
     "Stock": 1,
-    "Covertura meta": 3,
+    "Covertura meta": 4,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 6.903614457831325,
@@ -6506,7 +6514,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1134.96,
     "Costo unitario": 176.25,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 4
   },
   {
     "Código country": "11555B",
@@ -6516,7 +6525,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.02617801047120419,
     "Stock": 0,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -6524,7 +6533,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 1,
     "Costo de pedido": 0,
     "Costo unitario": 1764.71,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 11556,
@@ -6543,7 +6553,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 4,
     "Costo de pedido": 2651.52,
-    "Costo unitario": 647.06
+    "Costo unitario": 647.06,
+    "Cobertura minima": 3
   },
   {
     "Código country": 11511,
@@ -6554,7 +6565,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.0016230366492146597,
     "Stock": 2.72,
     "Transito": 30,
-    "Covertura meta": 3,
+    "Covertura meta": 20,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 45673.64516129032,
@@ -6562,7 +6573,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 20,
     "Costo de pedido": 10,
-    "Costo unitario": 1115.82
+    "Costo unitario": 1115.82,
+    "Cobertura minima": 20
   },
   {
     "Código country": 5125,
@@ -6572,7 +6584,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.994764397905759,
     "Stock": 1,
-    "Covertura meta": 3,
+    "Covertura meta": 12,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 12,
     "Cobertura actual": 8.681818181818182,
@@ -6581,7 +6593,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 10037.64,
     "Costo unitario": 919.74,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 12
   },
   {
     "Código country": "5125B",
@@ -6592,14 +6605,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.6596858638743456,
     "Stock": 1,
     "Transito": 2,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 10.61111111111111,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 3470
+    "Costo unitario": 3470,
+    "Cobertura minima": 2
   },
   {
     "Código country": 16579,
@@ -6610,14 +6624,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.12041884816753927,
     "Stock": 12,
     "Transito": 2,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 16.608695652173914,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 2941.18
+    "Costo unitario": 2941.18,
+    "Cobertura minima": 1
   },
   {
     "Código country": 17512,
@@ -6628,14 +6643,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.20418848167539266,
     "Stock": 0,
     "Transito": 2,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 29.384615384615387,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 705.88
+    "Costo unitario": 705.88,
+    "Cobertura minima": 1
   },
   {
     "Código country": 16875,
@@ -6646,7 +6662,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.5863874345549738,
     "Stock": 11,
     "Transito": 2,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 20.464285714285715,
@@ -6654,7 +6670,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 4,
     "Costo de pedido": 4437.64,
-    "Costo unitario": 1176.46
+    "Costo unitario": 1176.46,
+    "Cobertura minima": 2
   },
   {
     "Código country": 12597,
@@ -6672,7 +6689,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 737.35,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 5
   },
   {
     "Código country": 12511,
@@ -6683,14 +6701,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 7.808376963350786,
     "Stock": 137.64,
     "Transito": 40,
-    "Covertura meta": 7,
+    "Covertura meta": 24,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 12,
     "Cobertura actual": 19.956772160386212,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 293.85
+    "Costo unitario": 293.85,
+    "Cobertura minima": 24
   },
   {
     "Código country": 12512,
@@ -6701,7 +6720,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.56020942408377,
     "Stock": 0,
     "Transito": 6,
-    "Covertura meta": 3,
+    "Covertura meta": 8,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 6.640081799591002,
@@ -6709,7 +6728,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 8,
     "PEDIDO FINAL": 8,
     "Costo de pedido": 3627.76,
-    "Costo unitario": 556.28
+    "Costo unitario": 556.28,
+    "Cobertura minima": 8
   },
   {
     "Código country": 12521,
@@ -6720,14 +6740,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.963350785340314,
     "Stock": 7,
     "Transito": 6,
-    "Covertura meta": 3,
+    "Covertura meta": 11,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 18.845333333333333,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 410.53
+    "Costo unitario": 410.53,
+    "Cobertura minima": 11
   },
   {
     "Código country": 12531,
@@ -6738,7 +6759,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.6949214659685863,
     "Stock": 9.82,
     "Transito": 20,
-    "Covertura meta": 3,
+    "Covertura meta": 21,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 7,
     "Cobertura actual": 12.454933189746786,
@@ -6746,7 +6767,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 20,
     "Costo de pedido": 21978,
-    "Costo unitario": 1608.83
+    "Costo unitario": 1608.83,
+    "Cobertura minima": 21
   },
   {
     "Código country": 1351,
@@ -6757,7 +6779,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 6.191361256544503,
     "Stock": 18.17,
     "Transito": 10,
-    "Covertura meta": 7,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 13.202266288951844,
@@ -6765,7 +6787,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 15,
     "Costo de pedido": 11262.6,
-    "Costo unitario": 1031.12
+    "Costo unitario": 1031.12,
+    "Cobertura minima": 30
   },
   {
     "Código country": 1353,
@@ -6775,7 +6798,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.20340314136125656,
     "Stock": 0,
-    "Covertura meta": 5,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -6783,7 +6806,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 2,
     "Costo de pedido": 0,
     "Costo unitario": 919.6,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 14511,
@@ -6794,14 +6818,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.518324607329843,
     "Stock": 13,
     "Transito": 6,
-    "Covertura meta": 5,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 17.363636363636363,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 470.45
+    "Costo unitario": 470.45,
+    "Cobertura minima": 2
   },
   {
     "Código country": 14514,
@@ -6819,7 +6844,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 588.24,
-    "Transito": 2
+    "Transito": 2,
+    "Cobertura minima": 5
   },
   {
     "Código country": 14565,
@@ -6829,7 +6855,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.3846073298429319,
     "Stock": 18.04,
-    "Covertura meta": 5,
+    "Covertura meta": 3,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 9.958208548870134,
@@ -6837,7 +6863,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 941.18,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 3
   },
   {
     "Código country": "12554P",
@@ -6847,7 +6874,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 3.167539267015707,
     "Stock": 1,
-    "Covertura meta": 7,
+    "Covertura meta": 15,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 0,
@@ -6855,7 +6882,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 45,
     "Costo de pedido": 0,
     "Costo unitario": 535.91,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 15
   },
   {
     "Código country": 125581,
@@ -6865,7 +6893,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.382408376963351,
     "Stock": 59.09,
-    "Covertura meta": 7,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 16.673883614627286,
@@ -6874,7 +6902,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 15,
     "Costo de pedido": 11606.55,
     "Costo unitario": 953.82,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 10
   },
   {
     "Código country": 12554,
@@ -6885,7 +6914,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 14.450895287958115,
     "Stock": 96.53,
     "Transito": 45,
-    "Covertura meta": 7,
+    "Covertura meta": 45,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 11.176470161996521,
@@ -6893,7 +6922,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 15,
     "PEDIDO FINAL": 15,
     "Costo de pedido": 11067.15,
-    "Costo unitario": 958.45
+    "Costo unitario": 958.45,
+    "Cobertura minima": 45
   },
   {
     "Código country": 125542,
@@ -6904,7 +6934,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.9312565445026177,
     "Stock": 11.23,
     "Transito": 30,
-    "Covertura meta": 7,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 47.23867487190609,
@@ -6912,7 +6942,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 30,
     "Costo de pedido": 23887.5,
-    "Costo unitario": 962.85
+    "Costo unitario": 962.85,
+    "Cobertura minima": 30
   },
   {
     "Código country": "12547G",
@@ -6922,7 +6953,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.270523560209424,
     "Stock": 34.64,
-    "Covertura meta": 7,
+    "Covertura meta": 15,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 23.67295408951507,
@@ -6931,7 +6962,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 15,
     "Costo de pedido": 20941.649999999998,
     "Costo unitario": 1103.03,
-    "Transito": 15
+    "Transito": 15,
+    "Cobertura minima": 15
   },
   {
     "Código country": "12553K",
@@ -6941,7 +6973,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.005235602094240838,
     "Stock": 379409,
-    "Covertura meta": 7,
+    "Covertura meta": 12,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 12,
     "Cobertura actual": 6482.711899999999,
@@ -6949,7 +6981,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 444.45,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 12
   },
   {
     "Código country": 12552,
@@ -6960,7 +6993,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 6.492146596858639,
     "Stock": 25,
     "Transito": 15,
-    "Covertura meta": 3,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 12.630645161290323,
@@ -6968,7 +7001,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 30,
     "Costo de pedido": 9438.9,
-    "Costo unitario": 294.14
+    "Costo unitario": 294.14,
+    "Cobertura minima": 30
   },
   {
     "Código country": 12561,
@@ -6978,7 +7012,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 3.099476439790576,
     "Stock": 23,
-    "Covertura meta": 5,
+    "Covertura meta": 11,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 8.711148648648647,
@@ -6987,7 +7021,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 24,
     "Costo de pedido": 8495.039999999999,
     "Costo unitario": 635.3,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 11
   },
   {
     "Código country": 12562,
@@ -6997,7 +7032,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.8586387434554974,
     "Stock": 5,
-    "Covertura meta": 5,
+    "Covertura meta": 4,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 10.481707317073171,
@@ -7005,7 +7040,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 532.21,
-    "Transito": 4
+    "Transito": 4,
+    "Cobertura minima": 4
   },
   {
     "Código country": 12563,
@@ -7016,7 +7052,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 8.591623036649215,
     "Stock": 28,
     "Transito": 20,
-    "Covertura meta": 8,
+    "Covertura meta": 40,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 11.057282145033515,
@@ -7024,7 +7060,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 70,
     "PEDIDO FINAL": 60,
     "Costo de pedido": 14201.4,
-    "Costo unitario": 312.9
+    "Costo unitario": 312.9,
+    "Cobertura minima": 40
   },
   {
     "Código country": 12613,
@@ -7034,7 +7071,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 3.910994764397906,
     "Stock": 30,
-    "Covertura meta": 8,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 12.273092369477911,
@@ -7043,7 +7080,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 3542.2799999999997,
     "Costo unitario": 517.56,
-    "Transito": 10
+    "Transito": 10,
+    "Cobertura minima": 10
   },
   {
     "Código country": 125641,
@@ -7053,7 +7091,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.774869109947644,
     "Stock": 0,
-    "Covertura meta": 5,
+    "Covertura meta": 3,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 3,
     "Cobertura actual": 0,
@@ -7061,7 +7099,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 9,
     "Costo de pedido": 0,
     "Costo unitario": 588.2,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 3
   },
   {
     "Código country": 12570,
@@ -7071,7 +7110,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 3.445026178010471,
     "Stock": 1,
-    "Covertura meta": 5,
+    "Covertura meta": 8,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -7079,7 +7118,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 30,
     "Costo de pedido": 0,
     "Costo unitario": 287.26,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 8
   },
   {
     "Código country": 13617,
@@ -7089,7 +7129,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.012408376963350785,
     "Stock": 2,
-    "Covertura meta": 5,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -7097,7 +7137,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 1,
     "Costo de pedido": 0,
     "Costo unitario": 791.5,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": "12570P",
@@ -7108,7 +7149,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 14.205061256544504,
     "Stock": 0,
     "Transito": 30,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 7.884513693906091,
@@ -7116,7 +7157,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 21,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 49767.600000000006,
-    "Costo unitario": 505.19
+    "Costo unitario": 505.19,
+    "Cobertura minima": 1
   },
   {
     "Código country": 12575,
@@ -7126,7 +7168,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.6282722513089005,
     "Stock": 11,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 7.958333333333333,
@@ -7135,7 +7177,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 2,
     "Costo de pedido": 2104.78,
     "Costo unitario": 1117.64,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 12576,
@@ -7145,7 +7188,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.49214659685863876,
     "Stock": 0,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -7153,7 +7196,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 4,
     "Costo de pedido": 0,
     "Costo unitario": 538.62,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 12584,
@@ -7163,7 +7207,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.74565445026178,
     "Stock": 5.13,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 2,
     "Cobertura actual": 15.945723915180455,
@@ -7171,7 +7215,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 2106.47,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 12603,
@@ -7182,7 +7227,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 18.23560209424084,
     "Stock": 0,
     "Transito": 120,
-    "Covertura meta": 3,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 40,
     "Cobertura actual": 7.56761412575366,
@@ -7190,7 +7235,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 80,
     "PEDIDO FINAL": 80,
     "Costo de pedido": 31111.199999999997,
-    "Costo unitario": 512.92
+    "Costo unitario": 512.92,
+    "Cobertura minima": 80
   },
   {
     "Código country": 12588,
@@ -7200,7 +7246,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.2513089005235602,
     "Stock": 4,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 47.75,
@@ -7208,7 +7254,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1058.82,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 4341,
@@ -7218,7 +7265,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.8015706806282722,
     "Stock": 26.52,
-    "Covertura meta": 5,
+    "Covertura meta": 9,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 9,
     "Cobertura actual": 12.05133899412149,
@@ -7227,7 +7274,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 1,
     "Costo de pedido": 1572.96,
     "Costo unitario": 2634.85,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 9
   },
   {
     "Código country": 14522,
@@ -7238,14 +7286,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.041884816753926704,
     "Stock": 28,
     "Transito": 10,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 668.5,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 566.58
+    "Costo unitario": 566.58,
+    "Cobertura minima": 10
   },
   {
     "Código country": 12591,
@@ -7256,7 +7305,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.581151832460733,
     "Stock": 5,
     "Transito": 6,
-    "Covertura meta": 3,
+    "Covertura meta": 15,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 3,
     "Cobertura actual": 9.494152046783626,
@@ -7264,7 +7313,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 3,
     "PEDIDO FINAL": 12,
     "Costo de pedido": 9929.039999999999,
-    "Costo unitario": 871.55
+    "Costo unitario": 871.55,
+    "Cobertura minima": 15
   },
   {
     "Código country": "11522N",
@@ -7275,7 +7325,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 37.49738219895288,
     "Stock": 0,
     "Transito": 100,
-    "Covertura meta": 3,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 20,
     "Cobertura actual": 8.079497347109747,
@@ -7283,7 +7333,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 15220,
-    "Costo unitario": 293.01
+    "Costo unitario": 293.01,
+    "Cobertura minima": 80
   },
   {
     "Código country": 11524,
@@ -7294,7 +7345,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 12.743455497382199,
     "Stock": 147,
     "Transito": 30,
-    "Covertura meta": 3,
+    "Covertura meta": 40,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 20,
     "Cobertura actual": 14.909613804437141,
@@ -7302,7 +7353,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 12804.400000000001,
-    "Costo unitario": 319.03
+    "Costo unitario": 319.03,
+    "Cobertura minima": 40
   },
   {
     "Código country": "13111CU",
@@ -7313,14 +7365,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.12094240837696336,
     "Stock": 13.17,
     "Transito": 5,
-    "Covertura meta": 5,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 63.83203463203463,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 1123.16
+    "Costo unitario": 1123.16,
+    "Cobertura minima": 1
   },
   {
     "Código country": 16592,
@@ -7331,14 +7384,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 4.816753926701571,
     "Stock": 29,
     "Transito": 20,
-    "Covertura meta": 3,
+    "Covertura meta": 20,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 20,
     "Cobertura actual": 9.757608695652173,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 352.9
+    "Costo unitario": 352.9,
+    "Cobertura minima": 20
   },
   {
     "Código country": 16593,
@@ -7348,7 +7402,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.7225130890052356,
     "Stock": 0,
-    "Covertura meta": 5,
+    "Covertura meta": 18,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 48.18541033434651,
@@ -7356,7 +7410,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 178.08,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 18
   },
   {
     "Código country": 125111,
@@ -7366,7 +7421,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.7905759162303665,
     "Stock": 23,
-    "Covertura meta": 5,
+    "Covertura meta": 11,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 11,
     "Cobertura actual": 26.562913907284766,
@@ -7374,7 +7429,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 4087.37,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 11
   },
   {
     "Código country": 11531,
@@ -7385,7 +7441,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 7.439790575916231,
     "Stock": 33,
     "Transito": 20,
-    "Covertura meta": 3,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 6.720619282195637,
@@ -7393,7 +7449,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 30,
     "PEDIDO FINAL": 30,
     "Costo de pedido": 12267.9,
-    "Costo unitario": 350.53
+    "Costo unitario": 350.53,
+    "Cobertura minima": 30
   },
   {
     "Código country": "15524A",
@@ -7404,14 +7461,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.073298429319372,
     "Stock": 11,
     "Transito": 6,
-    "Covertura meta": 3,
+    "Covertura meta": 8,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 10.086882453151619,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 1151.48
+    "Costo unitario": 1151.48,
+    "Cobertura minima": 8
   },
   {
     "Código country": 15521,
@@ -7422,7 +7480,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.094240837696335,
     "Stock": 7,
     "Transito": 10,
-    "Covertura meta": 3,
+    "Covertura meta": 8,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 11.634517766497462,
@@ -7430,7 +7488,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 12,
     "Costo de pedido": 9429,
-    "Costo unitario": 752.02
+    "Costo unitario": 752.02,
+    "Cobertura minima": 8
   },
   {
     "Código country": 17558,
@@ -7441,14 +7500,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.5654450261780105,
     "Stock": 7,
     "Transito": 2,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 10.61111111111111,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 811.76
+    "Costo unitario": 811.76,
+    "Cobertura minima": 2
   },
   {
     "Código country": 17557,
@@ -7459,7 +7519,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.7853403141361257,
     "Stock": 2,
     "Transito": 40,
-    "Covertura meta": 3,
+    "Covertura meta": 14,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 16.907330567081605,
@@ -7467,7 +7527,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 30,
     "Costo de pedido": 28396.8,
-    "Costo unitario": 1000.15
+    "Costo unitario": 1000.15,
+    "Cobertura minima": 14
   },
   {
     "Código country": 15531,
@@ -7477,7 +7538,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 13.769633507853403,
     "Stock": 0,
-    "Covertura meta": 7,
+    "Covertura meta": 50,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 50,
     "Cobertura actual": 0,
@@ -7485,7 +7546,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 150,
     "Costo de pedido": 0,
     "Costo unitario": 250.99,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 50
   },
   {
     "Código country": 14551,
@@ -7503,7 +7565,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 5,
     "Costo de pedido": 0,
     "Costo unitario": 1000,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 5
   },
   {
     "Código country": 14561,
@@ -7514,14 +7577,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.6587434554973821,
     "Stock": 42.91,
     "Transito": 10,
-    "Covertura meta": 3,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 5,
     "Cobertura actual": 14.806388485575406,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 798.2
+    "Costo unitario": 798.2,
+    "Cobertura minima": 10
   },
   {
     "Código country": 14515,
@@ -7532,7 +7596,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 17.51832460732984,
     "Stock": 430.31,
     "Transito": 120,
-    "Covertura meta": 5,
+    "Covertura meta": 60,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 60,
     "Cobertura actual": 13.699940227136882,
@@ -7540,7 +7604,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 60,
     "PEDIDO FINAL": 120,
     "Costo de pedido": 4327.200000000001,
-    "Costo unitario": 35.3
+    "Costo unitario": 35.3,
+    "Cobertura minima": 60
   },
   {
     "Código country": 16624,
@@ -7551,7 +7616,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.198952879581152,
     "Stock": 0,
     "Transito": 4,
-    "Covertura meta": 3,
+    "Covertura meta": 4,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 12.510917030567684,
@@ -7559,7 +7624,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1056.1200000000001,
-    "Costo unitario": 176.48
+    "Costo unitario": 176.48,
+    "Cobertura minima": 4
   },
   {
     "Código country": "16624X",
@@ -7569,7 +7635,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.7329842931937174,
     "Stock": 4,
-    "Covertura meta": 3,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 5,
     "Cobertura actual": 21.927492447129907,
@@ -7578,7 +7644,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 3873.52,
     "Costo unitario": 734.75,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 10
   },
   {
     "Código country": "13580H",
@@ -7597,7 +7664,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 9962.28,
     "Costo unitario": 823.53,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 3
   },
   {
     "Código country": 5533,
@@ -7608,7 +7676,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.3664921465968587,
     "Stock": 4,
     "Transito": 4,
-    "Covertura meta": 3,
+    "Covertura meta": 6,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 11.708812260536398,
@@ -7616,7 +7684,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 4,
     "Costo de pedido": 5180.76,
-    "Costo unitario": 1294.12
+    "Costo unitario": 1294.12,
+    "Cobertura minima": 6
   },
   {
     "Código country": 5536,
@@ -7626,7 +7695,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.2198952879581152,
     "Stock": 6,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 9.095238095238095,
@@ -7634,7 +7703,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1411.76,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 5535,
@@ -7644,7 +7714,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.20418848167539266,
     "Stock": 33,
-    "Covertura meta": 3,
+    "Covertura meta": 4,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 24.48717948717949,
@@ -7652,7 +7722,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1568.86,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 4
   },
   {
     "Código country": 5538,
@@ -7663,7 +7734,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.774869109947644,
     "Stock": 1,
     "Transito": 4,
-    "Covertura meta": 3,
+    "Covertura meta": 4,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 23.22972972972973,
@@ -7671,7 +7742,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 4,
     "Costo de pedido": 5155.56,
-    "Costo unitario": 1294.06
+    "Costo unitario": 1294.06,
+    "Cobertura minima": 4
   },
   {
     "Código country": 13513,
@@ -7681,7 +7753,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.60282722513089,
     "Stock": 27.03,
-    "Covertura meta": 3,
+    "Covertura meta": 4,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 2,
     "Cobertura actual": 21.929998262984196,
@@ -7690,7 +7762,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 5,
     "Costo de pedido": 4866.6,
     "Costo unitario": 1014.71,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 4
   },
   {
     "Código country": 125972,
@@ -7701,7 +7774,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.4293193717277487,
     "Stock": 5,
     "Transito": 4,
-    "Covertura meta": 3,
+    "Covertura meta": 4,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 23.29268292682927,
@@ -7709,7 +7782,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 4,
     "Costo de pedido": 1638.6,
-    "Costo unitario": 411.76
+    "Costo unitario": 411.76,
+    "Cobertura minima": 4
   },
   {
     "Código country": 5341,
@@ -7719,7 +7793,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 12.141361256544503,
     "Stock": 146,
-    "Covertura meta": 3,
+    "Covertura meta": 37,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 12.4368262181975,
@@ -7727,7 +7801,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 177.27,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 37
   },
   {
     "Código country": 115412,
@@ -7738,7 +7813,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 14.151832460732985,
     "Stock": 2,
     "Transito": 30,
-    "Covertura meta": 4,
+    "Covertura meta": 56,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 4,
     "Cobertura actual": 10.034036256011838,
@@ -7746,7 +7821,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 8,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 23317.600000000002,
-    "Costo unitario": 588.24
+    "Costo unitario": 588.24,
+    "Cobertura minima": 56
   },
   {
     "Código country": 11541,
@@ -7764,7 +7840,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 28,
     "Costo de pedido": 0,
     "Costo unitario": 294.12,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 4
   },
   {
     "Código country": 11580,
@@ -7774,7 +7851,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.9947643979057592,
     "Stock": 0,
-    "Covertura meta": 4,
+    "Covertura meta": 18,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 6,
     "Cobertura actual": 0,
@@ -7782,7 +7859,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 18,
     "Costo de pedido": 0,
     "Costo unitario": 237.36,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 18
   },
   {
     "Código country": 11590,
@@ -7793,14 +7871,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.3612565445026177,
     "Stock": 13,
     "Transito": 10,
-    "Covertura meta": 4,
+    "Covertura meta": 20,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 17.363636363636363,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 235.38
+    "Costo unitario": 235.38,
+    "Cobertura minima": 20
   },
   {
     "Código country": 11548,
@@ -7811,7 +7890,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.193717277486911,
     "Stock": 5,
     "Transito": 6,
-    "Covertura meta": 4,
+    "Covertura meta": 6,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 6,
     "Cobertura actual": 42.723684210526315,
@@ -7819,7 +7898,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1773.2400000000002,
-    "Costo unitario": 294.12
+    "Costo unitario": 294.12,
+    "Cobertura minima": 6
   },
   {
     "Código country": 11547,
@@ -7830,7 +7910,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.1518324607329844,
     "Stock": 3,
     "Transito": 12,
-    "Covertura meta": 4,
+    "Covertura meta": 12,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 6,
     "Cobertura actual": 25.094890510948904,
@@ -7838,7 +7918,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1769.52,
-    "Costo unitario": 294.12
+    "Costo unitario": 294.12,
+    "Cobertura minima": 12
   },
   {
     "Código country": 11540,
@@ -7848,7 +7929,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.3769633507853403,
     "Stock": 0,
-    "Covertura meta": 4,
+    "Covertura meta": 3,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -7856,7 +7937,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 3,
     "Costo de pedido": 0,
     "Costo unitario": 470.58,
-    "Transito": 12
+    "Transito": 12,
+    "Cobertura minima": 3
   },
   {
     "Código country": 14585,
@@ -7866,7 +7948,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 40.55497382198953,
     "Stock": 11,
-    "Covertura meta": 5,
+    "Covertura meta": 125,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 125,
     "Cobertura actual": 2.441130906274206,
@@ -7874,7 +7956,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 250,
     "Costo de pedido": 0,
     "Costo unitario": 75.73,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 125
   },
   {
     "Código country": "14585P",
@@ -7885,7 +7968,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 9.701570680628272,
     "Stock": 18,
     "Transito": 20,
-    "Covertura meta": 5,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 21.74905558553697,
@@ -7893,7 +7976,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 46284,
-    "Costo unitario": 765.98
+    "Costo unitario": 765.98,
+    "Cobertura minima": 30
   },
   {
     "Código country": "14575P",
@@ -7904,7 +7988,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 7.141361256544503,
     "Stock": 102,
     "Transito": 20,
-    "Covertura meta": 5,
+    "Covertura meta": 20,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 22.68475073313783,
@@ -7912,7 +7996,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 56997.200000000004,
-    "Costo unitario": 994.07
+    "Costo unitario": 994.07,
+    "Cobertura minima": 20
   },
   {
     "Código country": 14575,
@@ -7922,7 +8007,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 12.905759162303665,
     "Stock": 16,
-    "Covertura meta": 5,
+    "Covertura meta": 100,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 100,
     "Cobertura actual": 7.593509127789046,
@@ -7930,7 +8015,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 100,
     "Costo de pedido": 0,
     "Costo unitario": 124.26,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 100
   },
   {
     "Código country": 12593,
@@ -7941,7 +8027,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 4.539267015706806,
     "Stock": 23,
     "Transito": 20,
-    "Covertura meta": 3,
+    "Covertura meta": 13,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 6.829296424452134,
@@ -7949,7 +8035,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 5,
     "PEDIDO FINAL": 6,
     "Costo de pedido": 7663.200000000001,
-    "Costo unitario": 1529.38
+    "Costo unitario": 1529.38,
+    "Cobertura minima": 13
   },
   {
     "Código country": 14590,
@@ -7959,7 +8046,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.7729842931937172,
     "Stock": 115.28,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 66.27808291991497,
@@ -7967,7 +8054,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 2559.05,
-    "Transito": 8
+    "Transito": 8,
+    "Cobertura minima": 10
   },
   {
     "Código country": 14607,
@@ -7977,7 +8065,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 17.863350785340316,
     "Stock": 277.42,
-    "Covertura meta": 8,
+    "Covertura meta": 68,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 17,
     "Cobertura actual": 4.638295524487822,
@@ -7986,7 +8074,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 19809,
     "Costo unitario": 891.54,
-    "Transito": 40
+    "Transito": 40,
+    "Cobertura minima": 68
   },
   {
     "Código country": "13150B",
@@ -7996,7 +8085,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 11.413612565445026,
     "Stock": 105,
-    "Covertura meta": 5,
+    "Covertura meta": 19,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 19.88853211009174,
@@ -8004,7 +8093,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1130.51,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 19
   },
   {
     "Código country": "145137K",
@@ -8022,7 +8112,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 2,
     "Costo de pedido": 0,
     "Costo unitario": 588.24,
-    "Transito": 2
+    "Transito": 2,
+    "Cobertura minima": 5
   },
   {
     "Código country": "11080F",
@@ -8032,7 +8123,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.5392670157068062,
     "Stock": 0,
-    "Covertura meta": 5,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 80,
     "Cobertura actual": 0,
@@ -8040,7 +8131,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 80,
     "Costo de pedido": 0,
     "Costo unitario": 297.66,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 80
   },
   {
     "Código country": "11080G",
@@ -8050,7 +8142,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 4.455497382198953,
     "Stock": 110,
-    "Covertura meta": 5,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 80,
     "Cobertura actual": 20.873090481786136,
@@ -8058,7 +8150,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 223.7,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 80
   },
   {
     "Código country": "11080A",
@@ -8068,7 +8161,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.8010471204188482,
     "Stock": 0,
-    "Covertura meta": 5,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 80,
     "Cobertura actual": 0,
@@ -8076,7 +8169,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 80,
     "Costo de pedido": 0,
     "Costo unitario": 297.5,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 80
   },
   {
     "Código country": "11080S",
@@ -8086,7 +8180,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 7.643979057591623,
     "Stock": 80,
-    "Covertura meta": 5,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 80,
     "Cobertura actual": 16.483561643835618,
@@ -8094,7 +8188,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 227.61,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 80
   },
   {
     "Código country": 11080,
@@ -8104,7 +8199,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 8.167539267015707,
     "Stock": 110,
-    "Covertura meta": 5,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 80,
     "Cobertura actual": 8.692948717948719,
@@ -8112,7 +8207,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 283.64,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 80
   },
   {
     "Código country": 145102,
@@ -8123,14 +8219,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.0243979057591623,
     "Stock": 25.37,
     "Transito": 5,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 5,
     "Cobertura actual": 15.199172033118675,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 1525.81
+    "Costo unitario": 1525.81,
+    "Cobertura minima": 10
   },
   {
     "Código country": 4321,
@@ -8140,7 +8237,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.3545549738219895,
     "Stock": 7.89,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 24.453189604252806,
@@ -8148,7 +8245,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1713.6,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 10
   },
   {
     "Código country": 911,
@@ -8158,7 +8256,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 4,
     "Stock": 0,
-    "Covertura meta": 5,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -8166,7 +8264,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 34,
     "Costo de pedido": 0,
     "Costo unitario": 728.59,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 145128,
@@ -8176,7 +8275,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 14.900052356020941,
     "Stock": 3.69,
-    "Covertura meta": 5,
+    "Covertura meta": 3,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -8184,7 +8283,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 127,
     "Costo de pedido": 0,
     "Costo unitario": 905.88,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 3
   },
   {
     "Código country": 16535,
@@ -8194,7 +8294,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.010471204188481676,
     "Stock": 9,
-    "Covertura meta": 5,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -8202,7 +8302,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 1,
     "Costo de pedido": 0,
     "Costo unitario": 176.47,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 125121,
@@ -8212,7 +8313,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.34554973821989526,
     "Stock": 10,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 8.681818181818182,
@@ -8220,7 +8321,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1411.76,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 12617,
@@ -8230,7 +8332,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.35602094240837695,
     "Stock": 0,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -8238,7 +8340,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 3,
     "Costo de pedido": 0,
     "Costo unitario": 500.02,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 11551,
@@ -8249,7 +8352,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 1.361256544502618,
     "Stock": 23,
     "Transito": 6,
-    "Covertura meta": 3,
+    "Covertura meta": 8,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 4,
     "Cobertura actual": 18.365384615384613,
@@ -8257,7 +8360,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 6,
     "Costo de pedido": 2473.62,
-    "Costo unitario": 411.76
+    "Costo unitario": 411.76,
+    "Cobertura minima": 8
   },
   {
     "Código country": 13521,
@@ -8276,7 +8380,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 5,
     "Costo de pedido": 5292.799999999999,
     "Costo unitario": 1239.88,
-    "Transito": 5
+    "Transito": 5,
+    "Cobertura minima": 5
   },
   {
     "Código country": 145143,
@@ -8287,7 +8392,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 11.93717277486911,
     "Stock": 290,
     "Transito": 100,
-    "Covertura meta": 5,
+    "Covertura meta": 45,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 35.51929824561404,
@@ -8295,7 +8400,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 100,
     "Costo de pedido": 13712,
-    "Costo unitario": 130.49
+    "Costo unitario": 130.49,
+    "Cobertura minima": 45
   },
   {
     "Código country": "145143P15",
@@ -8306,14 +8412,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.74869109947644,
     "Stock": 48,
     "Transito": 6,
-    "Covertura meta": 5,
+    "Covertura meta": 7,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 7.64,
     "Pedido base (unid)": 2.363874345549739,
     "Pedido sugerido": 3,
     "Costo de pedido": 0,
-    "Costo unitario": 1553.04
+    "Costo unitario": 1553.04,
+    "Cobertura minima": 7
   },
   {
     "Código country": 145142,
@@ -8323,7 +8430,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.7510471204188481,
     "Stock": 34.52,
-    "Covertura meta": 5,
+    "Covertura meta": 8,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 94.24175670965494,
@@ -8331,7 +8438,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 2375.22,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 8
   },
   {
     "Código country": 4131,
@@ -8341,7 +8449,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.3858115183246073,
     "Stock": 14.16,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 33.64337087800244,
@@ -8350,7 +8458,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 1,
     "Costo de pedido": 1706.13,
     "Costo unitario": 2098.86,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 10
   },
   {
     "Código country": 16540,
@@ -8369,7 +8478,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 4,
     "Costo de pedido": 715.52,
-    "Costo unitario": 176.48
+    "Costo unitario": 176.48,
+    "Cobertura minima": 3
   },
   {
     "Código country": 16553,
@@ -8379,7 +8489,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.6910994764397905,
     "Stock": 4,
-    "Covertura meta": 5,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 8.681818181818182,
@@ -8387,7 +8497,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1026.73,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 13556,
@@ -8398,7 +8509,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 26.43675392670157,
     "Stock": 339.16,
     "Transito": 45,
-    "Covertura meta": 8,
+    "Covertura meta": 90,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 16.52093903854304,
@@ -8406,7 +8517,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 90,
     "Costo de pedido": 55942.200000000004,
-    "Costo unitario": 561.22
+    "Costo unitario": 561.22,
+    "Cobertura minima": 90
   },
   {
     "Código country": "13556R",
@@ -8417,14 +8529,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.067905759162304,
     "Stock": 35.25,
     "Transito": 15,
-    "Covertura meta": 8,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 27.6605628274485,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 556.73
+    "Costo unitario": 556.73,
+    "Cobertura minima": 30
   },
   {
     "Código country": 13557,
@@ -8435,14 +8548,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.221151832460733,
     "Stock": 16.27,
     "Transito": 15,
-    "Covertura meta": 8,
+    "Covertura meta": 15,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 151.47964015151513,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 285.12
+    "Costo unitario": 285.12,
+    "Cobertura minima": 15
   },
   {
     "Código country": 1451633,
@@ -8453,7 +8567,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 30.54344502617801,
     "Stock": 91.92,
     "Transito": 80,
-    "Covertura meta": 6,
+    "Covertura meta": 72,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 10.149804638419088,
@@ -8461,7 +8575,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 21,
     "PEDIDO FINAL": 40,
     "Costo de pedido": 15811.6,
-    "Costo unitario": 529.42
+    "Costo unitario": 529.42,
+    "Cobertura minima": 72
   },
   {
     "Código country": 16510,
@@ -8472,7 +8587,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.6263350785340314,
     "Stock": 8.44,
     "Transito": 10,
-    "Covertura meta": 5,
+    "Covertura meta": 20,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 9.444797366559346,
@@ -8480,7 +8595,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 10,
     "PEDIDO FINAL": 10,
     "Costo de pedido": 22678.1,
-    "Costo unitario": 2294.12
+    "Costo unitario": 2294.12,
+    "Cobertura minima": 20
   },
   {
     "Código country": 125131,
@@ -8491,7 +8607,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 8.833193717277487,
     "Stock": 37.053,
     "Transito": 12,
-    "Covertura meta": 3,
+    "Covertura meta": 24,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 12,
     "Cobertura actual": 7.894087034863733,
@@ -8499,7 +8615,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 12,
     "PEDIDO FINAL": 24,
     "Costo de pedido": 10384.32,
-    "Costo unitario": 560.25
+    "Costo unitario": 560.25,
+    "Cobertura minima": 24
   },
   {
     "Código country": 31090,
@@ -8509,7 +8626,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 9.523560209424083,
     "Stock": 1,
-    "Covertura meta": 5,
+    "Covertura meta": 90,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 90,
     "Cobertura actual": 5.460142935678944,
@@ -8517,7 +8634,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 90,
     "Costo de pedido": 0,
     "Costo unitario": 320.72,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 90
   },
   {
     "Código country": 3344,
@@ -8535,7 +8653,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 7,
     "Costo de pedido": 0,
     "Costo unitario": 986.03,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 5
   },
   {
     "Código country": 11561,
@@ -8546,14 +8665,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 3.7277486910994764,
     "Stock": 32,
     "Transito": 12,
-    "Covertura meta": 3,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 7.242977528089888,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 176.48
+    "Costo unitario": 176.48,
+    "Cobertura minima": 10
   },
   {
     "Código country": "145168IN",
@@ -8564,7 +8684,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 10.581151832460733,
     "Stock": 131,
     "Transito": 25,
-    "Covertura meta": 5,
+    "Covertura meta": 50,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 25,
     "Cobertura actual": 22.398317664522512,
@@ -8572,7 +8692,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 30,
     "Costo de pedido": 11088.9,
-    "Costo unitario": 401.64
+    "Costo unitario": 401.64,
+    "Cobertura minima": 50
   },
   {
     "Código country": 145168,
@@ -8583,14 +8704,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.1256544502617801,
     "Stock": 196,
     "Transito": 50,
-    "Covertura meta": 5,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 2570.541666666667,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 332.52
+    "Costo unitario": 332.52,
+    "Cobertura minima": 10
   },
   {
     "Código country": 145174,
@@ -8601,7 +8723,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 121.22513089005236,
     "Stock": 1608,
     "Transito": 315,
-    "Covertura meta": 6,
+    "Covertura meta": 210,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 35,
     "Cobertura actual": 10.09691629955947,
@@ -8609,7 +8731,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 245,
     "PEDIDO FINAL": 315,
     "Costo de pedido": 59890.95,
-    "Costo unitario": 161.11
+    "Costo unitario": 161.11,
+    "Cobertura minima": 210
   },
   {
     "Código country": 14547,
@@ -8619,7 +8742,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.5701570680628273,
     "Stock": 63.36,
-    "Covertura meta": 5,
+    "Covertura meta": 3,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 14.206611570247931,
@@ -8628,7 +8751,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 1,
     "Costo de pedido": 1262.33,
     "Costo unitario": 1006.77,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 3
   },
   {
     "Código country": "13545R",
@@ -8639,14 +8763,15 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 0.32460732984293195,
     "Stock": 14,
     "Transito": 12,
-    "Covertura meta": 3,
+    "Covertura meta": 12,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 12,
     "Cobertura actual": 73.93548387096774,
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 235.3
+    "Costo unitario": 235.3,
+    "Cobertura minima": 12
   },
   {
     "Código country": 13543,
@@ -8656,7 +8781,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.863874345549738,
     "Stock": 0,
-    "Covertura meta": 3,
+    "Covertura meta": 6,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 6,
     "Cobertura actual": 3.4917733089579523,
@@ -8664,7 +8789,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 12,
     "Costo de pedido": 0,
     "Costo unitario": 271.81,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 6
   },
   {
     "Código country": 13553,
@@ -8674,7 +8800,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 7.900523560209424,
     "Stock": 23,
-    "Covertura meta": 3,
+    "Covertura meta": 40,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 20,
     "Cobertura actual": 12.657388999337309,
@@ -8683,7 +8809,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 10,
     "Costo de pedido": 2691.3,
     "Costo unitario": 223.37,
-    "Transito": 20
+    "Transito": 20,
+    "Cobertura minima": 40
   },
   {
     "Código country": 125142,
@@ -8694,7 +8821,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 25.482984293193716,
     "Stock": 494.98,
     "Transito": 80,
-    "Covertura meta": 7,
+    "Covertura meta": 100,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 10.523885150752479,
@@ -8702,7 +8829,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 100,
     "PEDIDO FINAL": 100,
     "Costo de pedido": 34714,
-    "Costo unitario": 945.96
+    "Costo unitario": 945.96,
+    "Cobertura minima": 100
   },
   {
     "Código country": 125143,
@@ -8713,7 +8841,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.1476439790575914,
     "Stock": 31.9,
     "Transito": 20,
-    "Covertura meta": 6,
+    "Covertura meta": 10,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 21.06494392979035,
@@ -8721,7 +8849,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 20,
     "Costo de pedido": 14176.400000000001,
-    "Costo unitario": 1343.71
+    "Costo unitario": 1343.71,
+    "Cobertura minima": 10
   },
   {
     "Código country": 13560,
@@ -8731,7 +8860,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.617801047120419,
     "Stock": 11,
-    "Covertura meta": 3,
+    "Covertura meta": 6,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 9.889967637540453,
@@ -8740,7 +8869,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1070.34,
     "Costo unitario": 176.47,
-    "Transito": 8
+    "Transito": 8,
+    "Cobertura minima": 6
   },
   {
     "Código country": "145182IN",
@@ -8750,7 +8880,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 28.841832460732984,
     "Stock": 80,
-    "Covertura meta": 5,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 13.244997540294692,
@@ -8759,7 +8889,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 11065.2,
     "Costo unitario": 301.26,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 125130,
@@ -8769,7 +8900,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.09424083769633508,
     "Stock": 7,
-    "Covertura meta": 5,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 31.833333333333332,
@@ -8778,7 +8909,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 2,
     "Costo de pedido": 2638.98,
     "Costo unitario": 1352.94,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 13568,
@@ -8788,7 +8920,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.06193717277486911,
     "Stock": 0,
-    "Covertura meta": 5,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 322.9078613693998,
@@ -8797,7 +8929,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 20,
     "Costo de pedido": 34840.6,
     "Costo unitario": 2117.63,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 145191,
@@ -8807,7 +8940,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.0261780104712042,
     "Stock": 13,
-    "Covertura meta": 5,
+    "Covertura meta": 6,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 24.362244897959183,
@@ -8815,7 +8948,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1294.13,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 6
   },
   {
     "Código country": 411,
@@ -8825,7 +8959,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.774869109947644,
     "Stock": 13,
-    "Covertura meta": 5,
+    "Covertura meta": 12,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 12,
     "Cobertura actual": 30.972972972972972,
@@ -8833,7 +8967,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 889.29,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 12
   },
   {
     "Código country": 13561,
@@ -8851,7 +8986,8 @@ const INITIAL_PEDIDOS = [
     "Pedido base (unid)": 0,
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
-    "Costo unitario": 2941.18
+    "Costo unitario": 2941.18,
+    "Cobertura minima": 5
   },
   {
     "Código country": 125150,
@@ -8862,7 +8998,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 13.863874345549739,
     "Stock": 361.37,
     "Transito": 96,
-    "Covertura meta": 3,
+    "Covertura meta": 16,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 16,
     "Cobertura actual": 16.380702416918428,
@@ -8870,7 +9006,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 128,
     "Costo de pedido": 45790.72,
-    "Costo unitario": 712.91
+    "Costo unitario": 712.91,
+    "Cobertura minima": 16
   },
   {
     "Código country": 125153,
@@ -8881,7 +9018,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 13.049214659685864,
     "Stock": 282.02,
     "Transito": 48,
-    "Covertura meta": 3,
+    "Covertura meta": 80,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 16,
     "Cobertura actual": 20.182823784304286,
@@ -8889,7 +9026,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 64,
     "Costo de pedido": 55750.4,
-    "Costo unitario": 1421.57
+    "Costo unitario": 1421.57,
+    "Cobertura minima": 80
   },
   {
     "Código country": "125180P",
@@ -8907,7 +9045,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 2,
     "Costo de pedido": 0,
     "Costo unitario": 1396.57,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 3
   },
   {
     "Código country": 125159,
@@ -8918,7 +9057,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 15.088062827225132,
     "Stock": 0,
     "Transito": 96,
-    "Covertura meta": 3,
+    "Covertura meta": 16,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 16,
     "Cobertura actual": 6.422958408228133,
@@ -8926,7 +9065,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 48,
     "PEDIDO FINAL": 32,
     "Costo de pedido": 28802.88,
-    "Costo unitario": 1122.89
+    "Costo unitario": 1122.89,
+    "Cobertura minima": 16
   },
   {
     "Código country": "125152N",
@@ -8937,7 +9077,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.4764397905759163,
     "Stock": 27,
     "Transito": 20,
-    "Covertura meta": 3,
+    "Covertura meta": 18,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 14.536997885835094,
@@ -8945,7 +9085,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 12,
     "Costo de pedido": 9322.56,
-    "Costo unitario": 764.78
+    "Costo unitario": 764.78,
+    "Cobertura minima": 18
   },
   {
     "Código country": 13573,
@@ -8956,7 +9097,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 2.324607329842932,
     "Stock": 19,
     "Transito": 8,
-    "Covertura meta": 3,
+    "Covertura meta": 7,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 9.463963963963964,
@@ -8964,7 +9105,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1029.96,
-    "Costo unitario": 201.92
+    "Costo unitario": 201.92,
+    "Cobertura minima": 7
   },
   {
     "Código country": 2324,
@@ -8974,7 +9116,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.3089005235602094,
     "Stock": 8,
-    "Covertura meta": 3,
+    "Covertura meta": 12,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 12,
     "Cobertura actual": 7.36281179138322,
@@ -8982,7 +9124,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1159.8,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 12
   },
   {
     "Código country": 21021,
@@ -8992,7 +9135,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.021151832460733,
     "Stock": 0.795,
-    "Covertura meta": 4,
+    "Covertura meta": 3,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 16.734044298605415,
@@ -9000,7 +9143,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 2443.05,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 3
   },
   {
     "Código country": 2125,
@@ -9010,7 +9154,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.4973821989528796,
     "Stock": 2,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 48.252631578947366,
@@ -9018,7 +9162,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1482.83,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 2331,
@@ -9028,7 +9173,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 3.0418848167539267,
     "Stock": 1,
-    "Covertura meta": 3,
+    "Covertura meta": 9,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 9,
     "Cobertura actual": 4.602409638554216,
@@ -9037,7 +9182,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 16492.44,
     "Costo unitario": 2077.31,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 9
   },
   {
     "Código country": 2131,
@@ -9047,7 +9193,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 2.3272251308900525,
     "Stock": 18.84,
-    "Covertura meta": 3,
+    "Covertura meta": 8.2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 8.2,
     "Cobertura actual": 0.0042969628796400445,
@@ -9055,7 +9201,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 16.4,
     "Costo de pedido": 0,
     "Costo unitario": 3115.46,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 8.2
   },
   {
     "Código country": 125170,
@@ -9065,7 +9212,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.9895287958115183,
     "Stock": 0,
-    "Covertura meta": 3,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 12.126984126984127,
@@ -9074,7 +9221,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 7652.88,
     "Costo unitario": 1465.25,
-    "Transito": 6
+    "Transito": 6,
+    "Cobertura minima": 2
   },
   {
     "Código country": 125162,
@@ -9084,7 +9232,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 1.6649214659685865,
     "Stock": 27,
-    "Covertura meta": 3,
+    "Covertura meta": 20,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 10,
     "Cobertura actual": 11.41194968553459,
@@ -9093,7 +9241,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 8575.56,
     "Costo unitario": 764.7,
-    "Transito": 6
+    "Transito": 6,
+    "Cobertura minima": 20
   },
   {
     "Código country": 13571,
@@ -9104,7 +9253,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 11.926439790575916,
     "Stock": 78.51,
     "Transito": 45,
-    "Covertura meta": 8,
+    "Covertura meta": 45,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 12.66346056761562,
@@ -9112,7 +9261,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 45,
     "PEDIDO FINAL": 45,
     "Costo de pedido": 24628.05,
-    "Costo unitario": 352.9
+    "Costo unitario": 352.9,
+    "Cobertura minima": 45
   },
   {
     "Código country": 13581,
@@ -9122,7 +9272,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.225130890052356,
     "Stock": 8,
-    "Covertura meta": 3,
+    "Covertura meta": 1,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 35.53488372093023,
@@ -9130,7 +9280,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1259.95,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 1
   },
   {
     "Código country": 13582,
@@ -9141,7 +9292,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 9.026439790575916,
     "Stock": 64.875,
     "Transito": 15,
-    "Covertura meta": 3,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 8.932646964995214,
@@ -9149,7 +9300,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 15,
     "PEDIDO FINAL": 30,
     "Costo de pedido": 10064.1,
-    "Costo unitario": 530.66
+    "Costo unitario": 530.66,
+    "Cobertura minima": 30
   },
   {
     "Código country": 13588,
@@ -9160,7 +9312,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 8.267015706806284,
     "Stock": 49,
     "Transito": 45,
-    "Covertura meta": 3,
+    "Covertura meta": 39,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 7.257758074730842,
@@ -9168,7 +9320,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 24,
     "PEDIDO FINAL": 30,
     "Costo de pedido": 12270,
-    "Costo unitario": 519.6
+    "Costo unitario": 519.6,
+    "Cobertura minima": 39
   },
   {
     "Código country": 1800,
@@ -9178,7 +9331,7 @@ const INITIAL_PEDIDOS = [
     "Días del período": 191,
     "Ventas diarias": 0.43340314136125657,
     "Stock": 7,
-    "Covertura meta": 5,
+    "Covertura meta": 2,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 1,
     "Cobertura actual": 0,
@@ -9186,7 +9339,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 4,
     "Costo de pedido": 0,
     "Costo unitario": 824.09,
-    "Transito": 0
+    "Transito": 0,
+    "Cobertura minima": 2
   },
   {
     "Código country": 125191,
@@ -9197,7 +9351,7 @@ const INITIAL_PEDIDOS = [
     "Ventas diarias": 9.455497382198953,
     "Stock": 58,
     "Transito": 45,
-    "Covertura meta": 3,
+    "Covertura meta": 30,
     "Dias entre entregas": 3.5,
     "Múltiplo de pedido": 15,
     "Cobertura actual": 10.602297895902547,
@@ -9205,7 +9359,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "PEDIDO FINAL": 20,
     "Costo de pedido": 6642.6,
-    "Costo unitario": 476.89
+    "Costo unitario": 476.89,
+    "Cobertura minima": 30
   },
   {
     "Costo de pedido": 1117809.09
