@@ -1,0 +1,38 @@
+{
+  "name": "app-de-pedidos-mrp",
+  "version": "2.0.0",
+  "description": "Motor de Planificación Maestra (MRP) e Inventario CODISA - Suite Empresarial con Tránsito Dinámico 72h y Exportación Excel",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "check": "node scripts/check-syntax.js",
+    "test:ui": "node tests/ui-auditor.js"
+  },
+  "keywords": [
+    "mrp",
+    "codisa",
+    "inventory",
+    "replenishment",
+    "master-planning",
+    "oled",
+    "chartjs"
+  ],
+  "author": "Milton Sánchez Gutiérrez",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.2.1"
+  }
+}
