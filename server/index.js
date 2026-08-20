@@ -96,7 +96,7 @@ function bootstrapCatalog() {
             description: row['Descripción'] || (dataMatch ? dataMatch['ARTICULO'] : 'Producto sin descripción'),
             stock_actual: stock,
             sales_period: sales,
-            days_period: Number(row['Días del período'] || 30),
+            days_period: Number(config.DEFAULT_VDP_DAYS || 60),
             unit_cost: cost,
             unit_price: price,
             transit_qty: transit,
