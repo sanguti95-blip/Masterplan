@@ -131,25 +131,27 @@ async function syncFromGoogleAppsScript(customUrl) {
 
     // Mapear filas crudas de Codisa a estructura estandarizada
     const codisaMap = new Map();
+    const codisaByDesc = new Map();
     parsedRows.forEach(row => {
       const sku = (row.NO_ARTI || '').toString().trim().toUpperCase();
-      if (sku) {
-        codisaMap.set(sku, {
-          noArti: sku,
-          articulo: row.ARTICULO || '',
-          unidadEq: row.UNIDAD_EQ || 'UD',
-          cantidadVentas: parseLocaleNumber(row.CANTIDAD, 0),
-          precio: parseLocaleNumber(row.PRECIO, 0),
-          montoBruto: parseLocaleNumber(row.MONTO_BRUTO, 0),
-          costoUnitario: parseLocaleNumber(row.COSTO_UNITARIO, 0),
-          saldoActual: parseLocaleNumber(row.SALDO_ACTUAL, 0),
-          costoUniMerma: parseLocaleNumber(row.COSTO_UNI_MERMA, 0),
-          costoBrutoMerma: parseLocaleNumber(row.COSTO_BRUTO_MERMA, 0),
-          unidadesMerma: parseLocaleNumber(row.UNIDADES_MERMA, 0),
-          transito: parseLocaleNumber(row.transito, 0),
-          fechaProceso: row.FECHA_PROCESO || new Date().toISOString()
-        });
-      }
+      const articulo = (row.ARTICULO || '').toString().trim().toUpperCase();
+      const record = {
+        noArti: sku,
+        articulo: row.ARTICULO || '',
+        unidadEq: row.UNIDAD_EQ || 'UD',
+        cantidadVentas: parseLocaleNumber(row.CANTIDAD, 0),
+        precio: parseLocaleNumber(row.PRECIO, 0),
+        montoBruto: parseLocaleNumber(row.MONTO_BRUTO, 0),
+        costoUnitario: parseLocaleNumber(row.COSTO_UNITARIO, 0),
+        saldoActual: parseLocaleNumber(row.SALDO_ACTUAL, 0),
+        costoUniMerma: parseLocaleNumber(row.COSTO_UNI_MERMA, 0),
+        costoBrutoMerma: parseLocaleNumber(row.COSTO_BRUTO_MERMA, 0),
+        unidadesMerma: parseLocaleNumber(row.UNIDADES_MERMA, 0),
+        transito: parseLocaleNumber(row.transito, 0),
+        fechaProceso: row.FECHA_PROCESO || new Date().toISOString()
+      };
+      if (sku) codisaMap.set(sku, record);
+      if (articulo) codisaByDesc.set(articulo, record);
     });
 
     // Actualizar catálogo en memoria
@@ -160,8 +162,21 @@ async function syncFromGoogleAppsScript(customUrl) {
       memoryProducts.forEach(prod => {
         const key1 = (prod.code_frumusa || prod.codeFrumusa || prod.NO_ARTI || '').toString().trim().toUpperCase();
         const key2 = (prod.code_country || prod.codeCountry || '').toString().trim().toUpperCase();
+        const desc = (prod.description || prod.descripcion || prod.ARTICULO || '').toString().trim().toUpperCase();
 
-        const match = codisaMap.get(key1) || codisaMap.get(key2);
+        let match = (key1 ? codisaMap.get(key1) : null) ||
+                    (key2 ? codisaMap.get(key2) : null) ||
+                    (desc ? codisaByDesc.get(desc) : null);
+
+        if (!match && desc) {
+          for (const [d, r] of codisaByDesc.entries()) {
+            if (desc.includes(d) || d.includes(desc) || (desc.split(' ')[0] === d.split(' ')[0] && desc.length > 3)) {
+              match = r;
+              break;
+            }
+          }
+        }
+
         if (match) {
           prod.stock_actual = match.saldoActual;
           prod.stock = match.saldoActual;

@@ -24,11 +24,15 @@ function bootstrapCatalog() {
       const loadFn = new Function(dataCode + '; return { INITIAL_CONFIG, INITIAL_PEDIDOS, INITIAL_DATA, INITIAL_HOJA1 };');
       const loaded = loadFn();
 
-      const dataMap = new Map();
+      const dataByNoArti = new Map();
+      const dataByDesc = new Map();
       if (Array.isArray(loaded.INITIAL_DATA)) {
         loaded.INITIAL_DATA.forEach(row => {
-          if (row.NO_ARTI !== undefined) {
-            dataMap.set(row.NO_ARTI.toString().trim().toUpperCase(), row);
+          if (row.NO_ARTI !== undefined && row.NO_ARTI !== null) {
+            dataByNoArti.set(row.NO_ARTI.toString().trim().toUpperCase(), row);
+          }
+          if (row.ARTICULO) {
+            dataByDesc.set(row.ARTICULO.toString().trim().toUpperCase(), row);
           }
         });
       }
@@ -37,15 +41,17 @@ function bootstrapCatalog() {
         const merged = loaded.INITIAL_PEDIDOS.map(row => {
           const codeFrumusa = (row['Codigo frumusa'] !== undefined ? row['Codigo frumusa'] : '').toString().trim();
           const codeCountry = (row['Código country'] !== undefined ? row['Código country'] : '').toString().trim();
-          let dataMatch = (codeFrumusa ? dataMap.get(codeFrumusa.toUpperCase()) : null) || (codeCountry ? dataMap.get(codeCountry.toUpperCase()) : null);
-          if (!dataMatch && row['Descripción']) {
-            const descNorm = row['Descripción'].trim().toUpperCase();
-            if (Array.isArray(loaded.INITIAL_DATA)) {
-              for (const d of loaded.INITIAL_DATA) {
-                if (d.ARTICULO && d.ARTICULO.trim().toUpperCase() === descNorm) {
-                  dataMatch = d;
-                  break;
-                }
+          const desc = (row['Descripción'] || '').toString().trim().toUpperCase();
+
+          let dataMatch = (codeFrumusa ? dataByNoArti.get(codeFrumusa.toUpperCase()) : null) ||
+                          (codeCountry ? dataByNoArti.get(codeCountry.toUpperCase()) : null) ||
+                          (desc ? dataByDesc.get(desc) : null);
+
+          if (!dataMatch && desc) {
+            for (const [d, r] of dataByDesc.entries()) {
+              if (desc.includes(d) || d.includes(desc) || (desc.split(' ')[0] === d.split(' ')[0] && desc.length > 3)) {
+                dataMatch = r;
+                break;
               }
             }
           }
@@ -61,16 +67,18 @@ function bootstrapCatalog() {
           }
 
           let cost = 0;
-          if (dataMatch && dataMatch['COSTO_UNITARIO'] !== undefined) {
+          if (dataMatch && Number(dataMatch['COSTO_UNITARIO']) > 0) {
             cost = Number(dataMatch['COSTO_UNITARIO']);
+          } else if (Number(row['Costo unitario'] || row['Costo'] || 0) > 0) {
+            cost = Number(row['Costo unitario'] || row['Costo']);
           } else {
-            const origFinal = Number(row['PEDIDO FINAL'] || 0);
+            const origFinal = Number(row['Pedido sugerido'] || row['PEDIDO FINAL'] || 0);
             const origCost = Number(row['Costo de pedido'] || 0);
             if (origFinal > 0 && origCost > 0) cost = origCost / origFinal;
           }
 
           let price = 0;
-          if (dataMatch && dataMatch['PRECIO'] !== undefined) {
+          if (dataMatch && Number(dataMatch['PRECIO']) > 0) {
             price = Number(dataMatch['PRECIO']);
           } else if (cost > 0) {
             price = cost * 1.35;

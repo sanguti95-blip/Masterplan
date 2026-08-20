@@ -229,22 +229,30 @@ class MrpApp {
 
     // Fallback to local data.js
     if (typeof INITIAL_PEDIDOS !== 'undefined' && typeof INITIAL_DATA !== 'undefined') {
-      const dataMap = new Map();
+      const dataByNoArti = new Map();
+      const dataByDesc = new Map();
       INITIAL_DATA.forEach(row => {
-        if (row.NO_ARTI !== undefined) {
-          dataMap.set(row.NO_ARTI.toString().trim().toUpperCase(), row);
+        if (row.NO_ARTI !== undefined && row.NO_ARTI !== null) {
+          dataByNoArti.set(row.NO_ARTI.toString().trim().toUpperCase(), row);
+        }
+        if (row.ARTICULO) {
+          dataByDesc.set(row.ARTICULO.toString().trim().toUpperCase(), row);
         }
       });
 
       this.items = INITIAL_PEDIDOS.map(row => {
         const codeFrumusa = (row['Codigo frumusa'] !== undefined ? row['Codigo frumusa'] : '').toString().trim();
         const codeCountry = (row['Código country'] !== undefined ? row['Código country'] : '').toString().trim();
-        let match = (codeFrumusa ? dataMap.get(codeFrumusa.toUpperCase()) : null) || (codeCountry ? dataMap.get(codeCountry.toUpperCase()) : null);
-        if (!match && row['Descripción']) {
-          const descNorm = row['Descripción'].trim().toUpperCase();
-          for (const d of INITIAL_DATA) {
-            if (d.ARTICULO && d.ARTICULO.trim().toUpperCase() === descNorm) {
-              match = d;
+        const desc = (row['Descripción'] || '').toString().trim().toUpperCase();
+
+        let match = (codeFrumusa ? dataByNoArti.get(codeFrumusa.toUpperCase()) : null) ||
+                    (codeCountry ? dataByNoArti.get(codeCountry.toUpperCase()) : null) ||
+                    (desc ? dataByDesc.get(desc) : null);
+
+        if (!match && desc) {
+          for (const [d, r] of dataByDesc.entries()) {
+            if (desc.includes(d) || d.includes(desc) || (desc.split(' ')[0] === d.split(' ')[0] && desc.length > 3)) {
+              match = r;
               break;
             }
           }
@@ -257,7 +265,7 @@ class MrpApp {
         if (match && match['CANTIDAD'] !== undefined) sales = Number(match['CANTIDAD']);
 
         let cost = 0;
-        if (match && match['COSTO_UNITARIO'] !== undefined) {
+        if (match && Number(match['COSTO_UNITARIO']) > 0) {
           cost = Number(match['COSTO_UNITARIO']);
         } else if (Number(row['Costo unitario'] || row['Costo'] || 0) > 0) {
           cost = Number(row['Costo unitario'] || row['Costo']);
