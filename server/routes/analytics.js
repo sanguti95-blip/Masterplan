@@ -112,21 +112,19 @@ router.get('/categories', (req, res) => {
     const categoryMap = new Map();
 
     products.forEach(p => {
-      // Auto-categorize based on keywords if category is general
       let cat = p.category || p.categoria || '';
-      const desc = (p.description || p.descripcion || p.ARTICULO || '').toUpperCase();
-
-      if (!cat || cat === 'General') {
-        if (desc.includes('MANZANA') || desc.includes('UVA') || desc.includes('BANANO') || desc.includes('PIÑA') || desc.includes('MELON') || desc.includes('SANDIA') || desc.includes('PAPAYA') || desc.includes('AGUACATE') || desc.includes('LIMON') || desc.includes('NARANJA') || desc.includes('KIWI') || desc.includes('PERA') || desc.includes('CIRUELA') || desc.includes('MANGA')) {
-          cat = 'Frutas Frescas';
-        } else if (desc.includes('LECHUGA') || desc.includes('ESPINACA') || desc.includes('APIO') || desc.includes('CULANTRO') || desc.includes('PEREJIL') || desc.includes('REPOLLO') || desc.includes('BROCOLI') || desc.includes('COLIFLOR') || desc.includes('MOSTAZA')) {
-          cat = 'Hortalizas y Hojas';
-        } else if (desc.includes('PAPA') || desc.includes('CEBOLLA') || desc.includes('ZANAHORIA') || desc.includes('YUCA') || desc.includes('CAMOTE') || desc.includes('REMOLACHA') || desc.includes('TIQUISQUE') || desc.includes('NAMPI')) {
-          cat = 'Tubérculos y Raíces';
-        } else if (desc.includes('TOMATE') || desc.includes('CHILE') || desc.includes('PEPINO') || desc.includes('CHAYOTE') || desc.includes('AYOTE') || desc.includes('BERENJENA') || desc.includes('ZAPALLO')) {
-          cat = 'Vegetales de Fruto';
-        } else if (desc.includes('OREGANO') || desc.includes('ROMERO') || desc.includes('HIERBA') || desc.includes('AJO') || desc.includes('JENJIBRE') || desc.includes('ALFALFA')) {
+      if (!cat || cat === 'General' || cat === 'Perecederos') {
+        const desc = (p.description || p.descripcion || p.ARTICULO || '').toUpperCase();
+        if (desc.includes('CULANTRO') || desc.includes('OREGANO') || desc.includes('ORÉGANO') || desc.includes('PEREJIL') || desc.includes('ROMERO') || desc.includes('TOMILLO') || desc.includes('ALBAHACA') || desc.includes('HIERBABUENA') || desc.includes('MENTA') || desc.includes('LAUREL') || desc.includes('ESTRAGON') || desc.includes('ESTRAGÓN') || desc.includes('ENELDO') || desc.includes('CEBOLLIN') || desc.includes('CEBOLLINO') || desc.includes('AJO')) {
           cat = 'Hierbas y Aromáticas';
+        } else if (desc.includes('LECHUGA') || desc.includes('REPOLLO') || desc.includes('ESPINACA') || desc.includes('ACELGA') || desc.includes('APIO') || desc.includes('BROCOLI') || desc.includes('BRÓCOLI') || desc.includes('COLIFLOR') || desc.includes('BERRO') || desc.includes('KALE') || desc.includes('RUCULA') || desc.includes('RÚCULA')) {
+          cat = 'Hortalizas y Hojas';
+        } else if (desc.includes('PAPA') || desc.includes('ZANAHORIA') || desc.includes('CEBOLLA') || desc.includes('YUCA') || desc.includes('CAMOTE') || desc.includes('REMOLACHA') || desc.includes('RABANO') || desc.includes('RÁBANO') || desc.includes('ÑAMPI') || desc.includes('TIKISQUE') || desc.includes('MALANGA') || desc.includes('JENGIBRE')) {
+          cat = 'Tubérculos y Raíces';
+        } else if (desc.includes('TOMATE') || desc.includes('CHILE') || desc.includes('CHAYOTE') || desc.includes('PEPINO') || desc.includes('ZUCCHINI') || desc.includes('CALABAZA') || desc.includes('BERENJENA') || desc.includes('AYOTE') || desc.includes('VAINA') || desc.includes('VAINICA') || desc.includes('MAIZ') || desc.includes('ELOTE')) {
+          cat = 'Vegetales de Fruto';
+        } else if (desc.includes('PLATANO') || desc.includes('PLÁTANO') || desc.includes('BANANO') || desc.includes('AGUACATE') || desc.includes('PAPAYA') || desc.includes('LIMON') || desc.includes('LIMÓN') || desc.includes('MANGA') || desc.includes('MANGO') || desc.includes('NARANJA') || desc.includes('FRESA') || desc.includes('PINA') || desc.includes('PIÑA') || desc.includes('SANDIA') || desc.includes('MELON') || desc.includes('MANZANA') || desc.includes('UVA') || desc.includes('PERA') || desc.includes('DURAZNO') || desc.includes('KIWI') || desc.includes('GRANADILLA') || desc.includes('MARACUYA') || desc.includes('GUINEO') || desc.includes('MANDARINA')) {
+          cat = 'Frutas Frescas';
         } else {
           cat = 'Otros Perecederos';
         }

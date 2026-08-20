@@ -6356,7 +6356,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 924.63,
     "Transito": 30,
-    "Cobertura minima": 7
+    "Cobertura minima": 7,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 683,
@@ -6376,7 +6377,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 1521.72,
     "Costo unitario": 403.94,
-    "Cobertura minima": 160
+    "Cobertura minima": 160,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "684p",
@@ -6396,7 +6398,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 53867.600000000006,
     "Costo unitario": 1188.59,
-    "Cobertura minima": 60
+    "Cobertura minima": 60,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 775,
@@ -6415,7 +6418,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 118.89,
     "Transito": 0,
-    "Cobertura minima": 85
+    "Cobertura minima": 85,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 773,
@@ -6435,7 +6439,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 527.27,
     "Costo unitario": 482.5,
     "Transito": 0,
-    "Cobertura minima": 20
+    "Cobertura minima": 20,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 700,
@@ -6455,7 +6460,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 1150.69,
     "Costo unitario": 912.5,
     "Transito": 0,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 779,
@@ -6475,7 +6481,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 1200.36,
     "Costo unitario": 1153.71,
     "Transito": 0,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": "11554X",
@@ -6495,7 +6502,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 5765.34,
     "Costo unitario": 735.29,
-    "Cobertura minima": 12
+    "Cobertura minima": 12,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 11554,
@@ -6515,7 +6523,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 1134.96,
     "Costo unitario": 176.25,
     "Transito": 0,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": "11555B",
@@ -6534,7 +6543,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1764.71,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 11556,
@@ -6554,7 +6564,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 2651.52,
     "Costo unitario": 647.06,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 11511,
@@ -6574,7 +6585,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 20,
     "Costo de pedido": 10,
     "Costo unitario": 1115.82,
-    "Cobertura minima": 20
+    "Cobertura minima": 20,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 5125,
@@ -6594,7 +6606,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 10037.64,
     "Costo unitario": 919.74,
     "Transito": 0,
-    "Cobertura minima": 12
+    "Cobertura minima": 12,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "5125B",
@@ -6613,7 +6626,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 3470,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 16579,
@@ -6632,7 +6646,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 2941.18,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 17512,
@@ -6651,7 +6666,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 705.88,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 16875,
@@ -6671,7 +6687,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 4437.64,
     "Costo unitario": 1176.46,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12597,
@@ -6690,7 +6707,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 737.35,
     "Transito": 0,
-    "Cobertura minima": 5
+    "Cobertura minima": 5,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12511,
@@ -6709,7 +6727,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 293.85,
-    "Cobertura minima": 24
+    "Cobertura minima": 24,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12512,
@@ -6729,7 +6748,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 8,
     "Costo de pedido": 3627.76,
     "Costo unitario": 556.28,
-    "Cobertura minima": 8
+    "Cobertura minima": 8,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12521,
@@ -6748,7 +6768,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 410.53,
-    "Cobertura minima": 11
+    "Cobertura minima": 11,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12531,
@@ -6768,7 +6789,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 20,
     "Costo de pedido": 21978,
     "Costo unitario": 1608.83,
-    "Cobertura minima": 21
+    "Cobertura minima": 21,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 1351,
@@ -6788,7 +6810,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 15,
     "Costo de pedido": 11262.6,
     "Costo unitario": 1031.12,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 1353,
@@ -6807,7 +6830,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 919.6,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 14511,
@@ -6826,7 +6850,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 470.45,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14514,
@@ -6845,7 +6870,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 588.24,
     "Transito": 2,
-    "Cobertura minima": 5
+    "Cobertura minima": 5,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14565,
@@ -6864,7 +6890,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 941.18,
     "Transito": 0,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "12554P",
@@ -6883,7 +6910,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 535.91,
     "Transito": 0,
-    "Cobertura minima": 15
+    "Cobertura minima": 15,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 125581,
@@ -6903,7 +6931,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 11606.55,
     "Costo unitario": 953.82,
     "Transito": 0,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 12554,
@@ -6923,7 +6952,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 15,
     "Costo de pedido": 11067.15,
     "Costo unitario": 958.45,
-    "Cobertura minima": 45
+    "Cobertura minima": 45,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 125542,
@@ -6943,7 +6973,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 23887.5,
     "Costo unitario": 962.85,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": "12547G",
@@ -6963,7 +6994,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 20941.649999999998,
     "Costo unitario": 1103.03,
     "Transito": 15,
-    "Cobertura minima": 15
+    "Cobertura minima": 15,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": "12553K",
@@ -6982,7 +7014,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 444.45,
     "Transito": 0,
-    "Cobertura minima": 12
+    "Cobertura minima": 12,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 12552,
@@ -7002,7 +7035,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 9438.9,
     "Costo unitario": 294.14,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 12561,
@@ -7022,7 +7056,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 8495.039999999999,
     "Costo unitario": 635.3,
     "Transito": 0,
-    "Cobertura minima": 11
+    "Cobertura minima": 11,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12562,
@@ -7041,7 +7076,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 532.21,
     "Transito": 4,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12563,
@@ -7061,7 +7097,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 60,
     "Costo de pedido": 14201.4,
     "Costo unitario": 312.9,
-    "Cobertura minima": 40
+    "Cobertura minima": 40,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12613,
@@ -7081,7 +7118,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 3542.2799999999997,
     "Costo unitario": 517.56,
     "Transito": 10,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 125641,
@@ -7100,7 +7138,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 588.2,
     "Transito": 0,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12570,
@@ -7119,7 +7158,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 287.26,
     "Transito": 0,
-    "Cobertura minima": 8
+    "Cobertura minima": 8,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 13617,
@@ -7138,7 +7178,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 791.5,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": "12570P",
@@ -7158,7 +7199,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 49767.600000000006,
     "Costo unitario": 505.19,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12575,
@@ -7178,7 +7220,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 2104.78,
     "Costo unitario": 1117.64,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12576,
@@ -7197,7 +7240,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 538.62,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12584,
@@ -7216,7 +7260,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 2106.47,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 12603,
@@ -7236,7 +7281,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 80,
     "Costo de pedido": 31111.199999999997,
     "Costo unitario": 512.92,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 12588,
@@ -7255,7 +7301,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1058.82,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 4341,
@@ -7275,7 +7322,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 1572.96,
     "Costo unitario": 2634.85,
     "Transito": 0,
-    "Cobertura minima": 9
+    "Cobertura minima": 9,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14522,
@@ -7294,7 +7342,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 566.58,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 12591,
@@ -7314,7 +7363,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 9929.039999999999,
     "Costo unitario": 871.55,
-    "Cobertura minima": 15
+    "Cobertura minima": 15,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": "11522N",
@@ -7334,7 +7384,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 15220,
     "Costo unitario": 293.01,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 11524,
@@ -7354,7 +7405,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 12804.400000000001,
     "Costo unitario": 319.03,
-    "Cobertura minima": 40
+    "Cobertura minima": 40,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": "13111CU",
@@ -7373,7 +7425,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1123.16,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 16592,
@@ -7392,7 +7445,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 352.9,
-    "Cobertura minima": 20
+    "Cobertura minima": 20,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 16593,
@@ -7411,7 +7465,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 178.08,
     "Transito": 0,
-    "Cobertura minima": 18
+    "Cobertura minima": 18,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 125111,
@@ -7430,7 +7485,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 4087.37,
     "Transito": 0,
-    "Cobertura minima": 11
+    "Cobertura minima": 11,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 11531,
@@ -7450,7 +7506,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 12267.9,
     "Costo unitario": 350.53,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": "15524A",
@@ -7469,7 +7526,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1151.48,
-    "Cobertura minima": 8
+    "Cobertura minima": 8,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 15521,
@@ -7489,7 +7547,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 9429,
     "Costo unitario": 752.02,
-    "Cobertura minima": 8
+    "Cobertura minima": 8,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 17558,
@@ -7508,7 +7567,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 811.76,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 17557,
@@ -7528,7 +7588,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 28396.8,
     "Costo unitario": 1000.15,
-    "Cobertura minima": 14
+    "Cobertura minima": 14,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 15531,
@@ -7547,7 +7608,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 250.99,
     "Transito": 0,
-    "Cobertura minima": 50
+    "Cobertura minima": 50,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14551,
@@ -7566,7 +7628,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1000,
     "Transito": 0,
-    "Cobertura minima": 5
+    "Cobertura minima": 5,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14561,
@@ -7585,7 +7648,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 798.2,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14515,
@@ -7605,7 +7669,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 120,
     "Costo de pedido": 4327.200000000001,
     "Costo unitario": 35.3,
-    "Cobertura minima": 60
+    "Cobertura minima": 60,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 16624,
@@ -7625,7 +7690,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1056.1200000000001,
     "Costo unitario": 176.48,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": "16624X",
@@ -7645,7 +7711,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 3873.52,
     "Costo unitario": 734.75,
     "Transito": 0,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": "13580H",
@@ -7665,7 +7732,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 9962.28,
     "Costo unitario": 823.53,
     "Transito": 0,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 5533,
@@ -7685,7 +7753,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 5180.76,
     "Costo unitario": 1294.12,
-    "Cobertura minima": 6
+    "Cobertura minima": 6,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 5536,
@@ -7704,7 +7773,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1411.76,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 5535,
@@ -7723,7 +7793,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1568.86,
     "Transito": 0,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 5538,
@@ -7743,7 +7814,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 5155.56,
     "Costo unitario": 1294.06,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 13513,
@@ -7763,7 +7835,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 4866.6,
     "Costo unitario": 1014.71,
     "Transito": 0,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 125972,
@@ -7783,7 +7856,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 1638.6,
     "Costo unitario": 411.76,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 5341,
@@ -7802,7 +7876,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 177.27,
     "Transito": 0,
-    "Cobertura minima": 37
+    "Cobertura minima": 37,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 115412,
@@ -7822,7 +7897,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 23317.600000000002,
     "Costo unitario": 588.24,
-    "Cobertura minima": 56
+    "Cobertura minima": 56,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 11541,
@@ -7841,7 +7917,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 294.12,
     "Transito": 0,
-    "Cobertura minima": 4
+    "Cobertura minima": 4,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 11580,
@@ -7860,7 +7937,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 237.36,
     "Transito": 0,
-    "Cobertura minima": 18
+    "Cobertura minima": 18,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 11590,
@@ -7879,7 +7957,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 235.38,
-    "Cobertura minima": 20
+    "Cobertura minima": 20,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 11548,
@@ -7899,7 +7978,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1773.2400000000002,
     "Costo unitario": 294.12,
-    "Cobertura minima": 6
+    "Cobertura minima": 6,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 11547,
@@ -7919,7 +7999,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1769.52,
     "Costo unitario": 294.12,
-    "Cobertura minima": 12
+    "Cobertura minima": 12,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 11540,
@@ -7938,7 +8019,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 470.58,
     "Transito": 12,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 14585,
@@ -7957,7 +8039,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 75.73,
     "Transito": 0,
-    "Cobertura minima": 125
+    "Cobertura minima": 125,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "14585P",
@@ -7977,7 +8060,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 46284,
     "Costo unitario": 765.98,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "14575P",
@@ -7997,7 +8081,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 56997.200000000004,
     "Costo unitario": 994.07,
-    "Cobertura minima": 20
+    "Cobertura minima": 20,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14575,
@@ -8016,7 +8101,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 124.26,
     "Transito": 0,
-    "Cobertura minima": 100
+    "Cobertura minima": 100,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 12593,
@@ -8036,7 +8122,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 7663.200000000001,
     "Costo unitario": 1529.38,
-    "Cobertura minima": 13
+    "Cobertura minima": 13,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 14590,
@@ -8055,7 +8142,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 2559.05,
     "Transito": 8,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14607,
@@ -8075,7 +8163,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 19809,
     "Costo unitario": 891.54,
     "Transito": 40,
-    "Cobertura minima": 68
+    "Cobertura minima": 68,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "13150B",
@@ -8094,7 +8183,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1130.51,
     "Transito": 0,
-    "Cobertura minima": 19
+    "Cobertura minima": 19,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": "145137K",
@@ -8113,7 +8203,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 588.24,
     "Transito": 2,
-    "Cobertura minima": 5
+    "Cobertura minima": 5,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "11080F",
@@ -8132,7 +8223,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 297.66,
     "Transito": 0,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "11080G",
@@ -8151,7 +8243,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 223.7,
     "Transito": 0,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "11080A",
@@ -8170,7 +8263,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 297.5,
     "Transito": 0,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "11080S",
@@ -8189,7 +8283,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 227.61,
     "Transito": 0,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 11080,
@@ -8208,7 +8303,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 283.64,
     "Transito": 0,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 145102,
@@ -8227,7 +8323,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 1525.81,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 4321,
@@ -8246,7 +8343,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1713.6,
     "Transito": 0,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 911,
@@ -8265,7 +8363,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 728.59,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 145128,
@@ -8284,7 +8383,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 905.88,
     "Transito": 0,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 16535,
@@ -8303,7 +8403,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 176.47,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 125121,
@@ -8322,7 +8423,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1411.76,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 12617,
@@ -8341,7 +8443,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 500.02,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 11551,
@@ -8361,7 +8464,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 2473.62,
     "Costo unitario": 411.76,
-    "Cobertura minima": 8
+    "Cobertura minima": 8,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 13521,
@@ -8381,7 +8485,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 5292.799999999999,
     "Costo unitario": 1239.88,
     "Transito": 5,
-    "Cobertura minima": 5
+    "Cobertura minima": 5,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 145143,
@@ -8401,7 +8506,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 100,
     "Costo de pedido": 13712,
     "Costo unitario": 130.49,
-    "Cobertura minima": 45
+    "Cobertura minima": 45,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": "145143P15",
@@ -8420,7 +8526,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 3,
     "Costo de pedido": 0,
     "Costo unitario": 1553.04,
-    "Cobertura minima": 7
+    "Cobertura minima": 7,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 145142,
@@ -8439,7 +8546,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 2375.22,
     "Transito": 0,
-    "Cobertura minima": 8
+    "Cobertura minima": 8,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 4131,
@@ -8459,7 +8567,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 1706.13,
     "Costo unitario": 2098.86,
     "Transito": 0,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 16540,
@@ -8479,7 +8588,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 4,
     "Costo de pedido": 715.52,
     "Costo unitario": 176.48,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 16553,
@@ -8498,7 +8608,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1026.73,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 13556,
@@ -8518,7 +8629,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 90,
     "Costo de pedido": 55942.200000000004,
     "Costo unitario": 561.22,
-    "Cobertura minima": 90
+    "Cobertura minima": 90,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": "13556R",
@@ -8537,7 +8649,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 556.73,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 13557,
@@ -8556,7 +8669,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 285.12,
-    "Cobertura minima": 15
+    "Cobertura minima": 15,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 1451633,
@@ -8576,7 +8690,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 40,
     "Costo de pedido": 15811.6,
     "Costo unitario": 529.42,
-    "Cobertura minima": 72
+    "Cobertura minima": 72,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 16510,
@@ -8596,7 +8711,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 10,
     "Costo de pedido": 22678.1,
     "Costo unitario": 2294.12,
-    "Cobertura minima": 20
+    "Cobertura minima": 20,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 125131,
@@ -8616,7 +8732,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 24,
     "Costo de pedido": 10384.32,
     "Costo unitario": 560.25,
-    "Cobertura minima": 24
+    "Cobertura minima": 24,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 31090,
@@ -8635,7 +8752,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 320.72,
     "Transito": 0,
-    "Cobertura minima": 90
+    "Cobertura minima": 90,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 3344,
@@ -8654,7 +8772,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 986.03,
     "Transito": 0,
-    "Cobertura minima": 5
+    "Cobertura minima": 5,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 11561,
@@ -8673,7 +8792,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 176.48,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": "145168IN",
@@ -8693,7 +8813,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 11088.9,
     "Costo unitario": 401.64,
-    "Cobertura minima": 50
+    "Cobertura minima": 50,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 145168,
@@ -8712,7 +8833,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 332.52,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 145174,
@@ -8732,7 +8854,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 315,
     "Costo de pedido": 59890.95,
     "Costo unitario": 161.11,
-    "Cobertura minima": 210
+    "Cobertura minima": 210,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 14547,
@@ -8752,7 +8875,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 1262.33,
     "Costo unitario": 1006.77,
     "Transito": 0,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": "13545R",
@@ -8771,7 +8895,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 235.3,
-    "Cobertura minima": 12
+    "Cobertura minima": 12,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 13543,
@@ -8790,7 +8915,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 271.81,
     "Transito": 0,
-    "Cobertura minima": 6
+    "Cobertura minima": 6,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 13553,
@@ -8810,7 +8936,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 2691.3,
     "Costo unitario": 223.37,
     "Transito": 20,
-    "Cobertura minima": 40
+    "Cobertura minima": 40,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 125142,
@@ -8830,7 +8957,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 100,
     "Costo de pedido": 34714,
     "Costo unitario": 945.96,
-    "Cobertura minima": 100
+    "Cobertura minima": 100,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 125143,
@@ -8850,7 +8978,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 20,
     "Costo de pedido": 14176.400000000001,
     "Costo unitario": 1343.71,
-    "Cobertura minima": 10
+    "Cobertura minima": 10,
+    "Categoría": "Hortalizas y Hojas"
   },
   {
     "Código country": 13560,
@@ -8870,7 +8999,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 1070.34,
     "Costo unitario": 176.47,
     "Transito": 8,
-    "Cobertura minima": 6
+    "Cobertura minima": 6,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": "145182IN",
@@ -8890,7 +9020,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 11065.2,
     "Costo unitario": 301.26,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 125130,
@@ -8910,7 +9041,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 2638.98,
     "Costo unitario": 1352.94,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 13568,
@@ -8930,7 +9062,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 34840.6,
     "Costo unitario": 2117.63,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 145191,
@@ -8949,7 +9082,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1294.13,
     "Transito": 0,
-    "Cobertura minima": 6
+    "Cobertura minima": 6,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 411,
@@ -8968,7 +9102,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 889.29,
     "Transito": 0,
-    "Cobertura minima": 12
+    "Cobertura minima": 12,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 13561,
@@ -8987,7 +9122,8 @@ const INITIAL_PEDIDOS = [
     "Pedido sugerido": 0,
     "Costo de pedido": 0,
     "Costo unitario": 2941.18,
-    "Cobertura minima": 5
+    "Cobertura minima": 5,
+    "Categoría": "Otros Perecederos"
   },
   {
     "Código country": 125150,
@@ -9007,7 +9143,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 128,
     "Costo de pedido": 45790.72,
     "Costo unitario": 712.91,
-    "Cobertura minima": 16
+    "Cobertura minima": 16,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 125153,
@@ -9027,7 +9164,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 64,
     "Costo de pedido": 55750.4,
     "Costo unitario": 1421.57,
-    "Cobertura minima": 80
+    "Cobertura minima": 80,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": "125180P",
@@ -9046,7 +9184,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1396.57,
     "Transito": 0,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 125159,
@@ -9066,7 +9205,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 32,
     "Costo de pedido": 28802.88,
     "Costo unitario": 1122.89,
-    "Cobertura minima": 16
+    "Cobertura minima": 16,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": "125152N",
@@ -9086,7 +9226,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 12,
     "Costo de pedido": 9322.56,
     "Costo unitario": 764.78,
-    "Cobertura minima": 18
+    "Cobertura minima": 18,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 13573,
@@ -9106,7 +9247,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 6,
     "Costo de pedido": 1029.96,
     "Costo unitario": 201.92,
-    "Cobertura minima": 7
+    "Cobertura minima": 7,
+    "Categoría": "Hierbas y Aromáticas"
   },
   {
     "Código country": 2324,
@@ -9125,7 +9267,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1159.8,
     "Transito": 0,
-    "Cobertura minima": 12
+    "Cobertura minima": 12,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 21021,
@@ -9144,7 +9287,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 2443.05,
     "Transito": 0,
-    "Cobertura minima": 3
+    "Cobertura minima": 3,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 2125,
@@ -9163,7 +9307,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1482.83,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 2331,
@@ -9183,7 +9328,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 16492.44,
     "Costo unitario": 2077.31,
     "Transito": 0,
-    "Cobertura minima": 9
+    "Cobertura minima": 9,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 2131,
@@ -9202,7 +9348,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 3115.46,
     "Transito": 0,
-    "Cobertura minima": 8.2
+    "Cobertura minima": 8.2,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 125170,
@@ -9222,7 +9369,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 7652.88,
     "Costo unitario": 1465.25,
     "Transito": 6,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 125162,
@@ -9242,7 +9390,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 8575.56,
     "Costo unitario": 764.7,
     "Transito": 6,
-    "Cobertura minima": 20
+    "Cobertura minima": 20,
+    "Categoría": "Vegetales de Fruto"
   },
   {
     "Código country": 13571,
@@ -9262,7 +9411,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 45,
     "Costo de pedido": 24628.05,
     "Costo unitario": 352.9,
-    "Cobertura minima": 45
+    "Cobertura minima": 45,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 13581,
@@ -9281,7 +9431,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 1259.95,
     "Transito": 0,
-    "Cobertura minima": 1
+    "Cobertura minima": 1,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 13582,
@@ -9301,7 +9452,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 10064.1,
     "Costo unitario": 530.66,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 13588,
@@ -9321,7 +9473,8 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 30,
     "Costo de pedido": 12270,
     "Costo unitario": 519.6,
-    "Cobertura minima": 39
+    "Cobertura minima": 39,
+    "Categoría": "Tubérculos y Raíces"
   },
   {
     "Código country": 1800,
@@ -9340,7 +9493,8 @@ const INITIAL_PEDIDOS = [
     "Costo de pedido": 0,
     "Costo unitario": 824.09,
     "Transito": 0,
-    "Cobertura minima": 2
+    "Cobertura minima": 2,
+    "Categoría": "Frutas Frescas"
   },
   {
     "Código country": 125191,
@@ -9360,10 +9514,12 @@ const INITIAL_PEDIDOS = [
     "PEDIDO FINAL": 20,
     "Costo de pedido": 6642.6,
     "Costo unitario": 476.89,
-    "Cobertura minima": 30
+    "Cobertura minima": 30,
+    "Categoría": "Otros Perecederos"
   },
   {
-    "Costo de pedido": 1117809.09
+    "Costo de pedido": 1117809.09,
+    "Categoría": "Otros Perecederos"
   }
 ];
 const INITIAL_HOJA1 = [
