@@ -1,10 +1,11 @@
 services:
   - type: web
-    name: mrp-codisa-app
+    name: masterplan-mrp-codisa
     env: node
     plan: starter
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /api/planning/matrix
     envVars:
       - key: NODE_ENV
         value: production
@@ -16,3 +17,11 @@ services:
         value: https://script.google.com/macros/s/AKfycbxNLOOjTlzp-WLcIiQXpoxw510xMvu3hgXF1Bec8mvhdVR3Kpi8GVN2VcIFZKnAvH21Cg/exec
       - key: DEFAULT_SAFETY_STOCK_DAYS
         value: "1"
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
