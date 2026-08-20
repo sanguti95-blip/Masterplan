@@ -18,6 +18,17 @@ class MrpApp {
     this.calculatedItems = [];
     this.activeOrders = [];
     this.isSyncing = false;
+    this.catalogSearchQuery = '';
+    this.catalogSelectedCategory = 'all';
+  }
+
+  getAutoDetectedDay() {
+    const dayIdx = new Date().getDay(); // 0 = Dom, 1 = Lun, 2 = Mar, 3 = Mie, 4 = Jue, 5 = Vie, 6 = Sab
+    if (dayIdx === 1) return 'Lunes';
+    if (dayIdx === 2) return 'Martes';
+    if (dayIdx === 3) return 'Miercoles';
+    if (dayIdx === 4) return 'Jueves';
+    return 'Lunes'; // Predeterminado para viernes y fines de semana
   }
 
   async init() {
@@ -35,19 +46,23 @@ class MrpApp {
     }
     if (window.KpiRenderer) window.KpiRenderer.init();
 
-    // 2. Attach UI Listeners
+    // 2. Detección Automática del Día Actual
+    this.executionDay = this.getAutoDetectedDay();
+    this.updateDaySelectorUi(this.executionDay);
+
+    // 3. Attach UI Listeners
     this.attachDomListeners();
 
-    // 3. Register PWA Service Worker
+    // 4. Register PWA Service Worker
     this.registerServiceWorker();
 
-    // 4. Load Data from Backend or Local Fallback
+    // 5. Load Data from Backend or Local Fallback
     await this.loadInitialData();
 
-    // 5. Initial Render
+    // 6. Initial Render
     this.recalculateAndRender();
 
-    // 6. Update Status
+    // 7. Update Status
     const statusEl = document.getElementById('data-status-text');
     if (statusEl) {
       statusEl.innerText = `Sistema de Abastecimiento listo. ${this.items.length} SKUs en catálogo maestro.`;
@@ -98,7 +113,7 @@ class MrpApp {
       });
     }
 
-    // Period / VDP Window Filter Dropdown
+    // Period / VDP Window Filter Dropdown (Recálculo Inmediato)
     const periodFilter = document.getElementById('period-filter');
     if (periodFilter) {
       periodFilter.addEventListener('change', (e) => {
@@ -108,10 +123,48 @@ class MrpApp {
           this.items.forEach(item => {
             item.days_period = this.vdpDays;
             item.daysPeriod = this.vdpDays;
+            if (val === 60 && item.sales_60d) {
+              item.vdp = item.sales_60d / 50;
+            } else if (val <= 30 && item.days_in_month_cut) {
+              item.vdp = (item.sales_period || item.CANTIDAD || 0) / item.days_in_month_cut;
+            } else {
+              item.vdp = (item.sales_period || item.CANTIDAD || 0) / val;
+            }
           });
           this.recalculateAndRender();
-          window.Toast.show(`Ventana estadística de VDP ajustada a ${val} días.`, 'info');
+          window.Toast.show(`Ventana VDP actualizada a ${val} días. Sugeridos recalculados en vivo.`, 'info');
         }
+      });
+    }
+
+    // Catalog Editor Search & Filter
+    const catalogSearch = document.getElementById('catalog-search-input');
+    if (catalogSearch) {
+      catalogSearch.addEventListener('input', (e) => {
+        this.catalogSearchQuery = e.target.value;
+        this.renderCatalogEditor();
+      });
+    }
+
+    const catalogCatFilter = document.getElementById('catalog-category-filter');
+    if (catalogCatFilter) {
+      catalogCatFilter.addEventListener('change', (e) => {
+        this.catalogSelectedCategory = e.target.value;
+        this.renderCatalogEditor();
+      });
+    }
+
+    const btnCatalogSave = document.getElementById('btn-catalog-save-all');
+    if (btnCatalogSave) {
+      btnCatalogSave.addEventListener('click', () => {
+        this.saveAllCatalogChanges();
+      });
+    }
+
+    const btnCatalogReset = document.getElementById('btn-catalog-reset');
+    if (btnCatalogReset) {
+      btnCatalogReset.addEventListener('click', () => {
+        this.resetCatalogToFactory();
       });
     }
 
@@ -186,6 +239,8 @@ class MrpApp {
       setTimeout(() => {
         if (window.ChartManager) window.ChartManager.renderAllCharts();
       }, 50);
+    } else if (tabId === 'catalog') {
+      this.renderCatalogEditor();
     } else if (tabId === 'transit') {
       this.renderTransitTab();
     } else if (tabId === 'sync') {
@@ -193,9 +248,7 @@ class MrpApp {
     }
   }
 
-  setExecutionDay(day) {
-    this.executionDay = day;
-
+  updateDaySelectorUi(day) {
     // Update day buttons
     document.querySelectorAll('.day-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.day === day);
@@ -212,7 +265,12 @@ class MrpApp {
     if (bannerDelivery) bannerDelivery.innerText = matrix.deliveryDay;
     if (bannerCoverage) bannerCoverage.innerText = `${matrix.coverageDays} día(s)`;
     if (bannerTransit) bannerTransit.innerText = matrix.activeTransitDays.join(', ');
+  }
 
+  setExecutionDay(day) {
+    this.executionDay = day;
+    this.updateDaySelectorUi(day);
+    const matrix = window.APP_CONFIG.planningMatrix[day] || window.APP_CONFIG.planningMatrix.Lunes;
     window.Toast.show(`Plan de pedidos actualizado para ${matrix.dayName} (Ingreso a Bodega: ${matrix.deliveryDay})`, 'info');
     this.recalculateAndRender();
   }
@@ -238,6 +296,7 @@ class MrpApp {
           if (transitRes.status === 'fulfilled' && transitRes.value && transitRes.value.orders) {
             this.activeOrders = transitRes.value.orders;
           }
+          this.loadCatalogOverrides();
           return;
         }
       }
@@ -314,6 +373,7 @@ class MrpApp {
           pedidoFinalOverride: null
         };
       });
+      this.loadCatalogOverrides();
     }
   }
 
@@ -694,6 +754,181 @@ class MrpApp {
     }, `${order.orderCode}.xlsx`);
 
     window.Toast.show(`Descargando archivo Excel para ${orderCode}...`, 'info');
+  }
+
+  loadCatalogOverrides() {
+    try {
+      const saved = localStorage.getItem('codisa_catalog_overrides');
+      if (saved) {
+        const overrides = JSON.parse(saved);
+        this.items.forEach(item => {
+          const k1 = (item.code_frumusa || '').toString().trim().toUpperCase();
+          const k2 = (item.code_country || '').toString().trim().toUpperCase();
+          const k3 = (item.codeSku || '').toString().trim().toUpperCase();
+          const ov = overrides[k1] || overrides[k2] || overrides[k3];
+          if (ov) {
+            if (ov.pack_multiple !== undefined) item.pack_multiple = Number(ov.pack_multiple);
+            if (ov.safety_stock_days !== undefined) item.safety_stock_days = Number(ov.safety_stock_days);
+            if (ov.code_frumusa) item.code_frumusa = ov.code_frumusa;
+            if (ov.code_country) item.code_country = ov.code_country;
+            if (ov.unit_eq) item.unit_eq = ov.unit_eq;
+            if (ov.description) item.description = ov.description;
+          }
+        });
+      }
+    } catch(e) {
+      console.warn('Error al cargar overrides de catálogo:', e.message);
+    }
+  }
+
+  renderCatalogEditor() {
+    const tbody = document.getElementById('catalog-table-body');
+    if (!tbody) return;
+
+    const q = (this.catalogSearchQuery || '').toLowerCase().trim();
+    const cat = this.catalogSelectedCategory || 'all';
+
+    const filtered = this.items.filter(item => {
+      const sku1 = (item.code_frumusa || '').toString().toLowerCase();
+      const sku2 = (item.code_country || '').toString().toLowerCase();
+      const desc = (item.description || '').toString().toLowerCase();
+      const matchQuery = !q || sku1.includes(q) || sku2.includes(q) || desc.includes(q);
+      const matchCat = cat === 'all' || item.category === cat;
+      return matchQuery && matchCat;
+    });
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="7" class="table-empty-state" style="text-align: center; padding: 30px;">
+            <i class="fa-solid fa-box-open" style="font-size: 2rem; color: var(--text-dim); margin-bottom: 8px;"></i>
+            <p>No se encontraron artículos en el maestro con los filtros seleccionados.</p>
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tbody.innerHTML = filtered.map(item => {
+      const skuKey = (item.code_frumusa || item.code_country || item.codeSku || '').toString().trim();
+      return `
+        <tr data-sku="${skuKey}">
+          <td>
+            <input type="text" class="input-catalog font-mono field-frumusa" data-sku="${skuKey}" value="${item.code_frumusa || ''}" title="Código Frumusa (Proveedor)">
+          </td>
+          <td>
+            <input type="text" class="input-catalog font-mono field-country" data-sku="${skuKey}" value="${item.code_country || ''}" title="Código Country (CODISA)">
+          </td>
+          <td>
+            <input type="text" class="input-catalog field-desc" data-sku="${skuKey}" value="${item.description || ''}" title="Descripción del Artículo">
+          </td>
+          <td class="text-center">
+            <input type="text" class="input-catalog font-mono text-center field-unit" data-sku="${skuKey}" value="${item.unit_eq || item.UNIDAD_EQ || 'UD'}" style="max-width: 60px;" title="Unidad de Medida">
+          </td>
+          <td class="text-center">
+            <input type="number" step="any" min="1" class="input-catalog font-mono text-center field-pack" data-sku="${skuKey}" value="${item.pack_multiple || 1}" style="max-width: 80px;" title="Unidades por Bulto / Caja">
+          </td>
+          <td class="text-center">
+            <input type="number" step="0.5" min="0" max="30" class="input-catalog font-mono text-center field-ss" data-sku="${skuKey}" value="${item.safety_stock_days || 1}" style="max-width: 80px;" title="Días de Cobertura Mínima (Stock de Seguridad)">
+          </td>
+          <td class="text-center">
+            <button class="btn-row-save" onclick="window.MrpAppInstance.saveSingleCatalogRow('${skuKey}')" title="Guardar fila">
+              <i class="fa-solid fa-check"></i>
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  saveSingleCatalogRow(skuKey) {
+    const row = document.querySelector(`#catalog-table-body tr[data-sku="${skuKey}"]`);
+    if (!row) return;
+
+    const frumusa = row.querySelector('.field-frumusa').value.trim();
+    const country = row.querySelector('.field-country').value.trim();
+    const desc = row.querySelector('.field-desc').value.trim();
+    const unit = row.querySelector('.field-unit').value.trim();
+    const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
+    const ss = parseFloat(row.querySelector('.field-ss').value) || 1;
+
+    let overrides = {};
+    try {
+      overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
+    } catch(e) {}
+
+    overrides[skuKey.toUpperCase()] = {
+      code_frumusa: frumusa,
+      code_country: country,
+      description: desc,
+      unit_eq: unit,
+      pack_multiple: pack,
+      safety_stock_days: ss
+    };
+
+    localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
+
+    // Update in-memory item
+    const item = this.items.find(i => (i.code_frumusa === skuKey || i.code_country === skuKey || i.codeSku === skuKey));
+    if (item) {
+      item.code_frumusa = frumusa;
+      item.code_country = country;
+      item.description = desc;
+      item.unit_eq = unit;
+      item.pack_multiple = pack;
+      item.safety_stock_days = ss;
+    }
+
+    this.recalculateAndRender();
+    window.Toast.show(`Artículo ${desc || skuKey} guardado en el maestro.`, 'success');
+  }
+
+  saveAllCatalogChanges() {
+    let overrides = {};
+    try {
+      overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
+    } catch(e) {}
+
+    const rows = document.querySelectorAll('#catalog-table-body tr[data-sku]');
+    rows.forEach(row => {
+      const skuKey = row.dataset.sku;
+      const frumusa = row.querySelector('.field-frumusa').value.trim();
+      const country = row.querySelector('.field-country').value.trim();
+      const desc = row.querySelector('.field-desc').value.trim();
+      const unit = row.querySelector('.field-unit').value.trim();
+      const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
+      const ss = parseFloat(row.querySelector('.field-ss').value) || 1;
+
+      overrides[skuKey.toUpperCase()] = {
+        code_frumusa: frumusa,
+        code_country: country,
+        description: desc,
+        unit_eq: unit,
+        pack_multiple: pack,
+        safety_stock_days: ss
+      };
+
+      const item = this.items.find(i => (i.code_frumusa === skuKey || i.code_country === skuKey || i.codeSku === skuKey));
+      if (item) {
+        item.code_frumusa = frumusa;
+        item.code_country = country;
+        item.description = desc;
+        item.unit_eq = unit;
+        item.pack_multiple = pack;
+        item.safety_stock_days = ss;
+      }
+    });
+
+    localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
+    this.recalculateAndRender();
+    window.Toast.show('¡Todos los cambios del Maestro de Artículos fueron guardados exitosamente!', 'success');
+  }
+
+  resetCatalogToFactory() {
+    if (confirm('¿Deseas restablecer todos los parámetros del maestro a los valores de fábrica?')) {
+      localStorage.removeItem('codisa_catalog_overrides');
+      window.location.reload();
+    }
   }
 }
 

@@ -802,22 +802,29 @@ button {
 }
 
 .table-scroll-container {
-  overflow-x: auto;
-  max-height: calc(100vh - 340px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: calc(100vh - 330px);
+}
+
+@media (max-width: 1180px) {
+  .table-scroll-container {
+    overflow-x: auto;
+  }
 }
 
 .mrp-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   text-align: left;
-  table-layout: auto;
+  table-layout: fixed;
 }
 
 .mrp-table thead .header-super th {
   background: var(--surface-card);
-  padding: 5px 8px;
-  font-size: 0.68rem;
+  padding: 4px 6px;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -835,12 +842,12 @@ button {
 .mrp-table thead .header-main th {
   background: var(--surface);
   border-bottom: 2px solid var(--border);
-  padding: 9px 10px;
+  padding: 7px 4px;
   font-weight: 700;
   color: var(--text-muted);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -860,8 +867,8 @@ button {
 }
 
 .sort-icon {
-  margin-left: 4px;
-  font-size: 0.7rem;
+  margin-left: 2px;
+  font-size: 0.65rem;
   opacity: 0.4;
   transition: opacity 0.15s ease;
 }
@@ -873,7 +880,7 @@ button {
 }
 
 .mrp-table td {
-  padding: 7px 10px;
+  padding: 5px 4px;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
@@ -893,54 +900,58 @@ button {
 .col-sku strong {
   color: var(--primary);
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
 }
 
 .sku-subcode {
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   color: var(--text-muted);
 }
 
 .col-desc {
-  min-width: 250px;
-  max-width: 320px;
+  width: auto;
+  min-width: 140px;
+  max-width: 240px;
 }
 
 .product-name {
   display: block;
   font-weight: 600;
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   color: var(--text);
-  line-height: 1.25;
-  word-break: break-word;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-category-tag {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   background: rgba(59, 130, 246, 0.08);
   color: #3b82f6;
   border: 1px solid rgba(59, 130, 246, 0.2);
-  padding: 1px 6px;
-  border-radius: 4px;
+  padding: 0 4px;
+  border-radius: 3px;
   display: inline-block;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .sub-boxes {
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   color: var(--text-muted);
 }
 
 /* Table Inputs */
 .input-table {
-  width: 76px;
-  padding: 5px 7px;
+  width: 100%;
+  max-width: 68px;
+  padding: 4px 4px;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 5px;
   background: var(--surface-card);
   color: var(--text);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   outline: none;
   text-align: right;
   transition: all 0.15s ease;
@@ -963,6 +974,74 @@ button {
   border-color: var(--primary) !important;
   color: var(--primary) !important;
   background: var(--primary-bg) !important;
+}
+
+/* Catalog Editor Table */
+.catalog-table {
+  table-layout: auto;
+}
+
+.catalog-table th {
+  font-size: 0.72rem;
+  padding: 10px 8px;
+}
+
+.catalog-table td {
+  padding: 8px 8px;
+}
+
+.input-catalog {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  color: var(--text);
+  font-size: 0.82rem;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.input-catalog:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+  background: var(--surface);
+}
+
+.select-catalog {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  color: var(--text);
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.btn-row-save {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-row-save:hover {
+  background: var(--primary-bg);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.row-modified {
+  background: rgba(245, 158, 11, 0.04);
 }
 
 /* Status Pills */

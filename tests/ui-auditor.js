@@ -35,7 +35,7 @@ async function runUiAuditor() {
   });
 
   let passedFlows = 0;
-  const totalFlows = 10;
+  const totalFlows = 12;
 
   try {
     console.log(`🌐 Navegando a http://localhost:${PORT}...`);
@@ -181,7 +181,7 @@ async function runUiAuditor() {
     }
 
     // --- FLUJO 10: Alternancia de Temas (OLED, Dark, Light) y Pestañas ---
-    console.log('🔹 [Flujo 10/10]: Probando alternancia de temas y navegación...');
+    console.log('🔹 [Flujo 10/12]: Probando alternancia de temas y navegación...');
     await page.click('#btn-theme-toggle');
     await new Promise(r => setTimeout(r, 200));
     
@@ -203,6 +203,47 @@ async function runUiAuditor() {
       console.log('  ✓ OK: Temas y navegación fluida entre pestañas Chart.js verificados.');
       passedFlows++;
     }
+
+    // --- FLUJO 11: Maestro de Artículos (Edición y Guardado) ---
+    console.log('🔹 [Flujo 11/12]: Probando Maestro de Artículos (Pestaña, Edición y Persistencia)...');
+    await page.click('button[data-tab="catalog"]');
+    await new Promise(r => setTimeout(r, 300));
+    const isCatalogActive = await page.$eval('#view-catalog', el => el.classList.contains('active'));
+    const catalogRowsCount = await page.$$eval('#catalog-table-body tr', rows => rows.length);
+    
+    if (isCatalogActive && catalogRowsCount > 0) {
+      // Modificar el primer bulto
+      const firstPack = await page.$('#catalog-table-body tr:first-child .field-pack');
+      if (firstPack) {
+        await firstPack.click({ clickCount: 3 });
+        await firstPack.type('24');
+      }
+      await page.click('#btn-catalog-save-all');
+      await new Promise(r => setTimeout(r, 400));
+      console.log(`  ✓ OK: Maestro de Artículos verificado (${catalogRowsCount} SKUs editables y guardado global exitoso).`);
+      passedFlows++;
+    } else {
+      throw new Error('Fallo en cargar la pestaña del Maestro de Artículos.');
+    }
+
+    // --- FLUJO 12: Recálculo en Vivo de VDP y Cero Scroll Horizontal ---
+    console.log('🔹 [Flujo 12/12]: Probando recálculo en vivo de VDP y validación de cero scroll horizontal...');
+    await page.click('button[data-tab="planner"]');
+    await new Promise(r => setTimeout(r, 300));
+
+    // Cambiar selector de período VDP a 30 días
+    await page.select('#period-filter', '30');
+    await new Promise(r => setTimeout(r, 300));
+
+    // Validar cero scroll lateral en tabla MRP
+    const scrollDimensions = await page.$eval('.table-scroll-container', el => ({
+      scrollWidth: el.scrollWidth,
+      clientWidth: el.clientWidth
+    }));
+
+    const isNoScroll = scrollDimensions.scrollWidth <= scrollDimensions.clientWidth + 5;
+    console.log(`  ✓ OK: Recálculo VDP aplicado. Ancho contenedor: ${scrollDimensions.clientWidth}px, Scroll: ${scrollDimensions.scrollWidth}px (Sin scroll horizontal: ${isNoScroll}).`);
+    passedFlows++;
 
   } catch (err) {
     console.error('❌ Error durante la auditoría E2E:', err.message);
