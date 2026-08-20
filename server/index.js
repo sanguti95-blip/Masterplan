@@ -12,6 +12,7 @@ const planningRoutes = require('./routes/planning');
 const productsRoutes = require('./routes/products');
 const syncRoutes = require('./routes/sync');
 const analyticsRoutes = require('./routes/analytics');
+const syncService = require('./services/syncService');
 
 const app = express();
 
@@ -118,6 +119,11 @@ function bootstrapCatalog() {
 }
 
 bootstrapCatalog();
+
+// Auto-sync with live Google Sheets feed on boot
+syncService.syncFromGoogleAppsScript()
+  .then(res => console.log(`🔄 [Live Sync Boot]: Sincronización inicial completada (${res.log.matchedSkus} SKUs actualizados).`))
+  .catch(e => console.warn('⚠️ [Live Sync Boot Warning]:', e.message));
 
 // Security Middlewares (Helmet with relaxed CSP for CDN dependencies)
 app.use(

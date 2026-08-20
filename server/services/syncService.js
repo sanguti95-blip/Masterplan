@@ -175,16 +175,32 @@ async function syncFromGoogleAppsScript(customUrl) {
 
       if (sku) {
         const existing = codisaMap.get(sku);
-        if (!existing || rowTimestamp >= existing.timestamp) {
-          // Si el nuevo registro es del mes más reciente, actualizamos saldo y costo del mes actual
-          codisaMap.set(sku, record);
+        if (!existing || rowTimestamp > existing.timestamp) {
+          codisaMap.set(sku, { ...record });
+        } else if (rowTimestamp === existing.timestamp) {
+          // Mismo corte de fecha de proceso: acumular ventas, montos y saldos de múltiples líneas
+          existing.cantidadVentas += record.cantidadVentas;
+          existing.montoBruto += record.montoBruto;
+          existing.saldoActual += record.saldoActual;
+          if (record.costoUnitario > 0) existing.costoUnitario = record.costoUnitario;
+          if (record.precio > 0) existing.precio = record.precio;
+          if (record.transito > 0) existing.transito = Math.max(existing.transito, record.transito);
+          if (record.unidadesMerma > 0) existing.unidadesMerma += record.unidadesMerma;
+          if (record.costoBrutoMerma > 0) existing.costoBrutoMerma += record.costoBrutoMerma;
         }
       }
 
       if (articulo) {
         const existingDesc = codisaByDesc.get(articulo);
-        if (!existingDesc || rowTimestamp >= existingDesc.timestamp) {
-          codisaByDesc.set(articulo, record);
+        if (!existingDesc || rowTimestamp > existingDesc.timestamp) {
+          codisaByDesc.set(articulo, { ...record });
+        } else if (rowTimestamp === existingDesc.timestamp) {
+          existingDesc.cantidadVentas += record.cantidadVentas;
+          existingDesc.montoBruto += record.montoBruto;
+          existingDesc.saldoActual += record.saldoActual;
+          if (record.costoUnitario > 0) existingDesc.costoUnitario = record.costoUnitario;
+          if (record.precio > 0) existingDesc.precio = record.precio;
+          if (record.transito > 0) existingDesc.transito = Math.max(existingDesc.transito, record.transito);
         }
       }
     });
