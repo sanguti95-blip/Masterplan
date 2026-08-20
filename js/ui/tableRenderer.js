@@ -158,7 +158,7 @@ const TableRenderer = {
           <td class="col-transit">
             <input type="number" step="any" min="0" class="input-table transit-input font-mono ${item.activeTransit > 0 ? 'transit-active' : ''}" 
                    data-sku="${item.codeSku}" data-col="transit" data-row="${rowIndex}" value="${item.activeTransit}" 
-                   aria-label="Tránsito activo para ${item.description}" title="Pedidos pendientes de ingreso (72h)">
+                   aria-label="Tránsito activo para ${item.description}" title="Pedidos en tránsito activos (72h)">
           </td>
           <td class="col-projected font-mono text-right font-semibold">
             ${AppFormatter.number(item.projectedStock)}

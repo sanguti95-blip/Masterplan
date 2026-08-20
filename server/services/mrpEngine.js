@@ -64,33 +64,33 @@ function normalizeDayName(day) {
  * @param {number} manualTransitFallback Tránsito manual registrado en catálogo si no hay órdenes en BD
  */
 function calculateActiveTransitForSku(skuCode, executionDay, activeOrdersList = [], manualTransitFallback = 0) {
-  const normDay = normalizeDayName(executionDay);
-  const matrixRule = PLANNING_MATRIX[normDay] || PLANNING_MATRIX.Lunes;
-  
-  if (!activeOrdersList || activeOrdersList.length === 0) {
-    return Number(manualTransitFallback) || 0;
-  }
+  if (!skuCode) return Number(manualTransitFallback) || 0;
+  const cleanSku = skuCode.toString().trim().toUpperCase();
 
-  // Filtrar órdenes que correspondan a los días de tránsito activo según la matriz
-  let sumTransit = 0;
-  let hasMatchingOrders = false;
+  if (activeOrdersList && activeOrdersList.length > 0) {
+    let sumTransit = 0;
+    let hasMatchingOrders = false;
 
-  activeOrdersList.forEach(order => {
-    if (order.status === 'EN_TRANSITO') {
-      const orderDay = normalizeDayName(order.execution_day || order.day);
-      const isRelevant = matrixRule.activeTransitDays.some(d => normalizeDayName(d) === orderDay);
-      
-      if (isRelevant && Array.isArray(order.items)) {
-        const item = order.items.find(i => (i.code_sku === skuCode || i.codeFrumusa === skuCode || i.codeCountry === skuCode));
+    activeOrdersList.forEach(order => {
+      if (order.status === 'EN_TRANSITO' && Array.isArray(order.items)) {
+        const item = order.items.find(i => {
+          const k1 = (i.code_sku || i.codeSku || '').toString().trim().toUpperCase();
+          const k2 = (i.codeFrumusa || '').toString().trim().toUpperCase();
+          const k3 = (i.codeCountry || '').toString().trim().toUpperCase();
+          return k1 === cleanSku || k2 === cleanSku || k3 === cleanSku;
+        });
+
         if (item) {
-          sumTransit += Number(item.final_qty || item.quantity || 0);
+          sumTransit += Number(item.final_qty || item.finalQty || item.quantity || 0);
           hasMatchingOrders = true;
         }
       }
-    }
-  });
+    });
 
-  return hasMatchingOrders ? sumTransit : (Number(manualTransitFallback) || 0);
+    if (hasMatchingOrders) return sumTransit;
+  }
+
+  return Number(manualTransitFallback) || 0;
 }
 
 /**

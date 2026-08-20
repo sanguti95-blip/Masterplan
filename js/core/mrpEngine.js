@@ -24,35 +24,33 @@ const MrpEngine = {
   },
 
   calculateActiveTransit(skuCode, executionDay, activeOrders = [], manualTransit = 0) {
-    const normDay = this.normalizeDayName(executionDay);
-    const matrixRule = this.matrix[normDay] || this.matrix.Lunes;
+    if (!skuCode) return Number(manualTransit) || 0;
+    const cleanSku = skuCode.toString().trim().toUpperCase();
 
-    if (!activeOrders || activeOrders.length === 0) {
-      return Number(manualTransit) || 0;
-    }
+    if (activeOrders && activeOrders.length > 0) {
+      let sum = 0;
+      let found = false;
 
-    let sum = 0;
-    let found = false;
+      activeOrders.forEach(order => {
+        if (order.status === 'EN_TRANSITO' && Array.isArray(order.items)) {
+          const item = order.items.find(i => {
+            const k1 = (i.codeSku || i.code_sku || '').toString().trim().toUpperCase();
+            const k2 = (i.codeFrumusa || '').toString().trim().toUpperCase();
+            const k3 = (i.codeCountry || '').toString().trim().toUpperCase();
+            return k1 === cleanSku || k2 === cleanSku || k3 === cleanSku;
+          });
 
-    activeOrders.forEach(order => {
-      if (order.status === 'EN_TRANSITO') {
-        const orderDay = this.normalizeDayName(order.executionDay || order.execution_day);
-        const match = matrixRule.activeTransitDays.some(d => this.normalizeDayName(d) === orderDay);
-
-        if (match && Array.isArray(order.items)) {
-          const item = order.items.find(i => (
-            i.codeSku === skuCode || i.code_sku === skuCode ||
-            i.codeFrumusa === skuCode || i.codeCountry === skuCode
-          ));
           if (item) {
             sum += Number(item.finalQty || item.quantity || 0);
             found = true;
           }
         }
-      }
-    });
+      });
 
-    return found ? sum : (Number(manualTransit) || 0);
+      if (found) return sum;
+    }
+
+    return Number(manualTransit) || 0;
   },
 
   /**
