@@ -72,6 +72,18 @@ const ApiClient = {
     return this.request('/api/planning/transit');
   },
 
+  clearAllTransitOrders() {
+    return this.request('/api/planning/transit/clear', {
+      method: 'POST'
+    });
+  },
+
+  deleteTransitOrder(orderId) {
+    return this.request(`/api/planning/transit/${encodeURIComponent(orderId)}`, {
+      method: 'DELETE'
+    });
+  },
+
   reconcileTransitOrder(orderId) {
     return this.request('/api/planning/transit/reconcile', {
       method: 'POST',

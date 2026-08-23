@@ -77,51 +77,53 @@ router.get('/calculate', (req, res) => {
 // POST /api/planning/approve - Approve Planned Order and add to In-Transit
 router.post('/approve', (req, res) => {
   try {
-    const { executionDay, items, notes, createdBy } = req.body;
+    const { executionDay, items, order, notes, createdBy } = req.body;
+    const rawItems = items || (order ? order.items : []);
 
-    if (!items || !Array.isArray(items) || items.length === 0) {
+    if (!rawItems || !Array.isArray(rawItems) || rawItems.length === 0) {
       return res.status(400).json({ error: 'No se enviaron artículos para aprobar.' });
     }
 
-    const normDay = mrpEngine.normalizeDayName(executionDay || 'Lunes');
+    const normDay = mrpEngine.normalizeDayName(executionDay || (order ? order.executionDay : 'Lunes'));
     const matrixRule = mrpEngine.PLANNING_MATRIX[normDay] || mrpEngine.PLANNING_MATRIX.Lunes;
-
-    // Filter items with quantity > 0
-    const approvedItems = items.filter(i => Number(i.finalQty || i.quantity || 0) > 0);
-
-    if (approvedItems.length === 0) {
-      return res.status(400).json({ error: 'Todos los artículos tienen cantidad 0. No hay orden para aprobar.' });
-    }
 
     let totalCost = 0;
     let totalUnits = 0;
     let totalBoxes = 0;
+    const formattedItems = [];
 
-    const formattedItems = approvedItems.map(item => {
-      const qty = Number(item.finalQty || item.quantity || 0);
-      const mult = Math.max(1, Number(item.packMultiple || item.multiplo || 1));
-      const boxes = Math.ceil(qty / mult);
+    rawItems.forEach(item => {
+      const finalQty = Number(item.finalQty !== undefined ? item.finalQty : item.quantity || 0);
       const unitCost = Number(item.unitCost || item.cost || 0);
-      const itemCost = qty * unitCost;
+      const packMultiple = Math.max(1, Number(item.packMultiple || item.multiplo || 1));
+      const finalBoxes = Math.ceil(finalQty / packMultiple);
+      const itemCost = finalQty * unitCost;
 
-      totalCost += itemCost;
-      totalUnits += qty;
-      totalBoxes += boxes;
+      if (finalQty > 0) {
+        totalCost += itemCost;
+        totalUnits += finalQty;
+        totalBoxes += finalBoxes;
 
-      return {
-        codeSku: item.codeSku || item.codeFrumusa || item.codeCountry,
-        description: item.description || item.descripcion,
-        projectedStock: item.projectedStock || 0,
-        vdp: item.vdp || 0,
-        targetCoverageDays: item.targetCoverageDays || 0,
-        suggestedQty: item.suggestedUnits || item.suggestedQty || 0,
-        finalQty: qty,
-        finalBoxes: boxes,
-        packMultiple: mult,
-        unitCost: unitCost,
-        totalCost: itemCost
-      };
+        formattedItems.push({
+          codeSku: item.codeSku || item.codeFrumusa || item.codeCountry,
+          codeCountry: item.codeCountry || item.codeSku,
+          codeFrumusa: item.codeFrumusa || item.codeSku,
+          description: item.description || item.descripcion || 'Producto',
+          category: item.category || 'Perecederos',
+          boxes: finalBoxes,
+          quantity: finalQty,
+          finalQty: finalQty,
+          finalBoxes: finalBoxes,
+          unitCost: unitCost,
+          totalCost: itemCost,
+          packMultiple
+        });
+      }
     });
+
+    if (formattedItems.length === 0) {
+      return res.status(400).json({ error: 'El pedido no contiene cantidades mayores a 0.' });
+    }
 
     const now = new Date();
     const orderId = `ORD-${normDay.toUpperCase()}-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}-${Date.now().toString().slice(-4)}`;
@@ -129,6 +131,8 @@ router.post('/approve', (req, res) => {
     const newOrder = {
       id: orderId,
       orderCode: orderId,
+      orderNumber: `PED-${normDay.slice(0, 3).toUpperCase()}-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${String(db.memoryStore.orders.length + 1).padStart(2, '0')}`,
+      day: normDay,
       executionDay: normDay,
       deliveryDay: matrixRule.deliveryDay,
       createdAt: now.toISOString(),
@@ -149,10 +153,12 @@ router.post('/approve', (req, res) => {
     formattedItems.forEach(item => {
       const prod = db.memoryStore.products.find(p => (p.code_frumusa === item.codeSku || p.codeFrumusa === item.codeSku || p.NO_ARTI === item.codeSku));
       if (prod) {
-        prod.transit_qty = (Number(prod.transit_qty || 0)) + item.finalQty;
+        prod.transit_qty = (Number(prod.transit_qty || 0)) + item.quantity;
         prod.transit = prod.transit_qty;
       }
     });
+
+    persistOrdersToDisk(db.memoryStore.orders);
 
     res.status(201).json({
       success: true,
@@ -174,6 +180,79 @@ router.get('/transit', (req, res) => {
   });
 });
 
+// DELETE /api/planning/transit - Clear all In-Transit orders
+router.delete('/transit', (req, res) => {
+  try {
+    db.memoryStore.orders = [];
+    if (Array.isArray(db.memoryStore.products)) {
+      db.memoryStore.products.forEach(p => {
+        p.transit_qty = 0;
+        p.transit = 0;
+      });
+    }
+    persistOrdersToDisk([]);
+    res.json({
+      success: true,
+      message: 'Todos los pedidos en tránsito han sido eliminados del servidor.',
+      totalActiveOrders: 0,
+      orders: []
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al eliminar pedidos en tránsito.' });
+  }
+});
+
+// POST /api/planning/transit/clear - Clear all In-Transit orders (POST alias)
+router.post('/transit/clear', (req, res) => {
+  try {
+    db.memoryStore.orders = [];
+    if (Array.isArray(db.memoryStore.products)) {
+      db.memoryStore.products.forEach(p => {
+        p.transit_qty = 0;
+        p.transit = 0;
+      });
+    }
+    persistOrdersToDisk([]);
+    res.json({
+      success: true,
+      message: 'Todos los pedidos en tránsito han sido eliminados del servidor.',
+      totalActiveOrders: 0,
+      orders: []
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al eliminar pedidos en tránsito.' });
+  }
+});
+
+// DELETE /api/planning/transit/:orderId - Delete single transit order
+router.delete('/transit/:orderId', (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const orderIndex = db.memoryStore.orders.findIndex(o => o.id === orderId || o.orderCode === orderId);
+    if (orderIndex === -1) {
+      return res.status(404).json({ error: 'Orden no encontrada.' });
+    }
+    const [deleted] = db.memoryStore.orders.splice(orderIndex, 1);
+    if (deleted && deleted.items) {
+      deleted.items.forEach(item => {
+        const prod = db.memoryStore.products.find(p => (p.code_frumusa === item.codeSku || p.codeFrumusa === item.codeSku || p.NO_ARTI === item.codeSku));
+        if (prod) {
+          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - item.quantity);
+          prod.transit = prod.transit_qty;
+        }
+      });
+    }
+    persistOrdersToDisk(db.memoryStore.orders);
+    res.json({
+      success: true,
+      message: `Orden ${orderId} eliminada del servidor.`,
+      orders: db.memoryStore.orders
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al eliminar orden.' });
+  }
+});
+
 // POST /api/planning/transit/reconcile - Mark order as received in physical warehouse
 router.post('/transit/reconcile', (req, res) => {
   try {
@@ -192,11 +271,13 @@ router.post('/transit/reconcile', (req, res) => {
       order.items.forEach(item => {
         const prod = db.memoryStore.products.find(p => (p.code_frumusa === item.codeSku || p.codeFrumusa === item.codeSku || p.NO_ARTI === item.codeSku));
         if (prod) {
-          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - item.finalQty);
+          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - item.quantity);
           prod.transit = prod.transit_qty;
         }
       });
     }
+
+    persistOrdersToDisk(db.memoryStore.orders);
 
     res.json({
       success: true,

@@ -475,6 +475,10 @@
             <h2>Gestión de Pedidos en Tránsito (72 Horas)</h2>
             <p>Pedidos aprobados que están en camino a bodega. Se concilian automáticamente con los ingresos de CODISA.</p>
           </div>
+          <button id="btn-clear-all-transit" class="btn-danger" onclick="window.MrpAppInstance.clearAllTransit()" title="Borrar y purgar todos los pedidos en tránsito del servidor">
+            <i class="fa-solid fa-trash-can"></i>
+            <span>Borrar Todos los Pedidos en Tránsito</span>
+          </button>
         </div>
 
         <div id="transit-orders-list" class="transit-grid">

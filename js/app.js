@@ -743,54 +743,108 @@ class MrpApp {
   }
 
   renderTransitTab() {
-    const grid = document.getElementById('transit-orders-grid');
+    const grid = document.getElementById('transit-orders-list') || document.getElementById('transit-orders-grid');
     if (!grid) return;
 
-    if (this.activeOrders.length === 0) {
+    if (!this.activeOrders || this.activeOrders.length === 0) {
       grid.innerHTML = `
-        <div class="empty-transit-state" style="grid-column: 1 / -1;">
-          <i class="fa-solid fa-truck-ramp-box"></i>
-          <p>No hay órdenes aprobadas actualmente en tránsito.</p>
-          <span style="font-size: 0.8rem; color: var(--text-dim);">Cuando apruebes un pedido en el Planeador, aparecerá aquí como tránsito activo de 72h.</span>
+        <div class="empty-transit-state" style="grid-column: 1 / -1; padding: 40px; text-align: center;">
+          <i class="fa-solid fa-truck-ramp-box" style="font-size: 2.5rem; color: var(--text-dim); margin-bottom: 12px;"></i>
+          <p style="font-size: 1.1rem; font-weight: 600;">No hay órdenes aprobadas actualmente en tránsito.</p>
+          <span style="font-size: 0.85rem; color: var(--text-dim);">Cuando apruebes un pedido en el Planeador, aparecerá aquí como tránsito activo de 72h.</span>
         </div>
       `;
       return;
     }
 
-    grid.innerHTML = this.activeOrders.map(order => `
-      <div class="transit-card">
-        <div class="transit-card-header">
-          <div class="transit-card-title">
-            <i class="fa-solid fa-receipt text-primary"></i>
-            <strong class="font-mono">${order.orderCode}</strong>
+    grid.innerHTML = this.activeOrders.map(order => {
+      const orderCode = order.orderCode || order.orderNumber || order.id;
+      return `
+        <div class="transit-card" data-order-id="${order.id}">
+          <div class="transit-card-header">
+            <div class="transit-card-title">
+              <i class="fa-solid fa-receipt text-primary"></i>
+              <strong class="font-mono">${orderCode}</strong>
+            </div>
+            <span class="badge-day">${order.executionDay || order.day}</span>
           </div>
-          <span class="badge-day">${order.executionDay}</span>
+          <div class="transit-meta-grid">
+            <div>
+              <span class="meta-label">Ingreso Físico:</span>
+              <strong>${order.deliveryDay} (72h)</strong>
+            </div>
+            <div>
+              <span class="meta-label">Total SKUs:</span>
+              <strong class="font-mono">${order.totalItems} artículos</strong>
+            </div>
+            <div>
+              <span class="meta-label">Total Cajas:</span>
+              <strong class="font-mono">${order.totalBoxes} cjas</strong>
+            </div>
+            <div>
+              <span class="meta-label">Total Inversión:</span>
+              <strong class="font-mono text-primary">${AppFormatter.currency(order.totalCost)}</strong>
+            </div>
+          </div>
+          <div class="transit-card-footer" style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px;">
+            <button class="btn-secondary btn-small" onclick="window.MrpAppInstance.downloadOrderXlsx('${orderCode}')" title="Descargar Excel de la orden">
+              <i class="fa-solid fa-file-excel"></i> Excel
+            </button>
+            <button class="btn-danger btn-small" onclick="window.MrpAppInstance.deleteTransitOrder('${order.id}')" title="Eliminar orden del tránsito">
+              <i class="fa-solid fa-trash"></i> Eliminar
+            </button>
+          </div>
         </div>
-        <div class="transit-meta-grid">
-          <div>
-            <span class="meta-label">Ingreso Físico:</span>
-            <strong>${order.deliveryDay} (72h)</strong>
-          </div>
-          <div>
-            <span class="meta-label">Total SKUs:</span>
-            <strong class="font-mono">${order.totalItems} artículos</strong>
-          </div>
-          <div>
-            <span class="meta-label">Total Cajas:</span>
-            <strong class="font-mono">${order.totalBoxes} cjas</strong>
-          </div>
-          <div>
-            <span class="meta-label">Total Inversión:</span>
-            <strong class="font-mono text-primary">${AppFormatter.currency(order.totalCost)}</strong>
-          </div>
-        </div>
-        <div class="transit-card-footer">
-          <button class="btn-secondary btn-small" onclick="window.MrpAppInstance.downloadOrderXlsx('${order.orderCode}')">
-            <i class="fa-solid fa-file-excel"></i> Re-descargar Excel
-          </button>
-        </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
+  }
+
+  async clearAllTransit() {
+    if (!confirm('¿Estás seguro de que deseas eliminar TODOS los pedidos en tránsito del servidor? Esta acción liberará el stock en tránsito.')) {
+      return;
+    }
+    try {
+      if (window.ApiClient) {
+        await window.ApiClient.clearAllTransitOrders();
+      }
+      this.activeOrders = [];
+      Object.keys(localStorage).forEach(k => {
+        if (k.startsWith('mrp_transit_')) localStorage.removeItem(k);
+      });
+      this.items.forEach(p => {
+        p.transit_qty = 0;
+        p.activeTransit = 0;
+        p.transit = 0;
+      });
+      this.renderTransitTab();
+      this.recalculateAndRender();
+      window.Toast.show('Todos los pedidos en tránsito han sido eliminados del servidor.', 'success');
+    } catch(e) {
+      window.Toast.show('Error al eliminar pedidos en tránsito: ' + e.message, 'error');
+    }
+  }
+
+  async deleteTransitOrder(orderId) {
+    if (!confirm(`¿Deseas eliminar la orden ${orderId} del tránsito?`)) return;
+    try {
+      if (window.ApiClient) {
+        await window.ApiClient.deleteTransitOrder(orderId);
+      }
+      const idx = this.activeOrders.findIndex(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
+      if (idx !== -1) {
+        const [deleted] = this.activeOrders.splice(idx, 1);
+        if (deleted && deleted.items) {
+          deleted.items.forEach(item => {
+            localStorage.removeItem(`mrp_transit_${item.codeSku}`);
+          });
+        }
+      }
+      this.renderTransitTab();
+      this.recalculateAndRender();
+      window.Toast.show(`Orden ${orderId} eliminada del tránsito.`, 'success');
+    } catch(e) {
+      window.Toast.show('Error al eliminar orden: ' + e.message, 'error');
+    }
   }
 
   renderSyncTab() {
@@ -798,18 +852,18 @@ class MrpApp {
   }
 
   downloadOrderXlsx(orderCode) {
-    const order = this.activeOrders.find(o => o.orderCode === orderCode);
+    const order = this.activeOrders.find(o => o.orderCode === orderCode || o.orderNumber === orderCode || o.id === orderCode);
     if (!order) return;
 
     window.ExcelExporter.exportOrderToXlsx({
-      executionDay: order.executionDay,
+      executionDay: order.executionDay || order.day,
       deliveryDay: order.deliveryDay,
-      orderCode: order.orderCode,
+      orderCode: order.orderCode || order.orderNumber || order.id,
       items: order.items,
       totalCost: order.totalCost,
       totalUnits: order.totalUnits,
       totalBoxes: order.totalBoxes
-    }, `${order.orderCode}.xlsx`);
+    }, `${orderCode}.xlsx`);
 
     window.Toast.show(`Descargando archivo Excel para ${orderCode}...`, 'info');
   }
