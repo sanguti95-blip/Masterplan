@@ -24,13 +24,11 @@ const MrpEngine = {
   },
 
   calculateActiveTransit(skuCode, executionDay, activeOrders = [], manualTransit = 0) {
-    if (!skuCode) return Number(manualTransit) || 0;
+    if (!skuCode) return 0;
     const cleanSku = skuCode.toString().trim().toUpperCase();
 
-    if (activeOrders && activeOrders.length > 0) {
+    if (Array.isArray(activeOrders) && activeOrders.length > 0) {
       let sum = 0;
-      let found = false;
-
       activeOrders.forEach(order => {
         if (order.status === 'EN_TRANSITO' && Array.isArray(order.items)) {
           const item = order.items.find(i => {
@@ -42,15 +40,13 @@ const MrpEngine = {
 
           if (item) {
             sum += Number(item.finalQty || item.quantity || 0);
-            found = true;
           }
         }
       });
-
-      if (found) return sum;
+      return sum;
     }
 
-    return Number(manualTransit) || 0;
+    return 0;
   },
 
   /**

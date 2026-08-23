@@ -321,11 +321,6 @@ async function syncFromGoogleAppsScript(customUrl) {
             prod.PRECIO = match.precio;
           }
 
-          if (match.transito > 0) {
-            prod.transit_qty = match.transito;
-            prod.transit = match.transito;
-          }
-
           prod.merma_units = match.unidadesMerma;
           prod.merma_cost = match.costoBrutoMerma;
           if (!prod.category || prod.category === 'Perecederos' || prod.category === 'General') {

@@ -180,27 +180,27 @@ async function runUiAuditor() {
       throw new Error('Modal de SKU no se abrió.');
     }
 
-    // --- FLUJO 10: Alternancia de Temas (OLED, Dark, Light) y Pestañas ---
+    // --- FLUJO 10: Alternancia de Temas y Navegación entre Pestañas ---
     console.log('🔹 [Flujo 10/12]: Probando alternancia de temas y navegación...');
     await page.click('#btn-theme-toggle');
     await new Promise(r => setTimeout(r, 200));
     
-    // Switch to GMROI tab
-    await page.click('button[data-tab="gmroi"]');
+    // Switch to Transit tab
+    await page.click('button[data-tab="transit"]');
     await new Promise(r => setTimeout(r, 300));
-    const isGmroiActive = await page.$eval('#view-gmroi', el => el.classList.contains('active'));
+    const isTransitActive = await page.$eval('#view-transit', el => el.classList.contains('active'));
 
-    // Switch to Analytics tab
-    await page.click('button[data-tab="analytics"]');
+    // Switch to Sync tab
+    await page.click('button[data-tab="sync"]');
     await new Promise(r => setTimeout(r, 300));
-    const isAnalyticsActive = await page.$eval('#view-analytics', el => el.classList.contains('active'));
+    const isSyncActive = await page.$eval('#view-sync', el => el.classList.contains('active'));
 
     // Switch back to Planner
     await page.click('button[data-tab="planner"]');
     await new Promise(r => setTimeout(r, 200));
 
-    if (isGmroiActive && isAnalyticsActive) {
-      console.log('  ✓ OK: Temas y navegación fluida entre pestañas Chart.js verificados.');
+    if (isTransitActive && isSyncActive) {
+      console.log('  ✓ OK: Temas y navegación fluida entre pestañas activas verificados.');
       passedFlows++;
     }
 

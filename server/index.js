@@ -138,7 +138,7 @@ function bootstrapCatalog() {
             price = cost * 1.35;
           }
 
-          const transit = Number(row['Transito'] || 0);
+          const transit = 0;
           const packMultiple = Number(row['Múltiplo de pedido'] || 1);
           const minCoverage = Number(row['Cobertura minima'] || row['Covertura meta'] || (packMultiple * 2));
           const prodDesc = row['Descripción'] || (dataMatch ? dataMatch['ARTICULO'] : 'Producto sin descripción');
@@ -153,7 +153,8 @@ function bootstrapCatalog() {
             days_period: Number(config.DEFAULT_VDP_DAYS || 60),
             unit_cost: cost,
             unit_price: price,
-            transit_qty: transit,
+            transit_qty: 0,
+            transit: 0,
             pack_multiple: packMultiple > 0 ? packMultiple : 1,
             min_coverage_qty: minCoverage > 0 ? minCoverage : packMultiple,
             safety_stock_units: minCoverage > 0 ? minCoverage : packMultiple,

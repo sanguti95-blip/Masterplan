@@ -285,12 +285,7 @@ class MrpApp {
       p.classList.toggle('active', p.id === `view-${tabId}`);
     });
 
-    // Lazy load charts when analytics/gmroi tab is opened
-    if (tabId === 'gmroi' || tabId === 'analytics') {
-      setTimeout(() => {
-        if (window.ChartManager) window.ChartManager.renderAllCharts();
-      }, 50);
-    } else if (tabId === 'catalog') {
+    if (tabId === 'catalog') {
       this.renderCatalogEditor();
     } else if (tabId === 'transit') {
       this.renderTransitTab();
@@ -406,7 +401,7 @@ class MrpApp {
         }
 
         const transitSaved = localStorage.getItem(`mrp_transit_${codeFrumusa || codeCountry}`);
-        const transit = transitSaved !== null ? Number(transitSaved) : Number(row['Transito'] || 0);
+        const transit = transitSaved !== null ? Number(transitSaved) : 0;
 
         const descText = row['Descripción'] || (match ? match['ARTICULO'] : '');
         const cat = row['Categoría'] || (match ? match['CATEGORIA'] : null) || this.getProduceCategory(descText);
@@ -424,6 +419,8 @@ class MrpApp {
           unit_cost: cost,
           unit_price: match ? Number(match['PRECIO'] || 0) : cost * 1.35,
           transit_qty: transit,
+          activeTransit: transit,
+          transit: transit,
           pack_multiple: packMultiple,
           min_coverage_qty: minCoverage,
           safety_stock_units: minCoverage,

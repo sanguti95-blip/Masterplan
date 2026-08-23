@@ -64,13 +64,11 @@ function normalizeDayName(day) {
  * @param {number} manualTransitFallback Tránsito manual registrado en catálogo si no hay órdenes en BD
  */
 function calculateActiveTransitForSku(skuCode, executionDay, activeOrdersList = [], manualTransitFallback = 0) {
-  if (!skuCode) return Number(manualTransitFallback) || 0;
+  if (!skuCode) return 0;
   const cleanSku = skuCode.toString().trim().toUpperCase();
 
-  if (activeOrdersList && activeOrdersList.length > 0) {
+  if (Array.isArray(activeOrdersList) && activeOrdersList.length > 0) {
     let sumTransit = 0;
-    let hasMatchingOrders = false;
-
     activeOrdersList.forEach(order => {
       if (order.status === 'EN_TRANSITO' && Array.isArray(order.items)) {
         const item = order.items.find(i => {
@@ -82,15 +80,14 @@ function calculateActiveTransitForSku(skuCode, executionDay, activeOrdersList = 
 
         if (item) {
           sumTransit += Number(item.final_qty || item.finalQty || item.quantity || 0);
-          hasMatchingOrders = true;
         }
       }
     });
-
-    if (hasMatchingOrders) return sumTransit;
+    return sumTransit;
   }
 
-  return Number(manualTransitFallback) || 0;
+  // Si no hay órdenes activas registradas en el sistema, el tránsito es 0
+  return 0;
 }
 
 /**

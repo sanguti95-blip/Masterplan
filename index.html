@@ -49,14 +49,6 @@
           <i class="fa-solid fa-list-check"></i>
           <span>Maestro de Artículos</span>
         </button>
-        <button class="nav-tab" data-tab="gmroi">
-          <i class="fa-solid fa-chart-scatter"></i>
-          <span>Rentabilidad (GMROI)</span>
-        </button>
-        <button class="nav-tab" data-tab="analytics">
-          <i class="fa-solid fa-chart-pie"></i>
-          <span>Análisis & Demanda</span>
-        </button>
         <button class="nav-tab" data-tab="transit">
           <i class="fa-solid fa-truck-fast"></i>
           <span>Pedidos en Tránsito</span>
@@ -391,84 +383,7 @@
         </div>
       </section>
 
-      <!-- VIEW 2: MATRIZ GMROI (4 CUADRANTES) -->
-      <section id="view-gmroi" class="view-panel">
-        <div class="section-header">
-          <div>
-            <h2>Matriz Estratégica GMROI (4 Cuadrantes)</h2>
-            <p>Clasificación de SKUs por Margen Bruto % vs. Rotación de Inventario para optimización del capital de trabajo.</p>
-          </div>
-        </div>
-
-        <div class="gmroi-layout">
-          <div class="chart-container-card">
-            <canvas id="chart-gmroi-matrix"></canvas>
-          </div>
-
-          <div class="quadrant-summary-cards">
-            <div class="quadrant-card card-stars">
-              <div class="q-header">
-                <i class="fa-solid fa-star"></i>
-                <h3>Estrellas (Core Stars)</h3>
-              </div>
-              <p>Alto Margen (≥35%) & Alta Rotación. Mantener disponibilidad prioritaria y 0 roturas.</p>
-            </div>
-
-            <div class="quadrant-card card-cows">
-              <div class="q-header">
-                <i class="fa-solid fa-cow"></i>
-                <h3>Vacas Lecheras (Cash Cows)</h3>
-              </div>
-              <p>Alto Volumen & Flujo de Caja. Controlar costo unitario y reabastecimiento continuo.</p>
-            </div>
-
-            <div class="quadrant-card card-opportunities">
-              <div class="q-header">
-                <i class="fa-solid fa-gem"></i>
-                <h3>Oportunidades</h3>
-              </div>
-              <p>Alto Margen pero Baja Rotación. Potencial de impulso con exhibición y empaques adecuados.</p>
-            </div>
-
-            <div class="quadrant-card card-drainers">
-              <div class="q-header">
-                <i class="fa-solid fa-skull-crossbones"></i>
-                <h3>Drenadores (Drainers)</h3>
-              </div>
-              <p>Bajo Margen & Baja Rotación. Reducir inventario al mínimo para evitar mermas.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 3: ANÁLISIS & EFICIENCIA -->
-      <section id="view-analytics" class="view-panel">
-        <div class="section-header">
-          <div>
-            <h2>Análisis de Categorías & Eficiencia de Capital</h2>
-            <p>Desglose de ingresos, margen de rentabilidad y consumo histórico de mercadería.</p>
-          </div>
-        </div>
-
-        <div class="charts-two-col">
-          <div class="chart-container-card">
-            <h3>Ventas y Margen por Categoría</h3>
-            <canvas id="chart-categories-breakdown"></canvas>
-          </div>
-
-          <div class="chart-container-card">
-            <h3>Eficiencia de Capital (Stock vs. Margen)</h3>
-            <canvas id="chart-capital-efficiency"></canvas>
-          </div>
-        </div>
-
-        <div class="chart-container-card" style="margin-top: 24px;">
-          <h3>Tendencias de Consumo y Demanda Proyectada</h3>
-          <canvas id="chart-trends-curves"></canvas>
-        </div>
-      </section>
-
-      <!-- VIEW 4: ÓRDENES EN TRÁNSITO -->
+      <!-- VIEW: ÓRDENES EN TRÁNSITO -->
       <section id="view-transit" class="view-panel">
         <div class="section-header">
           <div>
