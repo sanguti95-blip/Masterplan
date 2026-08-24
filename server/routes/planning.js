@@ -360,22 +360,24 @@ router.post('/export-excel', (req, res) => {
 
     // Build worksheet rows
     const wsData = [
-      ['ORDEN DE COMPRA SUGERIDA - MASTER PLANNING CODISA'],
+      ['CODISA - ORDEN DE COMPRA Y PEDIDO DE REPOSICIÓN A PROVEEDOR (FRUMUSA)'],
       [`Día de Ejecución: ${executionDay || 'Lunes'}`, `Fecha de Generación: ${new Date().toLocaleDateString('es-CR')}`],
       [`Lead Time: 72 Horas`, `Moneda: CRC (₡)`],
       [], // Empty row
       [
-        'Código SKU',
+        'Código Frumusa (Proveedor)',
+        'Código Tienda (CODISA)',
         'Descripción',
+        'Unidad de Medida',
         'Venta Diaria (VDP)',
         'Stock Codisa',
         'Tránsito Activo',
         'Inv. Proyectado',
         'Múltiplo Empaque',
-        'Cantidad en Cajas',
-        'Cantidad Final (Unidades)',
+        'Total Cajas Pedidas',
+        'Total Unidades / Kilos',
         'Costo Unitario (₡)',
-        'Costo Total Pedido (₡)'
+        'Inversión Total Pedido (₡)'
       ]
     ];
 
@@ -391,13 +393,19 @@ router.post('/export-excel', (req, res) => {
         const costUnit = Number(item.unitCost || item.cost || 0);
         const costTotal = qty * costUnit;
 
+        const codeFrumusa = (item.codeFrumusa || item.code_frumusa || item.codeSku || '').toString().trim();
+        const codeCountry = (item.codeCountry || item.code_country || '').toString().trim();
+        const unit = (item.unit_eq || item.unit_fromusa || item.unit || 'UD').toString().trim();
+
         grandTotalUnits += qty;
         grandTotalBoxes += boxes;
         grandTotalCost += costTotal;
 
         wsData.push([
-          item.codeSku || item.codeFrumusa || item.codeCountry,
-          item.description || item.descripcion,
+          codeFrumusa,
+          codeCountry,
+          item.description || item.descripcion || '',
+          unit,
           Number((item.vdp || 0).toFixed(2)),
           Number(item.stockActual !== undefined ? item.stockActual : item.stock || 0),
           Number(item.activeTransit !== undefined ? item.activeTransit : item.transit || 0),
@@ -416,6 +424,8 @@ router.post('/export-excel', (req, res) => {
     wsData.push([
       'TOTAL GENERAL',
       '',
+      `${exportItems.filter(i => (i.finalQty || i.quantity || 0) > 0).length} SKUs con pedido`,
+      '',
       '',
       '',
       '',
@@ -432,15 +442,17 @@ router.post('/export-excel', (req, res) => {
 
     // Set column widths
     ws['!cols'] = [
-      { wch: 14 },
-      { wch: 38 },
       { wch: 18 },
+      { wch: 16 },
+      { wch: 40 },
+      { wch: 12 },
+      { wch: 16 },
       { wch: 14 },
       { wch: 14 },
       { wch: 16 },
       { wch: 16 },
       { wch: 18 },
-      { wch: 24 },
+      { wch: 22 },
       { wch: 18 },
       { wch: 22 }
     ];

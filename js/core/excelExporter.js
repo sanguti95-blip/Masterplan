@@ -13,21 +13,23 @@ const ExcelExporter = {
     const now = new Date();
 
     const wsData = [
-      ['CODISA - ORDEN DE COMPRA Y PEDIDO DE REPOSICIÓN'],
+      ['CODISA - ORDEN DE COMPRA Y PEDIDO DE REPOSICIÓN A PROVEEDOR (FRUMUSA)'],
       [`Código de Pedido: ${orderCode || 'PED-COD-01'}`, `Fecha de Generación: ${now.toLocaleDateString('es-CR')} ${now.toLocaleTimeString('es-CR')}`],
       [`Día de Pedido: ${executionDay || 'Lunes'}`, `Fecha Estimada de Ingreso a Bodega: ${deliveryDay || 'Jueves'}`],
       [`Tiempo de Entrega (Lead Time): 72 Horas`, `Moneda: Colones Costarricenses (CRC - ₡)`],
       [], // Espacio
       [
-        'Código SKU',
+        'Código Frumusa (Proveedor)',
+        'Código Tienda (CODISA)',
         'Descripción del Artículo',
+        'Unidad de Medida',
         'Venta Diaria (VDP)',
         'Stock Físico (Bodega 401)',
         'Pendiente Tránsito (72h)',
         'Disponibilidad Proyectada',
         'Unid por Bulto / Caja',
-        'Total Cajas / Bultos',
-        'Total Unidades / Kilos',
+        'Total Cajas / Bultos Pedidos',
+        'Total Unidades / Kilos Pedidos',
         'Costo Unitario (₡)',
         'Inversión Total Pedido (₡)'
       ]
@@ -46,13 +48,19 @@ const ExcelExporter = {
       const costUnit = Number(item.unitCost || item.cost || 0);
       const itemCost = qty * costUnit;
 
+      const codeFrumusa = (item.codeFrumusa || item.code_frumusa || item.codeSku || '').toString().trim();
+      const codeCountry = (item.codeCountry || item.code_country || '').toString().trim();
+      const unit = (item.unit_eq || item.unit_fromusa || item.unit || 'UD').toString().trim();
+
       calcTotalUnits += qty;
       calcTotalBoxes += boxes;
       calcTotalCost += itemCost;
 
       wsData.push([
-        item.codeSku || item.codeFrumusa || item.codeCountry || '',
+        codeFrumusa,
+        codeCountry,
         item.description || item.descripcion || '',
+        unit,
         Number((item.vdp || 0).toFixed(2)),
         Number(item.stockActual !== undefined ? item.stockActual : item.stock || 0),
         Number(item.activeTransit !== undefined ? item.activeTransit : item.transit || 0),
@@ -69,7 +77,9 @@ const ExcelExporter = {
     wsData.push([]);
     wsData.push([
       'TOTALES GENERALES',
+      '',
       `${filteredItems.length} SKUs con pedido`,
+      '',
       '',
       '',
       '',
@@ -86,15 +96,17 @@ const ExcelExporter = {
 
     // Ajustar anchos de columnas
     ws['!cols'] = [
-      { wch: 14 },
+      { wch: 18 },
+      { wch: 16 },
       { wch: 40 },
-      { wch: 18 },
+      { wch: 12 },
+      { wch: 16 },
       { wch: 14 },
       { wch: 14 },
       { wch: 16 },
       { wch: 16 },
-      { wch: 18 },
-      { wch: 24 },
+      { wch: 20 },
+      { wch: 22 },
       { wch: 18 },
       { wch: 22 }
     ];
