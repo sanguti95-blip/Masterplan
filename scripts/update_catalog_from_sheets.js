@@ -32,6 +32,17 @@ async function updateCatalog() {
   fs.writeFileSync(catalogPath, JSON.stringify(products, null, 2), 'utf8');
   console.log(`💾 Catálogo sincronizado guardado en ${catalogPath}`);
 
+  // Actualizar data.js INITIAL_PEDIDOS
+  const dataJsPath = path.join(__dirname, '..', 'data.js');
+  const updatedPedidosJs = 'const INITIAL_PEDIDOS = ' + JSON.stringify(products, null, 2) + ';\n';
+  let dataJsContent = fs.readFileSync(dataJsPath, 'utf8');
+  dataJsContent = dataJsContent.replace(/const INITIAL_PEDIDOS = [\s\S]*?;\n/, updatedPedidosJs);
+  fs.writeFileSync(dataJsPath, dataJsContent, 'utf8');
+  console.log(`💾 data.js actualizado con ${products.length} SKUs sincronizados.`);
+
+  const withStock = products.filter(p => p.stock_actual > 0);
+  console.log(`📊 Resumen: ${withStock.length} / ${products.length} SKUs tienen Stock Físico > 0.`);
+
   process.exit(0);
 }
 
