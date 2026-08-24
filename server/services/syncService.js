@@ -221,6 +221,7 @@ async function syncFromGoogleAppsScript(customUrl) {
         costoBrutoMerma: parseLocaleNumber(row.COSTO_BRUTO_MERMA, 0),
         unidadesMerma: parseLocaleNumber(row.UNIDADES_MERMA, 0),
         transito: parseLocaleNumber(row.transito, 0),
+        bodega: (row.BODEGA || '').toString().trim().toUpperCase(),
         fechaProceso: row.FECHA_PROCESO || new Date().toISOString(),
         timestamp: rowTimestamp
       };
@@ -233,10 +234,16 @@ async function syncFromGoogleAppsScript(customUrl) {
         if (!existing || rowTimestamp > existing.timestamp) {
           codisaMap.set(sku, { ...record });
         } else if (rowTimestamp === existing.timestamp) {
-          // Mismo corte de fecha de proceso: acumular ventas de tienda (401) + ruta (400)
+          // Mismo corte de fecha de proceso:
+          // 1. VENTAS: Unificar siempre las ventas de ambas bodegas (Tienda 401 + Ruta 400)
           existing.cantidadVentas += record.cantidadVentas;
           existing.montoBruto += record.montoBruto;
-          existing.saldoActual += record.saldoActual;
+
+          // 2. SALDO: Tomar únicamente el saldo de Tienda (Bodega 401), nunca sumar saldos
+          if (record.saldoActual > 0 || record.bodega.includes('401') || record.bodega.includes('TIENDA')) {
+            existing.saldoActual = record.saldoActual;
+          }
+
           if (record.costoUnitario > 0) existing.costoUnitario = record.costoUnitario;
           if (record.precio > 0) existing.precio = record.precio;
           if (record.transito > 0) existing.transito = Math.max(existing.transito, record.transito);
@@ -250,9 +257,15 @@ async function syncFromGoogleAppsScript(customUrl) {
         if (!existingDesc || rowTimestamp > existingDesc.timestamp) {
           codisaByDesc.set(articulo, { ...record });
         } else if (rowTimestamp === existingDesc.timestamp) {
+          // 1. VENTAS: Unificar ventas de ambas bodegas
           existingDesc.cantidadVentas += record.cantidadVentas;
           existingDesc.montoBruto += record.montoBruto;
-          existingDesc.saldoActual += record.saldoActual;
+
+          // 2. SALDO: Tomar únicamente el saldo de Tienda (Bodega 401)
+          if (record.saldoActual > 0 || record.bodega.includes('401') || record.bodega.includes('TIENDA')) {
+            existingDesc.saldoActual = record.saldoActual;
+          }
+
           if (record.costoUnitario > 0) existingDesc.costoUnitario = record.costoUnitario;
           if (record.precio > 0) existingDesc.precio = record.precio;
           if (record.transito > 0) existingDesc.transito = Math.max(existingDesc.transito, record.transito);
