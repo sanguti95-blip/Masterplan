@@ -687,12 +687,23 @@ body.theme-light .text-indigo { color: #4f46e5; }
 .kpi-card { display: none; }
 
 /* --- 6. Action Toolbar, Categories & Filter Buttons --- */
+/* --- 6. Action Toolbar, Categories & Filter Buttons --- */
 .action-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
+  padding: 4px 0;
+  margin-bottom: 12px;
+}
+
+.toolbar-section-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
 }
 
 .search-box {
@@ -702,8 +713,9 @@ body.theme-light .text-indigo { color: #4f46e5; }
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 0 12px;
-  width: 280px;
-  height: 42px;
+  width: 250px;
+  min-width: 180px;
+  height: 40px;
   transition: all 0.2s ease;
 }
 
@@ -713,12 +725,13 @@ body.theme-light .text-indigo { color: #4f46e5; }
 }
 
 .search-box-catalog {
-  width: 360px;
+  width: 320px;
 }
 
 .search-icon {
   color: var(--text-muted);
-  margin-right: 10px;
+  margin-right: 8px;
+  font-size: 0.85rem;
 }
 
 .search-box input {
@@ -726,7 +739,7 @@ body.theme-light .text-indigo { color: #4f46e5; }
   border: none;
   outline: none;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   color: var(--text);
   width: 100%;
 }
@@ -741,9 +754,9 @@ body.theme-light .text-indigo { color: #4f46e5; }
 .category-select-wrapper .select-icon,
 .period-select-wrapper .select-icon {
   position: absolute;
-  left: 12px;
+  left: 10px;
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   pointer-events: none;
 }
 
@@ -757,11 +770,11 @@ body.theme-light .text-indigo { color: #4f46e5; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 0 28px 0 32px;
-  height: 42px;
+  padding: 0 24px 0 28px;
+  height: 40px;
   color: var(--text);
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   outline: none;
@@ -777,17 +790,17 @@ body.theme-light .text-indigo { color: #4f46e5; }
   display: flex;
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 4px;
+  padding: 3px;
   border-radius: var(--radius-md);
-  gap: 4px;
+  gap: 3px;
 }
 
 .filter-btn {
   background: transparent;
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  padding: 6px 12px;
+  padding: 6px 11px;
   border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
@@ -795,6 +808,7 @@ body.theme-light .text-indigo { color: #4f46e5; }
   align-items: center;
   gap: 6px;
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
 .filter-btn:hover {
@@ -820,7 +834,8 @@ body.theme-light .text-indigo { color: #4f46e5; }
 .main-buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 /* Button Standards */

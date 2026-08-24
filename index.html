@@ -209,47 +209,49 @@
           </div>
         </div>
 
-        <!-- Filter and Action Toolbar -->
+        <!-- Filter and Action Toolbar (Ergonomic Two-Zone Layout) -->
         <div class="action-toolbar">
-          <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="search-input" placeholder="Buscar por código, artículo o familia...">
-          </div>
+          <div class="toolbar-section-filters">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="search-input" placeholder="Buscar por código, artículo o familia...">
+            </div>
 
-          <div class="category-select-wrapper">
-            <i class="fa-solid fa-filter select-icon"></i>
-            <select id="category-filter" class="category-select" title="Filtrar por Familia / Categoría">
-              <option value="all">Todas las Categorías</option>
-              <option value="Frutas Frescas">Frutas Frescas</option>
-              <option value="Hortalizas y Hojas">Hortalizas y Hojas</option>
-              <option value="Tubérculos y Raíces">Tubérculos y Raíces</option>
-              <option value="Vegetales de Fruto">Vegetales de Fruto</option>
-              <option value="Hierbas y Aromáticas">Hierbas y Aromáticas</option>
-              <option value="Otros Perecederos">Otros Perecederos</option>
-            </select>
-          </div>
+            <div class="category-select-wrapper">
+              <i class="fa-solid fa-filter select-icon"></i>
+              <select id="category-filter" class="category-select" title="Filtrar por Familia / Categoría">
+                <option value="all">Todas las Categorías</option>
+                <option value="Frutas Frescas">Frutas Frescas</option>
+                <option value="Hortalizas y Hojas">Hortalizas y Hojas</option>
+                <option value="Tubérculos y Raíces">Tubérculos y Raíces</option>
+                <option value="Vegetales de Fruto">Vegetales de Fruto</option>
+                <option value="Hierbas y Aromáticas">Hierbas y Aromáticas</option>
+                <option value="Otros Perecederos">Otros Perecederos</option>
+              </select>
+            </div>
 
-          <div class="period-select-wrapper">
-            <i class="fa-solid fa-chart-line select-icon"></i>
-            <select id="period-filter" class="category-select font-mono" title="Ventana estadística de Venta Promedio Diaria">
-              <option value="60" selected>Ventana VDP: 60 días</option>
-              <option value="30">Ventana VDP: 30 días</option>
-              <option value="90">Ventana VDP: 90 días</option>
-              <option value="191">Ventana VDP: 191 días (Total)</option>
-            </select>
-          </div>
+            <div class="period-select-wrapper">
+              <i class="fa-solid fa-chart-line select-icon"></i>
+              <select id="period-filter" class="category-select font-mono" title="Ventana estadística de Venta Promedio Diaria">
+                <option value="60" selected>VDP: 60d</option>
+                <option value="30">VDP: 30d</option>
+                <option value="90">VDP: 90d</option>
+                <option value="191">VDP: 191d</option>
+              </select>
+            </div>
 
-          <div class="filter-group">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="to-order">
-              <span class="pill-dot green"></span>Con Pedido
-            </button>
-            <button class="filter-btn" data-filter="critical">
-              <span class="pill-dot red"></span>Agotados / Alerta
-            </button>
-            <button class="filter-btn" data-filter="transit">
-              <span class="pill-dot blue"></span>En Tránsito
-            </button>
+            <div class="filter-group">
+              <button class="filter-btn active" data-filter="all">Todos</button>
+              <button class="filter-btn" data-filter="to-order">
+                <span class="pill-dot green"></span>Con Pedido
+              </button>
+              <button class="filter-btn" data-filter="critical">
+                <span class="pill-dot red"></span>Alertas
+              </button>
+              <button class="filter-btn" data-filter="transit">
+                <span class="pill-dot blue"></span>Tránsito
+              </button>
+            </div>
           </div>
 
           <div class="main-buttons">
@@ -259,7 +261,7 @@
             </button>
             <button id="btn-approve-order" class="btn-primary" title="Autorizar orden, registrar tránsito y descargar .xlsx">
               <i class="fa-solid fa-check-double"></i>
-              <span>Autorizar Pedido y Descargar Excel</span>
+              <span>Autorizar y Descargar</span>
             </button>
           </div>
         </div>
