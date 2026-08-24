@@ -7394,7 +7394,7 @@ const INITIAL_PEDIDOS = [
     "days_period": 60,
     "unit_cost": 404.7,
     "unit_price": 587.65,
-    "transit_qty": 4,
+    "transit_qty": 160,
     "pack_multiple": 40,
     "safety_stock_days": 3,
     "merma_units": 72,
@@ -7409,7 +7409,7 @@ const INITIAL_PEDIDOS = [
     "cost": 404.7,
     "COSTO_UNITARIO": 404.7,
     "PRECIO": 587.65,
-    "transit": 4,
+    "transit": 160,
     "min_coverage_qty": 160,
     "min_coverage": 160,
     "safety_stock_units": 160,
@@ -7420,7 +7420,7 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "CAJA",
     "packMultiple": 40,
     "minCoverageUnits": 160,
-    "activeTransit": 4,
+    "activeTransit": 160,
     "unit": "UD",
     "is_active": true,
     "isActive": true,
@@ -15737,7 +15737,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145715P",
-    "code_sku": "145715P"
+    "code_sku": "145715P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -15776,7 +15777,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "970",
-    "code_sku": "970"
+    "code_sku": "970",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -15815,7 +15817,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "37074",
-    "code_sku": "37074"
+    "code_sku": "37074",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -15854,7 +15857,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175534",
-    "code_sku": "175534"
+    "code_sku": "175534",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -15893,7 +15897,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145182IN",
-    "code_sku": "145182IN"
+    "code_sku": "145182IN",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -15932,7 +15937,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "DL11015",
-    "code_sku": "DL11015"
+    "code_sku": "DL11015",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -15970,7 +15976,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "900501",
-    "code_sku": "900501"
+    "code_sku": "900501",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16009,7 +16016,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "5324",
-    "code_sku": "5324"
+    "code_sku": "5324",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16047,7 +16055,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "900120",
-    "code_sku": "900120"
+    "code_sku": "900120",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16086,7 +16095,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "206",
-    "code_sku": "206"
+    "code_sku": "206",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16125,7 +16135,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 6,
     "codeSku": "13150SPR",
-    "code_sku": "13150SPR"
+    "code_sku": "13150SPR",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16163,7 +16174,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "4131B1",
-    "code_sku": "4131B1"
+    "code_sku": "4131B1",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16201,7 +16213,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "12581G",
-    "code_sku": "12581G"
+    "code_sku": "12581G",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16240,7 +16253,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "102",
-    "code_sku": "102"
+    "code_sku": "102",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16278,7 +16292,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1100AB",
-    "code_sku": "1100AB"
+    "code_sku": "1100AB",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16317,7 +16332,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "13150GPR",
-    "code_sku": "13150GPR"
+    "code_sku": "13150GPR",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16356,7 +16372,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30093",
-    "code_sku": "D30093"
+    "code_sku": "D30093",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16395,7 +16412,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "971",
-    "code_sku": "971"
+    "code_sku": "971",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16434,7 +16452,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "37079",
-    "code_sku": "37079"
+    "code_sku": "37079",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16473,7 +16492,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "15523",
-    "code_sku": "15523"
+    "code_sku": "15523",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16511,7 +16531,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145136B",
-    "code_sku": "145136B"
+    "code_sku": "145136B",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16590,7 +16611,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 5,
     "codeSku": "12570P",
-    "code_sku": "12570P"
+    "code_sku": "12570P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16629,7 +16651,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 10,
     "codeSku": "700",
-    "code_sku": "700"
+    "code_sku": "700",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16667,7 +16690,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1188K",
-    "code_sku": "1188K"
+    "code_sku": "1188K",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16706,7 +16730,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16625B",
-    "code_sku": "16625B"
+    "code_sku": "16625B",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16745,7 +16770,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1053C",
-    "code_sku": "1053C"
+    "code_sku": "1053C",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16784,7 +16810,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "125180P",
-    "code_sku": "125180P"
+    "code_sku": "125180P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16823,7 +16850,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 6,
     "codeSku": "13150MPR",
-    "code_sku": "13150MPR"
+    "code_sku": "13150MPR",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16861,7 +16889,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "4121B1",
-    "code_sku": "4121B1"
+    "code_sku": "4121B1",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16900,7 +16929,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "13150PR",
-    "code_sku": "13150PR"
+    "code_sku": "13150PR",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16938,7 +16968,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145185",
-    "code_sku": "145185"
+    "code_sku": "145185",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -16977,7 +17008,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1050K",
-    "code_sku": "1050K"
+    "code_sku": "1050K",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17016,7 +17048,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1064",
-    "code_sku": "1064"
+    "code_sku": "1064",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17055,7 +17088,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "3181R",
-    "code_sku": "3181R"
+    "code_sku": "3181R",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17094,7 +17128,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "101021",
-    "code_sku": "101021"
+    "code_sku": "101021",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17133,7 +17168,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "31135B",
-    "code_sku": "31135B"
+    "code_sku": "31135B",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17172,7 +17208,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "104",
-    "code_sku": "104"
+    "code_sku": "104",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17211,7 +17248,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "214",
-    "code_sku": "214"
+    "code_sku": "214",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17250,7 +17288,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112030",
-    "code_sku": "112030"
+    "code_sku": "112030",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17289,7 +17328,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "13150M",
-    "code_sku": "13150M"
+    "code_sku": "13150M",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17328,7 +17368,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "11080PL",
-    "code_sku": "11080PL"
+    "code_sku": "11080PL",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17366,7 +17407,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1511",
-    "code_sku": "1511"
+    "code_sku": "1511",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17405,7 +17447,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "726",
-    "code_sku": "726"
+    "code_sku": "726",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17444,7 +17487,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "442",
-    "code_sku": "442"
+    "code_sku": "442",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17482,7 +17526,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "424",
-    "code_sku": "424"
+    "code_sku": "424",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17521,7 +17566,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16653C",
-    "code_sku": "16653C"
+    "code_sku": "16653C",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17560,7 +17606,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "431U",
-    "code_sku": "431U"
+    "code_sku": "431U",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17599,7 +17646,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "209",
-    "code_sku": "209"
+    "code_sku": "209",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17638,7 +17686,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "37075",
-    "code_sku": "37075"
+    "code_sku": "37075",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17677,7 +17726,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "432",
-    "code_sku": "432"
+    "code_sku": "432",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17715,7 +17765,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1054M",
-    "code_sku": "1054M"
+    "code_sku": "1054M",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17753,7 +17804,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "460",
-    "code_sku": "460"
+    "code_sku": "460",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17792,7 +17844,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1000",
-    "code_sku": "1000"
+    "code_sku": "1000",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17830,7 +17883,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145142U",
-    "code_sku": "145142U"
+    "code_sku": "145142U",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17868,7 +17922,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "407",
-    "code_sku": "407"
+    "code_sku": "407",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17907,7 +17962,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145715",
-    "code_sku": "145715"
+    "code_sku": "145715",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17946,7 +18002,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "193",
-    "code_sku": "193"
+    "code_sku": "193",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -17985,7 +18042,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17555",
-    "code_sku": "17555"
+    "code_sku": "17555",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18023,7 +18081,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17553E",
-    "code_sku": "17553E"
+    "code_sku": "17553E",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18062,7 +18121,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "465",
-    "code_sku": "465"
+    "code_sku": "465",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18101,7 +18161,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30095",
-    "code_sku": "D30095"
+    "code_sku": "D30095",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18140,7 +18201,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "450",
-    "code_sku": "450"
+    "code_sku": "450",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18178,7 +18240,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "100031",
-    "code_sku": "100031"
+    "code_sku": "100031",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18217,7 +18280,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "423",
-    "code_sku": "423"
+    "code_sku": "423",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18256,7 +18320,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "4131U",
-    "code_sku": "4131U"
+    "code_sku": "4131U",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18295,7 +18360,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 6,
     "codeSku": "D30091",
-    "code_sku": "D30091"
+    "code_sku": "D30091",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18334,7 +18400,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "396",
-    "code_sku": "396"
+    "code_sku": "396",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18373,7 +18440,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "213",
-    "code_sku": "213"
+    "code_sku": "213",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18412,7 +18480,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112029",
-    "code_sku": "112029"
+    "code_sku": "112029",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18451,7 +18520,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "215",
-    "code_sku": "215"
+    "code_sku": "215",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18490,7 +18560,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "3741",
-    "code_sku": "3741"
+    "code_sku": "3741",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18528,7 +18599,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16679",
-    "code_sku": "16679"
+    "code_sku": "16679",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18566,7 +18638,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17553B5K",
-    "code_sku": "17553B5K"
+    "code_sku": "17553B5K",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18604,7 +18677,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175542",
-    "code_sku": "175542"
+    "code_sku": "175542",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18643,7 +18717,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "459",
-    "code_sku": "459"
+    "code_sku": "459",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18682,7 +18757,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "37077",
-    "code_sku": "37077"
+    "code_sku": "37077",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18721,7 +18797,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "438",
-    "code_sku": "438"
+    "code_sku": "438",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18760,7 +18837,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112034",
-    "code_sku": "112034"
+    "code_sku": "112034",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18799,7 +18877,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "414",
-    "code_sku": "414"
+    "code_sku": "414",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18838,7 +18917,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112004",
-    "code_sku": "112004"
+    "code_sku": "112004",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18877,7 +18957,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 3,
     "codeSku": "2",
-    "code_sku": "2"
+    "code_sku": "2",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18916,7 +18997,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "449",
-    "code_sku": "449"
+    "code_sku": "449",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18955,7 +19037,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 6,
     "codeSku": "17555P6",
-    "code_sku": "17555P6"
+    "code_sku": "17555P6",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -18993,7 +19076,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30092",
-    "code_sku": "D30092"
+    "code_sku": "D30092",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19031,7 +19115,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "923",
-    "code_sku": "923"
+    "code_sku": "923",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19069,7 +19154,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16673",
-    "code_sku": "16673"
+    "code_sku": "16673",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19108,7 +19194,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "457",
-    "code_sku": "457"
+    "code_sku": "457",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19147,7 +19234,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112001",
-    "code_sku": "112001"
+    "code_sku": "112001",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19185,7 +19273,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "14607P",
-    "code_sku": "14607P"
+    "code_sku": "14607P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19224,7 +19313,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16689",
-    "code_sku": "16689"
+    "code_sku": "16689",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19262,7 +19352,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "11511M",
-    "code_sku": "11511M"
+    "code_sku": "11511M",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19301,7 +19392,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "106",
-    "code_sku": "106"
+    "code_sku": "106",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19340,7 +19432,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175533",
-    "code_sku": "175533"
+    "code_sku": "175533",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19378,7 +19471,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17555C",
-    "code_sku": "17555C"
+    "code_sku": "17555C",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19417,7 +19511,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "444",
-    "code_sku": "444"
+    "code_sku": "444",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19456,7 +19551,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "452",
-    "code_sku": "452"
+    "code_sku": "452",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19494,7 +19590,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "900520",
-    "code_sku": "900520"
+    "code_sku": "900520",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19532,7 +19629,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145128P",
-    "code_sku": "145128P"
+    "code_sku": "145128P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19571,7 +19669,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "724",
-    "code_sku": "724"
+    "code_sku": "724",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19609,7 +19708,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145185P",
-    "code_sku": "145185P"
+    "code_sku": "145185P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19647,7 +19747,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "911C",
-    "code_sku": "911C"
+    "code_sku": "911C",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19686,7 +19787,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17591EMP",
-    "code_sku": "17591EMP"
+    "code_sku": "17591EMP",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19725,7 +19827,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "125150P",
-    "code_sku": "125150P"
+    "code_sku": "125150P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19764,7 +19867,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "189",
-    "code_sku": "189"
+    "code_sku": "189",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19803,7 +19907,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112025",
-    "code_sku": "112025"
+    "code_sku": "112025",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19842,7 +19947,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "403",
-    "code_sku": "403"
+    "code_sku": "403",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19881,7 +19987,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30065",
-    "code_sku": "D30065"
+    "code_sku": "D30065",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19920,7 +20027,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112036",
-    "code_sku": "112036"
+    "code_sku": "112036",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19959,7 +20067,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "212",
-    "code_sku": "212"
+    "code_sku": "212",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -19997,7 +20106,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "969",
-    "code_sku": "969"
+    "code_sku": "969",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20036,7 +20146,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16691",
-    "code_sku": "16691"
+    "code_sku": "16691",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20074,7 +20185,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16677",
-    "code_sku": "16677"
+    "code_sku": "16677",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20113,7 +20225,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "37071",
-    "code_sku": "37071"
+    "code_sku": "37071",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20151,7 +20264,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16674",
-    "code_sku": "16674"
+    "code_sku": "16674",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20190,7 +20304,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30096",
-    "code_sku": "D30096"
+    "code_sku": "D30096",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20228,7 +20343,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "194",
-    "code_sku": "194"
+    "code_sku": "194",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20266,7 +20382,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "695",
-    "code_sku": "695"
+    "code_sku": "695",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20305,7 +20422,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "398",
-    "code_sku": "398"
+    "code_sku": "398",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20344,7 +20462,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "100040",
-    "code_sku": "100040"
+    "code_sku": "100040",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20383,7 +20502,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "400",
-    "code_sku": "400"
+    "code_sku": "400",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20421,7 +20541,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "15531P",
-    "code_sku": "15531P"
+    "code_sku": "15531P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20460,7 +20581,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17551EMP",
-    "code_sku": "17551EMP"
+    "code_sku": "17551EMP",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20498,7 +20620,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30102",
-    "code_sku": "D30102"
+    "code_sku": "D30102",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20536,7 +20659,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 100,
     "codeSku": "11100",
-    "code_sku": "11100"
+    "code_sku": "11100",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20574,7 +20698,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17555B5K",
-    "code_sku": "17555B5K"
+    "code_sku": "17555B5K",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20612,7 +20737,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "900301",
-    "code_sku": "900301"
+    "code_sku": "900301",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20651,7 +20777,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "727",
-    "code_sku": "727"
+    "code_sku": "727",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20689,7 +20816,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "800",
-    "code_sku": "800"
+    "code_sku": "800",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20728,7 +20856,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "422",
-    "code_sku": "422"
+    "code_sku": "422",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20767,7 +20896,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "441",
-    "code_sku": "441"
+    "code_sku": "441",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20806,7 +20936,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112035",
-    "code_sku": "112035"
+    "code_sku": "112035",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20845,7 +20976,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17565E",
-    "code_sku": "17565E"
+    "code_sku": "17565E",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20884,7 +21016,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16688",
-    "code_sku": "16688"
+    "code_sku": "16688",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20922,7 +21055,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "466",
-    "code_sku": "466"
+    "code_sku": "466",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20961,7 +21095,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "719",
-    "code_sku": "719"
+    "code_sku": "719",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -20999,7 +21134,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "211",
-    "code_sku": "211"
+    "code_sku": "211",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21038,7 +21174,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175534B5",
-    "code_sku": "175534B5"
+    "code_sku": "175534B5",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21077,7 +21214,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "4321U",
-    "code_sku": "4321U"
+    "code_sku": "4321U",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21116,7 +21254,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "458",
-    "code_sku": "458"
+    "code_sku": "458",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21154,7 +21293,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "4635",
-    "code_sku": "4635"
+    "code_sku": "4635",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21193,7 +21333,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "415",
-    "code_sku": "415"
+    "code_sku": "415",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21232,7 +21373,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "402",
-    "code_sku": "402"
+    "code_sku": "402",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21271,7 +21413,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "720",
-    "code_sku": "720"
+    "code_sku": "720",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21310,7 +21453,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "408",
-    "code_sku": "408"
+    "code_sku": "408",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21349,7 +21493,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175103EMP",
-    "code_sku": "175103EMP"
+    "code_sku": "175103EMP",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21387,7 +21532,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "467",
-    "code_sku": "467"
+    "code_sku": "467",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21426,7 +21572,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 5,
     "codeSku": "14582P",
-    "code_sku": "14582P"
+    "code_sku": "14582P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21464,7 +21611,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "12630",
-    "code_sku": "12630"
+    "code_sku": "12630",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21503,7 +21651,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "446",
-    "code_sku": "446"
+    "code_sku": "446",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21542,7 +21691,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "103",
-    "code_sku": "103"
+    "code_sku": "103",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21581,7 +21731,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1",
-    "code_sku": "1"
+    "code_sku": "1",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21620,7 +21771,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "419",
-    "code_sku": "419"
+    "code_sku": "419",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21658,7 +21810,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "125153S",
-    "code_sku": "125153S"
+    "code_sku": "125153S",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21696,7 +21849,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "H30P",
-    "code_sku": "H30P"
+    "code_sku": "H30P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21734,7 +21888,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1451648P",
-    "code_sku": "1451648P"
+    "code_sku": "1451648P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21773,7 +21928,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30098",
-    "code_sku": "D30098"
+    "code_sku": "D30098",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21811,7 +21967,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145175P",
-    "code_sku": "145175P"
+    "code_sku": "145175P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21850,7 +22007,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "448",
-    "code_sku": "448"
+    "code_sku": "448",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21889,7 +22047,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112038",
-    "code_sku": "112038"
+    "code_sku": "112038",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21928,7 +22087,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30097",
-    "code_sku": "D30097"
+    "code_sku": "D30097",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -21966,7 +22126,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "C218010",
-    "code_sku": "C218010"
+    "code_sku": "C218010",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22005,7 +22166,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "125191IN",
-    "code_sku": "125191IN"
+    "code_sku": "125191IN",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22044,7 +22206,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17581EMP",
-    "code_sku": "17581EMP"
+    "code_sku": "17581EMP",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22082,7 +22245,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17003B",
-    "code_sku": "17003B"
+    "code_sku": "17003B",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22120,7 +22284,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175101M",
-    "code_sku": "175101M"
+    "code_sku": "175101M",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22158,7 +22323,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "125159P",
-    "code_sku": "125159P"
+    "code_sku": "125159P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22197,7 +22363,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "443",
-    "code_sku": "443"
+    "code_sku": "443",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22236,7 +22403,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "187",
-    "code_sku": "187"
+    "code_sku": "187",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22275,7 +22443,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "405",
-    "code_sku": "405"
+    "code_sku": "405",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22314,7 +22483,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "413",
-    "code_sku": "413"
+    "code_sku": "413",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22353,7 +22523,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "399",
-    "code_sku": "399"
+    "code_sku": "399",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22392,7 +22563,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 7,
     "codeSku": "190",
-    "code_sku": "190"
+    "code_sku": "190",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22431,7 +22603,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 10,
     "codeSku": "16704",
-    "code_sku": "16704"
+    "code_sku": "16704",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22469,7 +22642,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "4144",
-    "code_sku": "4144"
+    "code_sku": "4144",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22507,7 +22681,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "900320",
-    "code_sku": "900320"
+    "code_sku": "900320",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22546,7 +22721,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17565EMP",
-    "code_sku": "17565EMP"
+    "code_sku": "17565EMP",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22585,7 +22761,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "967",
-    "code_sku": "967"
+    "code_sku": "967",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22624,7 +22801,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "433",
-    "code_sku": "433"
+    "code_sku": "433",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22663,7 +22841,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "461",
-    "code_sku": "461"
+    "code_sku": "461",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22702,7 +22881,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "H30",
-    "code_sku": "H30"
+    "code_sku": "H30",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22740,7 +22920,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112037",
-    "code_sku": "112037"
+    "code_sku": "112037",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22779,7 +22960,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "210",
-    "code_sku": "210"
+    "code_sku": "210",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22818,7 +23000,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "447",
-    "code_sku": "447"
+    "code_sku": "447",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22857,7 +23040,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "12621P",
-    "code_sku": "12621P"
+    "code_sku": "12621P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22895,7 +23079,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "1011",
-    "code_sku": "1011"
+    "code_sku": "1011",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22934,7 +23119,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "188",
-    "code_sku": "188"
+    "code_sku": "188",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -22973,7 +23159,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "406",
-    "code_sku": "406"
+    "code_sku": "406",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23012,7 +23199,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "453",
-    "code_sku": "453"
+    "code_sku": "453",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23051,7 +23239,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175105",
-    "code_sku": "175105"
+    "code_sku": "175105",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23089,7 +23278,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 7,
     "codeSku": "199",
-    "code_sku": "199"
+    "code_sku": "199",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23128,7 +23318,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "409",
-    "code_sku": "409"
+    "code_sku": "409",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23167,7 +23358,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112039",
-    "code_sku": "112039"
+    "code_sku": "112039",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23206,7 +23398,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "13559M",
-    "code_sku": "13559M"
+    "code_sku": "13559M",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23245,7 +23438,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "12589",
-    "code_sku": "12589"
+    "code_sku": "12589",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23284,7 +23478,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "37070",
-    "code_sku": "37070"
+    "code_sku": "37070",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23322,7 +23517,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "4341B1",
-    "code_sku": "4341B1"
+    "code_sku": "4341B1",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23361,7 +23557,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "D30090",
-    "code_sku": "D30090"
+    "code_sku": "D30090",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23399,7 +23596,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "125164",
-    "code_sku": "125164"
+    "code_sku": "125164",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23437,7 +23635,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16690",
-    "code_sku": "16690"
+    "code_sku": "16690",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23476,7 +23675,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 50,
     "codeSku": "175534Q",
-    "code_sku": "175534Q"
+    "code_sku": "175534Q",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23514,7 +23714,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "925",
-    "code_sku": "925"
+    "code_sku": "925",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23552,7 +23753,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145164ROD",
-    "code_sku": "145164ROD"
+    "code_sku": "145164ROD",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23591,7 +23793,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "105",
-    "code_sku": "105"
+    "code_sku": "105",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23630,7 +23833,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17592ARB",
-    "code_sku": "17592ARB"
+    "code_sku": "17592ARB",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23668,7 +23872,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "926",
-    "code_sku": "926"
+    "code_sku": "926",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23706,7 +23911,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "C218010P",
-    "code_sku": "C218010P"
+    "code_sku": "C218010P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23745,7 +23951,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "145175",
-    "code_sku": "145175"
+    "code_sku": "145175",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23783,7 +23990,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "900101",
-    "code_sku": "900101"
+    "code_sku": "900101",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23822,7 +24030,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 4,
     "codeSku": "191",
-    "code_sku": "191"
+    "code_sku": "191",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23861,7 +24070,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "99",
-    "code_sku": "99"
+    "code_sku": "99",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23900,7 +24110,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "924",
-    "code_sku": "924"
+    "code_sku": "924",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23939,7 +24150,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "404",
-    "code_sku": "404"
+    "code_sku": "404",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -23977,7 +24189,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "918",
-    "code_sku": "918"
+    "code_sku": "918",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24015,7 +24228,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16666",
-    "code_sku": "16666"
+    "code_sku": "16666",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24053,7 +24267,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "922",
-    "code_sku": "922"
+    "code_sku": "922",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24091,7 +24306,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16686",
-    "code_sku": "16686"
+    "code_sku": "16686",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24130,7 +24346,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 10,
     "codeSku": "14590P",
-    "code_sku": "14590P"
+    "code_sku": "14590P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24168,7 +24385,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "192",
-    "code_sku": "192"
+    "code_sku": "192",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24206,7 +24424,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17555E",
-    "code_sku": "17555E"
+    "code_sku": "17555E",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24245,7 +24464,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "101",
-    "code_sku": "101"
+    "code_sku": "101",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24284,7 +24504,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175539",
-    "code_sku": "175539"
+    "code_sku": "175539",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24323,7 +24544,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112026",
-    "code_sku": "112026"
+    "code_sku": "112026",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24361,7 +24583,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "13571P",
-    "code_sku": "13571P"
+    "code_sku": "13571P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24400,7 +24623,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "201",
-    "code_sku": "201"
+    "code_sku": "201",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24439,7 +24663,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16685",
-    "code_sku": "16685"
+    "code_sku": "16685",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24478,7 +24703,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "420P",
-    "code_sku": "420P"
+    "code_sku": "420P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24517,7 +24743,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "395",
-    "code_sku": "395"
+    "code_sku": "395",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24555,7 +24782,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17553C",
-    "code_sku": "17553C"
+    "code_sku": "17553C",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24594,7 +24822,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "16687",
-    "code_sku": "16687"
+    "code_sku": "16687",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24632,7 +24861,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "900121",
-    "code_sku": "900121"
+    "code_sku": "900121",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24671,7 +24901,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "H15",
-    "code_sku": "H15"
+    "code_sku": "H15",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24710,7 +24941,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17561EMP",
-    "code_sku": "17561EMP"
+    "code_sku": "17561EMP",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24749,7 +24981,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "394",
-    "code_sku": "394"
+    "code_sku": "394",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24788,7 +25021,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "5345",
-    "code_sku": "5345"
+    "code_sku": "5345",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24827,7 +25061,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "421P",
-    "code_sku": "421P"
+    "code_sku": "421P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24866,7 +25101,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "440",
-    "code_sku": "440"
+    "code_sku": "440",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24905,7 +25141,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "12581B",
-    "code_sku": "12581B"
+    "code_sku": "12581B",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24943,7 +25180,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 5,
     "codeSku": "14571M",
-    "code_sku": "14571M"
+    "code_sku": "14571M",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -24981,7 +25219,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 7,
     "codeSku": "12531P",
-    "code_sku": "12531P"
+    "code_sku": "12531P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25020,7 +25259,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "13569",
-    "code_sku": "13569"
+    "code_sku": "13569",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25059,7 +25299,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17568EMP",
-    "code_sku": "17568EMP"
+    "code_sku": "17568EMP",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25098,7 +25339,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "725",
-    "code_sku": "725"
+    "code_sku": "725",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25137,7 +25379,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "439",
-    "code_sku": "439"
+    "code_sku": "439",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25176,7 +25419,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "13556P",
-    "code_sku": "13556P"
+    "code_sku": "13556P",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25215,7 +25459,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "112002",
-    "code_sku": "112002"
+    "code_sku": "112002",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25253,7 +25498,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "175015",
-    "code_sku": "175015"
+    "code_sku": "175015",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25292,7 +25538,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "462",
-    "code_sku": "462"
+    "code_sku": "462",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25330,7 +25577,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "12542",
-    "code_sku": "12542"
+    "code_sku": "12542",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25369,7 +25617,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "468",
-    "code_sku": "468"
+    "code_sku": "468",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25407,7 +25656,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "434",
-    "code_sku": "434"
+    "code_sku": "434",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25445,7 +25695,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "198",
-    "code_sku": "198"
+    "code_sku": "198",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25484,7 +25735,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "430",
-    "code_sku": "430"
+    "code_sku": "430",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25523,7 +25775,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "401",
-    "code_sku": "401"
+    "code_sku": "401",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25562,7 +25815,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "455",
-    "code_sku": "455"
+    "code_sku": "455",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25601,7 +25855,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "966",
-    "code_sku": "966"
+    "code_sku": "966",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25640,7 +25895,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "464",
-    "code_sku": "464"
+    "code_sku": "464",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25679,7 +25935,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "17553",
-    "code_sku": "17553"
+    "code_sku": "17553",
+    "activeTransit": 0
   },
   {
     "code_frumusa": "",
@@ -25718,7 +25975,8 @@ const INITIAL_PEDIDOS = [
     "unit_eq": "UD",
     "multiplo": 1,
     "codeSku": "454",
-    "code_sku": "454"
+    "code_sku": "454",
+    "activeTransit": 0
   }
 ];
 const INITIAL_HOJA1 = [
