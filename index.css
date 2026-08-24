@@ -1129,6 +1129,17 @@ body.theme-light .border-right-group {
   border-right: 1.5px solid #cbd5e1 !important;
 }
 
+.col-checkbox {
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+}
+
+.col-sku {
+  width: 110px;
+  min-width: 100px;
+}
+
 .col-sku strong {
   color: var(--primary);
   display: block;
@@ -1148,16 +1159,67 @@ body.theme-light .col-sku strong {
 }
 
 .col-desc {
-  min-width: 200px;
-  max-width: 320px;
+  min-width: 240px;
+  width: auto;
+}
+
+.col-vdp {
+  width: 85px;
+  min-width: 80px;
+}
+
+.col-stock {
+  width: 95px;
+  min-width: 90px;
+}
+
+.col-transit {
+  width: 80px;
+  min-width: 75px;
+}
+
+.col-projected {
+  width: 95px;
+  min-width: 85px;
+}
+
+.col-target-cov {
+  width: 90px;
+  min-width: 85px;
+}
+
+.col-multiple {
+  width: 75px;
+  min-width: 70px;
+}
+
+.col-suggested {
+  width: 120px;
+  min-width: 110px;
+}
+
+.col-final-order {
+  width: 110px;
+  min-width: 100px;
+}
+
+.col-total-cost {
+  width: 135px;
+  min-width: 120px;
+}
+
+.col-actions {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
 }
 
 .product-name {
   display: block;
   font-weight: 700;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   color: var(--text);
-  line-height: 1.25;
+  line-height: 1.3;
   white-space: normal;
   word-break: break-word;
 }
