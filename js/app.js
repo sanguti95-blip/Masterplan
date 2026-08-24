@@ -657,13 +657,16 @@ class MrpApp {
     if (!prod) return;
 
     if (type === 'stock') {
+      if (prod.stock_actual === val && prod.stock === val) return;
       prod.stock_actual = val;
       prod.stock = val;
     } else if (type === 'transit') {
+      if (prod.transit_qty === val && prod.transit === val) return;
       prod.transit_qty = val;
       prod.transit = val;
       localStorage.setItem(`mrp_transit_${sku}`, val);
     } else if (type === 'override') {
+      if (prod.pedidoFinalOverride === val) return;
       prod.pedidoFinalOverride = val;
     }
 

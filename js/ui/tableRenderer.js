@@ -338,34 +338,48 @@ const TableRenderer = {
 
         if (e.key === 'ArrowDown' || e.key === 'Enter') {
           e.preventDefault();
+          const currentTr = input.closest('tr');
+          const nextTr = currentTr ? currentTr.nextElementSibling : null;
+          const nextSku = nextTr ? nextTr.dataset.sku : null;
+          const currentRow = parseInt(input.dataset.row, 10);
+          const currentCol = input.dataset.col; // 'stock', 'transit', 'order'
+
           this.pendingFocus = { col: currentCol, sku: nextSku, row: currentRow + 1 };
           
           // Trigger change immediately to apply edit
           input.dispatchEvent(new Event('change'));
 
-          // Focus next product
-          if (nextTr) {
+          // If change did not cause a full re-render (e.g. value unchanged or 0), focus next row directly
+          if (this.pendingFocus && nextTr) {
             const target = nextTr.querySelector(`.input-table[data-col="${currentCol}"]`);
             if (target) {
               target.focus();
               target.select();
               target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
             }
+            this.pendingFocus = null;
           }
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
+          const currentTr = input.closest('tr');
+          const prevTr = currentTr ? currentTr.previousElementSibling : null;
+          const prevSku = prevTr ? prevTr.dataset.sku : null;
+          const currentRow = parseInt(input.dataset.row, 10);
+          const currentCol = input.dataset.col;
+
           this.pendingFocus = { col: currentCol, sku: prevSku, row: Math.max(0, currentRow - 1) };
 
           input.dispatchEvent(new Event('change'));
 
-          // Focus previous product
-          if (prevTr) {
+          // If change did not cause a full re-render, focus previous row directly
+          if (this.pendingFocus && prevTr) {
             const target = prevTr.querySelector(`.input-table[data-col="${currentCol}"]`);
             if (target) {
               target.focus();
               target.select();
               target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
             }
+            this.pendingFocus = null;
           }
         } else if ((e.ctrlKey || e.altKey) && e.key === '0') {
           // Power User Shortcut: Zero out current row
