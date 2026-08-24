@@ -239,10 +239,8 @@ async function syncFromGoogleAppsScript(customUrl) {
           existing.cantidadVentas += record.cantidadVentas;
           existing.montoBruto += record.montoBruto;
 
-          // 2. SALDO: Tomar únicamente el saldo de Tienda (Bodega 401), nunca sumar saldos
-          if (record.saldoActual > 0 || record.bodega.includes('401') || record.bodega.includes('TIENDA')) {
-            existing.saldoActual = record.saldoActual;
-          }
+          // 2. SALDO: Tomar únicamente el saldo físico real de Tienda (Bodega 401), nunca sobreescribir con 0 de la ruta
+          existing.saldoActual = Math.max(existing.saldoActual, record.saldoActual);
 
           if (record.costoUnitario > 0) existing.costoUnitario = record.costoUnitario;
           if (record.precio > 0) existing.precio = record.precio;
@@ -261,10 +259,8 @@ async function syncFromGoogleAppsScript(customUrl) {
           existingDesc.cantidadVentas += record.cantidadVentas;
           existingDesc.montoBruto += record.montoBruto;
 
-          // 2. SALDO: Tomar únicamente el saldo de Tienda (Bodega 401)
-          if (record.saldoActual > 0 || record.bodega.includes('401') || record.bodega.includes('TIENDA')) {
-            existingDesc.saldoActual = record.saldoActual;
-          }
+          // 2. SALDO: Tomar únicamente el saldo físico real de Tienda (Bodega 401)
+          existingDesc.saldoActual = Math.max(existingDesc.saldoActual, record.saldoActual);
 
           if (record.costoUnitario > 0) existingDesc.costoUnitario = record.costoUnitario;
           if (record.precio > 0) existingDesc.precio = record.precio;
