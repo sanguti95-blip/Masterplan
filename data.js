@@ -6341,7 +6341,7 @@ const INITIAL_DATA = [
 const INITIAL_PEDIDOS = [
   {
     "Código country": "699K",
-    "Codigo frumusa": 651,
+    "Codigo frumusa": "651",
     "Descripción": "AGUACATE CRIOLLO NACIONAL KILO",
     "Ventas del período": 43.88,
     "Días del período": 191,
@@ -6361,7 +6361,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": 683,
-    "Codigo frumusa": 704,
+    "Codigo frumusa": "704",
     "Descripción": "AGUACATE HASS MEX SUPER EXTRA CAJA ",
     "Ventas del período": 1199,
     "Días del período": 191,
@@ -6382,7 +6382,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": "684p",
-    "Codigo frumusa": 670,
+    "Codigo frumusa": "670",
     "Descripción": "AGUACATE HASS MINI PAQ 1 KG",
     "Ventas del período": 428.1667,
     "Días del período": 191,
@@ -6402,8 +6402,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 775,
-    "Codigo frumusa": 775,
+    "Código country": "775",
+    "Codigo frumusa": "775",
     "Descripción": "AJO 3 CABEZA CAJA ",
     "Ventas del período": 132,
     "Días del período": 191,
@@ -6422,8 +6422,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 773,
-    "Codigo frumusa": 773,
+    "Código country": "773",
+    "Codigo frumusa": "773",
     "Descripción": "AJO 500 GRS ( 20 PAQ ) CAJA",
     "Ventas del período": 21,
     "Días del período": 191,
@@ -6443,8 +6443,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 700,
-    "Codigo frumusa": 781,
+    "Código country": "16700",
+    "Codigo frumusa": "781",
     "Descripción": "AJO PELADO PAQUETE 500G",
     "Ventas del período": 20,
     "Días del período": 191,
@@ -6464,8 +6464,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 779,
-    "Codigo frumusa": 779,
+    "Código country": "779",
+    "Codigo frumusa": "779",
     "Descripción": "AJO TRENZA CAJA 1 KILOS ( 10 MALLA)",
     "Ventas del período": 25,
     "Días del período": 191,
@@ -6506,8 +6506,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 11554,
-    "Codigo frumusa": 11554,
+    "Código country": "11554",
+    "Codigo frumusa": "11554",
     "Descripción": "ALBAHACA ROLLO",
     "Ventas del período": 25,
     "Días del período": 191,
@@ -6528,7 +6528,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": "11555B",
-    "Codigo frumusa": 13616,
+    "Codigo frumusa": "11555B",
     "Descripción": "ALCACHOFA",
     "Ventas del período": 2,
     "Días del período": 191,
@@ -6547,8 +6547,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 11556,
-    "Codigo frumusa": 11556,
+    "Código country": "11556",
+    "Codigo frumusa": "11556",
     "Descripción": "ALFALFA 150 GR",
     "Ventas del período": 19,
     "Días del período": 191,
@@ -6568,8 +6568,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 11511,
-    "Codigo frumusa": 11511,
+    "Código country": "11511",
+    "Codigo frumusa": "11511",
     "Descripción": "APIO VERDE KILO",
     "Ventas del período": 74.6,
     "Días del período": 191,
@@ -6589,8 +6589,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 5125,
-    "Codigo frumusa": 5125,
+    "Código country": "5125",
+    "Codigo frumusa": "5125",
     "Descripción": "ARANDANO BANDEJA 125 GR",
     "Ventas del período": 55,
     "Días del período": 191,
@@ -6630,8 +6630,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 16579,
-    "Codigo frumusa": 16579,
+    "Código country": "16579",
+    "Codigo frumusa": "16579",
     "Descripción": "ARRACACHE PICADO",
     "Ventas del período": 6,
     "Días del período": 191,
@@ -6650,8 +6650,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 17512,
-    "Codigo frumusa": 17512,
+    "Código country": "17512",
+    "Codigo frumusa": "17512",
     "Descripción": "ARVEJAS BANDEJA 500 GRS",
     "Ventas del período": 2,
     "Días del período": 191,
@@ -6670,8 +6670,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 16875,
-    "Codigo frumusa": 16875,
+    "Código country": "16875",
+    "Codigo frumusa": "16875",
     "Descripción": "AYOTE ESMERALDA BANDEJA",
     "Ventas del período": 11,
     "Días del período": 191,
@@ -6691,8 +6691,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12597,
-    "Codigo frumusa": 12597,
+    "Código country": "12597",
+    "Codigo frumusa": "12597",
     "Descripción": "AYOTE MANTEQUILLA",
     "Ventas del período": 16.98,
     "Días del período": 191,
@@ -6711,8 +6711,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12511,
-    "Codigo frumusa": 12511,
+    "Código country": "12511",
+    "Codigo frumusa": "12511",
     "Descripción": "AYOTE SAZON",
     "Ventas del período": 161.29,
     "Días del período": 191,
@@ -6731,8 +6731,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12512,
-    "Codigo frumusa": 12512,
+    "Código country": "12512",
+    "Codigo frumusa": "12512",
     "Descripción": "AYOTE TIERNO",
     "Ventas del período": 46,
     "Días del período": 191,
@@ -6752,8 +6752,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12521,
-    "Codigo frumusa": 12521,
+    "Código country": "12521",
+    "Codigo frumusa": "12521",
     "Descripción": "BERENJENA",
     "Ventas del período": 68,
     "Días del período": 191,
@@ -6772,8 +6772,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12531,
-    "Codigo frumusa": 12531,
+    "Código country": "12531",
+    "Codigo frumusa": "12531",
     "Descripción": "BROCOLI  KILO",
     "Ventas del período": 107.12,
     "Días del período": 191,
@@ -6793,8 +6793,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 1351,
-    "Codigo frumusa": 1351,
+    "Código country": "1351",
+    "Codigo frumusa": "1351",
     "Descripción": "CAMOTE GRANEL",
     "Ventas del período": 147.86,
     "Días del período": 191,
@@ -6815,7 +6815,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": 1353,
-    "Codigo frumusa": 13515,
+    "Codigo frumusa": "13515",
     "Descripción": "CAMOTE MANTEQUILLA",
     "Ventas del período": 4.27,
     "Días del período": 191,
@@ -6834,8 +6834,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 14511,
-    "Codigo frumusa": 14511,
+    "Código country": "14511",
+    "Codigo frumusa": "14511",
     "Descripción": "CARAMBOLA BAND. 500 GRS",
     "Ventas del período": 12,
     "Días del período": 191,
@@ -6854,8 +6854,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14514,
-    "Codigo frumusa": 14514,
+    "Código country": "14514",
+    "Codigo frumusa": "14514",
     "Descripción": "CAS BANDEJA 500 GRS",
     "Ventas del período": 26,
     "Días del período": 191,
@@ -6874,8 +6874,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14565,
-    "Codigo frumusa": 14565,
+    "Código country": "14565",
+    "Codigo frumusa": "14565",
     "Descripción": "CAS GRANEL",
     "Ventas del período": 18.76,
     "Días del período": 191,
@@ -6914,8 +6914,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 125581,
-    "Codigo frumusa": 125581,
+    "Código country": "125581",
+    "Codigo frumusa": "125581",
     "Descripción": "CEBOLLA EN TRENZA  KILO",
     "Ventas del período": 40.13,
     "Días del período": 191,
@@ -6935,8 +6935,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 12554,
-    "Codigo frumusa": 12554,
+    "Código country": "12554",
+    "Codigo frumusa": "12554",
     "Descripción": "CEBOLLA GRANEL",
     "Ventas del período": 254.37,
     "Días del período": 191,
@@ -6956,8 +6956,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 125542,
-    "Codigo frumusa": 125542,
+    "Código country": "125542",
+    "Codigo frumusa": "125542",
     "Descripción": "CEBOLLA INDUSTRIAL",
     "Ventas del período": 134.28,
     "Días del período": 191,
@@ -7018,8 +7018,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 12552,
-    "Codigo frumusa": 12552,
+    "Código country": "12552",
+    "Codigo frumusa": "12552",
     "Descripción": "CEBOLLINO ROLLO 5 UND.",
     "Ventas del período": 179,
     "Días del período": 191,
@@ -7039,8 +7039,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 12561,
-    "Codigo frumusa": 12561,
+    "Código country": "12561",
+    "Codigo frumusa": "12561",
     "Descripción": "CHAYOTE BLANCO SAZON",
     "Ventas del período": 67,
     "Días del período": 191,
@@ -7060,8 +7060,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12562,
-    "Codigo frumusa": 12562,
+    "Código country": "12562",
+    "Codigo frumusa": "12562",
     "Descripción": "CHAYOTE COCORO MALLA 800 GRS",
     "Ventas del período": 21,
     "Días del período": 191,
@@ -7080,8 +7080,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12563,
-    "Codigo frumusa": 12563,
+    "Código country": "12563",
+    "Codigo frumusa": "12563",
     "Descripción": "CHAYOTE TIERNO MALLA DE 3 UND",
     "Ventas del período": 269,
     "Días del período": 191,
@@ -7101,8 +7101,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12613,
-    "Codigo frumusa": 12613,
+    "Código country": "12613",
+    "Codigo frumusa": "12613",
     "Descripción": "CHAYOTE TIERNO NEGRO",
     "Ventas del período": 63,
     "Días del período": 191,
@@ -7122,8 +7122,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 125641,
-    "Codigo frumusa": 125641,
+    "Código country": "125641",
+    "Codigo frumusa": "125641",
     "Descripción": "CHAYOTE TIERNO PAQ. 10 UDS",
     "Ventas del período": 4,
     "Días del período": 191,
@@ -7142,8 +7142,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12570,
-    "Codigo frumusa": 12570,
+    "Código country": "12570",
+    "Codigo frumusa": "12570",
     "Descripción": "CHILE  DULCE ROJO # 240",
     "Ventas del período": 45,
     "Días del período": 191,
@@ -7162,7 +7162,7 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 13617,
+    "Código country": "13617",
     "Codigo frumusa": "12582AJ",
     "Descripción": "CHILE AJI PERUANO KG",
     "Ventas del período": 1,
@@ -7182,8 +7182,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": "12570P",
-    "Codigo frumusa": 12572,
+    "Código country": "12572",
+    "Codigo frumusa": "12572",
     "Descripción": "CHILE EN MALLA 5 UNIDADES",
     "Ventas del período": 1,
     "Días del período": 191,
@@ -7203,8 +7203,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12575,
-    "Codigo frumusa": 12575,
+    "Código country": "12575",
+    "Codigo frumusa": "12575",
     "Descripción": "CHILE JALAPENO EN BANDEJA",
     "Ventas del período": 9,
     "Días del período": 191,
@@ -7224,8 +7224,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12576,
-    "Codigo frumusa": 12577,
+    "Código country": "12571",
+    "Codigo frumusa": "12577",
     "Descripción": "CHILE MUNDIAL AMARILLO",
     "Ventas del período": 6,
     "Días del período": 191,
@@ -7244,8 +7244,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12584,
-    "Codigo frumusa": 12584,
+    "Código country": "12584",
+    "Codigo frumusa": "12584",
     "Descripción": "CHILE PANAMEÑO",
     "Ventas del período": 3.4699999999999998,
     "Días del período": 191,
@@ -7264,8 +7264,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 12603,
-    "Codigo frumusa": 12603,
+    "Código country": "12603",
+    "Codigo frumusa": "12603",
     "Descripción": "CHILE QUETZAL O SELECTO",
     "Ventas del período": 425,
     "Días del período": 191,
@@ -7285,8 +7285,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 12588,
-    "Codigo frumusa": 12588,
+    "Código country": "12588",
+    "Codigo frumusa": "12588",
     "Descripción": "CHILOTE BAND. 500 GRAMOS",
     "Ventas del período": 6,
     "Días del período": 191,
@@ -7306,7 +7306,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": 4341,
-    "Codigo frumusa": 4146,
+    "Codigo frumusa": "4146",
     "Descripción": "CIRUELA CAJA 10 KG",
     "Ventas del período": 47.42,
     "Días del período": 191,
@@ -7326,8 +7326,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14522,
-    "Codigo frumusa": 14522,
+    "Código country": "14522",
+    "Codigo frumusa": "14522",
     "Descripción": "COCO",
     "Ventas del período": 8,
     "Días del período": 191,
@@ -7346,8 +7346,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 12591,
-    "Codigo frumusa": 12591,
+    "Código country": "12591",
+    "Codigo frumusa": "12591",
     "Descripción": "COLIFLOR",
     "Ventas del período": 84,
     "Días del período": 191,
@@ -7367,8 +7367,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": "11522N",
-    "Codigo frumusa": 11522,
+    "Código country": "11523",
+    "Codigo frumusa": "11522",
     "Descripción": "CULANTRO CASTILLA 3 R.",
     "Ventas del período": 517,
     "Días del período": 191,
@@ -7388,8 +7388,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 11524,
-    "Codigo frumusa": 11524,
+    "Código country": "11524",
+    "Codigo frumusa": "11524",
     "Descripción": "CULANTRO COYOTE 3 R.",
     "Ventas del período": 277,
     "Días del período": 191,
@@ -7429,8 +7429,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 16592,
-    "Codigo frumusa": 16592,
+    "Código country": "16592",
+    "Codigo frumusa": "16592",
     "Descripción": "ELOTE BLANCO 2 UND",
     "Ventas del período": 105,
     "Días del período": 191,
@@ -7449,8 +7449,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 16593,
-    "Codigo frumusa": 16593,
+    "Código country": "16593",
+    "Codigo frumusa": "16593",
     "Descripción": "ELOTE TUZA UND",
     "Ventas del período": 131,
     "Días del período": 191,
@@ -7470,7 +7470,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": 125111,
-    "Codigo frumusa": 125112,
+    "Codigo frumusa": "125112",
     "Descripción": "ESPARRAGO CJ 5 KG  11 UND( 300 GR)",
     "Ventas del período": 31,
     "Días del período": 191,
@@ -7489,8 +7489,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 11531,
-    "Codigo frumusa": 11531,
+    "Código country": "11531",
+    "Codigo frumusa": "11531",
     "Descripción": "ESPINACA POR ROLLO",
     "Ventas del período": 166,
     "Días del período": 191,
@@ -7530,8 +7530,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 15521,
-    "Codigo frumusa": 15521,
+    "Código country": "15521",
+    "Codigo frumusa": "15521",
     "Descripción": "FRESA CANASTILLA",
     "Ventas del período": 48,
     "Días del período": 191,
@@ -7551,8 +7551,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 17558,
-    "Codigo frumusa": 17558,
+    "Código country": "17558",
+    "Codigo frumusa": "17558",
     "Descripción": "FRIJOL NACIDO 500 GRAMOS",
     "Ventas del período": 11,
     "Días del período": 191,
@@ -7571,8 +7571,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 17557,
-    "Codigo frumusa": 17557,
+    "Código country": "17557",
+    "Codigo frumusa": "17557",
     "Descripción": "FRIJOL TIERNO MALLA 500 GRAMOS",
     "Ventas del período": 83,
     "Días del período": 191,
@@ -7592,8 +7592,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 15531,
-    "Codigo frumusa": 15531,
+    "Código country": "15531",
+    "Codigo frumusa": "15531",
     "Descripción": "GRANADILLA NACIONAL",
     "Ventas del período": 170,
     "Días del período": 191,
@@ -7612,8 +7612,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14551,
-    "Codigo frumusa": 14551,
+    "Código country": "14551",
+    "Codigo frumusa": "14551",
     "Descripción": "GUANABANA",
     "Ventas del período": 21.130000000000003,
     "Días del período": 191,
@@ -7632,8 +7632,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14561,
-    "Codigo frumusa": 14561,
+    "Código country": "14561",
+    "Codigo frumusa": "14561",
     "Descripción": "GUAYABA KILOS",
     "Ventas del período": 46,
     "Días del período": 191,
@@ -7652,8 +7652,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14515,
-    "Codigo frumusa": 14515,
+    "Código country": "14515",
+    "Codigo frumusa": "14515",
     "Descripción": "GUINEO VERDE",
     "Ventas del período": 428,
     "Días del período": 191,
@@ -7673,8 +7673,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 16624,
-    "Codigo frumusa": 16624,
+    "Código country": "16624",
+    "Codigo frumusa": "16624",
     "Descripción": "HIERBA BUENA 30 GR",
     "Ventas del período": 24,
     "Días del período": 191,
@@ -7716,7 +7716,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": "13580H",
-    "Codigo frumusa": 13584,
+    "Codigo frumusa": "13580H",
     "Descripción": "HOJA SABILA ",
     "Ventas del período": 13,
     "Días del período": 191,
@@ -7736,8 +7736,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 5533,
-    "Codigo frumusa": 5533,
+    "Código country": "5533",
+    "Codigo frumusa": "5533",
     "Descripción": "HONGO BAND. 227 GRS",
     "Ventas del período": 34,
     "Días del período": 191,
@@ -7757,8 +7757,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 5536,
-    "Codigo frumusa": 5536,
+    "Código country": "5536",
+    "Codigo frumusa": "5536",
     "Descripción": "HONGO CRIMINI",
     "Ventas del período": 4,
     "Días del período": 191,
@@ -7777,8 +7777,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 5535,
-    "Codigo frumusa": 5535,
+    "Código country": "5535",
+    "Codigo frumusa": "5535",
     "Descripción": "HONGO PORTO BELLO",
     "Ventas del período": 24,
     "Días del período": 191,
@@ -7797,8 +7797,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 5538,
-    "Codigo frumusa": 5538,
+    "Código country": "5538",
+    "Codigo frumusa": "5538",
     "Descripción": "HONGO REBANADO 227 GR",
     "Ventas del período": 24,
     "Días del período": 191,
@@ -7818,8 +7818,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 13513,
-    "Codigo frumusa": 13513,
+    "Código country": "13513",
+    "Codigo frumusa": "13513",
     "Descripción": "JENJIBRE GRANEL",
     "Ventas del período": 16.59,
     "Días del período": 191,
@@ -7839,8 +7839,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 125972,
-    "Codigo frumusa": 125972,
+    "Código country": "125972",
+    "Codigo frumusa": "125972",
     "Descripción": "KALE 100 GR",
     "Ventas del período": 21,
     "Días del período": 191,
@@ -7860,8 +7860,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 5341,
-    "Codigo frumusa": 5341,
+    "Código country": "5341",
+    "Codigo frumusa": "5341",
     "Descripción": "KIWI 25-27 CAJA 10 KG",
     "Ventas del período": 276,
     "Días del período": 191,
@@ -7880,8 +7880,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 115412,
-    "Codigo frumusa": 115412,
+    "Código country": "115412",
+    "Codigo frumusa": "115412",
     "Descripción": "LECHUGA AMERICANA TWO PACK",
     "Ventas del período": 412,
     "Días del período": 191,
@@ -7901,8 +7901,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 11541,
-    "Codigo frumusa": 11541,
+    "Código country": "11541",
+    "Codigo frumusa": "11541",
     "Descripción": "LECHUGA AMERICANA UD",
     "Ventas del período": 25,
     "Días del período": 191,
@@ -7921,8 +7921,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 11580,
-    "Codigo frumusa": 11580,
+    "Código country": "11580",
+    "Codigo frumusa": "11580",
     "Descripción": "LECHUGA FREZZE UD",
     "Ventas del período": 116,
     "Días del período": 191,
@@ -7941,8 +7941,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 11590,
-    "Codigo frumusa": 11590,
+    "Código country": "11590",
+    "Codigo frumusa": "11590",
     "Descripción": "LECHUGA ICEBERG",
     "Ventas del período": 77,
     "Días del período": 191,
@@ -7961,8 +7961,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 11548,
-    "Codigo frumusa": 11548,
+    "Código country": "11548",
+    "Codigo frumusa": "11548",
     "Descripción": "LECHUGA LOLOROSA",
     "Ventas del período": 24,
     "Días del período": 191,
@@ -7982,8 +7982,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 11547,
-    "Codigo frumusa": 11547,
+    "Código country": "11547",
+    "Codigo frumusa": "11547",
     "Descripción": "LECHUGA ROMANA",
     "Ventas del período": 74,
     "Días del período": 191,
@@ -8003,8 +8003,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 11540,
-    "Codigo frumusa": 11540,
+    "Código country": "11540",
+    "Codigo frumusa": "11540",
     "Descripción": "LECHUGA SALANOVAS PAQUET",
     "Ventas del período": 17,
     "Días del período": 191,
@@ -8023,8 +8023,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 14585,
-    "Codigo frumusa": 14585,
+    "Código country": "14585",
+    "Codigo frumusa": "14585",
     "Descripción": "LIMON MANDARINA UNIDAD",
     "Ventas del período": 470,
     "Días del período": 191,
@@ -8044,7 +8044,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": "14585P",
-    "Codigo frumusa": 14587,
+    "Codigo frumusa": "14587",
     "Descripción": "LIMON MANDARINO MALLA 10 UND",
     "Ventas del período": 223,
     "Días del período": 191,
@@ -8065,7 +8065,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": "14575P",
-    "Codigo frumusa": 14574,
+    "Codigo frumusa": "14574",
     "Descripción": "LIMON MESINA PAQ. 10",
     "Ventas del período": 148,
     "Días del período": 191,
@@ -8085,8 +8085,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14575,
-    "Codigo frumusa": 14575,
+    "Código country": "14575",
+    "Codigo frumusa": "14575",
     "Descripción": "LIMON MESINA UD",
     "Ventas del período": 274,
     "Días del período": 191,
@@ -8105,8 +8105,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 12593,
-    "Codigo frumusa": 12593,
+    "Código country": "12593",
+    "Codigo frumusa": "12593",
     "Descripción": "MAIZ DULCE BAND. 500 GRAMOS",
     "Ventas del período": 78,
     "Días del período": 191,
@@ -8146,8 +8146,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14607,
-    "Codigo frumusa": 14607,
+    "Código country": "14607",
+    "Codigo frumusa": "14607",
     "Descripción": "MANGA KILOS",
     "Ventas del período": 413.99,
     "Días del período": 191,
@@ -8187,8 +8187,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": "145137K",
-    "Codigo frumusa": 14514,
+    "Código country": "14514",
+    "Codigo frumusa": "14514",
     "Descripción": "Manzana  agua",
     "Ventas del período": 26,
     "Días del período": 191,
@@ -8307,8 +8307,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 145102,
-    "Codigo frumusa": 145102,
+    "Código country": "145102",
+    "Codigo frumusa": "145102",
     "Descripción": "MARACUYA GRANEL",
     "Ventas del período": 34.73,
     "Días del período": 191,
@@ -8347,8 +8347,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 911,
-    "Codigo frumusa": 911,
+    "Código country": "911",
+    "Codigo frumusa": "911",
     "Descripción": "MELOCOTON COCTEL  1/4",
     "Ventas del período": 7,
     "Días del período": 191,
@@ -8367,8 +8367,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 145128,
-    "Codigo frumusa": 145128,
+    "Código country": "145128",
+    "Codigo frumusa": "145128",
     "Descripción": "MELON CAREBEAN",
     "Ventas del período": 15.969999999999999,
     "Días del período": 191,
@@ -8387,8 +8387,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 16535,
-    "Codigo frumusa": 16535,
+    "Código country": "16535",
+    "Codigo frumusa": "16535",
     "Descripción": "MENTA ROLLO 30 GR",
     "Ventas del período": 2,
     "Días del período": 191,
@@ -8407,8 +8407,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 125121,
-    "Codigo frumusa": 125121,
+    "Código country": "125121",
+    "Codigo frumusa": "125121",
     "Descripción": "MINIVEGETALES MIX. BAND. 500",
     "Ventas del período": 6,
     "Días del período": 191,
@@ -8427,8 +8427,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 12617,
-    "Codigo frumusa": 12617,
+    "Código country": "12617",
+    "Codigo frumusa": "12617",
     "Descripción": "MORA BRAZO BAND 250 G",
     "Ventas del período": 7,
     "Días del período": 191,
@@ -8447,8 +8447,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 11551,
-    "Codigo frumusa": 11551,
+    "Código country": "11551",
+    "Codigo frumusa": "11551",
     "Descripción": "MOSTAZA CHINA",
     "Ventas del período": 28,
     "Días del período": 191,
@@ -8468,8 +8468,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 13521,
-    "Codigo frumusa": 13521,
+    "Código country": "13521",
+    "Codigo frumusa": "13521",
     "Descripción": "NAMPI KILOS",
     "Ventas del período": 26.48,
     "Días del período": 191,
@@ -8489,8 +8489,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 145143,
-    "Codigo frumusa": 145143,
+    "Código country": "145143",
+    "Codigo frumusa": "145143",
     "Descripción": "NARANJA NACIONAL",
     "Ventas del período": 336,
     "Días del período": 191,
@@ -8511,7 +8511,7 @@ const INITIAL_PEDIDOS = [
   },
   {
     "Código country": "145143P15",
-    "Codigo frumusa": 145180,
+    "Codigo frumusa": "145180",
     "Descripción": "NARANJA PAQ DE 12 UD",
     "Ventas del período": 43,
     "Días del período": 191,
@@ -8530,8 +8530,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 145142,
-    "Codigo frumusa": 145142,
+    "Código country": "145142",
+    "Codigo frumusa": "145142",
     "Descripción": "NARANJAS IMPORTADA KILO CAJA ",
     "Ventas del período": 44.96,
     "Días del período": 191,
@@ -8571,8 +8571,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 16540,
-    "Codigo frumusa": 16540,
+    "Código country": "16540",
+    "Codigo frumusa": "16540",
     "Descripción": "OREGANO ROLLO 30 GR",
     "Ventas del período": 19,
     "Días del período": 191,
@@ -8592,8 +8592,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 16553,
-    "Codigo frumusa": 16553,
+    "Código country": "16553",
+    "Codigo frumusa": "16553",
     "Descripción": "PALMITO PAQUETE 500 GRS",
     "Ventas del período": 10,
     "Días del período": 191,
@@ -8612,8 +8612,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 13556,
-    "Codigo frumusa": 13556,
+    "Código country": "13556",
+    "Codigo frumusa": "13556",
     "Descripción": "PAPA GRANEL",
     "Ventas del período": 783.4100000000001,
     "Días del período": 191,
@@ -8653,8 +8653,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 13557,
-    "Codigo frumusa": 13557,
+    "Código country": "13557",
+    "Codigo frumusa": "13557",
     "Descripción": "PAPA SEMILLA ",
     "Ventas del período": 16.06,
     "Días del período": 191,
@@ -8673,8 +8673,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 1451633,
-    "Codigo frumusa": 1451633,
+    "Código country": "1451633",
+    "Codigo frumusa": "1451633",
     "Descripción": "PAPAYA PERFECTA",
     "Ventas del período": 682.47,
     "Días del período": 191,
@@ -8694,8 +8694,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 16510,
-    "Codigo frumusa": 16510,
+    "Código country": "16510",
+    "Codigo frumusa": "16510",
     "Descripción": "PEJIBAYE COCINADO",
     "Ventas del período": 87.69,
     "Días del período": 191,
@@ -8715,8 +8715,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 125131,
-    "Codigo frumusa": 125131,
+    "Código country": "125131",
+    "Codigo frumusa": "125131",
     "Descripción": "PEPINO GRANEL",
     "Ventas del período": 179.96,
     "Días del período": 191,
@@ -8776,8 +8776,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 11561,
-    "Codigo frumusa": 11561,
+    "Código country": "11561",
+    "Codigo frumusa": "11561",
     "Descripción": "PEREJIL ROLLO 30 GR",
     "Ventas del período": 59,
     "Días del período": 191,
@@ -8817,8 +8817,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 145168,
-    "Codigo frumusa": 145168,
+    "Código country": "145168",
+    "Codigo frumusa": "145168",
     "Descripción": "PIPA VERDE",
     "Ventas del período": 4,
     "Días del período": 191,
@@ -8837,8 +8837,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 145174,
-    "Codigo frumusa": 145174,
+    "Código country": "145174",
+    "Codigo frumusa": "145174",
     "Descripción": "PLATANO PRIMERA UND",
     "Ventas del período": 2605,
     "Días del período": 191,
@@ -8858,8 +8858,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 14547,
-    "Codigo frumusa": 14547,
+    "Código country": "14547",
+    "Codigo frumusa": "14547",
     "Descripción": "POMELO IMPORTADO",
     "Ventas del período": 16.64,
     "Días del período": 191,
@@ -8899,8 +8899,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 13543,
-    "Codigo frumusa": 13543,
+    "Código country": "13543",
+    "Codigo frumusa": "13543",
     "Descripción": "RABANO ROLLO",
     "Ventas del período": 38,
     "Días del período": 191,
@@ -8919,8 +8919,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 13553,
-    "Codigo frumusa": 13553,
+    "Código country": "13553",
+    "Codigo frumusa": "13553",
     "Descripción": "REMOLACHA  CON HOJAS",
     "Ventas del período": 185,
     "Días del período": 191,
@@ -8940,8 +8940,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 125142,
-    "Codigo frumusa": 125142,
+    "Código country": "125142",
+    "Codigo frumusa": "125142",
     "Descripción": "REPOLLO BLANCO",
     "Ventas del período": 883.54,
     "Días del período": 191,
@@ -8961,8 +8961,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 125143,
-    "Codigo frumusa": 125143,
+    "Código country": "125143",
+    "Codigo frumusa": "125143",
     "Descripción": "REPOLLO MORADO",
     "Ventas del período": 46.59,
     "Días del período": 191,
@@ -8982,8 +8982,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hortalizas y Hojas"
   },
   {
-    "Código country": 13560,
-    "Codigo frumusa": 13560,
+    "Código country": "13560",
+    "Codigo frumusa": "13560",
     "Descripción": "ROMERO ROLLO",
     "Ventas del período": 36,
     "Días del período": 191,
@@ -9003,8 +9003,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": "145182IN",
-    "Codigo frumusa": 145182,
+    "Código country": "145182",
+    "Codigo frumusa": "145182",
     "Descripción": "SANDIA MEDIANA",
     "Ventas del período": 1.75,
     "Días del período": 191,
@@ -9024,8 +9024,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 125130,
-    "Codigo frumusa": 125130,
+    "Código country": "125130",
+    "Codigo frumusa": "125130",
     "Descripción": "SCALLOPIN AMARILLO",
     "Ventas del período": 2,
     "Días del período": 191,
@@ -9045,8 +9045,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 13568,
-    "Codigo frumusa": 13568,
+    "Código country": "13568",
+    "Codigo frumusa": "13568",
     "Descripción": "TACACO",
     "Ventas del período": 7.79,
     "Días del período": 191,
@@ -9066,8 +9066,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 145191,
-    "Codigo frumusa": 145191,
+    "Código country": "145191",
+    "Codigo frumusa": "145191",
     "Descripción": "TAMARINDO PAQ. 500 GRS",
     "Ventas del período": 33,
     "Días del período": 191,
@@ -9086,8 +9086,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 411,
-    "Codigo frumusa": 781,
+    "Código country": "16700",
+    "Codigo frumusa": "781",
     "Descripción": "TAPA DULCE 600 GRS NEGRO",
     "Ventas del período": 8,
     "Días del período": 191,
@@ -9106,8 +9106,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 13561,
-    "Codigo frumusa": 13561,
+    "Código country": "13561",
+    "Codigo frumusa": "13561",
     "Descripción": "TIQUISQUE KILOS",
     "Ventas del período": 29.24,
     "Días del período": 191,
@@ -9126,8 +9126,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Otros Perecederos"
   },
   {
-    "Código country": 125150,
-    "Codigo frumusa": 125150,
+    "Código country": "125150",
+    "Codigo frumusa": "125150",
     "Descripción": "TOMATE BOLITA PROMOCION",
     "Ventas del período": 114.39,
     "Días del período": 191,
@@ -9147,8 +9147,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 125153,
-    "Codigo frumusa": 125153,
+    "Código country": "125153",
+    "Codigo frumusa": "125153",
     "Descripción": "TOMATE PRIMERA KILO( 1 ER)",
     "Ventas del período": 673.65,
     "Días del período": 191,
@@ -9168,8 +9168,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": "125180P",
-    "Codigo frumusa": 1251803,
+    "Código country": "125180",
+    "Codigo frumusa": "1251803",
     "Descripción": "TOMATE SALADET EMPACADO 1 KG",
     "Ventas del período": 15.52,
     "Días del período": 191,
@@ -9188,8 +9188,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 125159,
-    "Codigo frumusa": 125159,
+    "Código country": "125159",
+    "Codigo frumusa": "125159",
     "Descripción": "TOMATE SEGUNDA GRANEL ( 2DA)",
     "Ventas del período": 1.69,
     "Días del período": 191,
@@ -9230,8 +9230,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 13573,
-    "Codigo frumusa": 13573,
+    "Código country": "13573",
+    "Codigo frumusa": "13573",
     "Descripción": "TOMILLO 30 GR",
     "Ventas del período": 40,
     "Días del período": 191,
@@ -9251,8 +9251,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Hierbas y Aromáticas"
   },
   {
-    "Código country": 2324,
-    "Codigo frumusa": 2324,
+    "Código country": "2324",
+    "Codigo frumusa": "2324",
     "Descripción": "UVA GLOBO BANDEJA 1/2 KILO",
     "Ventas del período": 25,
     "Días del período": 191,
@@ -9291,8 +9291,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 2125,
-    "Codigo frumusa": 144402,
+    "Código country": "2125",
+    "Codigo frumusa": "2125",
     "Descripción": "UVA MIXTA 500 GR",
     "Ventas del período": 10,
     "Días del período": 191,
@@ -9311,8 +9311,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 2331,
-    "Codigo frumusa": 2332,
+    "Código country": "2331",
+    "Codigo frumusa": "2332",
     "Descripción": "UVA VERDE BANDEJA 500GR",
     "Ventas del período": 48,
     "Días del período": 191,
@@ -9332,8 +9332,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 2131,
-    "Codigo frumusa": 2132,
+    "Código country": "2131",
+    "Codigo frumusa": "2331",
     "Descripción": "UVA VERDE CAJA 8.2 KILOS ",
     "Ventas del período": 36.059999999999995,
     "Días del período": 191,
@@ -9352,8 +9352,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 125170,
-    "Codigo frumusa": 125170,
+    "Código country": "125170",
+    "Codigo frumusa": "125170",
     "Descripción": "VAINICA FINA",
     "Ventas del período": 12,
     "Días del período": 191,
@@ -9373,8 +9373,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 125162,
-    "Codigo frumusa": 125162,
+    "Código country": "125162",
+    "Codigo frumusa": "125162",
     "Descripción": "VAINICA PAQUETE 500 GR",
     "Ventas del período": 103,
     "Días del período": 191,
@@ -9394,8 +9394,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Vegetales de Fruto"
   },
   {
-    "Código country": 13571,
-    "Codigo frumusa": 13571,
+    "Código country": "13571",
+    "Codigo frumusa": "13571",
     "Descripción": "YUCA PARAFINADA",
     "Ventas del período": 269.35,
     "Días del período": 191,
@@ -9415,8 +9415,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 13581,
-    "Codigo frumusa": 13581,
+    "Código country": "13581",
+    "Codigo frumusa": "13581",
     "Descripción": "ZANAHORIA BABY BANDEJA 500 GRS",
     "Ventas del período": 2,
     "Días del período": 191,
@@ -9435,8 +9435,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 13582,
-    "Codigo frumusa": 13582,
+    "Código country": "13582",
+    "Codigo frumusa": "13582",
     "Descripción": "ZANAHORIA GRANEL",
     "Ventas del período": 117.965,
     "Días del período": 191,
@@ -9456,8 +9456,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 13588,
-    "Codigo frumusa": 13588,
+    "Código country": "13588",
+    "Codigo frumusa": "13588",
     "Descripción": "ZANAHORIA PAQUETE 1 KILO",
     "Ventas del período": 292,
     "Días del período": 191,
@@ -9477,8 +9477,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Tubérculos y Raíces"
   },
   {
-    "Código country": 1800,
-    "Codigo frumusa": 1800,
+    "Código country": "1800",
+    "Codigo frumusa": "1800",
     "Descripción": "ZAPOTE KILO",
     "Ventas del período": 10.16,
     "Días del período": 191,
@@ -9497,8 +9497,8 @@ const INITIAL_PEDIDOS = [
     "Categoría": "Frutas Frescas"
   },
   {
-    "Código country": 125191,
-    "Codigo frumusa": 125191,
+    "Código country": "125191",
+    "Codigo frumusa": "125191",
     "Descripción": "ZUCHINI",
     "Ventas del período": 197,
     "Días del período": 191,

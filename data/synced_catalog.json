@@ -25,7 +25,9 @@
     "transit": 0,
     "min_coverage_qty": 7,
     "min_coverage": 7,
-    "safety_stock_units": 7
+    "safety_stock_units": 7,
+    "codeFrumusa": "651",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "683",
@@ -54,7 +56,9 @@
     "transit": 0,
     "min_coverage_qty": 160,
     "min_coverage": 160,
-    "safety_stock_units": 160
+    "safety_stock_units": 160,
+    "codeFrumusa": "704",
+    "unit_fromusa": "CAJA"
   },
   {
     "code_country": "684p",
@@ -83,7 +87,9 @@
     "min_coverage_qty": 60,
     "min_coverage": 60,
     "safety_stock_units": 60,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "670",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "775",
@@ -112,7 +118,10 @@
     "min_coverage_qty": 85,
     "min_coverage": 85,
     "safety_stock_units": 85,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "775",
+    "codeCountry": "775",
+    "unit_fromusa": "A10"
   },
   {
     "code_country": "773",
@@ -141,10 +150,13 @@
     "min_coverage_qty": 20,
     "min_coverage": 20,
     "safety_stock_units": 20,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "773",
+    "codeCountry": "773",
+    "unit_fromusa": "A10"
   },
   {
-    "code_country": "700",
+    "code_country": "16700",
     "code_frumusa": "781",
     "description": "AJO PELADO PAQUETE 500G",
     "stock_actual": 25,
@@ -170,7 +182,10 @@
     "min_coverage_qty": 12,
     "min_coverage": 12,
     "safety_stock_units": 12,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "781",
+    "codeCountry": "16700",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "779",
@@ -199,7 +214,10 @@
     "min_coverage_qty": 10,
     "min_coverage": 10,
     "safety_stock_units": 10,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "779",
+    "codeCountry": "779",
+    "unit_fromusa": "A10"
   },
   {
     "code_country": "11554X",
@@ -228,7 +246,10 @@
     "transit": 0,
     "min_coverage_qty": 12,
     "min_coverage": 12,
-    "safety_stock_units": 12
+    "safety_stock_units": 12,
+    "codeFrumusa": "11554X",
+    "codeCountry": "11554X",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11554",
@@ -257,11 +278,14 @@
     "min_coverage_qty": 4,
     "min_coverage": 4,
     "safety_stock_units": 4,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11554",
+    "codeCountry": "11554",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11555B",
-    "code_frumusa": "13616",
+    "code_frumusa": "11555B",
     "description": "ALCACHOFA",
     "stock_actual": 0,
     "sales_period": 2,
@@ -285,7 +309,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11555B",
+    "codeCountry": "11555B",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "11556",
@@ -314,7 +341,10 @@
     "transit": 0,
     "min_coverage_qty": 3,
     "min_coverage": 3,
-    "safety_stock_units": 3
+    "safety_stock_units": 3,
+    "codeFrumusa": "11556",
+    "codeCountry": "11556",
+    "unit_fromusa": "PAQ"
   },
   {
     "code_country": "11511",
@@ -343,7 +373,10 @@
     "min_coverage_qty": 20,
     "min_coverage": 20,
     "safety_stock_units": 20,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11511",
+    "codeCountry": "11511",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "5125",
@@ -372,7 +405,10 @@
     "min_coverage_qty": 12,
     "min_coverage": 12,
     "safety_stock_units": 12,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "5125",
+    "codeCountry": "5125",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "5125B",
@@ -401,7 +437,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "5125B",
+    "codeCountry": "5125B",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "16579",
@@ -430,7 +469,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "16579",
+    "codeCountry": "16579",
+    "unit_fromusa": "PAQ"
   },
   {
     "code_country": "17512",
@@ -459,7 +501,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "17512",
+    "codeCountry": "17512",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "16875",
@@ -488,7 +533,10 @@
     "transit": 0,
     "min_coverage_qty": 2,
     "min_coverage": 2,
-    "safety_stock_units": 2
+    "safety_stock_units": 2,
+    "codeFrumusa": "16875",
+    "codeCountry": "16875",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "12597",
@@ -517,7 +565,10 @@
     "min_coverage_qty": 5,
     "min_coverage": 5,
     "safety_stock_units": 5,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12597",
+    "codeCountry": "12597",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "12511",
@@ -546,7 +597,10 @@
     "transit": 0,
     "min_coverage_qty": 24,
     "min_coverage": 24,
-    "safety_stock_units": 24
+    "safety_stock_units": 24,
+    "codeFrumusa": "12511",
+    "codeCountry": "12511",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "12512",
@@ -575,7 +629,10 @@
     "transit": 0,
     "min_coverage_qty": 8,
     "min_coverage": 8,
-    "safety_stock_units": 8
+    "safety_stock_units": 8,
+    "codeFrumusa": "12512",
+    "codeCountry": "12512",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12521",
@@ -604,7 +661,10 @@
     "min_coverage_qty": 11,
     "min_coverage": 11,
     "safety_stock_units": 11,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12521",
+    "codeCountry": "12521",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12531",
@@ -633,7 +693,10 @@
     "min_coverage_qty": 21,
     "min_coverage": 21,
     "safety_stock_units": 21,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12531",
+    "codeCountry": "12531",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "1351",
@@ -662,7 +725,10 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "1351",
+    "codeCountry": "1351",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "1353",
@@ -690,7 +756,9 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13515",
+    "unit_fromusa": "KILO"
   },
   {
     "code_country": "14511",
@@ -719,7 +787,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "14511",
+    "codeCountry": "14511",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "14514",
@@ -748,7 +819,10 @@
     "transit": 0,
     "min_coverage_qty": 5,
     "min_coverage": 5,
-    "safety_stock_units": 5
+    "safety_stock_units": 5,
+    "codeFrumusa": "14514",
+    "codeCountry": "14514",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "14565",
@@ -777,7 +851,10 @@
     "min_coverage_qty": 3,
     "min_coverage": 3,
     "safety_stock_units": 3,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "14565",
+    "codeCountry": "14565",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "12554P",
@@ -806,7 +883,10 @@
     "min_coverage_qty": 15,
     "min_coverage": 15,
     "safety_stock_units": 15,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12554P",
+    "codeCountry": "12554P",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125581",
@@ -835,7 +915,10 @@
     "min_coverage_qty": 10,
     "min_coverage": 10,
     "safety_stock_units": 10,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125581",
+    "codeCountry": "125581",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12554",
@@ -864,7 +947,10 @@
     "transit": 0,
     "min_coverage_qty": 45,
     "min_coverage": 45,
-    "safety_stock_units": 45
+    "safety_stock_units": 45,
+    "codeFrumusa": "12554",
+    "codeCountry": "12554",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125542",
@@ -893,7 +979,10 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "125542",
+    "codeCountry": "125542",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "12547G",
@@ -922,7 +1011,10 @@
     "transit": 0,
     "min_coverage_qty": 15,
     "min_coverage": 15,
-    "safety_stock_units": 15
+    "safety_stock_units": 15,
+    "codeFrumusa": "12547G",
+    "codeCountry": "12547G",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "12553K",
@@ -950,7 +1042,10 @@
     "min_coverage_qty": 12,
     "min_coverage": 12,
     "safety_stock_units": 12,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12553K",
+    "codeCountry": "12553K",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "12552",
@@ -979,7 +1074,10 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "12552",
+    "codeCountry": "12552",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12561",
@@ -1008,7 +1106,10 @@
     "min_coverage_qty": 11,
     "min_coverage": 11,
     "safety_stock_units": 11,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12561",
+    "codeCountry": "12561",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12562",
@@ -1037,7 +1138,10 @@
     "transit": 0,
     "min_coverage_qty": 4,
     "min_coverage": 4,
-    "safety_stock_units": 4
+    "safety_stock_units": 4,
+    "codeFrumusa": "12562",
+    "codeCountry": "12562",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "12563",
@@ -1066,7 +1170,10 @@
     "transit": 0,
     "min_coverage_qty": 40,
     "min_coverage": 40,
-    "safety_stock_units": 40
+    "safety_stock_units": 40,
+    "codeFrumusa": "12563",
+    "codeCountry": "12563",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "12613",
@@ -1095,7 +1202,10 @@
     "transit": 0,
     "min_coverage_qty": 10,
     "min_coverage": 10,
-    "safety_stock_units": 10
+    "safety_stock_units": 10,
+    "codeFrumusa": "12613",
+    "codeCountry": "12613",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "125641",
@@ -1124,7 +1234,10 @@
     "min_coverage_qty": 3,
     "min_coverage": 3,
     "safety_stock_units": 3,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125641",
+    "codeCountry": "125641",
+    "unit_fromusa": "PAQ"
   },
   {
     "code_country": "12570",
@@ -1153,7 +1266,10 @@
     "min_coverage_qty": 8,
     "min_coverage": 8,
     "safety_stock_units": 8,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12570",
+    "codeCountry": "12570",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "13617",
@@ -1182,10 +1298,13 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12582AJ",
+    "codeCountry": "13617",
+    "unit_fromusa": "KG"
   },
   {
-    "code_country": "12570P",
+    "code_country": "12572",
     "code_frumusa": "12572",
     "description": "CHILE EN MALLA 5 UNIDADES",
     "stock_actual": 0,
@@ -1210,7 +1329,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12572",
+    "codeCountry": "12572",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "12575",
@@ -1239,10 +1361,13 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12575",
+    "codeCountry": "12575",
+    "unit_fromusa": "UND"
   },
   {
-    "code_country": "12576",
+    "code_country": "12571",
     "code_frumusa": "12577",
     "description": "CHILE MUNDIAL AMARILLO",
     "stock_actual": 0,
@@ -1267,7 +1392,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12577",
+    "codeCountry": "12571",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12584",
@@ -1296,7 +1424,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12584",
+    "codeCountry": "12584",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "12603",
@@ -1325,7 +1456,10 @@
     "transit": 0,
     "min_coverage_qty": 80,
     "min_coverage": 80,
-    "safety_stock_units": 80
+    "safety_stock_units": 80,
+    "codeFrumusa": "12603",
+    "codeCountry": "12603",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12588",
@@ -1354,7 +1488,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12588",
+    "codeCountry": "12588",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "4341",
@@ -1383,7 +1520,9 @@
     "min_coverage_qty": 9,
     "min_coverage": 9,
     "safety_stock_units": 9,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "4146",
+    "unit_fromusa": "C10"
   },
   {
     "code_country": "14522",
@@ -1412,7 +1551,10 @@
     "min_coverage_qty": 10,
     "min_coverage": 10,
     "safety_stock_units": 10,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "14522",
+    "codeCountry": "14522",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12591",
@@ -1441,10 +1583,13 @@
     "transit": 0,
     "min_coverage_qty": 15,
     "min_coverage": 15,
-    "safety_stock_units": 15
+    "safety_stock_units": 15,
+    "codeFrumusa": "12591",
+    "codeCountry": "12591",
+    "unit_fromusa": "UND"
   },
   {
-    "code_country": "11522N",
+    "code_country": "11523",
     "code_frumusa": "11522",
     "description": "CULANTRO CASTILLA 3 R.",
     "stock_actual": 0,
@@ -1469,7 +1614,10 @@
     "min_coverage_qty": 80,
     "min_coverage": 80,
     "safety_stock_units": 80,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11522",
+    "codeCountry": "11523",
+    "unit_fromusa": "PAQ"
   },
   {
     "code_country": "11524",
@@ -1498,7 +1646,10 @@
     "min_coverage_qty": 40,
     "min_coverage": 40,
     "safety_stock_units": 40,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11524",
+    "codeCountry": "11524",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "13111CU",
@@ -1527,7 +1678,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13111CU",
+    "codeCountry": "13111CU",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "16592",
@@ -1556,7 +1710,10 @@
     "min_coverage_qty": 20,
     "min_coverage": 20,
     "safety_stock_units": 20,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "16592",
+    "codeCountry": "16592",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "16593",
@@ -1585,7 +1742,10 @@
     "min_coverage_qty": 18,
     "min_coverage": 18,
     "safety_stock_units": 18,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "16593",
+    "codeCountry": "16593",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "125111",
@@ -1614,7 +1774,9 @@
     "min_coverage_qty": 11,
     "min_coverage": 11,
     "safety_stock_units": 11,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125112",
+    "unit_fromusa": "CAJA"
   },
   {
     "code_country": "11531",
@@ -1643,7 +1805,10 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "11531",
+    "codeCountry": "11531",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "15524A",
@@ -1672,7 +1837,10 @@
     "transit": 0,
     "min_coverage_qty": 8,
     "min_coverage": 8,
-    "safety_stock_units": 8
+    "safety_stock_units": 8,
+    "codeFrumusa": "15524A",
+    "codeCountry": "15524A",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "15521",
@@ -1701,7 +1869,10 @@
     "min_coverage_qty": 8,
     "min_coverage": 8,
     "safety_stock_units": 8,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "15521",
+    "codeCountry": "15521",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "17558",
@@ -1730,7 +1901,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "17558",
+    "codeCountry": "17558",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "17557",
@@ -1759,7 +1933,10 @@
     "transit": 0,
     "min_coverage_qty": 14,
     "min_coverage": 14,
-    "safety_stock_units": 14
+    "safety_stock_units": 14,
+    "codeFrumusa": "17557",
+    "codeCountry": "17557",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "15531",
@@ -1787,7 +1964,10 @@
     "min_coverage_qty": 50,
     "min_coverage": 50,
     "safety_stock_units": 50,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "15531",
+    "codeCountry": "15531",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "14551",
@@ -1816,7 +1996,10 @@
     "min_coverage_qty": 5,
     "min_coverage": 5,
     "safety_stock_units": 5,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "14551",
+    "codeCountry": "14551",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "14561",
@@ -1845,7 +2028,10 @@
     "transit": 0,
     "min_coverage_qty": 10,
     "min_coverage": 10,
-    "safety_stock_units": 10
+    "safety_stock_units": 10,
+    "codeFrumusa": "14561",
+    "codeCountry": "14561",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "14515",
@@ -1874,7 +2060,10 @@
     "transit": 0,
     "min_coverage_qty": 60,
     "min_coverage": 60,
-    "safety_stock_units": 60
+    "safety_stock_units": 60,
+    "codeFrumusa": "14515",
+    "codeCountry": "14515",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "16624",
@@ -1903,7 +2092,10 @@
     "transit": 0,
     "min_coverage_qty": 4,
     "min_coverage": 4,
-    "safety_stock_units": 4
+    "safety_stock_units": 4,
+    "codeFrumusa": "16624",
+    "codeCountry": "16624",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "16624X",
@@ -1932,11 +2124,14 @@
     "min_coverage_qty": 10,
     "min_coverage": 10,
     "safety_stock_units": 10,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "16624X",
+    "codeCountry": "16624X",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "13580H",
-    "code_frumusa": "13584",
+    "code_frumusa": "13580H",
     "description": "HOJA SABILA ",
     "stock_actual": 24,
     "sales_period": 13,
@@ -1961,7 +2156,10 @@
     "min_coverage_qty": 3,
     "min_coverage": 3,
     "safety_stock_units": 3,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13580H",
+    "codeCountry": "13580H",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "5533",
@@ -1990,7 +2188,10 @@
     "min_coverage_qty": 6,
     "min_coverage": 6,
     "safety_stock_units": 6,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "5533",
+    "codeCountry": "5533",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "5536",
@@ -2019,7 +2220,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "5536",
+    "codeCountry": "5536",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "5535",
@@ -2048,7 +2252,10 @@
     "min_coverage_qty": 4,
     "min_coverage": 4,
     "safety_stock_units": 4,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "5535",
+    "codeCountry": "5535",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "5538",
@@ -2077,7 +2284,10 @@
     "min_coverage_qty": 4,
     "min_coverage": 4,
     "safety_stock_units": 4,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "5538",
+    "codeCountry": "5538",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "13513",
@@ -2106,7 +2316,10 @@
     "min_coverage_qty": 4,
     "min_coverage": 4,
     "safety_stock_units": 4,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13513",
+    "codeCountry": "13513",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125972",
@@ -2135,7 +2348,10 @@
     "min_coverage_qty": 4,
     "min_coverage": 4,
     "safety_stock_units": 4,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125972",
+    "codeCountry": "125972",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "5341",
@@ -2164,7 +2380,10 @@
     "min_coverage_qty": 37,
     "min_coverage": 37,
     "safety_stock_units": 37,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "5341",
+    "codeCountry": "5341",
+    "unit_fromusa": "C10"
   },
   {
     "code_country": "115412",
@@ -2193,7 +2412,10 @@
     "transit": 0,
     "min_coverage_qty": 56,
     "min_coverage": 56,
-    "safety_stock_units": 56
+    "safety_stock_units": 56,
+    "codeFrumusa": "115412",
+    "codeCountry": "115412",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11541",
@@ -2222,7 +2444,10 @@
     "min_coverage_qty": 4,
     "min_coverage": 4,
     "safety_stock_units": 4,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11541",
+    "codeCountry": "11541",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11580",
@@ -2250,7 +2475,10 @@
     "min_coverage_qty": 18,
     "min_coverage": 18,
     "safety_stock_units": 18,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11580",
+    "codeCountry": "11580",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11590",
@@ -2279,7 +2507,10 @@
     "transit": 0,
     "min_coverage_qty": 20,
     "min_coverage": 20,
-    "safety_stock_units": 20
+    "safety_stock_units": 20,
+    "codeFrumusa": "11590",
+    "codeCountry": "11590",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11548",
@@ -2308,7 +2539,10 @@
     "transit": 0,
     "min_coverage_qty": 6,
     "min_coverage": 6,
-    "safety_stock_units": 6
+    "safety_stock_units": 6,
+    "codeFrumusa": "11548",
+    "codeCountry": "11548",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11547",
@@ -2337,7 +2571,10 @@
     "transit": 0,
     "min_coverage_qty": 12,
     "min_coverage": 12,
-    "safety_stock_units": 12
+    "safety_stock_units": 12,
+    "codeFrumusa": "11547",
+    "codeCountry": "11547",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11540",
@@ -2366,7 +2603,10 @@
     "transit": 0,
     "min_coverage_qty": 3,
     "min_coverage": 3,
-    "safety_stock_units": 3
+    "safety_stock_units": 3,
+    "codeFrumusa": "11540",
+    "codeCountry": "11540",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "14585",
@@ -2395,7 +2635,10 @@
     "min_coverage_qty": 125,
     "min_coverage": 125,
     "safety_stock_units": 125,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "14585",
+    "codeCountry": "14585",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "14585P",
@@ -2424,7 +2667,10 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "14587",
+    "codeCountry": "14585P",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "14575P",
@@ -2453,7 +2699,10 @@
     "transit": 0,
     "min_coverage_qty": 20,
     "min_coverage": 20,
-    "safety_stock_units": 20
+    "safety_stock_units": 20,
+    "codeFrumusa": "14574",
+    "codeCountry": "14575P",
+    "unit_fromusa": "PAQ"
   },
   {
     "code_country": "14575",
@@ -2482,7 +2731,10 @@
     "min_coverage_qty": 100,
     "min_coverage": 100,
     "safety_stock_units": 100,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "14575",
+    "codeCountry": "14575",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12593",
@@ -2511,7 +2763,10 @@
     "min_coverage_qty": 13,
     "min_coverage": 13,
     "safety_stock_units": 13,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12593",
+    "codeCountry": "12593",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "14590",
@@ -2540,7 +2795,9 @@
     "transit": 0,
     "min_coverage_qty": 10,
     "min_coverage": 10,
-    "safety_stock_units": 10
+    "safety_stock_units": 10,
+    "codeFrumusa": "14583C",
+    "unit_fromusa": "C10"
   },
   {
     "code_country": "14607",
@@ -2569,7 +2826,10 @@
     "transit": 0,
     "min_coverage_qty": 68,
     "min_coverage": 68,
-    "safety_stock_units": 68
+    "safety_stock_units": 68,
+    "codeFrumusa": "14607",
+    "codeCountry": "14607",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "13150B",
@@ -2598,10 +2858,12 @@
     "min_coverage_qty": 19,
     "min_coverage": 19,
     "safety_stock_units": 19,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13150GA",
+    "unit_fromusa": "C150"
   },
   {
-    "code_country": "145137K",
+    "code_country": "14514",
     "code_frumusa": "14514",
     "description": "Manzana  agua",
     "stock_actual": 13,
@@ -2627,7 +2889,10 @@
     "transit": 0,
     "min_coverage_qty": 5,
     "min_coverage": 5,
-    "safety_stock_units": 5
+    "safety_stock_units": 5,
+    "codeFrumusa": "14514",
+    "codeCountry": "14514",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "11080F",
@@ -2799,7 +3064,10 @@
     "min_coverage_qty": 10,
     "min_coverage": 10,
     "safety_stock_units": 10,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "145102",
+    "codeCountry": "145102",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "4321",
@@ -2856,7 +3124,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "911",
+    "codeCountry": "911",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "145128",
@@ -2885,7 +3156,10 @@
     "min_coverage_qty": 3,
     "min_coverage": 3,
     "safety_stock_units": 3,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "145128",
+    "codeCountry": "145128",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "16535",
@@ -2914,7 +3188,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "16535",
+    "codeCountry": "16535",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "125121",
@@ -2943,7 +3220,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125121",
+    "codeCountry": "125121",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "12617",
@@ -2972,7 +3252,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "12617",
+    "codeCountry": "12617",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "11551",
@@ -3001,7 +3284,10 @@
     "transit": 0,
     "min_coverage_qty": 8,
     "min_coverage": 8,
-    "safety_stock_units": 8
+    "safety_stock_units": 8,
+    "codeFrumusa": "11551",
+    "codeCountry": "11551",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "13521",
@@ -3030,7 +3316,10 @@
     "transit": 0,
     "min_coverage_qty": 5,
     "min_coverage": 5,
-    "safety_stock_units": 5
+    "safety_stock_units": 5,
+    "codeFrumusa": "13521",
+    "codeCountry": "13521",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "145143",
@@ -3059,7 +3348,10 @@
     "transit": 0,
     "min_coverage_qty": 45,
     "min_coverage": 45,
-    "safety_stock_units": 45
+    "safety_stock_units": 45,
+    "codeFrumusa": "145143",
+    "codeCountry": "145143",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "145143P15",
@@ -3088,7 +3380,10 @@
     "transit": 0,
     "min_coverage_qty": 7,
     "min_coverage": 7,
-    "safety_stock_units": 7
+    "safety_stock_units": 7,
+    "codeFrumusa": "145180",
+    "codeCountry": "145143P15",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "145142",
@@ -3117,7 +3412,10 @@
     "min_coverage_qty": 8,
     "min_coverage": 8,
     "safety_stock_units": 8,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "145142",
+    "codeCountry": "145142",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "4131",
@@ -3175,7 +3473,10 @@
     "transit": 0,
     "min_coverage_qty": 3,
     "min_coverage": 3,
-    "safety_stock_units": 3
+    "safety_stock_units": 3,
+    "codeFrumusa": "16540",
+    "codeCountry": "16540",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "16553",
@@ -3204,7 +3505,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "16553",
+    "codeCountry": "16553",
+    "unit_fromusa": "PAQ"
   },
   {
     "code_country": "13556",
@@ -3233,7 +3537,10 @@
     "transit": 0,
     "min_coverage_qty": 90,
     "min_coverage": 90,
-    "safety_stock_units": 90
+    "safety_stock_units": 90,
+    "codeFrumusa": "13556",
+    "codeCountry": "13556",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "13556R",
@@ -3262,7 +3569,10 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "13556R",
+    "codeCountry": "13556R",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "13557",
@@ -3291,7 +3601,10 @@
     "min_coverage_qty": 15,
     "min_coverage": 15,
     "safety_stock_units": 15,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13557",
+    "codeCountry": "13557",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "1451633",
@@ -3320,7 +3633,10 @@
     "transit": 0,
     "min_coverage_qty": 72,
     "min_coverage": 72,
-    "safety_stock_units": 72
+    "safety_stock_units": 72,
+    "codeFrumusa": "1451633",
+    "codeCountry": "1451633",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "16510",
@@ -3349,7 +3665,10 @@
     "min_coverage_qty": 20,
     "min_coverage": 20,
     "safety_stock_units": 20,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "16510",
+    "codeCountry": "16510",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125131",
@@ -3378,7 +3697,10 @@
     "min_coverage_qty": 24,
     "min_coverage": 24,
     "safety_stock_units": 24,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125131",
+    "codeCountry": "125131",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "31090",
@@ -3436,7 +3758,9 @@
     "min_coverage_qty": 5,
     "min_coverage": 5,
     "safety_stock_units": 5,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "3371F",
+    "unit_fromusa": "C12"
   },
   {
     "code_country": "11561",
@@ -3465,7 +3789,10 @@
     "min_coverage_qty": 10,
     "min_coverage": 10,
     "safety_stock_units": 10,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "11561",
+    "codeCountry": "11561",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "145168IN",
@@ -3494,7 +3821,10 @@
     "transit": 0,
     "min_coverage_qty": 50,
     "min_coverage": 50,
-    "safety_stock_units": 50
+    "safety_stock_units": 50,
+    "codeFrumusa": "145168IN",
+    "codeCountry": "145168IN",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "145168",
@@ -3522,7 +3852,10 @@
     "transit": 0,
     "min_coverage_qty": 10,
     "min_coverage": 10,
-    "safety_stock_units": 10
+    "safety_stock_units": 10,
+    "codeFrumusa": "145168",
+    "codeCountry": "145168",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "145174",
@@ -3551,7 +3884,10 @@
     "transit": 0,
     "min_coverage_qty": 210,
     "min_coverage": 210,
-    "safety_stock_units": 210
+    "safety_stock_units": 210,
+    "codeFrumusa": "145174",
+    "codeCountry": "145174",
+    "unit_fromusa": "UNDS"
   },
   {
     "code_country": "14547",
@@ -3580,7 +3916,10 @@
     "min_coverage_qty": 3,
     "min_coverage": 3,
     "safety_stock_units": 3,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "14547",
+    "codeCountry": "14547",
+    "unit_fromusa": "C15"
   },
   {
     "code_country": "13545R",
@@ -3609,7 +3948,10 @@
     "transit": 0,
     "min_coverage_qty": 12,
     "min_coverage": 12,
-    "safety_stock_units": 12
+    "safety_stock_units": 12,
+    "codeFrumusa": "13545R",
+    "codeCountry": "13545R",
+    "unit_fromusa": "ROLLO"
   },
   {
     "code_country": "13543",
@@ -3638,7 +3980,10 @@
     "min_coverage_qty": 6,
     "min_coverage": 6,
     "safety_stock_units": 6,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13543",
+    "codeCountry": "13543",
+    "unit_fromusa": "PAQ"
   },
   {
     "code_country": "13553",
@@ -3667,7 +4012,10 @@
     "transit": 0,
     "min_coverage_qty": 40,
     "min_coverage": 40,
-    "safety_stock_units": 40
+    "safety_stock_units": 40,
+    "codeFrumusa": "13553",
+    "codeCountry": "13553",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "125142",
@@ -3696,7 +4044,10 @@
     "min_coverage_qty": 100,
     "min_coverage": 100,
     "safety_stock_units": 100,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125142",
+    "codeCountry": "125142",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125143",
@@ -3725,7 +4076,10 @@
     "min_coverage_qty": 10,
     "min_coverage": 10,
     "safety_stock_units": 10,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125143",
+    "codeCountry": "125143",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "13560",
@@ -3754,10 +4108,13 @@
     "transit": 0,
     "min_coverage_qty": 6,
     "min_coverage": 6,
-    "safety_stock_units": 6
+    "safety_stock_units": 6,
+    "codeFrumusa": "13560",
+    "codeCountry": "13560",
+    "unit_fromusa": "UND"
   },
   {
-    "code_country": "145182IN",
+    "code_country": "145182",
     "code_frumusa": "145182",
     "description": "SANDIA MEDIANA",
     "stock_actual": 80,
@@ -3782,7 +4139,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "145182",
+    "codeCountry": "145182",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125130",
@@ -3811,7 +4171,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "125130",
+    "codeCountry": "125130",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "13568",
@@ -3840,7 +4203,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13568",
+    "codeCountry": "13568",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "145191",
@@ -3869,10 +4235,13 @@
     "min_coverage_qty": 6,
     "min_coverage": 6,
     "safety_stock_units": 6,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "145191",
+    "codeCountry": "145191",
+    "unit_fromusa": "PAQ"
   },
   {
-    "code_country": "411",
+    "code_country": "16700",
     "code_frumusa": "781",
     "description": "TAPA DULCE 600 GRS NEGRO",
     "stock_actual": 13,
@@ -3898,7 +4267,10 @@
     "min_coverage_qty": 12,
     "min_coverage": 12,
     "safety_stock_units": 12,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "781",
+    "codeCountry": "16700",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "13561",
@@ -3927,7 +4299,10 @@
     "min_coverage_qty": 5,
     "min_coverage": 5,
     "safety_stock_units": 5,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13561",
+    "codeCountry": "13561",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125150",
@@ -3956,7 +4331,10 @@
     "transit": 0,
     "min_coverage_qty": 16,
     "min_coverage": 16,
-    "safety_stock_units": 16
+    "safety_stock_units": 16,
+    "codeFrumusa": "125150",
+    "codeCountry": "125150",
+    "unit_fromusa": "KILO"
   },
   {
     "code_country": "125153",
@@ -3985,10 +4363,13 @@
     "transit": 0,
     "min_coverage_qty": 80,
     "min_coverage": 80,
-    "safety_stock_units": 80
+    "safety_stock_units": 80,
+    "codeFrumusa": "125153",
+    "codeCountry": "125153",
+    "unit_fromusa": "KG"
   },
   {
-    "code_country": "125180P",
+    "code_country": "125180",
     "code_frumusa": "1251803",
     "description": "TOMATE SALADET EMPACADO 1 KG",
     "stock_actual": 0,
@@ -4014,7 +4395,10 @@
     "min_coverage_qty": 3,
     "min_coverage": 3,
     "safety_stock_units": 3,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "1251803",
+    "codeCountry": "125180",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125159",
@@ -4043,7 +4427,10 @@
     "transit": 0,
     "min_coverage_qty": 16,
     "min_coverage": 16,
-    "safety_stock_units": 16
+    "safety_stock_units": 16,
+    "codeFrumusa": "125159",
+    "codeCountry": "125159",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125152N",
@@ -4072,7 +4459,10 @@
     "transit": 0,
     "min_coverage_qty": 18,
     "min_coverage": 18,
-    "safety_stock_units": 18
+    "safety_stock_units": 18,
+    "codeFrumusa": "125152N",
+    "codeCountry": "125152N",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "13573",
@@ -4101,7 +4491,10 @@
     "transit": 0,
     "min_coverage_qty": 7,
     "min_coverage": 7,
-    "safety_stock_units": 7
+    "safety_stock_units": 7,
+    "codeFrumusa": "13573",
+    "codeCountry": "13573",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "2324",
@@ -4130,7 +4523,10 @@
     "min_coverage_qty": 12,
     "min_coverage": 12,
     "safety_stock_units": 12,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "2324",
+    "codeCountry": "2324",
+    "unit_fromusa": "UB1"
   },
   {
     "code_country": "21021",
@@ -4163,7 +4559,7 @@
   },
   {
     "code_country": "2125",
-    "code_frumusa": "144402",
+    "code_frumusa": "2125",
     "description": "UVA MIXTA 500 GR",
     "stock_actual": 2,
     "sales_period": 10,
@@ -4188,7 +4584,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "2125",
+    "codeCountry": "2125",
+    "unit_fromusa": "BAND"
   },
   {
     "code_country": "2331",
@@ -4217,11 +4616,14 @@
     "min_coverage_qty": 9,
     "min_coverage": 9,
     "safety_stock_units": 9,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "2332",
+    "codeCountry": "2331",
+    "unit_fromusa": "UB1"
   },
   {
     "code_country": "2131",
-    "code_frumusa": "2132",
+    "code_frumusa": "2331",
     "description": "UVA VERDE CAJA 8.2 KILOS ",
     "stock_actual": 18.84,
     "sales_period": 36.059999999999995,
@@ -4246,7 +4648,10 @@
     "min_coverage_qty": 8.2,
     "min_coverage": 8.2,
     "safety_stock_units": 8.2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "2331",
+    "codeCountry": "2131",
+    "unit_fromusa": "C8.2"
   },
   {
     "code_country": "125170",
@@ -4275,7 +4680,10 @@
     "transit": 0,
     "min_coverage_qty": 2,
     "min_coverage": 2,
-    "safety_stock_units": 2
+    "safety_stock_units": 2,
+    "codeFrumusa": "125170",
+    "codeCountry": "125170",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "125162",
@@ -4304,7 +4712,10 @@
     "transit": 0,
     "min_coverage_qty": 20,
     "min_coverage": 20,
-    "safety_stock_units": 20
+    "safety_stock_units": 20,
+    "codeFrumusa": "125162",
+    "codeCountry": "125162",
+    "unit_fromusa": "MALLA"
   },
   {
     "code_country": "13571",
@@ -4333,7 +4744,10 @@
     "transit": 0,
     "min_coverage_qty": 45,
     "min_coverage": 45,
-    "safety_stock_units": 45
+    "safety_stock_units": 45,
+    "codeFrumusa": "13571",
+    "codeCountry": "13571",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "13581",
@@ -4362,7 +4776,10 @@
     "min_coverage_qty": 1,
     "min_coverage": 1,
     "safety_stock_units": 1,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "13581",
+    "codeCountry": "13581",
+    "unit_fromusa": "UND"
   },
   {
     "code_country": "13582",
@@ -4391,7 +4808,10 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "13582",
+    "codeCountry": "13582",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "13588",
@@ -4420,7 +4840,10 @@
     "transit": 0,
     "min_coverage_qty": 39,
     "min_coverage": 39,
-    "safety_stock_units": 39
+    "safety_stock_units": 39,
+    "codeFrumusa": "13588",
+    "codeCountry": "13588",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "1800",
@@ -4449,7 +4872,10 @@
     "min_coverage_qty": 2,
     "min_coverage": 2,
     "safety_stock_units": 2,
-    "transit": 0
+    "transit": 0,
+    "codeFrumusa": "1800",
+    "codeCountry": "1800",
+    "unit_fromusa": "KG"
   },
   {
     "code_country": "125191",
@@ -4478,6 +4904,9 @@
     "transit": 0,
     "min_coverage_qty": 30,
     "min_coverage": 30,
-    "safety_stock_units": 30
+    "safety_stock_units": 30,
+    "codeFrumusa": "125191",
+    "codeCountry": "125191",
+    "unit_fromusa": "UND"
   }
 ]

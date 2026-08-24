@@ -1,0 +1,1970 @@
+[
+  {
+    "codeFrumusa": "1380",
+    "descFrumusa": "MANZ. ROJA 80 CHILENA",
+    "unitFrumusa": "C80",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "1390",
+    "descFrumusa": "MANZ. ROJA 90 CHILE",
+    "unitFrumusa": "C90",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "1388",
+    "descFrumusa": "MANZ. ROJA 88 CHILENA",
+    "unitFrumusa": "C88",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13100",
+    "descFrumusa": "MANZ. ROJA 100 CHILENA",
+    "unitFrumusa": "C100",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11150",
+    "descFrumusa": "MANZ. ROJA 150",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11163",
+    "descFrumusa": "MANZ. ROJA 163",
+    "unitFrumusa": "C163",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11175",
+    "descFrumusa": "MANZ. ROJA 175",
+    "unitFrumusa": "C175",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11198",
+    "descFrumusa": "MANZ. ROJA 198",
+    "unitFrumusa": "C198",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11150E",
+    "descFrumusa": "MANZ ROJA150 1X6 PAQ",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13150EMP",
+    "descFrumusa": "MANZ. ROJA EMP. 10 UND.",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11198EM10",
+    "descFrumusa": "MANZ. ROJA 198 EMP. 10 UND",
+    "unitFrumusa": "C198",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "1380G",
+    "descFrumusa": "MANZ. GALA 80 CHILENA",
+    "unitFrumusa": "C80",
+    "codeCountry": "1380G"
+  },
+  {
+    "codeFrumusa": "1388G",
+    "descFrumusa": "MANZ. GALA 88 CHILENA",
+    "unitFrumusa": "C88",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13150G",
+    "descFrumusa": "MANZ. GALA 150",
+    "unitFrumusa": "C150",
+    "codeCountry": "13150G"
+  },
+  {
+    "codeFrumusa": "13163G",
+    "descFrumusa": "MANZ. GALA 163",
+    "unitFrumusa": "C163",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13175G",
+    "descFrumusa": "MANZ. GALA 175",
+    "unitFrumusa": "C175",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13198G",
+    "descFrumusa": "MANZ. GALA 198",
+    "unitFrumusa": "C198",
+    "codeCountry": "13198G"
+  },
+  {
+    "codeFrumusa": "11150GE",
+    "descFrumusa": "MANZ.GALA 150 1X6 EMP",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13150GA",
+    "descFrumusa": "MANZ. GALA  EMP 10 UNDS.",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11198GE10",
+    "descFrumusa": "MANZ. GALA 198 1X10",
+    "unitFrumusa": "C198",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "1380S",
+    "descFrumusa": "MANZ. GRANNY 80",
+    "unitFrumusa": "C80",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13150S",
+    "descFrumusa": "MANZ. GRANNY 150",
+    "unitFrumusa": "C150",
+    "codeCountry": "13150S"
+  },
+  {
+    "codeFrumusa": "13163S",
+    "descFrumusa": "MANZ. GRANNY 163",
+    "unitFrumusa": "C163",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13175S",
+    "descFrumusa": "MANZ. GRANNY 175",
+    "unitFrumusa": "C175",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13198S",
+    "descFrumusa": "MANZ. GRANNY 198",
+    "unitFrumusa": "C198",
+    "codeCountry": "13198S"
+  },
+  {
+    "codeFrumusa": "11150SEMP",
+    "descFrumusa": "MANZ. GRANNY 150 1X6",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13150SE",
+    "descFrumusa": "MANZ. GRANNY SMITH 1 X 10 PAQ",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13150CP",
+    "descFrumusa": "MANZ. CRISP PINK 150",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "13163CP",
+    "descFrumusa": "MANZ. CRISP PINK 163",
+    "unitFrumusa": "C163",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11150MX",
+    "descFrumusa": "MANZ. MIXTA 1X6 #150",
+    "unitFrumusa": "C150",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11198MX",
+    "descFrumusa": "MANZ. MIXTA 198 1X6",
+    "unitFrumusa": "C198",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "1188A",
+    "descFrumusa": "MANZ. GOLDEN  88 WASH",
+    "unitFrumusa": "C88",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "1188F",
+    "descFrumusa": "MANZ. FUJI  88",
+    "unitFrumusa": "C88",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "3481",
+    "descFrumusa": "PERA 80 D'ANJOU ARG",
+    "unitFrumusa": "C80",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "34101",
+    "descFrumusa": "PERA 100 D'ANJOU ARG",
+    "unitFrumusa": "C100",
+    "codeCountry": "31101"
+  },
+  {
+    "codeFrumusa": "34111",
+    "descFrumusa": "PERA 110 D`ANJOU ARG",
+    "unitFrumusa": "C110",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "31101EMP",
+    "descFrumusa": "PERA EMP 1.36 KG",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "3481R",
+    "descFrumusa": "PERA ROJA 80 ARG",
+    "unitFrumusa": "C80",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "3371F",
+    "descFrumusa": "PERA FORELLE 70 12 KG PAQ",
+    "unitFrumusa": "C12",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "3342AM",
+    "descFrumusa": "PERA CANDY 10 KG",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "3736",
+    "descFrumusa": "PERA ASIATICA #36",
+    "unitFrumusa": "C40",
+    "codeCountry": "3740"
+  },
+  {
+    "codeFrumusa": "2321XL",
+    "descFrumusa": "UVA GLOBO XL 8.2 KG",
+    "unitFrumusa": "C8.2",
+    "codeCountry": "21021CJ"
+  },
+  {
+    "codeFrumusa": "23241",
+    "descFrumusa": "UVA GLOBO BAND 1 KG",
+    "unitFrumusa": "BAND",
+    "codeCountry": "23241"
+  },
+  {
+    "codeFrumusa": "2324",
+    "descFrumusa": "UVA GLOBO BAND 1/2 KG",
+    "unitFrumusa": "UB1",
+    "codeCountry": "2324"
+  },
+  {
+    "codeFrumusa": "2331",
+    "descFrumusa": "UVA VERDE 8.2 KG CHILENA",
+    "unitFrumusa": "C8.2",
+    "codeCountry": "2131"
+  },
+  {
+    "codeFrumusa": "23321",
+    "descFrumusa": "UVA VERDE BANDEJA 1 KG",
+    "unitFrumusa": "BAND",
+    "codeCountry": "2424"
+  },
+  {
+    "codeFrumusa": "2332",
+    "descFrumusa": "UVA VERDE BAND I/2 KILO",
+    "unitFrumusa": "UB1",
+    "codeCountry": "2331"
+  },
+  {
+    "codeFrumusa": "21251",
+    "descFrumusa": "UVA MIXTA BANDEJA 1 KG",
+    "unitFrumusa": "BAND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "2125",
+    "descFrumusa": "UVA MIXTA BANDEJA 500 GR",
+    "unitFrumusa": "BAND",
+    "codeCountry": "2125"
+  },
+  {
+    "codeFrumusa": "4721",
+    "descFrumusa": "MELOCOTON ESPAÑA 9 K",
+    "unitFrumusa": "C9",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "4731",
+    "descFrumusa": "NECTARINA ESPAÑA 9 K",
+    "unitFrumusa": "C9",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "4146",
+    "descFrumusa": "CIRUELA CAJA 10 KG",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "5341",
+    "descFrumusa": "KIWI 25-27",
+    "unitFrumusa": "C10",
+    "codeCountry": "5341"
+  },
+  {
+    "codeFrumusa": "5349",
+    "descFrumusa": "KIWI 30",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "53433",
+    "descFrumusa": "KIWI BANDEJA DE 500 GR",
+    "unitFrumusa": "BAND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "5125",
+    "descFrumusa": "ARANDANO BANDEJA 125 GR.",
+    "unitFrumusa": "UND",
+    "codeCountry": "5125"
+  },
+  {
+    "codeFrumusa": "5125B",
+    "descFrumusa": "ARANDANO BAND 500 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "5125B"
+  },
+  {
+    "codeFrumusa": "125112",
+    "descFrumusa": "ESPARRAGOS CAJA 5 KG",
+    "unitFrumusa": "CAJA",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14583B",
+    "descFrumusa": "MANDARINA IMPORT 1X",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14583C",
+    "descFrumusa": "MANDARINA IMPORT 1XX",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14583D",
+    "descFrumusa": "MANDARINA IMPORT 1XXX",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14585A",
+    "descFrumusa": "MANDARINA IMPORT EMP 1 KG",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14604",
+    "descFrumusa": "MANDARINA CAJA 15 KG EMP.",
+    "unitFrumusa": "C15",
+    "codeCountry": "14604"
+  },
+  {
+    "codeFrumusa": "145145",
+    "descFrumusa": "NARANJA CAJA",
+    "unitFrumusa": "CAJA",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145142",
+    "descFrumusa": "NARANJA IMPORT KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "145142"
+  },
+  {
+    "codeFrumusa": "14547",
+    "descFrumusa": "POMELO IMPORTADO CAJA",
+    "unitFrumusa": "C15",
+    "codeCountry": "14547"
+  },
+  {
+    "codeFrumusa": "14583A",
+    "descFrumusa": "MANDARINA  (TANGELO )",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145713",
+    "descFrumusa": "LIMON PERSA CAJA 17 KG",
+    "unitFrumusa": "CAJA",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145713K",
+    "descFrumusa": "LIMON PERSA IMPORTAD BAND 1 KG",
+    "unitFrumusa": "BAND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145713B",
+    "descFrumusa": "LIMON PERSA IMPORT BAND 1/2 KG",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "775",
+    "descFrumusa": "AJO 3 CABEZAS",
+    "unitFrumusa": "A10",
+    "codeCountry": "775"
+  },
+  {
+    "codeFrumusa": "773",
+    "descFrumusa": "AJO 500 GRS",
+    "unitFrumusa": "A10",
+    "codeCountry": "773"
+  },
+  {
+    "codeFrumusa": "770",
+    "descFrumusa": "AJO 5 CABEZAS",
+    "unitFrumusa": "A10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "779",
+    "descFrumusa": "AJO TRENZA",
+    "unitFrumusa": "A10",
+    "codeCountry": "779"
+  },
+  {
+    "codeFrumusa": "781",
+    "descFrumusa": "AJO PELADO",
+    "unitFrumusa": "KG",
+    "codeCountry": "16700"
+  },
+  {
+    "codeFrumusa": "775B",
+    "descFrumusa": "AJO 3 CABEZAS P. BLANCO",
+    "unitFrumusa": "A10",
+    "codeCountry": "775"
+  },
+  {
+    "codeFrumusa": "770B",
+    "descFrumusa": "AJO 5 CABEZAS P BLANCO",
+    "unitFrumusa": "A10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "773B",
+    "descFrumusa": "AJO 500 GRS P. BLANCO",
+    "unitFrumusa": "A10",
+    "codeCountry": "771"
+  },
+  {
+    "codeFrumusa": "703",
+    "descFrumusa": "AGUACATE MEX SUPREMO",
+    "unitFrumusa": "CAJA",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "704",
+    "descFrumusa": "AGUACATE MEX SUPER EXTRA",
+    "unitFrumusa": "CAJA",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "661",
+    "descFrumusa": "AGUACATE EXTRA 1 PERU",
+    "unitFrumusa": "C10",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "670",
+    "descFrumusa": "AGUACATE HASS MINI 1 KG",
+    "unitFrumusa": "MALLA",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "911",
+    "descFrumusa": "MELOCOTON  1/4  UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "911"
+  },
+  {
+    "codeFrumusa": "913",
+    "descFrumusa": "MIXTO DE FRUTAS 1/4 UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "913"
+  },
+  {
+    "codeFrumusa": "16784M",
+    "descFrumusa": "BROCOLI FLORETES 250 GRS",
+    "unitFrumusa": "PAQ",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "16785M",
+    "descFrumusa": "COLIFLOR FLORETES 250 GRS",
+    "unitFrumusa": "PAQ",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "651",
+    "descFrumusa": "AGUACATE NACIONAL CRIOLLO",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "751",
+    "descFrumusa": "AJO CRIOLLO KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "751"
+  },
+  {
+    "codeFrumusa": "11554X",
+    "descFrumusa": "ALBAHACA ROLLO 250 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "11554X"
+  },
+  {
+    "codeFrumusa": "11554",
+    "descFrumusa": "ALBAHACA ROLLO 30 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "11554"
+  },
+  {
+    "codeFrumusa": "11556",
+    "descFrumusa": "ALFALFA 100 GRS",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "11556"
+  },
+  {
+    "codeFrumusa": "11555B",
+    "descFrumusa": "ALCACHOFA BAND 500 GRAMOS",
+    "unitFrumusa": "BAND",
+    "codeCountry": "11555B"
+  },
+  {
+    "codeFrumusa": "15511",
+    "descFrumusa": "ANONA",
+    "unitFrumusa": "KG",
+    "codeCountry": "15511"
+  },
+  {
+    "codeFrumusa": "11511",
+    "descFrumusa": "APIO VERDE",
+    "unitFrumusa": "KG",
+    "codeCountry": "11511"
+  },
+  {
+    "codeFrumusa": "16579",
+    "descFrumusa": "ARRACACHE PICADO",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "16579"
+  },
+  {
+    "codeFrumusa": "17512",
+    "descFrumusa": "ARVEJAS BANDEJA 500 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "17512"
+  },
+  {
+    "codeFrumusa": "12597",
+    "descFrumusa": "AYOTE MANTEQUILLA",
+    "unitFrumusa": "KG",
+    "codeCountry": "12597"
+  },
+  {
+    "codeFrumusa": "12511",
+    "descFrumusa": "AYOTE SAZON KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "12511"
+  },
+  {
+    "codeFrumusa": "12512",
+    "descFrumusa": "AYOTE TIERNO UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "12512"
+  },
+  {
+    "codeFrumusa": "1063K",
+    "descFrumusa": "BABY BANANA PACKAGE 1K",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "1064U",
+    "descFrumusa": "BANANO CRIOLLO UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "1054"
+  },
+  {
+    "codeFrumusa": "1064UP",
+    "descFrumusa": "BANANO CRIOLLO UND PRIMERA",
+    "unitFrumusa": "UND",
+    "codeCountry": "1054"
+  },
+  {
+    "codeFrumusa": "1054",
+    "descFrumusa": "BANANO GRADO \"0\" (VERDE)",
+    "unitFrumusa": "CAJA",
+    "codeCountry": "1054"
+  },
+  {
+    "codeFrumusa": "1052",
+    "descFrumusa": "BANANO SUELTO",
+    "unitFrumusa": "CAJA",
+    "codeCountry": "1052"
+  },
+  {
+    "codeFrumusa": "1053",
+    "descFrumusa": "BANANO SUPER",
+    "unitFrumusa": "CAJA",
+    "codeCountry": "1053"
+  },
+  {
+    "codeFrumusa": "12521",
+    "descFrumusa": "BERENJENA UNIDADES",
+    "unitFrumusa": "UND",
+    "codeCountry": "12521"
+  },
+  {
+    "codeFrumusa": "12531",
+    "descFrumusa": "BROCOLI KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "12531"
+  },
+  {
+    "codeFrumusa": "14524",
+    "descFrumusa": "CAIMITO KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "14524"
+  },
+  {
+    "codeFrumusa": "1351",
+    "descFrumusa": "CAMOTE GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "1351"
+  },
+  {
+    "codeFrumusa": "13515",
+    "descFrumusa": "CAMOTE ZANAHORIA KILO GRANEL",
+    "unitFrumusa": "KILO",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14511",
+    "descFrumusa": "CARAMBOLA BAND. 500 GRS",
+    "unitFrumusa": "BAND",
+    "codeCountry": "14511"
+  },
+  {
+    "codeFrumusa": "14512",
+    "descFrumusa": "CARAMBOLA GRANEL KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "14512"
+  },
+  {
+    "codeFrumusa": "29550",
+    "descFrumusa": "CARBON EN BOLSA 2 KG",
+    "unitFrumusa": "BOLSA",
+    "codeCountry": "29550"
+  },
+  {
+    "codeFrumusa": "14565",
+    "descFrumusa": "CAS A GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "14565"
+  },
+  {
+    "codeFrumusa": "14514",
+    "descFrumusa": "CAS BANDEJA 500 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "14514"
+  },
+  {
+    "codeFrumusa": "12553K",
+    "descFrumusa": "CEBOLLA  PRE-PACK PAQ 1 KG",
+    "unitFrumusa": "KG",
+    "codeCountry": "12553K"
+  },
+  {
+    "codeFrumusa": "12554P",
+    "descFrumusa": "CEBOLLA COSECHA COMPLETA 1 KG",
+    "unitFrumusa": "KG",
+    "codeCountry": "12554P"
+  },
+  {
+    "codeFrumusa": "12544",
+    "descFrumusa": "CEBOLLA EN HOJA ROLLO 3 UND.",
+    "unitFrumusa": "UND",
+    "codeCountry": "12544"
+  },
+  {
+    "codeFrumusa": "12554",
+    "descFrumusa": "CEBOLLA GRANEL KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "12554"
+  },
+  {
+    "codeFrumusa": "125542",
+    "descFrumusa": "CEBOLLA INDUSTRIAL GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "125542"
+  },
+  {
+    "codeFrumusa": "12547G",
+    "descFrumusa": "CEBOLLA MORADA GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "12547G"
+  },
+  {
+    "codeFrumusa": "125581",
+    "descFrumusa": "CEBOLLA TRENZA  KILOS",
+    "unitFrumusa": "UND",
+    "codeCountry": "125581"
+  },
+  {
+    "codeFrumusa": "12552",
+    "descFrumusa": "CEBOLLINO ROLLO",
+    "unitFrumusa": "UND",
+    "codeCountry": "12552"
+  },
+  {
+    "codeFrumusa": "12561",
+    "descFrumusa": "CHAYOTE BLANCO UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "12561"
+  },
+  {
+    "codeFrumusa": "12562",
+    "descFrumusa": "CHAYOTE COCORO EMPACADO",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "12562"
+  },
+  {
+    "codeFrumusa": "12563",
+    "descFrumusa": "CHAYOTE TIERNO MALLA DE 3 UND",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "12563"
+  },
+  {
+    "codeFrumusa": "12613",
+    "descFrumusa": "CHAYOTE TIERNO NEGRO",
+    "unitFrumusa": "UND",
+    "codeCountry": "12613"
+  },
+  {
+    "codeFrumusa": "125641",
+    "descFrumusa": "CHAYOTE TIERNO PAQ. 10 UDS",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "125641"
+  },
+  {
+    "codeFrumusa": "12568",
+    "descFrumusa": "CHAYOTE VERDE SAZON",
+    "unitFrumusa": "UND",
+    "codeCountry": "12568"
+  },
+  {
+    "codeFrumusa": "12572",
+    "descFrumusa": "CHILE DULCE MALLA 5 UNIDADES",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "12572"
+  },
+  {
+    "codeFrumusa": "12574",
+    "descFrumusa": "CHILE DULCE PRIMERA UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "12574"
+  },
+  {
+    "codeFrumusa": "12570",
+    "descFrumusa": "CHILE DULCE ROJO UND # 240",
+    "unitFrumusa": "UND",
+    "codeCountry": "12570"
+  },
+  {
+    "codeFrumusa": "12575",
+    "descFrumusa": "CHILE JALAPENO BAND 500 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "12575"
+  },
+  {
+    "codeFrumusa": "12582",
+    "descFrumusa": "CHILE JALAPENO KILO.",
+    "unitFrumusa": "KG",
+    "codeCountry": "12582"
+  },
+  {
+    "codeFrumusa": "12577AM",
+    "descFrumusa": "CHILE MUNDIAL AMARILLO UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "12573"
+  },
+  {
+    "codeFrumusa": "12577B3",
+    "descFrumusa": "CHILE MUNDIAL BAND 3 UND",
+    "unitFrumusa": "BAND",
+    "codeCountry": "12571PR"
+  },
+  {
+    "codeFrumusa": "12577N",
+    "descFrumusa": "CHILE MUNDIAL NARANJA UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "12576"
+  },
+  {
+    "codeFrumusa": "12577",
+    "descFrumusa": "CHILE MUNDIAL UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "12571"
+  },
+  {
+    "codeFrumusa": "12584",
+    "descFrumusa": "CHILE PANAMENO KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "12584"
+  },
+  {
+    "codeFrumusa": "12582AJ",
+    "descFrumusa": "CHILE AJI PERUANO KG",
+    "unitFrumusa": "KG",
+    "codeCountry": "13617"
+  },
+  {
+    "codeFrumusa": "12603",
+    "descFrumusa": "CHILE QUETZAL UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "12603"
+  },
+  {
+    "codeFrumusa": "12588",
+    "descFrumusa": "CHILOTE BAND. 500 GRAMOS",
+    "unitFrumusa": "UND",
+    "codeCountry": "12588"
+  },
+  {
+    "codeFrumusa": "12581",
+    "descFrumusa": "CHIVERRE UNIDADES",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14522",
+    "descFrumusa": "COCO UNIDADES",
+    "unitFrumusa": "UND",
+    "codeCountry": "14522"
+  },
+  {
+    "codeFrumusa": "13222CO",
+    "descFrumusa": "COCOLMECA KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "13222CO"
+  },
+  {
+    "codeFrumusa": "16721",
+    "descFrumusa": "COLIFLOR FLORETTES 1 KG",
+    "unitFrumusa": "PAQ",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "12591",
+    "descFrumusa": "COLIFLOR UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "12591"
+  },
+  {
+    "codeFrumusa": "11522",
+    "descFrumusa": "CULANTRO CASTILLA 1X3",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "11523"
+  },
+  {
+    "codeFrumusa": "11524",
+    "descFrumusa": "CULANTRO COYOTE 3 ROLLOS",
+    "unitFrumusa": "UND",
+    "codeCountry": "11524"
+  },
+  {
+    "codeFrumusa": "13111CU",
+    "descFrumusa": "CURCUMA KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "13111CU"
+  },
+  {
+    "codeFrumusa": "16592",
+    "descFrumusa": "ELOTE BLANCO 2 UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "16592"
+  },
+  {
+    "codeFrumusa": "16593",
+    "descFrumusa": "ELOTE TUZA UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "16593"
+  },
+  {
+    "codeFrumusa": "11531",
+    "descFrumusa": "ESPINACA ROLLO 300 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "11531"
+  },
+  {
+    "codeFrumusa": "15524A",
+    "descFrumusa": "FRESA BANDEJA 500 GR",
+    "unitFrumusa": "BAND",
+    "codeCountry": "15524A"
+  },
+  {
+    "codeFrumusa": "15521",
+    "descFrumusa": "FRESA CANASTILLA UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "15521"
+  },
+  {
+    "codeFrumusa": "17558",
+    "descFrumusa": "FRIJOL NACIDO 400 GRAMOS",
+    "unitFrumusa": "UND",
+    "codeCountry": "17558"
+  },
+  {
+    "codeFrumusa": "17557",
+    "descFrumusa": "FRIJOL TIERNO MALLA 500 GRAMOS",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "17557"
+  },
+  {
+    "codeFrumusa": "15531",
+    "descFrumusa": "GRANADILLA UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "15531"
+  },
+  {
+    "codeFrumusa": "14551",
+    "descFrumusa": "GUANABANA KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "14551"
+  },
+  {
+    "codeFrumusa": "14561B1",
+    "descFrumusa": "GUAYABA BAND 900 GRS",
+    "unitFrumusa": "BAND",
+    "codeCountry": "14561B1"
+  },
+  {
+    "codeFrumusa": "14561",
+    "descFrumusa": "GUAYABA KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "14561"
+  },
+  {
+    "codeFrumusa": "14515R",
+    "descFrumusa": "GUINEO CUADRADO RACIMO",
+    "unitFrumusa": "RAC",
+    "codeCountry": "14515R"
+  },
+  {
+    "codeFrumusa": "14515",
+    "descFrumusa": "GUINEO UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "14515"
+  },
+  {
+    "codeFrumusa": "16624K",
+    "descFrumusa": "HIERBA BUENA PAQ 1 KG",
+    "unitFrumusa": "KG",
+    "codeCountry": "16624K"
+  },
+  {
+    "codeFrumusa": "16624X",
+    "descFrumusa": "HIERBA BUENA ROLLO 250 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "16624X"
+  },
+  {
+    "codeFrumusa": "16624",
+    "descFrumusa": "HIERBA BUENA ROLLO 30 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "16624"
+  },
+  {
+    "codeFrumusa": "16522",
+    "descFrumusa": "HOJAS DE TAMAL EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "16522"
+  },
+  {
+    "codeFrumusa": "5536",
+    "descFrumusa": "HONGO CRIMINI 300 GR",
+    "unitFrumusa": "BAND",
+    "codeCountry": "5536"
+  },
+  {
+    "codeFrumusa": "5534",
+    "descFrumusa": "HONGO EN KILOS 1000GRS",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "5533",
+    "descFrumusa": "HONGO ENTERO BAND. 227 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "5533"
+  },
+  {
+    "codeFrumusa": "5540",
+    "descFrumusa": "HONGO MIXTO 500 GRS",
+    "unitFrumusa": "BAND",
+    "codeCountry": "5540"
+  },
+  {
+    "codeFrumusa": "5537",
+    "descFrumusa": "HONGO OSTRA 300 GR",
+    "unitFrumusa": "BAND",
+    "codeCountry": "5537"
+  },
+  {
+    "codeFrumusa": "5535",
+    "descFrumusa": "HONGO PORTO BELLA 300 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "5535"
+  },
+  {
+    "codeFrumusa": "5538",
+    "descFrumusa": "HONGO REBANADO 227 GRAMOS",
+    "unitFrumusa": "BAND",
+    "codeCountry": "5538"
+  },
+  {
+    "codeFrumusa": "13513",
+    "descFrumusa": "JENJIBRE GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "13513"
+  },
+  {
+    "codeFrumusa": "16524",
+    "descFrumusa": "JOCOTE  GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "16524"
+  },
+  {
+    "codeFrumusa": "125972",
+    "descFrumusa": "KALE ROLLO DE 100 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "125972"
+  },
+  {
+    "codeFrumusa": "11541",
+    "descFrumusa": "LECHUGA AMERICANA",
+    "unitFrumusa": "UND",
+    "codeCountry": "11541"
+  },
+  {
+    "codeFrumusa": "115412",
+    "descFrumusa": "LECHUGA AMERICANA TWO PACK",
+    "unitFrumusa": "UND",
+    "codeCountry": "115412"
+  },
+  {
+    "codeFrumusa": "16580K",
+    "descFrumusa": "LECHUGA ARUGULA  POR KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "16580K"
+  },
+  {
+    "codeFrumusa": "16580X",
+    "descFrumusa": "LECHUGA ARUGULA 250 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "16580X"
+  },
+  {
+    "codeFrumusa": "11543",
+    "descFrumusa": "LECHUGA ESCAROLA",
+    "unitFrumusa": "UND",
+    "codeCountry": "11543"
+  },
+  {
+    "codeFrumusa": "11580",
+    "descFrumusa": "LECHUGA FREZZE UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "11580"
+  },
+  {
+    "codeFrumusa": "11590",
+    "descFrumusa": "LECHUGA ICEBERG",
+    "unitFrumusa": "UND",
+    "codeCountry": "11590"
+  },
+  {
+    "codeFrumusa": "11548",
+    "descFrumusa": "LECHUGA LOLOROSA",
+    "unitFrumusa": "UND",
+    "codeCountry": "11548"
+  },
+  {
+    "codeFrumusa": "11547",
+    "descFrumusa": "LECHUGA ROMANA UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "11547"
+  },
+  {
+    "codeFrumusa": "11540",
+    "descFrumusa": "LECHUGA SALANOVA TWO PACK",
+    "unitFrumusa": "UND",
+    "codeCountry": "11540"
+  },
+  {
+    "codeFrumusa": "14571",
+    "descFrumusa": "LIMON DULCE MALLA 5 UND",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "14571"
+  },
+  {
+    "codeFrumusa": "14579",
+    "descFrumusa": "LIMON DULCE UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "14571"
+  },
+  {
+    "codeFrumusa": "14585",
+    "descFrumusa": "LIMON MANDARINA UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "14585"
+  },
+  {
+    "codeFrumusa": "14587",
+    "descFrumusa": "LIMON MANDARINO MALLA 10 UND",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "14585P"
+  },
+  {
+    "codeFrumusa": "14574",
+    "descFrumusa": "LIMON MESINA PAQ. 10",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "14575P"
+  },
+  {
+    "codeFrumusa": "14575",
+    "descFrumusa": "LIMON MESINA UNIDADES",
+    "unitFrumusa": "UND",
+    "codeCountry": "14575"
+  },
+  {
+    "codeFrumusa": "12593",
+    "descFrumusa": "MAIZ DULCE BAND. 500 GRAMOS",
+    "unitFrumusa": "UND",
+    "codeCountry": "12593"
+  },
+  {
+    "codeFrumusa": "12616",
+    "descFrumusa": "MAMON CHINO BAND 1 KILO",
+    "unitFrumusa": "PAQ",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "12621",
+    "descFrumusa": "MAMON CRIOLLO GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "12621"
+  },
+  {
+    "codeFrumusa": "14588",
+    "descFrumusa": "MAMON CHINO GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "14588"
+  },
+  {
+    "codeFrumusa": "14581",
+    "descFrumusa": "MANDARINA MALLA 5 UNIDADES",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "14581"
+  },
+  {
+    "codeFrumusa": "14580",
+    "descFrumusa": "MANDARINA PRIMERA UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "14580"
+  },
+  {
+    "codeFrumusa": "14607",
+    "descFrumusa": "MANGA KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "14607"
+  },
+  {
+    "codeFrumusa": "145923",
+    "descFrumusa": "MANGA MORA KILO",
+    "unitFrumusa": "KILO",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14603",
+    "descFrumusa": "MANGA VERDE KILO",
+    "unitFrumusa": "KILO",
+    "codeCountry": "14603"
+  },
+  {
+    "codeFrumusa": "14594K",
+    "descFrumusa": "MANGO CELE",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "14609",
+    "descFrumusa": "MANGOSTAN",
+    "unitFrumusa": "KG",
+    "codeCountry": "14609"
+  },
+  {
+    "codeFrumusa": "145102",
+    "descFrumusa": "MARACULLA GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "145102"
+  },
+  {
+    "codeFrumusa": "145137K",
+    "descFrumusa": "MANZANA DE AGUA (KILOS)",
+    "unitFrumusa": "KG",
+    "codeCountry": "145137K"
+  },
+  {
+    "codeFrumusa": "145121",
+    "descFrumusa": "MELON CANTALOUPE KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145128",
+    "descFrumusa": "MELON CARIBEAN",
+    "unitFrumusa": "KG",
+    "codeCountry": "145128"
+  },
+  {
+    "codeFrumusa": "145123",
+    "descFrumusa": "MELON GALIA",
+    "unitFrumusa": "KG",
+    "codeCountry": "145123"
+  },
+  {
+    "codeFrumusa": "145121CH",
+    "descFrumusa": "MELON CHARANTE",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145124",
+    "descFrumusa": "MELON GOLDEN",
+    "unitFrumusa": "KG",
+    "codeCountry": "145124"
+  },
+  {
+    "codeFrumusa": "145121F",
+    "descFrumusa": "MELON CANTALOUPE FLORENTINO",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145129",
+    "descFrumusa": "MELON PIEL DE SAPO",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145123D",
+    "descFrumusa": "MELON DINO KG",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145123M",
+    "descFrumusa": "MELON MAC KG",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "16535",
+    "descFrumusa": "MENTA ROLLO 30 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "16535"
+  },
+  {
+    "codeFrumusa": "16535X",
+    "descFrumusa": "MENTA ROLLO DE 250 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "16535X"
+  },
+  {
+    "codeFrumusa": "125121",
+    "descFrumusa": "MINIVEGETALES MIX. BAND. 500",
+    "unitFrumusa": "UND",
+    "codeCountry": "125121"
+  },
+  {
+    "codeFrumusa": "12617",
+    "descFrumusa": "MORA BRAZOS BAND 250 gr",
+    "unitFrumusa": "BAND",
+    "codeCountry": "12617"
+  },
+  {
+    "codeFrumusa": "15542",
+    "descFrumusa": "MORA CANASTILLA",
+    "unitFrumusa": "UND",
+    "codeCountry": "15542"
+  },
+  {
+    "codeFrumusa": "15542B",
+    "descFrumusa": "MORA PAQUETE  200GR",
+    "unitFrumusa": "PAQ",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11551",
+    "descFrumusa": "MOSTAZA CHINA",
+    "unitFrumusa": "UND",
+    "codeCountry": "11551"
+  },
+  {
+    "codeFrumusa": "13521S",
+    "descFrumusa": "NAMPI KG PREMIUM",
+    "unitFrumusa": "KG",
+    "codeCountry": "13521"
+  },
+  {
+    "codeFrumusa": "13521",
+    "descFrumusa": "NAMPI KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "13521"
+  },
+  {
+    "codeFrumusa": "145557",
+    "descFrumusa": "NANCE BANDEJA 250 GRS",
+    "unitFrumusa": "BAND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145131",
+    "descFrumusa": "NANCE JUMBO",
+    "unitFrumusa": "KG",
+    "codeCountry": "145131"
+  },
+  {
+    "codeFrumusa": "145180",
+    "descFrumusa": "NARANJA 1 X 12",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "145143P15"
+  },
+  {
+    "codeFrumusa": "145143",
+    "descFrumusa": "NARANJA UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "145143"
+  },
+  {
+    "codeFrumusa": "145201",
+    "descFrumusa": "NARANJILLA 1/2 KILO",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "145201"
+  },
+  {
+    "codeFrumusa": "145160",
+    "descFrumusa": "NARANJILLA KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "145160"
+  },
+  {
+    "codeFrumusa": "15540B",
+    "descFrumusa": "NISPERO BAND 500 GRAMOS",
+    "unitFrumusa": "BAND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "16540X",
+    "descFrumusa": "OREGANO ROLLO 250 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "16540X"
+  },
+  {
+    "codeFrumusa": "16540",
+    "descFrumusa": "OREGANO ROLLO 30 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "16540"
+  },
+  {
+    "codeFrumusa": "16553",
+    "descFrumusa": "PALMITO PAQUETE 500 GRS",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "16553"
+  },
+  {
+    "codeFrumusa": "13556",
+    "descFrumusa": "PAPA GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "13556"
+  },
+  {
+    "codeFrumusa": "13558",
+    "descFrumusa": "PAPA MINI A GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "13558"
+  },
+  {
+    "codeFrumusa": "13556R",
+    "descFrumusa": "PAPA ROJA",
+    "unitFrumusa": "KG",
+    "codeCountry": "13556R"
+  },
+  {
+    "codeFrumusa": "13557",
+    "descFrumusa": "PAPA SEMILLA GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "13557"
+  },
+  {
+    "codeFrumusa": "1451633",
+    "descFrumusa": "PAPAYA SUPREMA",
+    "unitFrumusa": "KG",
+    "codeCountry": "1451633"
+  },
+  {
+    "codeFrumusa": "16510",
+    "descFrumusa": "PEJIBALLE COCINADO EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "16510"
+  },
+  {
+    "codeFrumusa": "125131",
+    "descFrumusa": "PEPINO EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "125131"
+  },
+  {
+    "codeFrumusa": "11561A",
+    "descFrumusa": "PEREJIL ITALIANO 30GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "11561A"
+  },
+  {
+    "codeFrumusa": "11568",
+    "descFrumusa": "PEREJIL KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "11561X",
+    "descFrumusa": "PEREJIL ROLLO 250 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "11561X"
+  },
+  {
+    "codeFrumusa": "11561",
+    "descFrumusa": "PEREJIL ROLLO 30 GRAMOS",
+    "unitFrumusa": "UND",
+    "codeCountry": "11561"
+  },
+  {
+    "codeFrumusa": "145164-7",
+    "descFrumusa": "PIÑA CALIBRE  #7",
+    "unitFrumusa": "UND",
+    "codeCountry": "1451647"
+  },
+  {
+    "codeFrumusa": "145164-4",
+    "descFrumusa": "PIÑA JUMBO # 4",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "145164-6",
+    "descFrumusa": "PIÑA PRIMERA #6",
+    "unitFrumusa": "UND",
+    "codeCountry": "1451646"
+  },
+  {
+    "codeFrumusa": "145164-5",
+    "descFrumusa": "PIÑA PRIMERA EXTRA #5",
+    "unitFrumusa": "UND",
+    "codeCountry": "145164-5"
+  },
+  {
+    "codeFrumusa": "145164-8",
+    "descFrumusa": "PIÑA SEGUNDA  #8",
+    "unitFrumusa": "UND",
+    "codeCountry": "1451648"
+  },
+  {
+    "codeFrumusa": "145168IN",
+    "descFrumusa": "PIPA PELADA",
+    "unitFrumusa": "UND",
+    "codeCountry": "145168IN"
+  },
+  {
+    "codeFrumusa": "145168PP",
+    "descFrumusa": "PIPA PELADA PULIDA UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "145168IN"
+  },
+  {
+    "codeFrumusa": "145168",
+    "descFrumusa": "PIPA UNDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "145168"
+  },
+  {
+    "codeFrumusa": "145169",
+    "descFrumusa": "PITAHAYA KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "145169"
+  },
+  {
+    "codeFrumusa": "145172",
+    "descFrumusa": "PLATANO MADURO UNIDADES",
+    "unitFrumusa": "UND",
+    "codeCountry": "145174M"
+  },
+  {
+    "codeFrumusa": "145174",
+    "descFrumusa": "PLATANO VERDE",
+    "unitFrumusa": "UNDS",
+    "codeCountry": "145174"
+  },
+  {
+    "codeFrumusa": "11571",
+    "descFrumusa": "PUERRO UNIDADES",
+    "unitFrumusa": "UND",
+    "codeCountry": "11571"
+  },
+  {
+    "codeFrumusa": "16653L",
+    "descFrumusa": "PULPA DE CAS 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16653L"
+  },
+  {
+    "codeFrumusa": "16653",
+    "descFrumusa": "PULPA DE CAS GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16653"
+  },
+  {
+    "codeFrumusa": "16672L",
+    "descFrumusa": "PULPA DE FRESA 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16672L"
+  },
+  {
+    "codeFrumusa": "16672",
+    "descFrumusa": "PULPA DE FRESA GAL",
+    "unitFrumusa": "UND",
+    "codeCountry": "16672"
+  },
+  {
+    "codeFrumusa": "16651L",
+    "descFrumusa": "PULPA DE GUANABANA 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16651L"
+  },
+  {
+    "codeFrumusa": "16651",
+    "descFrumusa": "PULPA DE GUANABANA GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16651"
+  },
+  {
+    "codeFrumusa": "16654L",
+    "descFrumusa": "PULPA DE MANGO 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16654L"
+  },
+  {
+    "codeFrumusa": "16654",
+    "descFrumusa": "PULPA DE MANGO GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16654"
+  },
+  {
+    "codeFrumusa": "16658",
+    "descFrumusa": "PULPA DE MARACUYA GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16658"
+  },
+  {
+    "codeFrumusa": "16658L",
+    "descFrumusa": "PULPA DE MARACUYA LITRO",
+    "unitFrumusa": "UND",
+    "codeCountry": "16658L"
+  },
+  {
+    "codeFrumusa": "16655",
+    "descFrumusa": "PULPA DE MIXTO FRUTAS GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16655"
+  },
+  {
+    "codeFrumusa": "16652L",
+    "descFrumusa": "PULPA DE MORA 1 LITRO",
+    "unitFrumusa": "UND",
+    "codeCountry": "16652L"
+  },
+  {
+    "codeFrumusa": "16652",
+    "descFrumusa": "PULPA DE MORA GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16652"
+  },
+  {
+    "codeFrumusa": "16660",
+    "descFrumusa": "PULPA DE NARANJILLA",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "16657L",
+    "descFrumusa": "PULPA DE PINA 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16657L"
+  },
+  {
+    "codeFrumusa": "16657",
+    "descFrumusa": "PULPA DE PINA GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16657"
+  },
+  {
+    "codeFrumusa": "16671",
+    "descFrumusa": "PULPA DE PIÑA CON ARROZ GAL",
+    "unitFrumusa": "UND",
+    "codeCountry": "16671"
+  },
+  {
+    "codeFrumusa": "16656L",
+    "descFrumusa": "PULPA DE TAMARINDO 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16656L"
+  },
+  {
+    "codeFrumusa": "16656",
+    "descFrumusa": "PULPA DE TAMARINDO GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": "16656"
+  },
+  {
+    "codeFrumusa": "16667",
+    "descFrumusa": "PULPA LIMON MANDARINO GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "16655L",
+    "descFrumusa": "PULPA MIXTO DE FRUTAS 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16655L"
+  },
+  {
+    "codeFrumusa": "16915D",
+    "descFrumusa": "PULPA NARANJA/ZANAHORIA GALON",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "16671L",
+    "descFrumusa": "PULPA PIÑA CON  ARROZ 1 LT",
+    "unitFrumusa": "UND",
+    "codeCountry": "16671L"
+  },
+  {
+    "codeFrumusa": "13545R",
+    "descFrumusa": "RABANITO ROLLO",
+    "unitFrumusa": "ROLLO",
+    "codeCountry": "13545R"
+  },
+  {
+    "codeFrumusa": "13543",
+    "descFrumusa": "RABANO ROLLO",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "13543"
+  },
+  {
+    "codeFrumusa": "13546",
+    "descFrumusa": "RADICHIO UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "13546"
+  },
+  {
+    "codeFrumusa": "13611",
+    "descFrumusa": "RAIZ DE CHAYOTE EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "13611"
+  },
+  {
+    "codeFrumusa": "13553",
+    "descFrumusa": "REMOLACHA UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "13553"
+  },
+  {
+    "codeFrumusa": "125143",
+    "descFrumusa": "REPOLLO MORADO EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "125143"
+  },
+  {
+    "codeFrumusa": "125142",
+    "descFrumusa": "REPOLLO VERDE EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "125142"
+  },
+  {
+    "codeFrumusa": "13560X",
+    "descFrumusa": "ROMERO ROLLO 250 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "13560X"
+  },
+  {
+    "codeFrumusa": "13560",
+    "descFrumusa": "ROMERO ROLLO 30 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "13560"
+  },
+  {
+    "codeFrumusa": "13580H",
+    "descFrumusa": "SABILA HOJA UNIDAD",
+    "unitFrumusa": "UND",
+    "codeCountry": "13580H"
+  },
+  {
+    "codeFrumusa": "145182XG",
+    "descFrumusa": "SANDIA GRANDE",
+    "unitFrumusa": "KG",
+    "codeCountry": "145182XG"
+  },
+  {
+    "codeFrumusa": "145182",
+    "descFrumusa": "SANDIA MEDIANA",
+    "unitFrumusa": "KG",
+    "codeCountry": "145182"
+  },
+  {
+    "codeFrumusa": "145182AM",
+    "descFrumusa": "SANDIA AMARILLA",
+    "unitFrumusa": "KG",
+    "codeCountry": "145182XG"
+  },
+  {
+    "codeFrumusa": "125130",
+    "descFrumusa": "SCALLOPINI AMARILLO 500 GRAMOS",
+    "unitFrumusa": "UND",
+    "codeCountry": "125130"
+  },
+  {
+    "codeFrumusa": "13568",
+    "descFrumusa": "TACACO EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "13568"
+  },
+  {
+    "codeFrumusa": "145191",
+    "descFrumusa": "TAMARINDO PAQ. 500 GRS",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "145191"
+  },
+  {
+    "codeFrumusa": "411",
+    "descFrumusa": "TAPA DULCE 600 GRS NEGRO",
+    "unitFrumusa": "UND",
+    "codeCountry": "411"
+  },
+  {
+    "codeFrumusa": "13561",
+    "descFrumusa": "TIQUISQUE EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "13561"
+  },
+  {
+    "codeFrumusa": "13561S",
+    "descFrumusa": "TIQUISQUE KG PREMIUM",
+    "unitFrumusa": "KG",
+    "codeCountry": "13561"
+  },
+  {
+    "codeFrumusa": "125153",
+    "descFrumusa": "TOMATE A GRANEL PRIMERA",
+    "unitFrumusa": "KG",
+    "codeCountry": "125153"
+  },
+  {
+    "codeFrumusa": "125150",
+    "descFrumusa": "TOMATE BOLITA KILOS",
+    "unitFrumusa": "KILO",
+    "codeCountry": "125150"
+  },
+  {
+    "codeFrumusa": "125151",
+    "descFrumusa": "TOMATE CHERRY BAND. 500 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "125151"
+  },
+  {
+    "codeFrumusa": "125158",
+    "descFrumusa": "TOMATE CHERRY KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "125152"
+  },
+  {
+    "codeFrumusa": "125151MX",
+    "descFrumusa": "TOMATE CHERRY MIXTO 500 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "125152N",
+    "descFrumusa": "TOMATE CHERRY VASO 300 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "125152N"
+  },
+  {
+    "codeFrumusa": "125160",
+    "descFrumusa": "TOMATE MEXICANO",
+    "unitFrumusa": "KG",
+    "codeCountry": "125160"
+  },
+  {
+    "codeFrumusa": "1251803",
+    "descFrumusa": "TOMATE SALADET EMPACADO 1 KG",
+    "unitFrumusa": "KG",
+    "codeCountry": "125180"
+  },
+  {
+    "codeFrumusa": "125180",
+    "descFrumusa": "TOMATE SALADET GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "125180"
+  },
+  {
+    "codeFrumusa": "125159",
+    "descFrumusa": "TOMATE SEGUNDA GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "125159"
+  },
+  {
+    "codeFrumusa": "125156",
+    "descFrumusa": "TOMATE TERCERA",
+    "unitFrumusa": "KG",
+    "codeCountry": "125156"
+  },
+  {
+    "codeFrumusa": "15554",
+    "descFrumusa": "TOMATE DE ARBOL",
+    "unitFrumusa": "KG",
+    "codeCountry": "125183"
+  },
+  {
+    "codeFrumusa": "13573",
+    "descFrumusa": "TOMILLO ROLLO 30 GR",
+    "unitFrumusa": "UND",
+    "codeCountry": "13573"
+  },
+  {
+    "codeFrumusa": "15551",
+    "descFrumusa": "UCHUVA CANASTILLA",
+    "unitFrumusa": "PAQ",
+    "codeCountry": "15551"
+  },
+  {
+    "codeFrumusa": "125170",
+    "descFrumusa": "VAINICA FINA",
+    "unitFrumusa": "UND",
+    "codeCountry": "125170"
+  },
+  {
+    "codeFrumusa": "125172",
+    "descFrumusa": "VAINICA GRANEL",
+    "unitFrumusa": "KG",
+    "codeCountry": "125172"
+  },
+  {
+    "codeFrumusa": "125162",
+    "descFrumusa": "VAINICA MALLA 500 GRS",
+    "unitFrumusa": "MALLA",
+    "codeCountry": "125162"
+  },
+  {
+    "codeFrumusa": "13571",
+    "descFrumusa": "YUCA PARAFINADA EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "13571"
+  },
+  {
+    "codeFrumusa": "13590G",
+    "descFrumusa": "YUPLON GRANEL UND",
+    "unitFrumusa": "UND",
+    "codeCountry": "13590"
+  },
+  {
+    "codeFrumusa": "13582",
+    "descFrumusa": "ZANAHORIA (GRANEL)",
+    "unitFrumusa": "KG",
+    "codeCountry": "13582"
+  },
+  {
+    "codeFrumusa": "13581",
+    "descFrumusa": "ZANAHORIA BABY BAND 500 GRS",
+    "unitFrumusa": "UND",
+    "codeCountry": "13581"
+  },
+  {
+    "codeFrumusa": "13582F",
+    "descFrumusa": "ZANAHORIA FERIA BLS 1 KG",
+    "unitFrumusa": "UND",
+    "codeCountry": ""
+  },
+  {
+    "codeFrumusa": "135821",
+    "descFrumusa": "ZANAHORIA INDUSTRIAL KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "135821"
+  },
+  {
+    "codeFrumusa": "13588",
+    "descFrumusa": "ZANAHORIA MALLA KILO",
+    "unitFrumusa": "KG",
+    "codeCountry": "13588"
+  },
+  {
+    "codeFrumusa": "16874",
+    "descFrumusa": "ZAPALLO ESMERALDA BAND 4 UNDS",
+    "unitFrumusa": "BAND",
+    "codeCountry": "16875"
+  },
+  {
+    "codeFrumusa": "16875",
+    "descFrumusa": "ZAPALLO ESMERALDA BAND 6 UNDS",
+    "unitFrumusa": "BAND",
+    "codeCountry": "16875"
+  },
+  {
+    "codeFrumusa": "1801",
+    "descFrumusa": "ZAPOTE COLOMBIANO",
+    "unitFrumusa": "UND",
+    "codeCountry": "1801"
+  },
+  {
+    "codeFrumusa": "1800",
+    "descFrumusa": "ZAPOTE EN KILOS",
+    "unitFrumusa": "KG",
+    "codeCountry": "1800"
+  },
+  {
+    "codeFrumusa": "125191",
+    "descFrumusa": "ZUCHINNI",
+    "unitFrumusa": "UND",
+    "codeCountry": "125191"
+  }
+]

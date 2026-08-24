@@ -67,9 +67,40 @@ function getProduceCategory(desc) {
   return 'Otros Perecederos';
 }
 
-// Load Initial Data from data.js into Memory Store
+// Load Initial Data from data.js or synced_catalog.json into Memory Store
 function bootstrapCatalog() {
   try {
+    const syncedCatalogPath = path.join(__dirname, '..', 'data', 'synced_catalog.json');
+    if (fs.existsSync(syncedCatalogPath)) {
+      try {
+        const synced = JSON.parse(fs.readFileSync(syncedCatalogPath, 'utf8'));
+        if (Array.isArray(synced) && synced.length > 0) {
+          synced.forEach(item => {
+            item.transit_qty = 0;
+            item.transit = 0;
+          });
+          db.initMemoryStore(synced);
+          console.log(`✅ [Master MRP]: Catálogo oficial cargado desde synced_catalog.json con ${synced.length} SKUs.`);
+
+          const ordersFilePath = path.join(__dirname, '..', 'data', 'active_orders.json');
+          if (fs.existsSync(ordersFilePath)) {
+            try {
+              const savedOrders = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
+              if (Array.isArray(savedOrders) && savedOrders.length > 0) {
+                db.memoryStore.orders = savedOrders;
+                console.log(`📦 [Orders Store]: ${savedOrders.length} órdenes cargadas desde almacenamiento.`);
+              }
+            } catch (e) {
+              console.warn('⚠️ Error al cargar órdenes persistidas:', e.message);
+            }
+          }
+          return;
+        }
+      } catch(e) {
+        console.warn('⚠️ Error al leer synced_catalog.json, usando fallback data.js:', e.message);
+      }
+    }
+
     const dataJsPath = path.join(__dirname, '..', 'data.js');
     if (fs.existsSync(dataJsPath)) {
       const dataCode = fs.readFileSync(dataJsPath, 'utf8');
