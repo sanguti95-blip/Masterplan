@@ -131,16 +131,43 @@ const TableRenderer = {
       else if (cat.includes('Vegetales')) catClass = 'tag-cat-vegetales';
       else if (cat.includes('Hierbas')) catClass = 'tag-cat-hierbas';
 
-      // Badge for coverage status (High Contrast)
+      // Días de Cobertura Dinámicos:
+      // Cobertura Previa = (Stock + Tránsito) / VDP
+      // Cobertura Final = (Stock + Tránsito + Pedido) / VDP
+      const preCoverage = item.vdp > 0 ? (item.projectedStock / item.vdp) : 999;
+      const finalCoverage = item.vdp > 0 ? ((item.projectedStock + item.finalQty) / item.vdp) : 999;
+      const targetDays = item.daysToCover || 3;
+
       let coverageBadge = '';
-      if (item.coverageDaysResult >= 999) {
-        coverageBadge = '<span class="status-pill pill-neutral">Sin Venta (∞)</span>';
-      } else if (item.coverageDaysResult < item.daysToCover) {
-        coverageBadge = `<span class="status-pill pill-danger"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Crítico)</span>`;
-      } else if (item.coverageDaysResult >= item.targetCoverageDays) {
-        coverageBadge = `<span class="status-pill pill-success"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Cubierto)</span>`;
+      if (item.vdp <= 0) {
+        coverageBadge = '<span class="status-pill pill-neutral" title="Sin ventas registradas en el período">Sin Venta</span>';
+      } else if (finalCoverage < targetDays) {
+        coverageBadge = `
+          <div class="status-pill pill-danger" title="Crítico: Cobertura insuficiente para el tiempo de entrega y seguridad">
+            <strong>${finalCoverage.toFixed(1)} d</strong>
+          </div>
+          <div class="text-dim font-mono" style="font-size: 0.68rem; margin-top: 2px;">
+            ${preCoverage.toFixed(1)}d ➔ <span class="text-danger font-bold">${finalCoverage.toFixed(1)}d</span>
+          </div>
+        `;
+      } else if (finalCoverage < (targetDays + 1.5)) {
+        coverageBadge = `
+          <div class="status-pill pill-warning" title="Cobertura ajustada para el ciclo">
+            <strong>${finalCoverage.toFixed(1)} d</strong>
+          </div>
+          <div class="text-dim font-mono" style="font-size: 0.68rem; margin-top: 2px;">
+            ${preCoverage.toFixed(1)}d ➔ <span class="text-amber font-semibold">${finalCoverage.toFixed(1)}d</span>
+          </div>
+        `;
       } else {
-        coverageBadge = `<span class="status-pill pill-warning"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Ajustado)</span>`;
+        coverageBadge = `
+          <div class="status-pill pill-success" title="Cobertura óptima garantizada">
+            <strong>${finalCoverage.toFixed(1)} d</strong>
+          </div>
+          <div class="text-dim font-mono" style="font-size: 0.68rem; margin-top: 2px;">
+            ${preCoverage.toFixed(1)}d ➔ <span class="text-emerald font-semibold">${finalCoverage.toFixed(1)}d</span>
+          </div>
+        `;
       }
 
       const hasFrumusa = Boolean(item.codeFrumusa && item.codeFrumusa.trim() && item.codeFrumusa !== item.codeCountry);
@@ -186,6 +213,9 @@ const TableRenderer = {
           <td class="col-projected font-mono text-right font-semibold">
             <span class="${item.projectedStock <= 0 ? 'text-danger font-bold' : ''}">${AppFormatter.number(item.projectedStock)}</span>
           </td>
+          <td class="col-coverage-days text-center font-mono" title="Cobertura Inicial (Stock+Tránsito): ${preCoverage.toFixed(1)} días | Cobertura Total con Pedido: ${finalCoverage.toFixed(1)} días">
+            ${coverageBadge}
+          </td>
           <td class="col-target-cov text-center font-mono" title="Cobertura Mínima en unidades fijas: ${item.minCoverageUnits} und">
             <strong>${AppFormatter.number(item.minCoverageUnits, 0)}</strong>
           </td>
@@ -228,6 +258,18 @@ const TableRenderer = {
 
     this.tableBody.innerHTML = rowsHtml;
     this.attachEventListeners(sortedItems, onUpdateCallback);
+
+    // Restore focus to target row on re-render
+    if (this.pendingFocus) {
+      const { col, row } = this.pendingFocus;
+      const target = this.tableBody.querySelector(`.input-table[data-col="${col}"][data-row="${row}"]`);
+      if (target) {
+        target.focus();
+        target.select();
+        target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+      this.pendingFocus = null;
+    }
   },
 
   attachEventListeners(calculatedItems, onUpdateCallback) {
@@ -276,7 +318,7 @@ const TableRenderer = {
       });
     });
 
-    // Excel-Style Keyboard Navigation (Arrows, Enter, Zero Shortcut)
+    // Excel-Style Keyboard Navigation (Enter/ArrowDown to move to next product, ArrowUp to move to previous)
     this.tableBody.querySelectorAll('.input-table').forEach(input => {
       input.addEventListener('keydown', (e) => {
         const currentRow = parseInt(input.dataset.row, 10);
@@ -284,17 +326,31 @@ const TableRenderer = {
 
         if (e.key === 'ArrowDown' || e.key === 'Enter') {
           e.preventDefault();
-          const target = this.tableBody.querySelector(`.input-table[data-col="${currentCol}"][data-row="${currentRow + 1}"]`);
+          const nextRow = currentRow + 1;
+          this.pendingFocus = { col: currentCol, row: nextRow };
+          
+          // Trigger change immediately to apply edit
+          input.dispatchEvent(new Event('change'));
+
+          // Also focus next row immediately
+          const target = this.tableBody.querySelector(`.input-table[data-col="${currentCol}"][data-row="${nextRow}"]`);
           if (target) {
             target.focus();
             target.select();
+            target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
           }
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
-          const target = this.tableBody.querySelector(`.input-table[data-col="${currentCol}"][data-row="${currentRow - 1}"]`);
+          const prevRow = Math.max(0, currentRow - 1);
+          this.pendingFocus = { col: currentCol, row: prevRow };
+
+          input.dispatchEvent(new Event('change'));
+
+          const target = this.tableBody.querySelector(`.input-table[data-col="${currentCol}"][data-row="${prevRow}"]`);
           if (target) {
             target.focus();
             target.select();
+            target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
           }
         } else if ((e.ctrlKey || e.altKey) && e.key === '0') {
           // Power User Shortcut: Zero out current row
