@@ -231,11 +231,18 @@ const TableRenderer = {
             ` : '<span class="text-dim">-</span>'}
           </td>
           <td class="col-final-order text-right">
-            <input type="number" step="any" min="0" class="input-table order-input font-mono ${hasOverride ? 'override-active' : (isOrdered ? 'order-highlight' : '')}" 
-                   data-sku="${item.codeSku}" data-col="order" data-row="${rowIndex}" placeholder="${item.suggestedUnits}" 
-                   value="${hasOverride ? item.manualOverride : (item.suggestedUnits > 0 ? item.suggestedUnits : '')}"
-                   aria-label="Pedido autorizado para ${item.description}"
-                   title="${hasOverride ? 'Cantidad ajustada manualmente' : 'Sugerido por el sistema'}">
+            <div class="order-input-wrapper">
+              <input type="number" step="any" min="0" class="input-table order-input font-mono ${hasOverride ? 'override-active' : (isOrdered ? 'order-highlight' : '')}" 
+                     data-sku="${item.codeSku}" data-col="order" data-row="${rowIndex}" placeholder="${item.suggestedUnits}" 
+                     value="${hasOverride ? item.manualOverride : (item.suggestedUnits > 0 ? item.suggestedUnits : '')}"
+                     aria-label="Pedido autorizado para ${item.description}"
+                     title="${hasOverride ? 'Cantidad ajustada manualmente (clic en icono para restablecer sugerido)' : 'Sugerido por el sistema'}">
+              ${hasOverride ? `
+                <button type="button" class="btn-inline-reset" data-sku="${item.codeSku}" title="Restablecer sugerido original del algoritmo (${item.suggestedUnits} und)" aria-label="Restablecer sugerido">
+                  <i class="fa-solid fa-rotate-left"></i>
+                </button>
+              ` : ''}
+            </div>
             ${item.finalQty > 0 ? `
               <div class="font-mono text-muted" style="font-size: 0.72rem; text-align: right; margin-top: 2px;">
                 <strong>${item.finalBoxes}</strong> cjas/bultos
@@ -322,6 +329,16 @@ const TableRenderer = {
         const text = e.target.value.trim();
         const val = text === '' ? null : parseFloat(text);
         onUpdateCallback('override', sku, val);
+      });
+    });
+
+    // Inline Reset Button Click (Reset manual override back to suggested)
+    this.tableBody.querySelectorAll('.btn-inline-reset').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const sku = btn.dataset.sku;
+        onUpdateCallback('override', sku, null);
       });
     });
 

@@ -1378,11 +1378,44 @@ body.theme-light .transit-input {
   border: 1.5px solid var(--border);
 }
 
+.order-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.btn-inline-reset {
+  position: absolute;
+  right: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.70rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  z-index: 2;
+}
+
+.btn-inline-reset:hover {
+  color: var(--primary);
+  background: rgba(16, 185, 129, 0.2);
+  transform: scale(1.1);
+}
+
 .override-active {
   font-weight: 800;
   border-color: var(--primary) !important;
   color: var(--primary) !important;
   background: var(--primary-bg) !important;
+  padding-right: 26px !important;
 }
 body.theme-light .override-active {
   background: #ecfdf5 !important;
