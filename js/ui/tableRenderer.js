@@ -301,34 +301,53 @@ const TableRenderer = {
       });
     });
 
-    // Stock Input Change
+    // Stock Input Change (Hardened)
     this.tableBody.querySelectorAll('.stock-input').forEach(input => {
       input.addEventListener('change', (e) => {
         const sku = e.target.dataset.sku;
-        const val = parseFloat(e.target.value);
-        if (!isNaN(val) && val >= 0) {
-          onUpdateCallback('stock', sku, val);
+        const text = e.target.value.trim();
+        let val = parseFloat(text);
+        if (isNaN(val) || val < 0) {
+          val = 0;
+          e.target.value = '0';
         }
+        onUpdateCallback('stock', sku, Math.min(val, 999999));
       });
     });
 
-    // Transit Input Change
+    // Transit Input Change (Hardened)
     this.tableBody.querySelectorAll('.transit-input').forEach(input => {
       input.addEventListener('change', (e) => {
         const sku = e.target.dataset.sku;
-        const val = parseFloat(e.target.value);
-        if (!isNaN(val) && val >= 0) {
-          onUpdateCallback('transit', sku, val);
+        const text = e.target.value.trim();
+        let val = parseFloat(text);
+        if (isNaN(val) || val < 0) {
+          val = 0;
+          e.target.value = '0';
         }
+        onUpdateCallback('transit', sku, Math.min(val, 999999));
       });
     });
 
-    // Final Order Input Change
+    // Final Order Input Change (Hardened)
     this.tableBody.querySelectorAll('.order-input').forEach(input => {
       input.addEventListener('change', (e) => {
         const sku = e.target.dataset.sku;
         const text = e.target.value.trim();
-        const val = text === '' ? null : parseFloat(text);
+        if (text === '') {
+          onUpdateCallback('override', sku, null);
+          return;
+        }
+        let val = parseFloat(text);
+        if (isNaN(val)) {
+          val = null;
+          e.target.value = '';
+        } else if (val < 0) {
+          val = 0;
+          e.target.value = '0';
+        } else {
+          val = Math.min(val, 999999);
+        }
         onUpdateCallback('override', sku, val);
       });
     });
