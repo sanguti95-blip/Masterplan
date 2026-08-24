@@ -420,40 +420,75 @@
         <div class="section-header">
           <div>
             <h2>Configuración de Reposición e Inventario</h2>
-            <p>Parámetros globales de cálculo y reglas de abastecimiento.</p>
+            <p>Parámetros globales de cálculo, reglas de abastecimiento, bodega y personalización de la cuenta.</p>
+          </div>
+          <div class="main-buttons">
+            <button id="btn-config-reset" class="btn-secondary" title="Restablecer valores por defecto de fábrica">
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>Restablecer Fábrica</span>
+            </button>
+            <button id="btn-config-save" class="btn-primary" title="Guardar y aplicar todos los parámetros en el sistema">
+              <i class="fa-solid fa-floppy-disk"></i>
+              <span>Guardar Configuración</span>
+            </button>
           </div>
         </div>
 
         <div class="config-grid">
           <div class="config-card">
-            <h3>Parámetros de Reposición</h3>
+            <h3><i class="fa-solid fa-sliders text-emerald"></i> Parámetros de Reposición MRP</h3>
+            
             <div class="form-group">
-              <label for="cfg-safety-stock">Stock de Seguridad (Días Meta Adicionales)</label>
+              <label for="cfg-safety-stock">Stock de Seguridad Global (Días Meta Adicionales)</label>
               <input type="number" id="cfg-safety-stock" min="0" max="30" step="0.5" value="1">
-              <span class="field-help">Días de inventario de seguridad añadidos al ciclo de abastecimiento.</span>
+              <span class="field-help">Días de inventario de colchón sumados automáticamente al ciclo de abastecimiento.</span>
             </div>
 
             <div class="form-group">
-              <label>Lead Time de Entrega</label>
-              <input type="text" value="72 Horas (3 Días)" disabled>
-              <span class="field-help">Tiempo establecido entre colocación de pedido e ingreso físico a bodega.</span>
+              <label for="cfg-lead-time">Lead Time de Entrega</label>
+              <select id="cfg-lead-time" class="category-select font-mono">
+                <option value="24">24 Horas (1 Día)</option>
+                <option value="48">48 Horas (2 Días)</option>
+                <option value="72" selected>72 Horas (3 Días - Estándar CODISA)</option>
+                <option value="96">96 Horas (4 Días)</option>
+              </select>
+              <span class="field-help">Tiempo entre la colocación de la orden y el ingreso físico a bodega.</span>
             </div>
 
             <div class="form-group">
-              <label>Frecuencia de Pedidos</label>
-              <input type="text" value="4 Pedidos Semanales (Lun, Mar, Mié, Jue)" disabled>
+              <label for="cfg-default-vdp-days">Ventana Estadística VDP por Defecto</label>
+              <select id="cfg-default-vdp-days" class="category-select font-mono">
+                <option value="30">30 Días (Mes Actual en Curso)</option>
+                <option value="60" selected>60 Días (Recomendado - 50 Días Efectivos)</option>
+                <option value="90">90 Días (Trimestre Histórico)</option>
+                <option value="191">191 Días (Histórico Completo)</option>
+              </select>
+              <span class="field-help">Base de cálculo para la Venta Diaria Promedio inicial de los productos.</span>
             </div>
           </div>
 
           <div class="config-card">
-            <h3>Moneda & Región</h3>
+            <h3><i class="fa-solid fa-building-circle-check text-blue"></i> Centro de Distribución & Moneda</h3>
+            
             <div class="form-group">
-              <label>Moneda de la Operación</label>
-              <input type="text" value="Colón Costarricense (CRC - ₡)" disabled>
+              <label for="cfg-warehouse-name">Bodega / Centro de Distribución</label>
+              <input type="text" id="cfg-warehouse-name" value="Bodega 401 Central CODISA">
+              <span class="field-help">Identificador del centro de almacenamiento físico de perecederos.</span>
             </div>
+
             <div class="form-group">
-              <label>Formato Numérico</label>
-              <input type="text" value="es-CR (Intl.NumberFormat Nativo)" disabled>
+              <label for="cfg-planner-name">Planificador Responsable</label>
+              <input type="text" id="cfg-planner-name" value="Milton Sánchez Gutiérrez">
+              <span class="field-help">Nombre del responsable que figura en las órdenes de compra y descargas de Excel.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="cfg-currency">Moneda de Compra & Operación</label>
+              <select id="cfg-currency" class="category-select">
+                <option value="CRC" selected>Colón Costarricense (CRC - ₡)</option>
+                <option value="USD">Dólar Estadounidense (USD - $)</option>
+              </select>
+              <span class="field-help">Moneda empleada para la valorización de órdenes de compra.</span>
             </div>
           </div>
         </div>

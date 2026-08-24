@@ -289,6 +289,117 @@ class MrpApp {
     if (btnBatchZero) {
       btnBatchZero.addEventListener('click', () => this.applyBatchZero());
     }
+
+    // Global Configuration Actions
+    const btnConfigSave = document.getElementById('btn-config-save');
+    if (btnConfigSave) {
+      btnConfigSave.addEventListener('click', () => this.saveUserConfig());
+    }
+
+    const btnConfigReset = document.getElementById('btn-config-reset');
+    if (btnConfigReset) {
+      btnConfigReset.addEventListener('click', () => this.resetUserConfig());
+    }
+  }
+
+  loadUserConfig() {
+    try {
+      const saved = localStorage.getItem('mrp_user_settings');
+      if (saved) {
+        const cfg = JSON.parse(saved);
+        if (cfg.safetyStock !== undefined) this.safetyStock = Number(cfg.safetyStock);
+        if (cfg.defaultVdpDays) this.vdpDays = Number(cfg.defaultVdpDays);
+        if (cfg.plannerName) this.plannerName = cfg.plannerName;
+        if (cfg.warehouseName) this.warehouseName = cfg.warehouseName;
+        if (cfg.currency) this.currency = cfg.currency;
+        if (cfg.leadTimeHours) this.leadTimeHours = Number(cfg.leadTimeHours);
+      }
+    } catch (e) {
+      console.warn('Error loading user config:', e);
+    }
+    this.renderConfigTab();
+  }
+
+  renderConfigTab() {
+    const cfgSs = document.getElementById('cfg-safety-stock');
+    if (cfgSs) cfgSs.value = this.safetyStock !== undefined ? this.safetyStock : 1;
+
+    const cfgLt = document.getElementById('cfg-lead-time');
+    if (cfgLt) cfgLt.value = (this.leadTimeHours || 72).toString();
+
+    const cfgVdp = document.getElementById('cfg-default-vdp-days');
+    if (cfgVdp) cfgVdp.value = (this.vdpDays || 60).toString();
+
+    const cfgWh = document.getElementById('cfg-warehouse-name');
+    if (cfgWh) cfgWh.value = this.warehouseName || 'Bodega 401 Central CODISA';
+
+    const cfgPlanner = document.getElementById('cfg-planner-name');
+    if (cfgPlanner) cfgPlanner.value = this.plannerName || 'Milton Sánchez Gutiérrez';
+
+    const cfgCurr = document.getElementById('cfg-currency');
+    if (cfgCurr) cfgCurr.value = this.currency || 'CRC';
+
+    const userChip = document.querySelector('.user-chip span');
+    if (userChip && this.plannerName) userChip.innerText = this.plannerName;
+  }
+
+  saveUserConfig() {
+    const cfgSs = document.getElementById('cfg-safety-stock');
+    const cfgLt = document.getElementById('cfg-lead-time');
+    const cfgVdp = document.getElementById('cfg-default-vdp-days');
+    const cfgWh = document.getElementById('cfg-warehouse-name');
+    const cfgPlanner = document.getElementById('cfg-planner-name');
+    const cfgCurr = document.getElementById('cfg-currency');
+
+    const config = {
+      safetyStock: cfgSs ? parseFloat(cfgSs.value) || 1 : 1,
+      leadTimeHours: cfgLt ? parseInt(cfgLt.value, 10) || 72 : 72,
+      defaultVdpDays: cfgVdp ? parseInt(cfgVdp.value, 10) || 60 : 60,
+      warehouseName: cfgWh ? cfgWh.value.trim() : 'Bodega 401 Central CODISA',
+      plannerName: cfgPlanner ? cfgPlanner.value.trim() : 'Milton Sánchez Gutiérrez',
+      currency: cfgCurr ? cfgCurr.value : 'CRC'
+    };
+
+    this.safetyStock = config.safetyStock;
+    this.leadTimeHours = config.leadTimeHours;
+    this.vdpDays = config.defaultVdpDays;
+    this.warehouseName = config.warehouseName;
+    this.plannerName = config.plannerName;
+    this.currency = config.currency;
+
+    localStorage.setItem('mrp_user_settings', JSON.stringify(config));
+
+    // Update period filter in planner if changed
+    const periodFilter = document.getElementById('period-filter');
+    if (periodFilter) periodFilter.value = this.vdpDays.toString();
+
+    // Update user chip
+    const userChip = document.querySelector('.user-chip span');
+    if (userChip && this.plannerName) userChip.innerText = this.plannerName;
+
+    // Recalculate MRP
+    this.recalculateAndRender();
+
+    if (window.Toast) {
+      window.Toast.show('✅ Configuración guardada y aplicada exitosamente en todo el sistema.', 'success');
+    }
+  }
+
+  resetUserConfig() {
+    localStorage.removeItem('mrp_user_settings');
+    this.safetyStock = 1;
+    this.leadTimeHours = 72;
+    this.vdpDays = 60;
+    this.warehouseName = 'Bodega 401 Central CODISA';
+    this.plannerName = 'Milton Sánchez Gutiérrez';
+    this.currency = 'CRC';
+
+    this.renderConfigTab();
+    this.recalculateAndRender();
+
+    if (window.Toast) {
+      window.Toast.show('Valores de configuración restaurados a los parámetros de fábrica.', 'info');
+    }
   }
 
   switchTab(tabId) {
@@ -310,6 +421,8 @@ class MrpApp {
       this.renderTransitTab();
     } else if (tabId === 'sync') {
       this.renderSyncTab();
+    } else if (tabId === 'config') {
+      this.renderConfigTab();
     }
   }
 

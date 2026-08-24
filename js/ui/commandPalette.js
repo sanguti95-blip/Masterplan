@@ -131,24 +131,17 @@ const CommandPalette = {
       },
       {
         id: 'cmd-tab-planner',
-        title: 'Ir a Vista: Planeador de Pedidos MRP',
+        title: 'Ir a Vista: Plan de Pedidos MRP',
         category: 'Navegación',
         icon: 'fa-table-list',
         action: () => window.App && window.App.switchTab('planner')
       },
       {
-        id: 'cmd-tab-gmroi',
-        title: 'Ir a Vista: Matriz Estratégica GMROI (4 Cuadrantes)',
+        id: 'cmd-tab-catalog',
+        title: 'Ir a Vista: Maestro de Artículos (338 SKUs)',
         category: 'Navegación',
-        icon: 'fa-chart-scatter',
-        action: () => window.App && window.App.switchTab('gmroi')
-      },
-      {
-        id: 'cmd-tab-analytics',
-        title: 'Ir a Vista: Análisis por Categorías & Eficiencia',
-        category: 'Navegación',
-        icon: 'fa-chart-pie',
-        action: () => window.App && window.App.switchTab('analytics')
+        icon: 'fa-list-check',
+        action: () => window.App && window.App.switchTab('catalog')
       },
       {
         id: 'cmd-tab-transit',
@@ -156,6 +149,20 @@ const CommandPalette = {
         category: 'Navegación',
         icon: 'fa-truck-fast',
         action: () => window.App && window.App.switchTab('transit')
+      },
+      {
+        id: 'cmd-tab-sync',
+        title: 'Ir a Vista: Sincronización Google Sheets',
+        category: 'Navegación',
+        icon: 'fa-cloud-arrow-down',
+        action: () => window.App && window.App.switchTab('sync')
+      },
+      {
+        id: 'cmd-tab-config',
+        title: 'Ir a Vista: Configuración del Sistema',
+        category: 'Navegación',
+        icon: 'fa-sliders',
+        action: () => window.App && window.App.switchTab('config')
       },
       {
         id: 'cmd-theme-cycle',
