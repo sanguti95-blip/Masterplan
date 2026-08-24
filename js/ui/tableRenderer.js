@@ -143,8 +143,22 @@ const TableRenderer = {
         coverageBadge = `<span class="status-pill pill-warning"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Ajustado)</span>`;
       }
 
-      const isFrumusa = item.codeFrumusa || item.codeSku;
-      const hasCountry = item.codeCountry && item.codeCountry !== isFrumusa;
+      const hasFrumusa = Boolean(item.codeFrumusa && item.codeFrumusa.trim() && item.codeFrumusa !== item.codeCountry);
+      const hasCountry = Boolean(item.codeCountry && item.codeCountry.trim());
+
+      let skuBadgesHtml = '';
+      if (hasFrumusa && hasCountry) {
+        skuBadgesHtml = `
+          <span class="badge-sku-frumusa" title="Código Frumusa (Proveedor)">${item.codeFrumusa}</span>
+          <span class="badge-sku-country" title="Código Country (CODISA)">${item.codeCountry}</span>
+        `;
+      } else if (hasFrumusa) {
+        skuBadgesHtml = `<span class="badge-sku-frumusa" title="Código Frumusa (Proveedor)">${item.codeFrumusa}</span>`;
+      } else if (hasCountry) {
+        skuBadgesHtml = `<span class="badge-sku-country" title="Código Tienda CODISA (Sin código Frumusa)">${item.codeCountry}</span>`;
+      } else {
+        skuBadgesHtml = `<span class="badge-sku-country">${item.codeSku}</span>`;
+      }
 
       return `
         <tr class="table-row ${isCritical ? 'row-critical' : ''} ${isOrdered ? 'row-ordered' : ''}" data-sku="${item.codeSku}" data-row="${rowIndex}">
@@ -152,8 +166,7 @@ const TableRenderer = {
             <input type="checkbox" class="row-checkbox" data-sku="${item.codeSku}" ${isSelected ? 'checked' : ''} aria-label="Seleccionar ${item.description}">
           </td>
           <td class="col-sku font-mono">
-            <span class="badge-sku-frumusa">${isFrumusa}</span>
-            ${hasCountry ? `<span class="badge-sku-country" title="Código Country CODISA">${item.codeCountry}</span>` : ''}
+            ${skuBadgesHtml}
           </td>
           <td class="col-desc">
             <span class="product-name" title="${item.description}">${item.description}</span>
