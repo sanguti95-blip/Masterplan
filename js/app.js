@@ -324,9 +324,6 @@ class MrpApp {
     const cfgSs = document.getElementById('cfg-safety-stock');
     if (cfgSs) cfgSs.value = this.safetyStock !== undefined ? this.safetyStock : 1;
 
-    const cfgLt = document.getElementById('cfg-lead-time');
-    if (cfgLt) cfgLt.value = (this.leadTimeHours || 72).toString();
-
     const cfgVdp = document.getElementById('cfg-default-vdp-days');
     if (cfgVdp) cfgVdp.value = (this.vdpDays || 60).toString();
 
@@ -336,36 +333,27 @@ class MrpApp {
     const cfgPlanner = document.getElementById('cfg-planner-name');
     if (cfgPlanner) cfgPlanner.value = this.plannerName || 'Milton Sánchez Gutiérrez';
 
-    const cfgCurr = document.getElementById('cfg-currency');
-    if (cfgCurr) cfgCurr.value = this.currency || 'CRC';
-
     const userChip = document.querySelector('.user-chip span');
     if (userChip && this.plannerName) userChip.innerText = this.plannerName;
   }
 
   saveUserConfig() {
     const cfgSs = document.getElementById('cfg-safety-stock');
-    const cfgLt = document.getElementById('cfg-lead-time');
     const cfgVdp = document.getElementById('cfg-default-vdp-days');
     const cfgWh = document.getElementById('cfg-warehouse-name');
     const cfgPlanner = document.getElementById('cfg-planner-name');
-    const cfgCurr = document.getElementById('cfg-currency');
 
     const config = {
       safetyStock: cfgSs ? parseFloat(cfgSs.value) || 1 : 1,
-      leadTimeHours: cfgLt ? parseInt(cfgLt.value, 10) || 72 : 72,
       defaultVdpDays: cfgVdp ? parseInt(cfgVdp.value, 10) || 60 : 60,
       warehouseName: cfgWh ? cfgWh.value.trim() : 'Bodega 401 Central CODISA',
-      plannerName: cfgPlanner ? cfgPlanner.value.trim() : 'Milton Sánchez Gutiérrez',
-      currency: cfgCurr ? cfgCurr.value : 'CRC'
+      plannerName: cfgPlanner ? cfgPlanner.value.trim() : 'Milton Sánchez Gutiérrez'
     };
 
     this.safetyStock = config.safetyStock;
-    this.leadTimeHours = config.leadTimeHours;
     this.vdpDays = config.defaultVdpDays;
     this.warehouseName = config.warehouseName;
     this.plannerName = config.plannerName;
-    this.currency = config.currency;
 
     localStorage.setItem('mrp_user_settings', JSON.stringify(config));
 

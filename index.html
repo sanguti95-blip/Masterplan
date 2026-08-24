@@ -441,22 +441,11 @@
             <div class="form-group">
               <label for="cfg-safety-stock">Stock de Seguridad Global (Días Meta Adicionales)</label>
               <input type="number" id="cfg-safety-stock" min="0" max="30" step="0.5" value="1">
-              <span class="field-help">Días de inventario de colchón sumados automáticamente al ciclo de abastecimiento.</span>
+              <span class="field-help">Días de inventario de colchón sumados automáticamente al ciclo de abastecimiento (por defecto 1 día).</span>
             </div>
 
             <div class="form-group">
-              <label for="cfg-lead-time">Lead Time de Entrega</label>
-              <select id="cfg-lead-time" class="category-select font-mono">
-                <option value="24">24 Horas (1 Día)</option>
-                <option value="48">48 Horas (2 Días)</option>
-                <option value="72" selected>72 Horas (3 Días - Estándar CODISA)</option>
-                <option value="96">96 Horas (4 Días)</option>
-              </select>
-              <span class="field-help">Tiempo entre la colocación de la orden y el ingreso físico a bodega.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="cfg-default-vdp-days">Ventana Estadística VDP por Defecto</label>
+              <label for="cfg-default-vdp-days">Ventana Estadística VDP Predeterminada</label>
               <select id="cfg-default-vdp-days" class="category-select font-mono">
                 <option value="30">30 Días (Mes Actual en Curso)</option>
                 <option value="60" selected>60 Días (Recomendado - 50 Días Efectivos)</option>
@@ -465,30 +454,35 @@
               </select>
               <span class="field-help">Base de cálculo para la Venta Diaria Promedio inicial de los productos.</span>
             </div>
-          </div>
 
-          <div class="config-card">
-            <h3><i class="fa-solid fa-building-circle-check text-blue"></i> Centro de Distribución & Moneda</h3>
-            
             <div class="form-group">
               <label for="cfg-warehouse-name">Bodega / Centro de Distribución</label>
               <input type="text" id="cfg-warehouse-name" value="Bodega 401 Central CODISA">
               <span class="field-help">Identificador del centro de almacenamiento físico de perecederos.</span>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="cfg-planner-name">Planificador Responsable</label>
-              <input type="text" id="cfg-planner-name" value="Milton Sánchez Gutiérrez">
-              <span class="field-help">Nombre del responsable que figura en las órdenes de compra y descargas de Excel.</span>
+          <div class="config-card">
+            <h3><i class="fa-solid fa-calendar-days text-blue"></i> Ciclos de Entrega Semanal (Reglas CODISA)</h3>
+            <div class="matrix-info-list" style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px; font-size: 0.83rem;">
+              <div class="matrix-info-item" style="background: var(--surface); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border);">
+                <strong>📅 Lunes:</strong> Pedido ingresa el <strong>Jueves</strong> (Cubre 1 día: Jueves).
+              </div>
+              <div class="matrix-info-item" style="background: var(--surface); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border);">
+                <strong>📅 Martes:</strong> Pedido ingresa el <strong>Viernes</strong> (Cubre 1 día: Viernes).
+              </div>
+              <div class="matrix-info-item" style="background: var(--surface); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border);">
+                <strong>📅 Miércoles:</strong> Pedido ingresa el <strong>Sábado</strong> (Cubre 3 días: Sáb, Dom y Lun).
+              </div>
+              <div class="matrix-info-item" style="background: var(--surface); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border);">
+                <strong>📅 Jueves:</strong> Pedido ingresa el <strong>Martes</strong> (Cubre 2 días: Mar y Mié).
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="cfg-currency">Moneda de Compra & Operación</label>
-              <select id="cfg-currency" class="category-select">
-                <option value="CRC" selected>Colón Costarricense (CRC - ₡)</option>
-                <option value="USD">Dólar Estadounidense (USD - $)</option>
-              </select>
-              <span class="field-help">Moneda empleada para la valorización de órdenes de compra.</span>
+            <div class="form-group" style="margin-top: 14px;">
+              <label for="cfg-planner-name">Planificador Responsable</label>
+              <input type="text" id="cfg-planner-name" value="Milton Sánchez Gutiérrez">
+              <span class="field-help">Nombre que figura en las órdenes de compra autorizadas.</span>
             </div>
           </div>
         </div>
