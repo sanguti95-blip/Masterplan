@@ -89,6 +89,26 @@ function bootstrapCatalog() {
               if (Array.isArray(savedOrders) && savedOrders.length > 0) {
                 db.memoryStore.orders = savedOrders;
                 console.log(`📦 [Orders Store]: ${savedOrders.length} órdenes cargadas desde almacenamiento.`);
+
+                // Reconcile active in-transit stock onto catalog products
+                savedOrders.forEach(ord => {
+                  if (ord.status === 'EN_TRANSITO' && Array.isArray(ord.items)) {
+                    ord.items.forEach(it => {
+                      const prod = db.memoryStore.products.find(p => (
+                        (p.code_frumusa && p.code_frumusa.toString() === it.codeSku) ||
+                        (p.codeFrumusa && p.codeFrumusa.toString() === it.codeSku) ||
+                        (p.code_country && p.code_country.toString() === it.codeSku) ||
+                        (p.codeCountry && p.codeCountry.toString() === it.codeSku) ||
+                        (p.codeSku && p.codeSku.toString() === it.codeSku) ||
+                        (p.NO_ARTI && p.NO_ARTI.toString() === it.codeSku)
+                      ));
+                      if (prod) {
+                        prod.transit_qty = (Number(prod.transit_qty || 0)) + (Number(it.finalQty || it.quantity || 0));
+                        prod.transit = prod.transit_qty;
+                      }
+                    });
+                  }
+                });
               }
             } catch (e) {
               console.warn('⚠️ Error al cargar órdenes persistidas:', e.message);

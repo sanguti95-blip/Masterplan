@@ -497,8 +497,16 @@ class MrpApp {
 
         if (planRes.status === 'fulfilled' && planRes.value && planRes.value.items) {
           this.items = planRes.value.items;
-          if (transitRes.status === 'fulfilled' && transitRes.value && transitRes.value.orders) {
+          if (transitRes.status === 'fulfilled' && transitRes.value && Array.isArray(transitRes.value.orders)) {
             this.activeOrders = transitRes.value.orders;
+            localStorage.setItem('mrp_active_orders', JSON.stringify(this.activeOrders));
+          } else {
+            try {
+              const savedOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
+              if (Array.isArray(savedOrders) && savedOrders.length > 0) {
+                this.activeOrders = savedOrders;
+              }
+            } catch(e) {}
           }
           this.loadCatalogOverrides();
           return;
@@ -507,6 +515,14 @@ class MrpApp {
     } catch (e) {
       console.warn('Backend fetch failed, falling back to local data.js:', e);
     }
+
+    // Fallback active orders from localStorage if offline
+    try {
+      const savedOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
+      if (Array.isArray(savedOrders) && savedOrders.length > 0) {
+        this.activeOrders = savedOrders;
+      }
+    } catch(e) {}
 
     // Fallback to local data.js
     if (typeof INITIAL_PEDIDOS !== 'undefined' && Array.isArray(INITIAL_PEDIDOS)) {
@@ -738,7 +754,9 @@ class MrpApp {
     const newOrder = {
       id: orderCode,
       orderCode,
+      orderNumber: `PED-${this.executionDay.slice(0, 3).toUpperCase()}-${now.toISOString().slice(0, 10).replace(/-/g, '')}-${String(this.activeOrders.length + 1).padStart(2, '0')}`,
       executionDay: this.executionDay,
+      day: this.executionDay,
       deliveryDay: matrix.deliveryDay,
       createdAt: now.toISOString(),
       expectedDeliveryDate: new Date(Date.now() + 72 * 3600 * 1000).toISOString().slice(0, 10),
@@ -750,15 +768,17 @@ class MrpApp {
       items: itemsToOrder
     };
 
-    // 1. Add to Active Orders in Memory
+    // 1. Add to Active Orders in Memory and browser localStorage
     this.activeOrders.unshift(newOrder);
+    localStorage.setItem('mrp_active_orders', JSON.stringify(this.activeOrders));
 
     // 2. Transfer approved order to transit for matching products
     itemsToOrder.forEach(orderItem => {
       const prod = this.items.find(p => (
         (p.code_frumusa && p.code_frumusa.toString() === orderItem.codeSku) ||
         (p.codeFrumusa && p.codeFrumusa.toString() === orderItem.codeSku) ||
-        (p.code_country && p.code_country.toString() === orderItem.codeSku)
+        (p.code_country && p.code_country.toString() === orderItem.codeSku) ||
+        (p.codeSku && p.codeSku.toString() === orderItem.codeSku)
       ));
       if (prod) {
         prod.transit_qty = (Number(prod.transit_qty || 0)) + orderItem.finalQty;
@@ -768,11 +788,16 @@ class MrpApp {
       }
     });
 
-    // 3. Try notifying backend
-    if (window.ApiClient) {
+    // 3. Persist to Backend Server & Disk
+    if (window.ApiClient && window.ApiClient.approveOrder) {
       window.ApiClient.approveOrder({
         executionDay: this.executionDay,
-        items: itemsToOrder
+        items: itemsToOrder,
+        order: newOrder
+      }).then(res => {
+        if (res && res.order) {
+          console.log('✅ Orden guardada en disco del servidor:', res.order.id);
+        }
       }).catch(err => console.warn('Backend sync failed (running standalone):', err.message));
     }
 
@@ -928,9 +953,10 @@ class MrpApp {
     }
     try {
       if (window.ApiClient) {
-        await window.ApiClient.clearAllTransitOrders();
+        await window.ApiClient.clearAllTransitOrders().catch(() => {});
       }
       this.activeOrders = [];
+      localStorage.removeItem('mrp_active_orders');
       Object.keys(localStorage).forEach(k => {
         if (k.startsWith('mrp_transit_')) localStorage.removeItem(k);
       });
@@ -951,7 +977,7 @@ class MrpApp {
     if (!confirm(`¿Deseas eliminar la orden ${orderId} del tránsito?`)) return;
     try {
       if (window.ApiClient) {
-        await window.ApiClient.deleteTransitOrder(orderId);
+        await window.ApiClient.deleteTransitOrder(orderId).catch(() => {});
       }
       const idx = this.activeOrders.findIndex(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
       if (idx !== -1) {
@@ -962,6 +988,7 @@ class MrpApp {
           });
         }
       }
+      localStorage.setItem('mrp_active_orders', JSON.stringify(this.activeOrders));
       this.renderTransitTab();
       this.recalculateAndRender();
       window.Toast.show(`Orden ${orderId} eliminada del tránsito.`, 'success');

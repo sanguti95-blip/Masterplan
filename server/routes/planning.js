@@ -1,9 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const XLSX = require('xlsx');
+const fs = require('fs');
+const path = require('path');
 const db = require('../db/pool');
 const mrpEngine = require('../services/mrpEngine');
 const config = require('../config');
+
+const ordersFilePath = path.join(__dirname, '..', '..', 'data', 'active_orders.json');
+
+function persistOrdersToDisk(orders) {
+  try {
+    const dataDir = path.dirname(ordersFilePath);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    fs.writeFileSync(ordersFilePath, JSON.stringify(orders || [], null, 2), 'utf8');
+    console.log(`📦 [Orders Store]: ${orders ? orders.length : 0} órdenes guardadas en disco.`);
+  } catch (e) {
+    console.warn('⚠️ Error al persistir órdenes en disco:', e.message);
+  }
+}
 
 // GET /api/planning/matrix
 router.get('/matrix', (req, res) => {
@@ -172,7 +189,14 @@ router.post('/approve', (req, res) => {
 
     // Update in-memory product transit
     formattedItems.forEach(item => {
-      const prod = db.memoryStore.products.find(p => (p.code_frumusa === item.codeSku || p.codeFrumusa === item.codeSku || p.NO_ARTI === item.codeSku));
+      const prod = db.memoryStore.products.find(p => (
+        (p.code_frumusa && p.code_frumusa.toString() === item.codeSku) ||
+        (p.codeFrumusa && p.codeFrumusa.toString() === item.codeSku) ||
+        (p.code_country && p.code_country.toString() === item.codeSku) ||
+        (p.codeCountry && p.codeCountry.toString() === item.codeSku) ||
+        (p.codeSku && p.codeSku.toString() === item.codeSku) ||
+        (p.NO_ARTI && p.NO_ARTI.toString() === item.codeSku)
+      ));
       if (prod) {
         prod.transit_qty = (Number(prod.transit_qty || 0)) + item.quantity;
         prod.transit = prod.transit_qty;
@@ -256,9 +280,16 @@ router.delete('/transit/:orderId', (req, res) => {
     const [deleted] = db.memoryStore.orders.splice(orderIndex, 1);
     if (deleted && deleted.items) {
       deleted.items.forEach(item => {
-        const prod = db.memoryStore.products.find(p => (p.code_frumusa === item.codeSku || p.codeFrumusa === item.codeSku || p.NO_ARTI === item.codeSku));
+        const prod = db.memoryStore.products.find(p => (
+          (p.code_frumusa && p.code_frumusa.toString() === item.codeSku) ||
+          (p.codeFrumusa && p.codeFrumusa.toString() === item.codeSku) ||
+          (p.code_country && p.code_country.toString() === item.codeSku) ||
+          (p.codeCountry && p.codeCountry.toString() === item.codeSku) ||
+          (p.codeSku && p.codeSku.toString() === item.codeSku) ||
+          (p.NO_ARTI && p.NO_ARTI.toString() === item.codeSku)
+        ));
         if (prod) {
-          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - item.quantity);
+          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - (item.finalQty || item.quantity || 0));
           prod.transit = prod.transit_qty;
         }
       });
@@ -290,9 +321,16 @@ router.post('/transit/reconcile', (req, res) => {
     // Adjust product transit
     if (order.items && Array.isArray(order.items)) {
       order.items.forEach(item => {
-        const prod = db.memoryStore.products.find(p => (p.code_frumusa === item.codeSku || p.codeFrumusa === item.codeSku || p.NO_ARTI === item.codeSku));
+        const prod = db.memoryStore.products.find(p => (
+          (p.code_frumusa && p.code_frumusa.toString() === item.codeSku) ||
+          (p.codeFrumusa && p.codeFrumusa.toString() === item.codeSku) ||
+          (p.code_country && p.code_country.toString() === item.codeSku) ||
+          (p.codeCountry && p.codeCountry.toString() === item.codeSku) ||
+          (p.codeSku && p.codeSku.toString() === item.codeSku) ||
+          (p.NO_ARTI && p.NO_ARTI.toString() === item.codeSku)
+        ));
         if (prod) {
-          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - item.quantity);
+          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - (item.finalQty || item.quantity || 0));
           prod.transit = prod.transit_qty;
         }
       });
