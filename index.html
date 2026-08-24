@@ -153,61 +153,48 @@
               <strong id="matrix-banner-transit">Jueves anterior</strong>
             </div>
           </div>
-        </div>
-
-        <!-- KPIs Executive Grid -->
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <div class="kpi-icon money"><i class="fa-solid fa-money-bill-wave"></i></div>
-            <div class="kpi-details">
-              <span class="kpi-title">Valor Total Pedido</span>
-              <span class="kpi-value" id="kpi-total-cost">₡0</span>
-              <span class="kpi-subtext">Costo total de artículos sugeridos/aprobados</span>
+        <!-- Compact Executive KPI Ribbon -->
+        <div class="kpi-ribbon">
+          <div class="kpi-ribbon-item kpi-ribbon-primary">
+            <i class="fa-solid fa-money-bill-wave kpi-ribbon-icon text-emerald"></i>
+            <div class="kpi-ribbon-content">
+              <span class="kpi-ribbon-label">Valor Total Pedido</span>
+              <span class="kpi-ribbon-val text-emerald font-mono" id="kpi-total-cost">₡0</span>
             </div>
           </div>
-
-          <div class="kpi-card">
-            <div class="kpi-icon count"><i class="fa-solid fa-cubes"></i></div>
-            <div class="kpi-details">
-              <span class="kpi-title">Total Cajas / Bultos</span>
-              <span class="kpi-value" id="kpi-total-boxes">0 cjas</span>
-              <span class="kpi-subtext">Volumen de empaque a despachar</span>
+          <div class="kpi-ribbon-item">
+            <i class="fa-solid fa-cubes kpi-ribbon-icon text-blue"></i>
+            <div class="kpi-ribbon-content">
+              <span class="kpi-ribbon-label">Total Bultos</span>
+              <span class="kpi-ribbon-val font-mono" id="kpi-total-boxes">0 cjas</span>
             </div>
           </div>
-
-          <div class="kpi-card">
-            <div class="kpi-icon items"><i class="fa-solid fa-list-check"></i></div>
-            <div class="kpi-details">
-              <span class="kpi-title">Artículos en Pedido</span>
-              <span class="kpi-value" id="kpi-items-count">0</span>
-              <span class="kpi-subtext">SKUs con pedido autorizado</span>
+          <div class="kpi-ribbon-item">
+            <i class="fa-solid fa-list-check kpi-ribbon-icon text-purple"></i>
+            <div class="kpi-ribbon-content">
+              <span class="kpi-ribbon-label">SKUs con Pedido</span>
+              <span class="kpi-ribbon-val font-mono" id="kpi-items-count">0</span>
             </div>
           </div>
-
-          <div class="kpi-card">
-            <div class="kpi-icon critical"><i class="fa-solid fa-triangle-exclamation"></i></div>
-            <div class="kpi-details">
-              <span class="kpi-title">Alerta de Agotados</span>
-              <span class="kpi-value warning-val" id="kpi-critical-count">0</span>
-              <span class="kpi-subtext">Existencia menor a días meta</span>
+          <div class="kpi-ribbon-item">
+            <i class="fa-solid fa-triangle-exclamation kpi-ribbon-icon text-amber"></i>
+            <div class="kpi-ribbon-content">
+              <span class="kpi-ribbon-label">Alerta Agotados</span>
+              <span class="kpi-ribbon-val font-mono text-amber" id="kpi-critical-count">0</span>
             </div>
           </div>
-
-          <div class="kpi-card">
-            <div class="kpi-icon units"><i class="fa-solid fa-layer-group"></i></div>
-            <div class="kpi-details">
-              <span class="kpi-title">Unidades / Kilos</span>
-              <span class="kpi-value" id="kpi-total-units">0</span>
-              <span class="kpi-subtext">Volumen físico total de pedido</span>
+          <div class="kpi-ribbon-item">
+            <i class="fa-solid fa-layer-group kpi-ribbon-icon text-indigo"></i>
+            <div class="kpi-ribbon-content">
+              <span class="kpi-ribbon-label">Total Unidades</span>
+              <span class="kpi-ribbon-val font-mono" id="kpi-total-units">0</span>
             </div>
           </div>
-
-          <div class="kpi-card kpi-variance-card">
-            <div class="kpi-icon variance"><i class="fa-solid fa-scale-balanced"></i></div>
-            <div class="kpi-details">
-              <span class="kpi-title">Varianza de Ajustes (₡)</span>
-              <span class="kpi-value" id="kpi-variance-cost">₡0</span>
-              <span class="kpi-subtext" id="kpi-variance-subtext">100% apego al sugerido de compra</span>
+          <div class="kpi-ribbon-item kpi-ribbon-variance">
+            <i class="fa-solid fa-scale-balanced kpi-ribbon-icon text-amber"></i>
+            <div class="kpi-ribbon-content">
+              <span class="kpi-ribbon-label">Varianza de Ajustes</span>
+              <span class="kpi-ribbon-val font-mono" id="kpi-variance-cost">₡0</span>
             </div>
           </div>
         </div>
@@ -244,14 +231,14 @@
 
           <div class="filter-group">
             <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="to-order">
+              <span class="pill-dot green"></span>Con Pedido
+            </button>
             <button class="filter-btn" data-filter="critical">
               <span class="pill-dot red"></span>Agotados / Alerta
             </button>
             <button class="filter-btn" data-filter="transit">
               <span class="pill-dot blue"></span>En Tránsito
-            </button>
-            <button class="filter-btn" data-filter="to-order">
-              <span class="pill-dot green"></span>Con Pedido
             </button>
           </div>
 
@@ -285,34 +272,31 @@
           <div class="table-scroll-container">
             <table class="mrp-table" id="orders-table">
               <thead>
-                <tr class="header-super">
-                  <th colspan="3" class="grp-col grp-id">Identificación del Artículo</th>
-                  <th colspan="4" class="grp-col grp-inv">Existencia & Venta Diaria</th>
-                  <th colspan="3" class="grp-col grp-mrp">Parámetros de Reposición</th>
-                  <th colspan="2" class="grp-col grp-order">Sugerido & Pedido Autorizado</th>
-                  <th colspan="2" class="grp-col grp-fin">Valorización de Compra (₡)</th>
-                  <th class="grp-col grp-act"></th>
-                </tr>
                 <tr class="header-main">
-                  <th class="text-center col-checkbox">
+                  <th class="text-center col-checkbox" style="width: 38px;">
                     <input type="checkbox" id="chk-select-all" title="Seleccionar todos">
                   </th>
-                  <th class="sortable col-sku" data-sort="codeSku" title="Código de artículo Frumusa y ERP">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="sortable col-desc border-right-group" data-sort="description" title="Descripción oficial y familia">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-vdp" data-sort="vdp" title="Venta Diaria Promedio (Ventana activa)">VENTA D. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-stock" data-sort="stockActual" title="Existencia física disponible en Bodega Central CODISA">STOCK <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-transit" data-sort="activeTransit" title="Pedidos en Tránsito Activos (72h Lead Time)">TRÁNSITO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-projected border-right-group" data-sort="projectedStock" title="Disponibilidad Proyectada = Stock Físico + En Tránsito">PROYECT. <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-target-cov" data-sort="minCoverageUnits" title="Cobertura Mínima requerida en Unidades (Stock de Seguridad fijo)">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-cov-status" data-sort="coverageDaysResult" title="Días de cobertura efectiva con inventario proyectado">COBERTURA <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-multiple border-right-group" data-sort="packMultiple" title="Unidades por bulto / caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-suggested" data-sort="suggestedUnits" title="Sugerido automático de reposición">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-final-order border-right-group" data-sort="finalQty" title="Pedido Autorizado por el Planificador">PEDIDO FINAL <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-unit-cost" data-sort="unitCost" title="Costo Unitario de Compra en Colones">COSTO ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-total-cost border-right-group" data-sort="totalOrderCost" title="Inversión total autorizada en Colones">INVERSIÓN ₡ <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center col-actions" title="Ficha técnica del producto y rentabilidad">VER</th>
+                  <th class="sortable col-sku" data-sort="codeSku" style="width: 105px;" title="Código Frumusa (Proveedor) y Country (CODISA)">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="sortable col-desc" data-sort="description" title="Descripción oficial y familia comercial">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-vdp" data-sort="vdp" style="width: 80px;" title="Venta Diaria Promedio">VENTA/DÍA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-stock" data-sort="stockActual" style="width: 85px;" title="Existencia física en Bodega 401">STOCK 401 <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-transit" data-sort="activeTransit" style="width: 75px;" title="Pedidos en Tránsito Activos (72h)">TRÁNSITO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-projected" data-sort="projectedStock" style="width: 85px;" title="Inventario Proyectado = Stock + Tránsito">PROYECTADO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-target-cov" data-sort="minCoverageUnits" style="width: 85px;" title="Cobertura Mínima en Unidades (Stock de Seguridad)">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-multiple" data-sort="packMultiple" style="width: 70px;" title="Unidades por bulto / caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-suggested" data-sort="suggestedUnits" style="width: 110px;" title="Sugerido automático de compra">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-final-order" data-sort="finalQty" style="width: 100px;" title="Pedido Autorizado (Editable)">PEDIDO FINAL <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-total-cost" data-sort="totalOrderCost" style="width: 115px;" title="Inversión total autorizada en Colones">INVERSIÓN (₡) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center col-actions" style="width: 45px;" title="Ficha técnica del artículo">VER</th>
                 </tr>
               </thead>
+              <tbody id="table-body">
+                <!-- Injected via TableRenderer -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
               <tbody id="table-body">
                 <!-- Injected via TableRenderer -->
               </tbody>

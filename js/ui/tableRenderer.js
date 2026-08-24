@@ -143,63 +143,63 @@ const TableRenderer = {
         coverageBadge = `<span class="status-pill pill-warning"><strong>${item.coverageDaysResult.toFixed(1)} d</strong> (Ajustado)</span>`;
       }
 
+      const isFrumusa = item.codeFrumusa || item.codeSku;
+      const hasCountry = item.codeCountry && item.codeCountry !== isFrumusa;
+
       return `
         <tr class="table-row ${isCritical ? 'row-critical' : ''} ${isOrdered ? 'row-ordered' : ''}" data-sku="${item.codeSku}" data-row="${rowIndex}">
           <td class="col-checkbox text-center">
             <input type="checkbox" class="row-checkbox" data-sku="${item.codeSku}" ${isSelected ? 'checked' : ''} aria-label="Seleccionar ${item.description}">
           </td>
           <td class="col-sku font-mono">
-            <strong>${item.codeSku}</strong>
-            ${item.codeCountry && item.codeCountry !== item.codeSku ? `<span class="sku-subcode">${item.codeCountry}</span>` : ''}
+            <span class="badge-sku-frumusa">${isFrumusa}</span>
+            ${hasCountry ? `<span class="badge-sku-country" title="Código Country CODISA">${item.codeCountry}</span>` : ''}
           </td>
-          <td class="col-desc border-right-group">
+          <td class="col-desc">
             <span class="product-name" title="${item.description}">${item.description}</span>
             <span class="product-category-tag ${catClass}">${cat}</span>
           </td>
-          <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio: ${item.vdp.toFixed(2)} und/día (Base: ${item.daysPeriod || 60} días)">
-            ${item.vdp.toFixed(2)}
+          <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio: ${item.vdp.toFixed(2)} und/día">
+            ${item.vdp > 0 ? item.vdp.toFixed(2) : '<span class="text-dim">-</span>'}
           </td>
           <td class="col-stock text-right">
             <input type="number" step="any" min="0" class="input-table stock-input font-mono" 
-                   data-sku="${item.codeSku}" data-col="stock" data-row="${rowIndex}" value="${item.stockActual}" 
-                   aria-label="Stock físico para ${item.description}" title="Existencia física en Bodega Central CODISA">
+                   data-sku="${item.codeSku}" data-col="stock" data-row="${rowIndex}" value="${item.stockActual || 0}" 
+                   aria-label="Stock físico para ${item.description}" title="Existencia física en Bodega 401">
           </td>
-          <td class="col-transit text-right">
-            <input type="number" step="any" min="0" class="input-table transit-input font-mono ${item.activeTransit > 0 ? 'transit-active' : ''}" 
-                   data-sku="${item.codeSku}" data-col="transit" data-row="${rowIndex}" value="${item.activeTransit}" 
-                   aria-label="Tránsito activo para ${item.description}" title="Pedidos en tránsito activos (72h)">
+          <td class="col-transit text-right font-mono">
+            ${item.activeTransit > 0 ? `<span class="badge-transit">${item.activeTransit}</span>` : '<span class="text-dim">-</span>'}
           </td>
-          <td class="col-projected font-mono text-right font-semibold border-right-group">
-            ${AppFormatter.number(item.projectedStock)}
+          <td class="col-projected font-mono text-right font-semibold">
+            <span class="${item.projectedStock <= 0 ? 'text-danger font-bold' : ''}">${AppFormatter.number(item.projectedStock)}</span>
           </td>
-          <td class="col-target-cov text-center font-mono" title="Cobertura Mínima requerida: ${item.minCoverageUnits} und (Colchón de seguridad en bodega)">
+          <td class="col-target-cov text-center font-mono" title="Cobertura Mínima en unidades fijas: ${item.minCoverageUnits} und">
             <strong>${AppFormatter.number(item.minCoverageUnits, 0)}</strong>
           </td>
-          <td class="col-cov-status text-center">
-            ${coverageBadge}
-          </td>
-          <td class="col-multiple text-center font-mono border-right-group">
-            <strong>${item.packMultiple}</strong>
+          <td class="col-multiple text-center font-mono">
+            <span class="text-muted">${item.packMultiple}</span>
           </td>
           <td class="col-suggested text-right font-mono">
-            <div class="font-semibold ${item.suggestedUnits > 0 ? 'text-primary' : 'text-muted'}">${AppFormatter.number(item.suggestedUnits)} und</div>
-            <div class="sub-boxes">${item.suggestedBoxes} cjas</div>
+            ${item.suggestedUnits > 0 ? `
+              <div class="sugg-val font-semibold text-emerald">${AppFormatter.number(item.suggestedUnits)} und</div>
+              <div class="sugg-sub text-muted font-mono" style="font-size: 0.72rem;">${item.suggestedBoxes} cjas</div>
+            ` : '<span class="text-dim">-</span>'}
           </td>
-          <td class="col-final-order text-right border-right-group">
-            <input type="number" step="any" min="0" class="input-table order-input font-mono ${hasOverride ? 'override-active' : ''}" 
+          <td class="col-final-order text-right">
+            <input type="number" step="any" min="0" class="input-table order-input font-mono ${hasOverride ? 'override-active' : (isOrdered ? 'order-highlight' : '')}" 
                    data-sku="${item.codeSku}" data-col="order" data-row="${rowIndex}" placeholder="${item.suggestedUnits}" 
                    value="${hasOverride ? item.manualOverride : (item.suggestedUnits > 0 ? item.suggestedUnits : '')}"
                    aria-label="Pedido autorizado para ${item.description}"
-                   title="${hasOverride ? 'Cantidad ajustada manualmente' : 'Sugerido por el sistema de compras'}">
+                   title="${hasOverride ? 'Cantidad ajustada manualmente' : 'Sugerido por el sistema'}">
           </td>
-          <td class="col-unit-cost font-mono text-right">
-            ${AppFormatter.currency(item.unitCost)}
-          </td>
-          <td class="col-total-cost font-mono text-right font-semibold border-right-group">
-            ${AppFormatter.currency(item.totalOrderCost)}
+          <td class="col-total-cost font-mono text-right font-semibold">
+            ${item.totalOrderCost > 0 ? `
+              <div class="text-primary">${AppFormatter.currency(item.totalOrderCost)}</div>
+              <div class="text-dim font-mono" style="font-size: 0.70rem;">@ ${AppFormatter.currency(item.unitCost)}/u</div>
+            ` : '<span class="text-dim">-</span>'}
           </td>
           <td class="col-actions text-center">
-            <button class="btn-icon btn-view-sku" data-sku="${item.codeSku}" title="Ver ficha técnica y rentabilidad" aria-label="Ver detalle de ${item.description}">
+            <button class="btn-icon btn-view-sku" data-sku="${item.codeSku}" title="Ver ficha técnica" aria-label="Ver detalle de ${item.description}">
               <i class="fa-solid fa-chart-line"></i>
             </button>
           </td>
