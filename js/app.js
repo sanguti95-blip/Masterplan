@@ -474,6 +474,7 @@ class MrpApp {
   setExecutionDay(day) {
     this.executionDay = day;
     this.updateDaySelectorUi(day);
+    this.loadDraftOverrides();
     const matrix = window.APP_CONFIG.planningMatrix[day] || window.APP_CONFIG.planningMatrix.Lunes;
     window.Toast.show(`Plan de pedidos actualizado para ${matrix.dayName} (Ingreso a Bodega: ${matrix.deliveryDay})`, 'info');
     this.recalculateAndRender();
@@ -509,6 +510,7 @@ class MrpApp {
             } catch(e) {}
           }
           this.loadCatalogOverrides();
+          this.loadDraftOverrides();
           return;
         }
       }
@@ -570,6 +572,7 @@ class MrpApp {
         };
       });
       this.loadCatalogOverrides();
+      this.loadDraftOverrides();
     }
   }
 
@@ -668,9 +671,38 @@ class MrpApp {
     } else if (type === 'override') {
       if (prod.pedidoFinalOverride === val) return;
       prod.pedidoFinalOverride = val;
+      this.saveDraftOverrides();
     }
 
     this.recalculateAndRender();
+  }
+
+  saveDraftOverrides() {
+    try {
+      const drafts = {};
+      this.items.forEach(p => {
+        if (p.pedidoFinalOverride !== null && p.pedidoFinalOverride !== undefined) {
+          const sku = p.code_frumusa || p.codeFrumusa || p.code_country || p.codeSku;
+          if (sku) drafts[sku] = p.pedidoFinalOverride;
+        }
+      });
+      localStorage.setItem(`mrp_draft_overrides_${this.executionDay}`, JSON.stringify(drafts));
+    } catch(e) {}
+  }
+
+  loadDraftOverrides() {
+    try {
+      const saved = localStorage.getItem(`mrp_draft_overrides_${this.executionDay}`);
+      if (saved) {
+        const drafts = JSON.parse(saved);
+        this.items.forEach(p => {
+          const sku = p.code_frumusa || p.codeFrumusa || p.code_country || p.codeSku;
+          if (sku && drafts[sku] !== undefined) {
+            p.pedidoFinalOverride = drafts[sku];
+          }
+        });
+      }
+    } catch(e) {}
   }
 
   applyBatchSuggested() {
@@ -685,6 +717,7 @@ class MrpApp {
         count++;
       }
     });
+    this.saveDraftOverrides();
 
     window.Toast.show(`Se aplicó el pedido sugerido por algoritmo a ${count} SKUs.`, 'success');
     this.recalculateAndRender();
@@ -702,6 +735,7 @@ class MrpApp {
         count++;
       }
     });
+    this.saveDraftOverrides();
 
     window.Toast.show(`Se fijó en 0 el pedido final para ${count} SKUs.`, 'warning');
     this.recalculateAndRender();
@@ -791,6 +825,9 @@ class MrpApp {
       }
     });
 
+    // Clear draft overrides for this day
+    localStorage.removeItem(`mrp_draft_overrides_${this.executionDay}`);
+
     // 3. Persist to Backend Server & Disk
     if (window.ApiClient && window.ApiClient.approveOrder) {
       window.ApiClient.approveOrder({
@@ -806,17 +843,46 @@ class MrpApp {
 
     // 4. Automatic Corporate Excel (.xlsx) Download
     const excelFilename = `Pedido_Final_${this.executionDay}_${now.toISOString().slice(0, 10)}.xlsx`;
-    window.ExcelExporter.exportOrderToXlsx({
-      executionDay: this.executionDay,
-      deliveryDay: matrix.deliveryDay,
-      orderCode,
-      items: itemsToOrder,
-      totalCost: grandTotalCost,
-      totalUnits: grandTotalUnits,
-      totalBoxes: grandTotalBoxes
-    }, excelFilename);
+    const doDownloadExcel = () => {
+      window.ExcelExporter.exportOrderToXlsx({
+        executionDay: this.executionDay,
+        deliveryDay: matrix.deliveryDay,
+        orderCode,
+        items: itemsToOrder,
+        totalCost: grandTotalCost,
+        totalUnits: grandTotalUnits,
+        totalBoxes: grandTotalBoxes
+      }, excelFilename);
+    };
 
-    window.Toast.show(`¡Orden ${orderCode} aprobada con éxito! Descargando ${excelFilename}...`, 'success', 5000);
+    doDownloadExcel();
+
+    // 5. Open Dedicated Server Sync & Registration Modal
+    if (window.ModalManager && window.ModalManager.showOrderSyncProgress) {
+      window.ModalManager.showOrderSyncProgress(
+        newOrder,
+        () => {
+          // Callback: Navegar a pestaña de Tránsito
+          this.switchTab('transit');
+          setTimeout(() => {
+            const orderCard = document.querySelector(`.transit-order-card[data-order-id="${orderCode}"]`);
+            if (orderCard) {
+              orderCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              orderCard.style.outline = '2px solid #10b981';
+              setTimeout(() => { orderCard.style.outline = ''; }, 3000);
+            }
+          }, 300);
+        },
+        () => {
+          // Callback: Re-descargar Excel
+          doDownloadExcel();
+          window.Toast.show('Descargando archivo Excel nuevamente...', 'info');
+        }
+      );
+    } else {
+      window.Toast.show(`¡Orden ${orderCode} registrada y guardada en el servidor!`, 'success', 5000);
+    }
+
     this.recalculateAndRender();
   }
 

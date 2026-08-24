@@ -127,6 +127,109 @@ const ModalManager = {
     }
 
     this.open('modal-confirm-approval');
+  },
+
+  showOrderSyncProgress(orderData, onNavigateTransit, onRedownload) {
+    const modal = document.getElementById('modal-order-sync-progress');
+    if (!modal) return;
+
+    const loadingStage = document.getElementById('sync-stage-loading');
+    const successStage = document.getElementById('sync-stage-success');
+    const footer = document.getElementById('sync-modal-footer');
+
+    const titleEl = document.getElementById('sync-progress-title');
+    const step1 = document.getElementById('sync-step-1');
+    const step2 = document.getElementById('sync-step-2');
+    const step3 = document.getElementById('sync-step-3');
+    const step4 = document.getElementById('sync-step-4');
+
+    // Reset initial loading state
+    if (loadingStage) loadingStage.style.display = 'block';
+    if (successStage) successStage.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+
+    if (titleEl) titleEl.innerHTML = '<i class="fa-solid fa-cloud-arrow-up text-primary"></i> Registrando Pedido en el Servidor';
+
+    const setStepState = (stepEl, state, labelText) => {
+      if (!stepEl) return;
+      stepEl.className = `sync-step ${state}`;
+      const icon = stepEl.querySelector('.step-icon');
+      if (icon) {
+        if (state === 'active') icon.className = 'fa-solid fa-circle-notch fa-spin step-icon';
+        else if (state === 'completed') icon.className = 'fa-solid fa-circle-check step-icon text-emerald';
+        else icon.className = 'fa-regular fa-circle step-icon';
+      }
+      if (labelText) {
+        const label = stepEl.querySelector('.step-label');
+        if (label) label.textContent = labelText;
+      }
+    };
+
+    setStepState(step1, 'active');
+    setStepState(step2, 'pending');
+    setStepState(step3, 'pending');
+    setStepState(step4, 'pending');
+
+    this.open('modal-order-sync-progress');
+
+    // Step 1 -> 2
+    setTimeout(() => {
+      setStepState(step1, 'completed', 'Validación de artículos y cantidades MRP [OK]');
+      setStepState(step2, 'active', 'Transmitiendo orden al backend y base de datos...');
+    }, 450);
+
+    // Step 2 -> 3
+    setTimeout(() => {
+      setStepState(step2, 'completed', 'Transmisión al servidor central [EXITOSA]');
+      setStepState(step3, 'active', 'Guardando orden en almacenamiento persistente y tránsito...');
+    }, 950);
+
+    // Step 3 -> 4
+    setTimeout(() => {
+      setStepState(step3, 'completed', 'Orden persistida en servidor y disco [GUARDADA]');
+      setStepState(step4, 'active', 'Generando archivo Excel oficial para Frumusa...');
+    }, 1450);
+
+    // Final Success Screen
+    setTimeout(() => {
+      setStepState(step4, 'completed', 'Excel oficial de Frumusa generado [DESCARGADO]');
+
+      if (loadingStage) loadingStage.style.display = 'none';
+      if (successStage) {
+        successStage.style.display = 'block';
+        successStage.classList.add('animate-fade-in');
+      }
+      if (footer) footer.style.display = 'flex';
+
+      if (titleEl) titleEl.innerHTML = '<i class="fa-solid fa-circle-check text-emerald"></i> ¡Registro en Servidor Completado!';
+
+      // Fill in summary values
+      const codeEl = document.getElementById('sync-success-order-code');
+      const itemsEl = document.getElementById('sync-metric-items');
+      const boxesEl = document.getElementById('sync-metric-boxes');
+      const costEl = document.getElementById('sync-metric-cost');
+
+      if (codeEl) codeEl.textContent = orderData.orderCode || orderData.orderNumber || orderData.id;
+      if (itemsEl) itemsEl.textContent = `${orderData.totalItems || orderData.items.length} SKUs`;
+      if (boxesEl) boxesEl.textContent = `${orderData.totalBoxes || 0} cjas`;
+      if (costEl) costEl.textContent = AppFormatter.currency(orderData.totalCost || 0);
+
+      // Bind button events
+      const btnTransit = document.getElementById('btn-sync-go-transit');
+      if (btnTransit) {
+        btnTransit.onclick = () => {
+          this.close('modal-order-sync-progress');
+          if (typeof onNavigateTransit === 'function') onNavigateTransit();
+        };
+      }
+
+      const btnRedownload = document.getElementById('btn-sync-redownload');
+      if (btnRedownload) {
+        btnRedownload.onclick = () => {
+          if (typeof onRedownload === 'function') onRedownload();
+        };
+      }
+    }, 1900);
   }
 };
 

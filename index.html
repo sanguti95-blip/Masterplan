@@ -663,6 +663,94 @@
     </div>
   </div>
 
+  <!-- MODAL DE SINCRONIZACIÓN Y REGISTRO EN SERVIDOR -->
+  <div id="modal-order-sync-progress" class="modal-overlay" data-no-backdrop-close="true">
+    <div class="modal-card modal-sync-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 id="sync-progress-title"><i class="fa-solid fa-cloud-arrow-up text-primary"></i> Registrando Pedido en el Servidor</h3>
+          <span id="sync-progress-subtitle" class="modal-subtitle">CODISA Enterprise Server & Persistence Store</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <!-- Estado 1: Barra de progreso y pasos -->
+        <div id="sync-stage-loading" class="sync-stage">
+          <div class="sync-radar-container">
+            <div class="sync-radar-spinner"></div>
+            <i class="fa-solid fa-server sync-radar-icon text-primary"></i>
+          </div>
+          <div class="sync-status-steps">
+            <div id="sync-step-1" class="sync-step active">
+              <i class="fa-solid fa-circle-notch fa-spin step-icon"></i>
+              <span class="step-label">Validando artículos y cantidades MRP...</span>
+            </div>
+            <div id="sync-step-2" class="sync-step">
+              <i class="fa-regular fa-circle step-icon"></i>
+              <span class="step-label">Transmitiendo paquete de orden al servidor central...</span>
+            </div>
+            <div id="sync-step-3" class="sync-step">
+              <i class="fa-regular fa-circle step-icon"></i>
+              <span class="step-label">Guardando en base de datos y memoria persistente...</span>
+            </div>
+            <div id="sync-step-4" class="sync-step">
+              <i class="fa-regular fa-circle step-icon"></i>
+              <span class="step-label">Generando archivo Excel oficial para Frumusa...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado 2: Confirmación Exitosa -->
+        <div id="sync-stage-success" class="sync-stage" style="display: none;">
+          <div class="sync-success-banner">
+            <div class="sync-success-icon-wrap">
+              <i class="fa-solid fa-circle-check text-emerald"></i>
+            </div>
+            <h4>¡PEDIDO REGISTRADO Y GUARDADO EN EL SERVIDOR!</h4>
+            <p class="sync-order-badge font-mono" id="sync-success-order-code">PED-LUN-20260823-01</p>
+          </div>
+
+          <div class="sync-summary-grid">
+            <div class="sync-metric-card">
+              <span class="sync-metric-label">Artículos Registrados</span>
+              <strong class="sync-metric-val font-mono" id="sync-metric-items">0 SKUs</strong>
+            </div>
+            <div class="sync-metric-card">
+              <span class="sync-metric-label">Bultos / Cajas</span>
+              <strong class="sync-metric-val font-mono" id="sync-metric-boxes">0 cjas</strong>
+            </div>
+            <div class="sync-metric-card">
+              <span class="sync-metric-label">Inversión Guardada</span>
+              <strong class="sync-metric-val font-mono text-emerald" id="sync-metric-cost">₡0</strong>
+            </div>
+            <div class="sync-metric-card">
+              <span class="sync-metric-label">Estado en Servidor</span>
+              <strong class="sync-metric-val text-primary"><i class="fa-solid fa-truck-fast"></i> EN TRÁNSITO</strong>
+            </div>
+          </div>
+
+          <div class="sync-info-alert">
+            <i class="fa-solid fa-circle-info text-primary"></i>
+            <div>
+              <strong>¿Dónde está tu pedido ahora?</strong>
+              <p>Tu orden ha sido registrada exitosamente en el servidor y ahora está en <strong>"Pedidos en Tránsito"</strong>. El stock proyectado de estos artículos ya incluye este pedido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" id="sync-modal-footer" style="display: none;">
+        <button id="btn-sync-redownload" class="btn-secondary">
+          <i class="fa-solid fa-file-excel"></i> Descargar Excel (.xlsx)
+        </button>
+        <button id="btn-sync-stay" class="btn-secondary" data-close-modal>
+          <i class="fa-solid fa-table-list"></i> Continuar Planificando
+        </button>
+        <button id="btn-sync-go-transit" class="btn-primary">
+          <i class="fa-solid fa-truck-fast"></i> Ver mi Pedido en Tránsito ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- COMMAND PALETTE (Ctrl + K) -->
   <div id="command-palette" class="palette-overlay">
     <div class="palette-modal">
