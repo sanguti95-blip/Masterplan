@@ -5,9 +5,10 @@
 const TableRenderer = {
   tableBody: null,
   selectedSkus: new Set(),
-  sortColumn: 'totalOrderCost',
+  sortColumn: null, // Keep catalog order stable by default to avoid jumping on edit
   sortDirection: 'desc',
   onSortChangeCallback: null,
+  pendingFocus: null,
 
   init(onSortChange) {
     this.tableBody = document.getElementById('table-body');
@@ -261,8 +262,14 @@ const TableRenderer = {
 
     // Restore focus to target row on re-render
     if (this.pendingFocus) {
-      const { col, row } = this.pendingFocus;
-      const target = this.tableBody.querySelector(`.input-table[data-col="${col}"][data-row="${row}"]`);
+      const { col, sku, row } = this.pendingFocus;
+      let target = null;
+      if (sku) {
+        target = this.tableBody.querySelector(`tr[data-sku="${sku}"] .input-table[data-col="${col}"]`);
+      }
+      if (!target && row !== undefined) {
+        target = this.tableBody.querySelector(`.input-table[data-col="${col}"][data-row="${row}"]`);
+      }
       if (target) {
         target.focus();
         target.select();
@@ -318,39 +325,47 @@ const TableRenderer = {
       });
     });
 
-    // Excel-Style Keyboard Navigation (Enter/ArrowDown to move to next product, ArrowUp to move to previous)
+    // Excel-Style Keyboard Navigation (Enter/ArrowDown to move strictly to next product, ArrowUp to previous)
     this.tableBody.querySelectorAll('.input-table').forEach(input => {
       input.addEventListener('keydown', (e) => {
+        const currentTr = input.closest('tr');
+        const nextTr = currentTr ? currentTr.nextElementSibling : null;
+        const nextSku = nextTr ? nextTr.dataset.sku : null;
+        const prevTr = currentTr ? currentTr.previousElementSibling : null;
+        const prevSku = prevTr ? prevTr.dataset.sku : null;
         const currentRow = parseInt(input.dataset.row, 10);
         const currentCol = input.dataset.col; // 'stock', 'transit', 'order'
 
         if (e.key === 'ArrowDown' || e.key === 'Enter') {
           e.preventDefault();
-          const nextRow = currentRow + 1;
-          this.pendingFocus = { col: currentCol, row: nextRow };
+          this.pendingFocus = { col: currentCol, sku: nextSku, row: currentRow + 1 };
           
           // Trigger change immediately to apply edit
           input.dispatchEvent(new Event('change'));
 
-          // Also focus next row immediately
-          const target = this.tableBody.querySelector(`.input-table[data-col="${currentCol}"][data-row="${nextRow}"]`);
-          if (target) {
-            target.focus();
-            target.select();
-            target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          // Focus next product
+          if (nextTr) {
+            const target = nextTr.querySelector(`.input-table[data-col="${currentCol}"]`);
+            if (target) {
+              target.focus();
+              target.select();
+              target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }
           }
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
-          const prevRow = Math.max(0, currentRow - 1);
-          this.pendingFocus = { col: currentCol, row: prevRow };
+          this.pendingFocus = { col: currentCol, sku: prevSku, row: Math.max(0, currentRow - 1) };
 
           input.dispatchEvent(new Event('change'));
 
-          const target = this.tableBody.querySelector(`.input-table[data-col="${currentCol}"][data-row="${prevRow}"]`);
-          if (target) {
-            target.focus();
-            target.select();
-            target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          // Focus previous product
+          if (prevTr) {
+            const target = prevTr.querySelector(`.input-table[data-col="${currentCol}"]`);
+            if (target) {
+              target.focus();
+              target.select();
+              target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }
           }
         } else if ((e.ctrlKey || e.altKey) && e.key === '0') {
           // Power User Shortcut: Zero out current row
