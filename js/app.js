@@ -1030,7 +1030,10 @@ class MrpApp {
               <strong class="font-mono text-primary">${AppFormatter.currency(order.totalCost)}</strong>
             </div>
           </div>
-          <div class="transit-card-footer" style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px;">
+          <div class="transit-card-footer" style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; flex-wrap: wrap;">
+            <button class="btn-primary btn-small" onclick="window.MrpAppInstance.loadOrderIntoPlanning('${order.id}')" title="Cargar y revisar estos ${order.totalItems} artículos en la mesa de pedidos">
+              <i class="fa-solid fa-pen-to-square"></i> Cargar en Mesa de Pedidos
+            </button>
             <button class="btn-secondary btn-small" onclick="window.MrpAppInstance.downloadOrderXlsx('${orderCode}')" title="Descargar Excel de la orden">
               <i class="fa-solid fa-file-excel"></i> Excel
             </button>
@@ -1041,6 +1044,50 @@ class MrpApp {
         </div>
       `;
     }).join('');
+  }
+
+  loadOrderIntoPlanning(orderId) {
+    const order = (this.activeOrders || []).find(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
+    if (!order || !order.items) {
+      window.Toast.show('No se encontró el pedido a cargar.', 'warning');
+      return;
+    }
+
+    // Set execution day
+    const day = order.executionDay || order.day || 'Jueves';
+    this.executionDay = day;
+    this.updateDaySelectorUi(day);
+
+    // Apply items as overrides in table
+    const drafts = {};
+    order.items.forEach(item => {
+      const sku = (item.codeSku || item.codeFrumusa || item.codeCountry || '').toString().trim();
+      const qty = Number(item.quantity || item.finalQty || 0);
+
+      const prod = this.items.find(p => (
+        (p.code_frumusa && p.code_frumusa.toString() === sku) ||
+        (p.codeFrumusa && p.codeFrumusa.toString() === sku) ||
+        (p.code_country && p.code_country.toString() === sku) ||
+        (p.codeSku && p.codeSku.toString() === sku)
+      ));
+
+      if (prod) {
+        prod.pedidoFinalOverride = qty;
+      }
+      if (sku) drafts[sku] = qty;
+    });
+
+    localStorage.setItem(`mrp_draft_overrides_${day}`, JSON.stringify(drafts));
+
+    // Switch to planning tab and filter by 'to-order' so user sees exactly their 39 items
+    this.switchTab('planning');
+    this.activeFilter = 'to-order';
+    document.querySelectorAll('.filter-chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.filter === 'to-order');
+    });
+
+    this.recalculateAndRender();
+    window.Toast.show(`¡Pedido ${order.orderNumber || order.orderCode} cargado en la mesa de pedidos! (${order.items.length} artículos listos para revisar y autorizar).`, 'success', 6000);
   }
 
   async clearAllTransit() {
