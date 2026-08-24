@@ -200,43 +200,44 @@ const TableRenderer = {
             <span class="product-name" title="${item.description}">${item.description}</span>
             <span class="product-category-tag ${catClass}">${cat}</span>
           </td>
-          <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio: ${item.vdp.toFixed(2)} und/día">
+          <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio (VDP): ${item.vdp.toFixed(2)} ${item.unit_eq || 'und'}/día">
             ${item.vdp > 0 ? item.vdp.toFixed(2) : '<span class="text-dim">-</span>'}
           </td>
           <td class="col-stock text-right">
             <input type="number" step="any" min="0" class="input-table stock-input font-mono" 
                    data-sku="${item.codeSku}" data-col="stock" data-row="${rowIndex}" value="${item.stockActual || 0}" 
-                   aria-label="Stock físico para ${item.description}" title="Existencia física en Bodega 401">
+                   aria-label="Stock físico para ${item.description}" 
+                   title="Existencia física actual en Bodega 401: ${item.stockActual} ${item.unit_eq || 'und'}">
           </td>
-          <td class="col-transit text-right font-mono">
-            ${item.activeTransit > 0 ? `<span class="badge-transit">${item.activeTransit}</span>` : '<span class="text-dim">-</span>'}
+          <td class="col-transit text-right font-mono" title="En camino: ${item.activeTransit} ${item.unit_eq || 'und'} (arribo programado en 72h)">
+            ${item.activeTransit > 0 ? `<span class="badge-transit" title="En camino: ${item.activeTransit} ${item.unit_eq || 'und'}">${item.activeTransit}</span>` : '<span class="text-dim">-</span>'}
           </td>
-          <td class="col-projected font-mono text-right font-semibold">
+          <td class="col-projected font-mono text-right font-semibold" title="Disponibilidad Total = ${item.stockActual} (Stock) + ${item.activeTransit} (Tránsito) = ${item.projectedStock} ${item.unit_eq || 'und'}">
             <span class="${item.projectedStock <= 0 ? 'text-danger font-bold' : ''}">${AppFormatter.number(item.projectedStock)}</span>
           </td>
-          <td class="col-coverage-days text-center font-mono" title="Cobertura Inicial (Stock+Tránsito): ${preCoverage.toFixed(1)} días | Cobertura Total con Pedido: ${finalCoverage.toFixed(1)} días">
+          <td class="col-coverage-days text-center font-mono" title="Cobertura Inicial: ${preCoverage.toFixed(1)} días ➔ Cobertura con Pedido: ${finalCoverage.toFixed(1)} días">
             ${coverageBadge}
           </td>
-          <td class="col-target-cov text-center font-mono" title="Cobertura Mínima en unidades fijas: ${item.minCoverageUnits} und">
+          <td class="col-target-cov text-center font-mono" title="Stock de Seguridad Mínimo: ${item.minCoverageUnits} ${item.unit_eq || 'und'} (colchón fijo anti-rotura)">
             <strong>${AppFormatter.number(item.minCoverageUnits, 0)}</strong>
           </td>
-          <td class="col-multiple text-center font-mono" title="Bulto: Contenido total por Caja/Saco/Empaque (${item.packMultiple} ${item.unit_eq || 'UD'})">
+          <td class="col-multiple text-center font-mono" title="Bulto Maestro: ${item.packMultiple} ${item.unit_eq || 'UD'} por caja/saco">
             <span class="font-semibold text-primary">${item.packMultiple}</span>
             <span class="text-dim font-mono" style="font-size: 0.68rem; display: block;">${item.unit_eq || 'UD'}/cja</span>
           </td>
-          <td class="col-suggested text-right font-mono">
+          <td class="col-suggested text-right font-mono" title="Sugerido MRP: ${item.suggestedUnits} ${item.unit_eq || 'und'} (${item.suggestedBoxes} cajas)">
             ${item.suggestedUnits > 0 ? `
               <div class="sugg-val font-semibold text-emerald">${AppFormatter.number(item.suggestedUnits)} ${item.unit_eq || 'und'}</div>
               <div class="sugg-sub text-muted font-mono" style="font-size: 0.72rem;"><strong>${item.suggestedBoxes}</strong> cjas</div>
             ` : '<span class="text-dim">-</span>'}
           </td>
-          <td class="col-final-order text-right">
+          <td class="col-final-order text-right" title="Pedido Final: ${item.finalQty} ${item.unit_eq || 'und'} (${item.finalBoxes} cajas)">
             <div class="order-input-wrapper">
               <input type="number" step="any" min="0" class="input-table order-input font-mono ${hasOverride ? 'override-active' : (isOrdered ? 'order-highlight' : '')}" 
                      data-sku="${item.codeSku}" data-col="order" data-row="${rowIndex}" placeholder="${item.suggestedUnits}" 
                      value="${hasOverride ? item.manualOverride : (item.suggestedUnits > 0 ? item.suggestedUnits : '')}"
                      aria-label="Pedido autorizado para ${item.description}"
-                     title="${hasOverride ? 'Cantidad ajustada manualmente (clic en icono para restablecer sugerido)' : 'Sugerido por el sistema'}">
+                     title="${hasOverride ? 'Cantidad ajustada manualmente (clic en icono para restablecer sugerido)' : 'Sugerido por el algoritmo MRP (presiona Enter para avanzar)'}">
               ${hasOverride ? `
                 <button type="button" class="btn-inline-reset" data-sku="${item.codeSku}" title="Restablecer sugerido original del algoritmo (${item.suggestedUnits} und)" aria-label="Restablecer sugerido">
                   <i class="fa-solid fa-rotate-left"></i>
@@ -249,7 +250,7 @@ const TableRenderer = {
               </div>
             ` : ''}
           </td>
-          <td class="col-total-cost font-mono text-right font-semibold">
+          <td class="col-total-cost font-mono text-right font-semibold" title="Inversión Total: ₡${Math.round(item.totalOrderCost).toLocaleString('es-CR')} (@ ₡${Math.round(item.unitCost).toLocaleString('es-CR')}/${item.unit_eq || 'u'})">
             ${item.totalOrderCost > 0 ? `
               <div class="text-primary">${AppFormatter.currency(item.totalOrderCost)}</div>
               <div class="text-dim font-mono" style="font-size: 0.70rem;">@ ${AppFormatter.currency(item.unitCost)}/u</div>

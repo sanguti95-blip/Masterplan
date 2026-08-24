@@ -288,19 +288,19 @@
                   <th class="text-center col-checkbox">
                     <input type="checkbox" id="chk-select-all" title="Seleccionar todos">
                   </th>
-                  <th class="sortable col-sku" data-sort="codeSku" title="Código Frumusa (Proveedor) y Country (CODISA)">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="sortable col-desc" data-sort="description" title="Descripción oficial y familia comercial">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-vdp" data-sort="vdp" title="Venta Diaria Promedio">VENTA/DÍA <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-stock" data-sort="stockActual" title="Existencia física en Bodega 401">STOCK 401 <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-transit" data-sort="activeTransit" title="Pedidos en Tránsito Activos (72h)">TRÁNSITO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-projected" data-sort="projectedStock" title="Inventario Proyectado = Stock + Tránsito">PROYECTADO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-coverage-days" data-sort="coverageDaysResult" title="Días de Cobertura Total = (Stock + Tránsito + Pedido) / VDP">COBERTURA (DÍAS) <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-target-cov" data-sort="minCoverageUnits" title="Cobertura Mínima en Unidades (Stock de Seguridad)">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-multiple" data-sort="packMultiple" title="Unidades por bulto / caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-suggested" data-sort="suggestedUnits" title="Sugerido automático de compra">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-final-order" data-sort="finalQty" title="Pedido Autorizado (Editable)">PEDIDO FINAL <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-total-cost" data-sort="totalOrderCost" title="Inversión total autorizada en Colones">INVERSIÓN (₡) <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center col-actions" title="Ficha técnica del artículo">VER</th>
+                  <th class="sortable col-sku" data-sort="codeSku" title="Código Frumusa (Proveedor) y Código Country (CODISA)">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="sortable col-desc" data-sort="description" title="Nombre comercial oficial y familia de perecederos">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-vdp" data-sort="vdp" title="Venta Diaria Promedio (VDP) en la ventana estadística seleccionada">VENTA/DÍA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-stock" data-sort="stockActual" title="Existencia física disponible en Bodega 401">STOCK 401 <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-transit" data-sort="activeTransit" title="Pedidos en ruta con arribo programado en 72 horas">TRÁNSITO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-projected" data-sort="projectedStock" title="Disponibilidad Total = Stock Físico (Bodega 401) + Tránsito Activo">PROYECTADO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-coverage-days" data-sort="coverageDaysResult" title="Días de Cobertura Total = (Stock + Tránsito + Pedido Final) / VDP">COBERTURA (DÍAS) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-target-cov" data-sort="minCoverageUnits" title="Stock de Seguridad Mínimo Fijo en Unidades">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center sortable col-multiple" data-sort="packMultiple" title="Múltiplo de empaque / Unidades totales por bulto o caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-suggested" data-sort="suggestedUnits" title="Sugerido de compra calculado por el motor MRP para el ciclo">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-final-order" data-sort="finalQty" title="Cantidad autorizada de compra (editable, presiona Enter para avanzar)">PEDIDO FINAL <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-right sortable col-total-cost" data-sort="totalOrderCost" title="Inversión total autorizada en Colones = Pedido Final × Costo Unitario">INVERSIÓN (₡) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th class="text-center col-actions" title="Abrir ficha técnica y analítica del artículo">VER</th>
                 </tr>
               </thead>
               <tbody id="table-body">
