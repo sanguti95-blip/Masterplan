@@ -251,6 +251,8 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
     coverageDaysResult,
     preOrderCoverageDays,
     isCritical,
+    is_active: product.is_active !== false && product.isActive !== false,
+    isActive: product.is_active !== false && product.isActive !== false,
     executionDay: matrix.dayName,
     deliveryDay: matrix.deliveryDay
   };

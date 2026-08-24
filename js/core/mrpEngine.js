@@ -204,6 +204,8 @@ const MrpEngine = {
       coverageDaysResult,
       preOrderCoverageDays,
       isCritical,
+      is_active: product.is_active !== false && product.isActive !== false,
+      isActive: product.is_active !== false && product.isActive !== false,
       executionDay: matrixRule.dayName,
       deliveryDay: matrixRule.deliveryDay
     };

@@ -189,13 +189,14 @@ const TableRenderer = {
           <td class="col-target-cov text-center font-mono" title="Cobertura Mínima en unidades fijas: ${item.minCoverageUnits} und">
             <strong>${AppFormatter.number(item.minCoverageUnits, 0)}</strong>
           </td>
-          <td class="col-multiple text-center font-mono">
-            <span class="text-muted">${item.packMultiple}</span>
+          <td class="col-multiple text-center font-mono" title="Bulto: Contenido total por Caja/Saco/Empaque (${item.packMultiple} ${item.unit_eq || 'UD'})">
+            <span class="font-semibold text-primary">${item.packMultiple}</span>
+            <span class="text-dim font-mono" style="font-size: 0.68rem; display: block;">${item.unit_eq || 'UD'}/cja</span>
           </td>
           <td class="col-suggested text-right font-mono">
             ${item.suggestedUnits > 0 ? `
-              <div class="sugg-val font-semibold text-emerald">${AppFormatter.number(item.suggestedUnits)} und</div>
-              <div class="sugg-sub text-muted font-mono" style="font-size: 0.72rem;">${item.suggestedBoxes} cjas</div>
+              <div class="sugg-val font-semibold text-emerald">${AppFormatter.number(item.suggestedUnits)} ${item.unit_eq || 'und'}</div>
+              <div class="sugg-sub text-muted font-mono" style="font-size: 0.72rem;"><strong>${item.suggestedBoxes}</strong> cjas</div>
             ` : '<span class="text-dim">-</span>'}
           </td>
           <td class="col-final-order text-right">
@@ -204,6 +205,11 @@ const TableRenderer = {
                    value="${hasOverride ? item.manualOverride : (item.suggestedUnits > 0 ? item.suggestedUnits : '')}"
                    aria-label="Pedido autorizado para ${item.description}"
                    title="${hasOverride ? 'Cantidad ajustada manualmente' : 'Sugerido por el sistema'}">
+            ${item.finalQty > 0 ? `
+              <div class="font-mono text-muted" style="font-size: 0.72rem; text-align: right; margin-top: 2px;">
+                <strong>${item.finalBoxes}</strong> cjas/bultos
+              </div>
+            ` : ''}
           </td>
           <td class="col-total-cost font-mono text-right font-semibold">
             ${item.totalOrderCost > 0 ? `

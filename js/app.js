@@ -509,81 +509,48 @@ class MrpApp {
     }
 
     // Fallback to local data.js
-    if (typeof INITIAL_PEDIDOS !== 'undefined' && typeof INITIAL_DATA !== 'undefined') {
-      const dataByNoArti = new Map();
-      const dataByDesc = new Map();
-      INITIAL_DATA.forEach(row => {
-        if (row.NO_ARTI !== undefined && row.NO_ARTI !== null) {
-          dataByNoArti.set(row.NO_ARTI.toString().trim().toUpperCase(), row);
-        }
-        if (row.ARTICULO) {
-          dataByDesc.set(row.ARTICULO.toString().trim().toUpperCase(), row);
-        }
-      });
+    if (typeof INITIAL_PEDIDOS !== 'undefined' && Array.isArray(INITIAL_PEDIDOS)) {
+      this.items = INITIAL_PEDIDOS.map(row => {
+        const codeFrumusa = (row.code_frumusa || row.codeFrumusa || row['Codigo frumusa'] || '').toString().trim();
+        const codeCountry = (row.code_country || row.codeCountry || row['Código country'] || '').toString().trim();
+        const descText = (row.description || row.ARTICULO || row['Descripción'] || '').toString().trim();
+        const skuKey = codeFrumusa || codeCountry || descText;
 
-      this.items = INITIAL_PEDIDOS
-        .filter(row => row && ((row['Codigo frumusa'] !== undefined && row['Codigo frumusa'] !== '') || (row['Código country'] !== undefined && row['Código country'] !== '') || row['Descripción']))
-        .map(row => {
-        const codeFrumusa = (row['Codigo frumusa'] !== undefined ? row['Codigo frumusa'] : '').toString().trim();
-        const codeCountry = (row['Código country'] !== undefined ? row['Código country'] : '').toString().trim();
-        const desc = (row['Descripción'] || '').toString().trim().toUpperCase();
+        const transitSaved = localStorage.getItem(`mrp_transit_${skuKey}`);
+        const transit = transitSaved !== null ? Number(transitSaved) : Number(row.transit_qty || row.activeTransit || 0);
 
-        let match = (codeFrumusa ? dataByNoArti.get(codeFrumusa.toUpperCase()) : null) ||
-                    (codeCountry ? dataByNoArti.get(codeCountry.toUpperCase()) : null) ||
-                    (desc ? dataByDesc.get(desc) : null);
-
-        if (!match && desc) {
-          for (const [d, r] of dataByDesc.entries()) {
-            if (desc.includes(d) || d.includes(desc) || (desc.split(' ')[0] === d.split(' ')[0] && desc.length > 3)) {
-              match = r;
-              break;
-            }
-          }
-        }
-
-        let stock = Number(row['Stock'] || 0);
-        if (match && match['SALDO_ACTUAL'] !== undefined) stock = Number(match['SALDO_ACTUAL']);
-
-        let sales = Number(row['Ventas del período'] || 0);
-        if (match && match['CANTIDAD'] !== undefined) sales = Number(match['CANTIDAD']);
-
-        let cost = 0;
-        if (match && Number(match['COSTO_UNITARIO']) > 0) {
-          cost = Number(match['COSTO_UNITARIO']);
-        } else if (Number(row['Costo unitario'] || row['Costo'] || 0) > 0) {
-          cost = Number(row['Costo unitario'] || row['Costo']);
-        } else {
-          const origFinal = Number(row['Pedido sugerido'] || row['PEDIDO FINAL'] || 0);
-          const origCost = Number(row['Costo de pedido'] || 0);
-          if (origFinal > 0 && origCost > 0) cost = origCost / origFinal;
-        }
-
-        const transitSaved = localStorage.getItem(`mrp_transit_${codeFrumusa || codeCountry}`);
-        const transit = transitSaved !== null ? Number(transitSaved) : 0;
-
-        const descText = row['Descripción'] || (match ? match['ARTICULO'] : '');
-        const cat = row['Categoría'] || (match ? match['CATEGORIA'] : null) || this.getProduceCategory(descText);
-        const packMultiple = Number(row['Múltiplo de pedido'] || 1);
-        const minCoverage = Number(row['Cobertura minima'] || row['Covertura meta'] || (packMultiple * 6));
+        const packMultiple = Number(row.pack_multiple || row.packMultiple || row['Múltiplo de pedido'] || 1);
+        const minCoverage = Number(row.min_coverage_qty || row.minCoverageUnits || row.safety_stock_units || row['Cobertura minima'] || (packMultiple * 2));
 
         return {
+          codeSku: skuKey,
+          code_sku: skuKey,
           code_country: codeCountry,
+          codeCountry: codeCountry,
           code_frumusa: codeFrumusa,
+          codeFrumusa: codeFrumusa,
           description: descText,
-          category: cat,
-          stock_actual: stock,
-          sales_period: sales,
-          days_period: this.vdpDays || Number(row['Días del período'] || 60),
-          unit_cost: cost,
-          unit_price: match ? Number(match['PRECIO'] || 0) : cost * 1.35,
+          category: row.category || row.CATEGORIA || this.getProduceCategory(descText),
+          stock_actual: Number(row.stock_actual !== undefined ? row.stock_actual : (row.stock !== undefined ? row.stock : (row['Stock'] || 0))),
+          stock: Number(row.stock_actual !== undefined ? row.stock_actual : (row.stock !== undefined ? row.stock : (row['Stock'] || 0))),
+          sales_period: Number(row.sales_period !== undefined ? row.sales_period : (row.ventas !== undefined ? row.ventas : (row['Ventas del período'] || 0))),
+          sales_60d: Number(row.sales_60d || row.sales_period || 0),
+          days_period: this.vdpDays || Number(row.days_period || row['Días del período'] || 60),
+          unit_cost: Number(row.unit_cost !== undefined ? row.unit_cost : (row.cost !== undefined ? row.cost : (row['Costo unitario'] || 0))),
+          unit_price: Number(row.unit_price || (row.unit_cost ? row.unit_cost * 1.35 : 0)),
+          unit_eq: row.unit_eq || row.unit_fromusa || row.unit || 'UD',
           transit_qty: transit,
           activeTransit: transit,
           transit: transit,
           pack_multiple: packMultiple,
+          packMultiple: packMultiple,
           min_coverage_qty: minCoverage,
+          minCoverageUnits: minCoverage,
           safety_stock_units: minCoverage,
-          safety_stock_days: Number(row['Covertura meta'] || 1),
-          pedidoFinalOverride: null
+          safety_stock_days: Number(row.safety_stock_days || row['Covertura meta'] || 1),
+          pedidoFinalOverride: null,
+          is_active: row.is_active !== false && row.isActive !== false,
+          isActive: row.is_active !== false && row.isActive !== false
         };
       });
       this.loadCatalogOverrides();
@@ -1030,14 +997,16 @@ class MrpApp {
       if (saved) {
         const overrides = JSON.parse(saved);
         this.items.forEach(item => {
+          const skuKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || ''))).toUpperCase();
           const k1 = (item.code_frumusa || item.codeFrumusa || '').toString().trim().toUpperCase();
           const k2 = (item.code_country || item.codeCountry || '').toString().trim().toUpperCase();
           const k3 = (item.codeSku || '').toString().trim().toUpperCase();
-          const ov = overrides[k1] || overrides[k2] || overrides[k3];
+          
+          const ov = overrides[skuKey] || (k1 ? overrides[k1] : null) || (k3 ? overrides[k3] : null) || overrides[k2];
           if (ov) {
             if (ov.is_active !== undefined) {
-              item.is_active = ov.is_active;
-              item.isActive = ov.is_active;
+              item.is_active = Boolean(ov.is_active);
+              item.isActive = Boolean(ov.is_active);
             }
             if (ov.pack_multiple !== undefined) {
               item.pack_multiple = Number(ov.pack_multiple);
@@ -1067,11 +1036,15 @@ class MrpApp {
   }
 
   toggleSkuActive(skuKey) {
+    const cleanSku = (skuKey || '').toString().trim().toUpperCase();
     const item = this.items.find(i => {
+      const k = ((i.code_frumusa && i.code_frumusa.trim()) ? i.code_frumusa.trim() : (i.code_country ? i.code_country.trim() : (i.codeSku || ''))).toUpperCase();
+      return k === cleanSku;
+    }) || this.items.find(i => {
       const k1 = (i.code_frumusa || i.codeFrumusa || '').toString().trim().toUpperCase();
       const k2 = (i.code_country || i.codeCountry || '').toString().trim().toUpperCase();
       const k3 = (i.codeSku || '').toString().trim().toUpperCase();
-      return k1 === skuKey.toUpperCase() || k2 === skuKey.toUpperCase() || k3 === skuKey.toUpperCase();
+      return k1 === cleanSku || k3 === cleanSku || k2 === cleanSku;
     });
 
     if (!item) return;
@@ -1088,15 +1061,16 @@ class MrpApp {
       overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
     } catch(e) {}
 
-    overrides[skuKey.toUpperCase()] = {
-      ...(overrides[skuKey.toUpperCase()] || {}),
+    const exactKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || skuKey))).toUpperCase();
+    overrides[exactKey] = {
+      ...(overrides[exactKey] || {}),
       is_active: newStatus
     };
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
     // 2. Persist to Backend Server & Disk
     if (window.ApiClient && window.ApiClient.toggleProductActive) {
-      window.ApiClient.toggleProductActive(skuKey, newStatus).catch(err => {
+      window.ApiClient.toggleProductActive(exactKey, newStatus).catch(err => {
         console.warn('Sync toggle to server deferred:', err.message);
       });
     }
@@ -1144,7 +1118,7 @@ class MrpApp {
     }
 
     tbody.innerHTML = filtered.map(item => {
-      const skuKey = (item.code_frumusa || item.codeFrumusa || item.code_country || item.codeCountry || item.codeSku || '').toString().trim();
+      const skuKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || ''))).toString().trim();
       const frumusaVal = item.code_frumusa || item.codeFrumusa || '';
       const countryVal = item.code_country || item.codeCountry || item.codeSku || '';
       const descVal = item.description || item.ARTICULO || '';
@@ -1175,7 +1149,7 @@ class MrpApp {
             <input type="text" class="input-catalog font-mono text-center field-unit" data-sku="${skuKey}" value="${unitVal}" style="max-width: 60px;" title="Unidad de Medida">
           </td>
           <td class="text-center">
-            <input type="number" step="any" min="1" class="input-catalog font-mono text-center field-pack" data-sku="${skuKey}" value="${packVal}" style="max-width: 80px;" title="Unidades por Bulto / Caja">
+            <input type="number" step="any" min="0.1" class="input-catalog font-mono text-center field-pack" data-sku="${skuKey}" value="${packVal}" style="max-width: 80px;" title="Bulto: Contenido total por Caja/Saco/Empaque">
           </td>
           <td class="text-center">
             <input type="number" step="1" min="0" class="input-catalog font-mono text-center field-ss" data-sku="${skuKey}" value="${minQty}" style="max-width: 90px;" title="Cobertura Mínima en Unidades (Stock de Seguridad requerido)">
@@ -1201,11 +1175,16 @@ class MrpApp {
     const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
     const minQty = Math.round(parseFloat(row.querySelector('.field-ss').value) || 0);
 
-    const item = this.items.find(i => (
-      i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
-      i.code_country === skuKey || i.codeCountry === skuKey || 
-      i.codeSku === skuKey
+    const cleanSku = (skuKey || '').toString().trim().toUpperCase();
+    const item = this.items.find(i => {
+      const k = ((i.code_frumusa && i.code_frumusa.trim()) ? i.code_frumusa.trim() : (i.code_country ? i.code_country.trim() : (i.codeSku || ''))).toUpperCase();
+      return k === cleanSku;
+    }) || this.items.find(i => (
+      (i.code_frumusa && i.code_frumusa.toString().toUpperCase() === cleanSku) ||
+      (i.code_country && i.code_country.toString().toUpperCase() === cleanSku) ||
+      (i.codeSku && i.codeSku.toString().toUpperCase() === cleanSku)
     ));
+
     const isActive = item ? (item.is_active !== false && item.isActive !== false) : true;
 
     // 1. Save to LocalStorage
@@ -1214,7 +1193,8 @@ class MrpApp {
       overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
     } catch(e) {}
 
-    overrides[skuKey.toUpperCase()] = {
+    const exactKey = ((frumusa || country || skuKey)).toUpperCase();
+    overrides[exactKey] = {
       is_active: isActive,
       code_frumusa: frumusa,
       code_country: country,
@@ -1229,7 +1209,7 @@ class MrpApp {
 
     // 2. Persist to Backend Server & Disk
     if (window.ApiClient && window.ApiClient.updateProduct) {
-      window.ApiClient.updateProduct(skuKey, {
+      window.ApiClient.updateProduct(exactKey, {
         isActive,
         codeFrumusa: frumusa,
         codeCountry: country,
@@ -1258,7 +1238,7 @@ class MrpApp {
     }
 
     this.recalculateAndRender();
-    window.Toast.show(`Artículo ${desc || skuKey} guardado en el maestro (Cobertura Mínima: ${minQty} und).`, 'success');
+    window.Toast.show(`Artículo ${desc || skuKey} guardado en el maestro (Bulto: ${pack} | Cobertura Mín: ${minQty}).`, 'success');
   }
 
   saveAllCatalogChanges() {
@@ -1277,14 +1257,20 @@ class MrpApp {
       const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
       const minQty = Math.round(parseFloat(row.querySelector('.field-ss').value) || 0);
 
-      const item = this.items.find(i => (
-        i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
-        i.code_country === skuKey || i.codeCountry === skuKey || 
-        i.codeSku === skuKey
+      const cleanSku = (skuKey || '').toString().trim().toUpperCase();
+      const item = this.items.find(i => {
+        const k = ((i.code_frumusa && i.code_frumusa.trim()) ? i.code_frumusa.trim() : (i.code_country ? i.code_country.trim() : (i.codeSku || ''))).toUpperCase();
+        return k === cleanSku;
+      }) || this.items.find(i => (
+        (i.code_frumusa && i.code_frumusa.toString().toUpperCase() === cleanSku) ||
+        (i.code_country && i.code_country.toString().toUpperCase() === cleanSku) ||
+        (i.codeSku && i.codeSku.toString().toUpperCase() === cleanSku)
       ));
-      const isActive = item ? (item.is_active !== false && item.isActive !== false) : true;
 
-      overrides[skuKey.toUpperCase()] = {
+      const isActive = item ? (item.is_active !== false && item.isActive !== false) : true;
+      const exactKey = (frumusa || country || skuKey).toUpperCase();
+
+      overrides[exactKey] = {
         is_active: isActive,
         code_frumusa: frumusa,
         code_country: country,

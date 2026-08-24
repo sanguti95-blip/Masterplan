@@ -54,14 +54,16 @@ router.get('/calculate', (req, res) => {
       const prodCopy = { ...product, days_period: vdpDays, daysPeriod: vdpDays };
       const calc = mrpEngine.calculateSkuReplenishment(prodCopy, executionDay, activeOrders, safetyStock);
 
-      totalCost += calc.totalOrderCost;
-      if (calc.finalQty > 0) {
-        totalItemsToOrder++;
-        totalUnits += calc.finalQty;
-        totalBoxes += calc.finalBoxes;
-      }
-      if (calc.isCritical) {
-        totalCriticalCount++;
+      if (calc.is_active !== false && calc.isActive !== false) {
+        totalCost += calc.totalOrderCost;
+        if (calc.finalQty > 0) {
+          totalItemsToOrder++;
+          totalUnits += calc.finalQty;
+          totalBoxes += calc.finalBoxes;
+        }
+        if (calc.isCritical) {
+          totalCriticalCount++;
+        }
       }
 
       return calc;

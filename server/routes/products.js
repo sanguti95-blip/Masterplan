@@ -48,6 +48,22 @@ router.get('/', (req, res) => {
   }
 });
 
+function findProduct(products, sku) {
+  if (!sku || !Array.isArray(products)) return null;
+  const cleanSku = sku.toString().trim().toUpperCase();
+  return products.find(p => {
+    const k = ((p.code_frumusa && p.code_frumusa.trim()) ? p.code_frumusa.trim() : (p.code_country ? p.code_country.trim() : (p.codeSku || p.NO_ARTI || ''))).toUpperCase();
+    return k === cleanSku;
+  }) || products.find(p => (
+    (p.code_frumusa && p.code_frumusa.toString().toUpperCase() === cleanSku) ||
+    (p.codeFrumusa && p.codeFrumusa.toString().toUpperCase() === cleanSku) ||
+    (p.code_country && p.code_country.toString().toUpperCase() === cleanSku) ||
+    (p.codeCountry && p.codeCountry.toString().toUpperCase() === cleanSku) ||
+    (p.codeSku && p.codeSku.toString().toUpperCase() === cleanSku) ||
+    (p.NO_ARTI && p.NO_ARTI.toString().toUpperCase() === cleanSku)
+  ));
+}
+
 // POST /api/products/batch-update - Batch update catalog parameters and persist on server
 router.post('/batch-update', (req, res) => {
   try {
@@ -60,10 +76,12 @@ router.post('/batch-update', (req, res) => {
     let updatedCount = 0;
 
     products.forEach(item => {
+      const skuKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || ''))).toUpperCase();
       const k1 = (item.code_frumusa || item.codeFrumusa || '').toString().trim().toUpperCase();
       const k2 = (item.code_country || item.codeCountry || '').toString().trim().toUpperCase();
       const k3 = (item.codeSku || '').toString().trim().toUpperCase();
-      const ov = overrides[k1] || overrides[k2] || overrides[k3];
+      
+      const ov = overrides[skuKey] || (k1 ? overrides[k1] : null) || (k3 ? overrides[k3] : null) || overrides[k2];
 
       if (ov) {
         if (ov.is_active !== undefined) {
@@ -107,17 +125,10 @@ router.post('/batch-update', (req, res) => {
 
 // GET /api/products/:sku - Get specific SKU detail
 router.get('/:sku', (req, res) => {
-  const sku = req.params.sku.toString().trim().toUpperCase();
-  const product = (db.memoryStore.products || []).find(p => (
-    (p.code_frumusa && p.code_frumusa.toString().toUpperCase() === sku) ||
-    (p.codeFrumusa && p.codeFrumusa.toString().toUpperCase() === sku) ||
-    (p.NO_ARTI && p.NO_ARTI.toString().toUpperCase() === sku) ||
-    (p.code_country && p.code_country.toString().toUpperCase() === sku) ||
-    (p.codeCountry && p.codeCountry.toString().toUpperCase() === sku)
-  ));
+  const product = findProduct(db.memoryStore.products, req.params.sku);
 
   if (!product) {
-    return res.status(404).json({ error: `Producto ${sku} no encontrado.` });
+    return res.status(404).json({ error: `Producto ${req.params.sku} no encontrado.` });
   }
 
   res.json({ product });
@@ -125,17 +136,10 @@ router.get('/:sku', (req, res) => {
 
 // POST /api/products/:sku/toggle-active - Toggle active status for SKU on server
 router.post('/:sku/toggle-active', (req, res) => {
-  const sku = req.params.sku.toString().trim().toUpperCase();
-  const product = (db.memoryStore.products || []).find(p => (
-    (p.code_frumusa && p.code_frumusa.toString().toUpperCase() === sku) ||
-    (p.codeFrumusa && p.codeFrumusa.toString().toUpperCase() === sku) ||
-    (p.NO_ARTI && p.NO_ARTI.toString().toUpperCase() === sku) ||
-    (p.code_country && p.code_country.toString().toUpperCase() === sku) ||
-    (p.codeCountry && p.codeCountry.toString().toUpperCase() === sku)
-  ));
+  const product = findProduct(db.memoryStore.products, req.params.sku);
 
   if (!product) {
-    return res.status(404).json({ error: `Producto ${sku} no encontrado.` });
+    return res.status(404).json({ error: `Producto ${req.params.sku} no encontrado.` });
   }
 
   const { isActive } = req.body || {};
@@ -148,7 +152,7 @@ router.post('/:sku/toggle-active', (req, res) => {
 
   res.json({
     success: true,
-    message: `Producto ${sku} marcado como ${newStatus ? 'Activo' : 'Inactivo'} en el servidor.`,
+    message: `Producto ${req.params.sku} marcado como ${newStatus ? 'Activo' : 'Inactivo'} en el servidor.`,
     is_active: newStatus,
     product
   });
@@ -156,17 +160,10 @@ router.post('/:sku/toggle-active', (req, res) => {
 
 // PUT /api/products/:sku - Update product parameters and persist on server
 router.put('/:sku', (req, res) => {
-  const sku = req.params.sku.toString().trim().toUpperCase();
-  const product = (db.memoryStore.products || []).find(p => (
-    (p.code_frumusa && p.code_frumusa.toString().toUpperCase() === sku) ||
-    (p.codeFrumusa && p.codeFrumusa.toString().toUpperCase() === sku) ||
-    (p.NO_ARTI && p.NO_ARTI.toString().toUpperCase() === sku) ||
-    (p.code_country && p.code_country.toString().toUpperCase() === sku) ||
-    (p.codeCountry && p.codeCountry.toString().toUpperCase() === sku)
-  ));
+  const product = findProduct(db.memoryStore.products, req.params.sku);
 
   if (!product) {
-    return res.status(404).json({ error: `Producto ${sku} no encontrado.` });
+    return res.status(404).json({ error: `Producto ${req.params.sku} no encontrado.` });
   }
 
   const { stockActual, transitQty, packMultiple, minCoverageQty, safetyStockDays, unitCost, description, codeFrumusa, codeCountry, unitEq, isActive } = req.body;
