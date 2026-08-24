@@ -506,6 +506,8 @@ class MrpApp {
               const savedOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
               if (Array.isArray(savedOrders) && savedOrders.length > 0) {
                 this.activeOrders = savedOrders;
+              } else if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
+                this.activeOrders = JSON.parse(JSON.stringify(INITIAL_ORDERS));
               }
             } catch(e) {}
           }
@@ -518,11 +520,13 @@ class MrpApp {
       console.warn('Backend fetch failed, falling back to local data.js:', e);
     }
 
-    // Fallback active orders from localStorage if offline
+    // Fallback active orders from localStorage or INITIAL_ORDERS if offline
     try {
       const savedOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
       if (Array.isArray(savedOrders) && savedOrders.length > 0) {
         this.activeOrders = savedOrders;
+      } else if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
+        this.activeOrders = JSON.parse(JSON.stringify(INITIAL_ORDERS));
       }
     } catch(e) {}
 
@@ -646,6 +650,29 @@ class MrpApp {
         totalUnits,
         totalBoxes
       });
+    }
+
+    // Update In-Transit Order Banner in Planning Tab
+    const transitBanner = document.getElementById('active-transit-banner');
+    const transitBannerText = document.getElementById('transit-banner-text');
+    const btnDownloadExcel = document.getElementById('btn-banner-download-excel');
+
+    if (transitBanner) {
+      if (this.activeOrders && this.activeOrders.length > 0) {
+        const latestOrder = this.activeOrders[0];
+        transitBanner.style.display = 'flex';
+        if (transitBannerText) {
+          const costFormatted = window.AppFormatter ? window.AppFormatter.currency(latestOrder.totalCost || 0) : `₡${Math.round(latestOrder.totalCost || 0)}`;
+          transitBannerText.innerHTML = `<strong>${this.activeOrders.length} Pedido(s) en Tránsito (72h):</strong> ${latestOrder.orderNumber || latestOrder.orderCode} (${latestOrder.totalItems || latestOrder.items.length} SKUs, ${latestOrder.totalBoxes || 0} cjas, ${costFormatted}). Ingreso: ${latestOrder.deliveryDay || '72h'}`;
+        }
+        if (btnDownloadExcel) {
+          btnDownloadExcel.onclick = () => {
+            this.downloadOrderXlsx(latestOrder.orderCode || latestOrder.orderNumber || latestOrder.id);
+          };
+        }
+      } else {
+        transitBanner.style.display = 'none';
+      }
     }
   }
 

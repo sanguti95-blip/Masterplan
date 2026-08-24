@@ -279,6 +279,22 @@
           </div>
         </div>
 
+        <!-- Active In-Transit Orders Notification Banner (Visible in Planning tab) -->
+        <div id="active-transit-banner" class="active-transit-banner" style="display: none;">
+          <div class="transit-banner-content">
+            <i class="fa-solid fa-truck-fast text-primary"></i>
+            <span id="transit-banner-text"><strong>1 Pedido Activo en Tránsito:</strong> PED-JUE-20260820-01 (39 SKUs | ₡524.395)</span>
+          </div>
+          <div class="transit-banner-actions">
+            <button type="button" class="btn-xs btn-primary" onclick="window.App.switchTab('transit')">
+              <i class="fa-solid fa-eye"></i> Ver en Tránsito
+            </button>
+            <button type="button" class="btn-xs btn-secondary" id="btn-banner-download-excel">
+              <i class="fa-solid fa-file-excel"></i> Descargar Excel
+            </button>
+          </div>
+        </div>
+
         <!-- Active Product Context HUD (Shows current product details during review & editing) -->
         <div id="active-product-hud" class="active-product-hud">
           <div class="hud-inner">

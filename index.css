@@ -2655,3 +2655,67 @@ body.theme-light .catalog-row-inactive {
   margin: 0;
 }
 
+/* ==========================================================================
+   ACTIVE IN-TRANSIT BANNER IN PLANNING TAB
+   ========================================================================== */
+.active-transit-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  font-size: 0.86rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.transit-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-main);
+}
+
+.transit-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-xs {
+  padding: 4px 10px;
+  font-size: 0.76rem;
+  border-radius: 5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+.btn-xs.btn-primary {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-xs.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-xs.btn-secondary {
+  background: var(--surface-hover);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+.btn-xs.btn-secondary:hover {
+  background: var(--border);
+}
+
+
