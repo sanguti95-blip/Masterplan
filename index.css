@@ -151,6 +151,7 @@ body {
 .app-layout {
   display: flex;
   min-height: 100vh;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .app-sidebar {
@@ -160,16 +161,71 @@ body {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease;
   z-index: 20;
+  overflow: hidden;
+  position: relative;
 }
 
 .sidebar-brand {
-  padding: 20px;
+  padding: 18px 16px;
   display: flex;
   align-items: center;
   gap: 12px;
   border-bottom: 1px solid var(--border);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.btn-toggle-sidebar {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-card);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-toggle-sidebar:hover {
+  background: var(--surface-hover);
+  color: var(--primary);
+  border-color: var(--primary-border);
+}
+
+.btn-sidebar-toggle-header {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-sidebar-toggle-header:hover {
+  background: var(--surface-hover);
+  color: var(--primary);
+  border-color: var(--primary-border);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .brand-logo {
@@ -183,6 +239,13 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .brand-info h2 {
@@ -200,6 +263,7 @@ body {
   padding: 2px 6px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
+  white-space: nowrap;
 }
 
 .sidebar-nav {
@@ -225,6 +289,62 @@ body {
   cursor: pointer;
   text-align: left;
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+/* Collapsed Sidebar Mode */
+.app-layout.sidebar-collapsed .app-sidebar {
+  width: 68px;
+}
+
+.app-layout.sidebar-collapsed .app-main {
+  max-width: calc(100vw - 68px);
+  padding: 20px 24px;
+}
+
+.app-layout.sidebar-collapsed .sidebar-brand {
+  padding: 16px 8px;
+  justify-content: center;
+}
+
+.app-layout.sidebar-collapsed .brand-info {
+  display: none;
+}
+
+.app-layout.sidebar-collapsed .btn-toggle-sidebar {
+  display: none;
+}
+
+.app-layout.sidebar-collapsed .nav-tab {
+  justify-content: center;
+  padding: 12px 0;
+  width: 44px;
+  margin: 0 auto;
+}
+
+.app-layout.sidebar-collapsed .nav-tab span {
+  display: none;
+}
+
+.app-layout.sidebar-collapsed .nav-tab i {
+  font-size: 1.2rem;
+}
+
+.app-layout.sidebar-collapsed .sidebar-footer {
+  padding: 12px 6px;
+  align-items: center;
+}
+
+.app-layout.sidebar-collapsed .sidebar-footer span {
+  display: none;
+}
+
+.app-layout.sidebar-collapsed .sync-indicator {
+  justify-content: center;
+}
+
+.app-layout.sidebar-collapsed .user-chip {
+  justify-content: center;
 }
 
 .nav-tab i {

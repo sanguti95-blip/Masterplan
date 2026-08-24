@@ -129,6 +129,25 @@ class MrpApp {
   }
 
   attachDomListeners() {
+    // Sidebar Collapse / Expand Toggle
+    const layout = document.querySelector('.app-layout');
+    const toggleSidebarBtn = document.getElementById('btn-toggle-sidebar');
+    const toggleSidebarHeaderBtn = document.getElementById('btn-toggle-sidebar-header');
+
+    if (localStorage.getItem('mrp_sidebar_collapsed') === 'true' && layout) {
+      layout.classList.add('sidebar-collapsed');
+    }
+
+    const toggleSidebar = () => {
+      if (!layout) return;
+      layout.classList.toggle('sidebar-collapsed');
+      const isCollapsed = layout.classList.contains('sidebar-collapsed');
+      localStorage.setItem('mrp_sidebar_collapsed', isCollapsed ? 'true' : 'false');
+    };
+
+    if (toggleSidebarBtn) toggleSidebarBtn.addEventListener('click', toggleSidebar);
+    if (toggleSidebarHeaderBtn) toggleSidebarHeaderBtn.addEventListener('click', toggleSidebar);
+
     // Tab Navigation
     document.querySelectorAll('.nav-tab').forEach(tab => {
       tab.addEventListener('click', (e) => {

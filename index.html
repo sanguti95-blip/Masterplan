@@ -29,46 +29,49 @@
   <div class="app-layout">
     
     <!-- Sidebar Navigation -->
-    <aside class="app-sidebar">
+    <aside class="app-sidebar" id="app-sidebar">
       <div class="sidebar-brand">
-        <div class="brand-logo">
+        <div class="brand-logo" title="CODISA Abastecimiento Retail">
           <i class="fa-solid fa-boxes-stacked"></i>
         </div>
         <div class="brand-info">
           <h2>CODISA</h2>
           <span class="brand-badge">Abastecimiento Retail</span>
         </div>
+        <button id="btn-toggle-sidebar" class="btn-toggle-sidebar" title="Plegar / Desplegar menú lateral">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
       </div>
 
       <nav class="sidebar-nav">
-        <button class="nav-tab active" data-tab="planner">
+        <button class="nav-tab active" data-tab="planner" title="Plan de Pedidos (MRP)">
           <i class="fa-solid fa-table-list"></i>
           <span>Plan de Pedidos</span>
         </button>
-        <button class="nav-tab" data-tab="catalog">
+        <button class="nav-tab" data-tab="catalog" title="Maestro de Artículos">
           <i class="fa-solid fa-list-check"></i>
           <span>Maestro de Artículos</span>
         </button>
-        <button class="nav-tab" data-tab="transit">
+        <button class="nav-tab" data-tab="transit" title="Pedidos en Tránsito">
           <i class="fa-solid fa-truck-fast"></i>
           <span>Pedidos en Tránsito</span>
         </button>
-        <button class="nav-tab" data-tab="sync">
+        <button class="nav-tab" data-tab="sync" title="Sincronización con Google Sheets">
           <i class="fa-solid fa-cloud-arrow-down"></i>
           <span>Sincronización</span>
         </button>
-        <button class="nav-tab" data-tab="config">
+        <button class="nav-tab" data-tab="config" title="Configuración del Sistema">
           <i class="fa-solid fa-sliders"></i>
           <span>Configuración</span>
         </button>
       </nav>
 
       <div class="sidebar-footer">
-        <div class="sync-indicator">
+        <div class="sync-indicator" title="Conexión en tiempo real activa">
           <span class="status-dot online"></span>
           <span id="sync-status-badge">Conectado (Google Sheets)</span>
         </div>
-        <div class="user-chip">
+        <div class="user-chip" title="Milton Sánchez G. (Planificador Retail)">
           <i class="fa-solid fa-user-tie"></i>
           <span>Milton Sánchez G.</span>
         </div>
@@ -81,8 +84,13 @@
       <!-- Top App Header -->
       <header class="app-header">
         <div class="header-left">
-          <h1 id="view-title">Plan de Abastecimiento & Pedidos</h1>
-          <p id="data-status-text" class="header-subtitle">Cargando base de datos inicial CODISA...</p>
+          <button id="btn-toggle-sidebar-header" class="btn-sidebar-toggle-header" title="Alternar menú lateral (desplegar/ocultar)">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+          <div>
+            <h1 id="view-title">Plan de Abastecimiento & Pedidos</h1>
+            <p id="data-status-text" class="header-subtitle">Cargando base de datos inicial CODISA...</p>
+          </div>
         </div>
 
         <div class="header-right">
