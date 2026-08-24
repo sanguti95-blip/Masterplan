@@ -285,17 +285,29 @@ async function syncFromGoogleAppsScript(customUrl) {
         const key2 = (prod.code_country || prod.codeCountry || '').toString().trim().toUpperCase();
         const desc = (prod.description || prod.descripcion || prod.ARTICULO || '').toString().trim().toUpperCase();
 
-        let match = (key1 ? codisaMap.get(key1) : null) ||
-                    (key2 ? codisaMap.get(key2) : null) ||
-                    (desc ? codisaByDesc.get(desc) : null);
+        const candidates = [];
+        if (key1 && codisaMap.has(key1)) candidates.push(codisaMap.get(key1));
+        if (key2 && codisaMap.has(key2) && key2 !== key1) candidates.push(codisaMap.get(key2));
+        if (desc && codisaByDesc.has(desc)) candidates.push(codisaByDesc.get(desc));
 
-        if (!match && desc) {
+        if (candidates.length === 0 && desc) {
           for (const [d, r] of codisaByDesc.entries()) {
             if (desc.includes(d) || d.includes(desc) || (desc.split(' ')[0] === d.split(' ')[0] && desc.length > 3)) {
-              match = r;
+              candidates.push(r);
               break;
             }
           }
+        }
+
+        let match = null;
+        if (candidates.length > 0) {
+          // Priorizar: 1) fecha de corte más reciente, 2) existencia física positiva, 3) mayor volumen de ventas
+          candidates.sort((a, b) => {
+            if (b.timestamp !== a.timestamp) return b.timestamp - a.timestamp;
+            if ((b.saldoActual > 0) !== (a.saldoActual > 0)) return b.saldoActual > 0 ? 1 : -1;
+            return (b.cantidadVentas || 0) - (a.cantidadVentas || 0);
+          });
+          match = candidates[0];
         }
 
         if (match) {
