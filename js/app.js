@@ -388,6 +388,13 @@ class MrpApp {
 
     localStorage.setItem('mrp_user_settings', JSON.stringify(config));
 
+    // Persist to Server
+    if (window.ApiClient && window.ApiClient.savePlanningConfig) {
+      window.ApiClient.savePlanningConfig(config).catch(err => {
+        console.warn('Sync config to server deferred:', err.message);
+      });
+    }
+
     // Update period filter in planner if changed
     const periodFilter = document.getElementById('period-filter');
     if (periodFilter) periodFilter.value = this.vdpDays.toString();
@@ -1075,7 +1082,7 @@ class MrpApp {
     item.is_active = newStatus;
     item.isActive = newStatus;
 
-    // Save to overrides in localStorage
+    // 1. Save to overrides in localStorage (Instant client-side cache)
     let overrides = {};
     try {
       overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
@@ -1086,6 +1093,13 @@ class MrpApp {
       is_active: newStatus
     };
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
+
+    // 2. Persist to Backend Server & Disk
+    if (window.ApiClient && window.ApiClient.toggleProductActive) {
+      window.ApiClient.toggleProductActive(skuKey, newStatus).catch(err => {
+        console.warn('Sync toggle to server deferred:', err.message);
+      });
+    }
 
     this.renderCatalogEditor();
     this.recalculateAndRender();
@@ -1194,6 +1208,7 @@ class MrpApp {
     ));
     const isActive = item ? (item.is_active !== false && item.isActive !== false) : true;
 
+    // 1. Save to LocalStorage
     let overrides = {};
     try {
       overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
@@ -1211,6 +1226,21 @@ class MrpApp {
     };
 
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
+
+    // 2. Persist to Backend Server & Disk
+    if (window.ApiClient && window.ApiClient.updateProduct) {
+      window.ApiClient.updateProduct(skuKey, {
+        isActive,
+        codeFrumusa: frumusa,
+        codeCountry: country,
+        description: desc,
+        unitEq: unit,
+        packMultiple: pack,
+        minCoverageQty: minQty
+      }).catch(err => {
+        console.warn('Sync row to server deferred:', err.message);
+      });
+    }
 
     // Update in-memory item
     if (item) {
@@ -1280,7 +1310,16 @@ class MrpApp {
       }
     });
 
+    // 1. Save to LocalStorage
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
+
+    // 2. Persist to Backend Server & Disk
+    if (window.ApiClient && window.ApiClient.batchUpdateProducts) {
+      window.ApiClient.batchUpdateProducts(overrides).catch(err => {
+        console.warn('Sync batch update to server deferred:', err.message);
+      });
+    }
+
     this.recalculateAndRender();
     window.Toast.show('✅ Todos los parámetros del Maestro de Artículos han sido guardados con éxito.', 'success');
   }

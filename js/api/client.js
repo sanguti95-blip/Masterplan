@@ -61,6 +61,13 @@ const ApiClient = {
     return this.request(`/api/planning/calculate?day=${encodeURIComponent(day)}&safetyStock=${safetyStock}&vdpDays=${vdpDays}`);
   },
 
+  savePlanningConfig(config) {
+    return this.request('/api/planning/config', {
+      method: 'POST',
+      body: JSON.stringify(config)
+    });
+  },
+
   approveOrder(payload) {
     return this.request('/api/planning/approve', {
       method: 'POST',
@@ -101,6 +108,20 @@ const ApiClient = {
     return this.request(`/api/products/${encodeURIComponent(sku)}`, {
       method: 'PUT',
       body: JSON.stringify(payload)
+    });
+  },
+
+  batchUpdateProducts(overrides) {
+    return this.request('/api/products/batch-update', {
+      method: 'POST',
+      body: JSON.stringify({ overrides })
+    });
+  },
+
+  toggleProductActive(sku, isActive) {
+    return this.request(`/api/products/${encodeURIComponent(sku)}/toggle-active`, {
+      method: 'POST',
+      body: JSON.stringify({ isActive })
     });
   },
 

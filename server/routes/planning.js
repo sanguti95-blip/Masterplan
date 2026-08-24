@@ -14,6 +14,25 @@ router.get('/matrix', (req, res) => {
   });
 });
 
+// POST /api/planning/config - Save server planning settings
+router.post('/config', (req, res) => {
+  try {
+    const { safetyStock, defaultVdpDays, warehouseName, plannerName } = req.body || {};
+    if (safetyStock !== undefined) db.memoryStore.settings.safetyStockDays = Number(safetyStock);
+    if (defaultVdpDays !== undefined) db.memoryStore.settings.defaultVdpDays = Number(defaultVdpDays);
+    if (warehouseName !== undefined) db.memoryStore.settings.warehouseName = warehouseName;
+    if (plannerName !== undefined) db.memoryStore.settings.plannerName = plannerName;
+
+    res.json({
+      success: true,
+      message: 'Configuración guardada exitosamente en el servidor.',
+      settings: db.memoryStore.settings
+    });
+  } catch (e) {
+    res.status(500).json({ error: 'Error al guardar configuración en el servidor.' });
+  }
+});
+
 // GET /api/planning/calculate?day=Lunes
 router.get('/calculate', (req, res) => {
   try {
