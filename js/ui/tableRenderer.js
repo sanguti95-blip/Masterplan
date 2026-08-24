@@ -282,12 +282,49 @@ const TableRenderer = {
         target.focus();
         target.select();
         target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        const targetItem = calculatedItems.find(i => i.codeSku === sku);
+        if (targetItem) this.updateActiveProductHud(targetItem);
       }
       this.pendingFocus = null;
     }
   },
 
+  updateActiveProductHud(item) {
+    if (!item) return;
+    const skuEl = document.getElementById('hud-sku');
+    const descEl = document.getElementById('hud-desc');
+    const vdpEl = document.getElementById('hud-vdp');
+    const stockEl = document.getElementById('hud-stock');
+    const transitEl = document.getElementById('hud-transit');
+    const covEl = document.getElementById('hud-coverage');
+    const suggEl = document.getElementById('hud-suggested');
+
+    const skuCode = (item.codeFrumusa && item.codeCountry && item.codeFrumusa !== item.codeCountry)
+      ? `${item.codeFrumusa} / ${item.codeCountry}`
+      : (item.codeFrumusa || item.codeCountry || item.codeSku);
+
+    if (skuEl) skuEl.textContent = skuCode;
+    if (descEl) descEl.textContent = item.description;
+    if (vdpEl) vdpEl.textContent = `${item.vdp.toFixed(2)} ${item.unit_eq || 'und'}/d`;
+    if (stockEl) stockEl.textContent = `${item.stockActual} ${item.unit_eq || 'und'}`;
+    if (transitEl) transitEl.textContent = `${item.activeTransit} ${item.unit_eq || 'und'}`;
+    if (covEl) {
+      const finalCov = item.vdp > 0 ? ((item.projectedStock + item.finalQty) / item.vdp) : 999;
+      covEl.textContent = item.vdp > 0 ? `${finalCov.toFixed(1)} días` : 'Sin Venta';
+    }
+    if (suggEl) suggEl.textContent = `${item.suggestedUnits} ${item.unit_eq || 'und'} (${item.suggestedBoxes} cjas)`;
+  },
+
   attachEventListeners(calculatedItems, onUpdateCallback) {
+    // Listen for focus on any input in the table to dynamically update the HUD banner
+    this.tableBody.querySelectorAll('.input-table').forEach(input => {
+      input.addEventListener('focus', () => {
+        const sku = input.dataset.sku;
+        const item = calculatedItems.find(i => i.codeSku === sku);
+        if (item) this.updateActiveProductHud(item);
+      });
+    });
+
     // Row Checkbox Click
     this.tableBody.querySelectorAll('.row-checkbox').forEach(cb => {
       cb.addEventListener('change', (e) => {

@@ -986,11 +986,137 @@ button {
   gap: 8px;
 }
 
+/* --- Active Product Context HUD --- */
+.active-product-hud {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--primary);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.active-product-hud .hud-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.active-product-hud .hud-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.active-product-hud .hud-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.active-product-hud .hud-sku {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--surface-hover);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.active-product-hud .hud-desc {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 420px;
+}
+
+.active-product-hud .hud-metrics {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.active-product-hud .hud-metric-item {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 0.80rem;
+}
+
+.active-product-hud .hud-m-label {
+  color: var(--text-muted);
+  font-size: 0.70rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.active-product-hud .hud-m-val {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+.active-product-hud .hud-metric-item.highlight {
+  background: rgba(16, 185, 129, 0.12);
+  padding: 3px 9px;
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+body.theme-light .active-product-hud {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  border-bottom: 2px solid #059669;
+}
+
+body.theme-light .active-product-hud .hud-pill {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+body.theme-light .active-product-hud .hud-sku {
+  background: #f1f5f9;
+  color: #047857;
+  border-color: #cbd5e1;
+}
+
+body.theme-light .active-product-hud .hud-desc {
+  color: #0f172a;
+}
+
 /* --- 7. MRP Table with Grouped & Sortable Headers --- */
 .table-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
 }
@@ -1103,6 +1229,98 @@ body.theme-light .mrp-table tbody tr:hover {
 
 body.theme-light .mrp-table tr.row-ordered td {
   background: #f0fdf4 !important;
+}
+
+/* Active Row Highlighting (Focus Crosshair Tracking) */
+.mrp-table tbody tr:focus-within,
+.mrp-table tbody tr.row-active-focus {
+  background: rgba(59, 130, 246, 0.14) !important;
+}
+
+.mrp-table tbody tr:focus-within td,
+.mrp-table tbody tr.row-active-focus td {
+  background: rgba(59, 130, 246, 0.14) !important;
+  border-top: 1.5px solid rgba(59, 130, 246, 0.5) !important;
+  border-bottom: 1.5px solid rgba(59, 130, 246, 0.5) !important;
+}
+
+.mrp-table tbody tr:focus-within .product-name,
+.mrp-table tbody tr.row-active-focus .product-name {
+  color: #38bdf8 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+body.theme-light .mrp-table tbody tr:focus-within td,
+body.theme-light .mrp-table tbody tr.row-active-focus td {
+  background: #eff6ff !important;
+  border-top: 1.5px solid #60a5fa !important;
+  border-bottom: 1.5px solid #60a5fa !important;
+}
+
+body.theme-light .mrp-table tbody tr:focus-within .product-name,
+body.theme-light .mrp-table tbody tr.row-active-focus .product-name {
+  color: #1e40af !important;
+}
+
+/* Sticky First Columns (Checkbox, SKU, and Description) during Horizontal Scroll */
+.col-checkbox {
+  position: sticky;
+  left: 0;
+  background: var(--surface-card);
+  z-index: 5;
+}
+.col-sku {
+  position: sticky;
+  left: 40px;
+  background: var(--surface-card);
+  z-index: 5;
+}
+.col-desc {
+  position: sticky;
+  left: 150px;
+  background: var(--surface-card);
+  z-index: 5;
+  box-shadow: 4px 0 8px -3px rgba(0, 0, 0, 0.4);
+}
+thead .col-checkbox {
+  z-index: 12 !important;
+}
+thead .col-sku {
+  z-index: 12 !important;
+}
+thead .col-desc {
+  z-index: 12 !important;
+}
+body.theme-light .col-checkbox,
+body.theme-light .col-sku,
+body.theme-light .col-desc {
+  background: #ffffff;
+}
+body.theme-light thead .col-checkbox,
+body.theme-light thead .col-sku,
+body.theme-light thead .col-desc {
+  background: #f1f5f9;
+}
+.mrp-table tbody tr:hover .col-checkbox,
+.mrp-table tbody tr:hover .col-sku,
+.mrp-table tbody tr:hover .col-desc {
+  background: var(--surface-hover);
+}
+body.theme-light .mrp-table tbody tr:hover .col-checkbox,
+body.theme-light .mrp-table tbody tr:hover .col-sku,
+body.theme-light .mrp-table tbody tr:hover .col-desc {
+  background: #f1f5f9;
+}
+.mrp-table tbody tr:focus-within .col-checkbox,
+.mrp-table tbody tr:focus-within .col-sku,
+.mrp-table tbody tr:focus-within .col-desc {
+  background: rgba(59, 130, 246, 0.16) !important;
+}
+body.theme-light .mrp-table tbody tr:focus-within .col-checkbox,
+body.theme-light .mrp-table tbody tr:focus-within .col-sku,
+body.theme-light .mrp-table tbody tr:focus-within .col-desc {
+  background: #eff6ff !important;
 }
 
 .badge-sku-frumusa {

@@ -279,6 +279,39 @@
           </div>
         </div>
 
+        <!-- Active Product Context HUD (Shows current product details during review & editing) -->
+        <div id="active-product-hud" class="active-product-hud">
+          <div class="hud-inner">
+            <div class="hud-left">
+              <span class="hud-pill"><i class="fa-solid fa-crosshairs"></i> REVISANDO ARTÍCULO</span>
+              <span class="hud-sku" id="hud-sku">-</span>
+              <strong class="hud-desc" id="hud-desc">Haz clic o usa las flechas/Enter en cualquier fila para ver sus datos</strong>
+            </div>
+            <div class="hud-metrics">
+              <div class="hud-metric-item">
+                <span class="hud-m-label">VDP:</span>
+                <strong class="hud-m-val" id="hud-vdp">-</strong>
+              </div>
+              <div class="hud-metric-item">
+                <span class="hud-m-label">STOCK 401:</span>
+                <strong class="hud-m-val" id="hud-stock">-</strong>
+              </div>
+              <div class="hud-metric-item">
+                <span class="hud-m-label">TRÁNSITO:</span>
+                <strong class="hud-m-val" id="hud-transit">-</strong>
+              </div>
+              <div class="hud-metric-item">
+                <span class="hud-m-label">COBERTURA:</span>
+                <strong class="hud-m-val text-amber" id="hud-coverage">-</strong>
+              </div>
+              <div class="hud-metric-item highlight">
+                <span class="hud-m-label">SUGERIDO:</span>
+                <strong class="hud-m-val text-emerald" id="hud-suggested">-</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Replenishment Data Table with Grouped Headers & Column Sorting -->
         <div class="table-card">
           <div class="table-scroll-container">
