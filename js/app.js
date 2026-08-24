@@ -224,6 +224,14 @@ class MrpApp {
       });
     }
 
+    const catalogStatusFilter = document.getElementById('catalog-status-filter');
+    if (catalogStatusFilter) {
+      catalogStatusFilter.addEventListener('change', (e) => {
+        this.catalogSelectedStatus = e.target.value;
+        this.renderCatalogEditor();
+      });
+    }
+
     const btnCatalogSave = document.getElementById('btn-catalog-save-all');
     if (btnCatalogSave) {
       btnCatalogSave.addEventListener('click', () => {
@@ -235,6 +243,29 @@ class MrpApp {
     if (btnCatalogReset) {
       btnCatalogReset.addEventListener('click', () => {
         this.resetCatalogToFactory();
+      });
+    }
+
+    // Catalog Table Delegation for Status Toggle and Row Save (CSP compliant)
+    const catalogTbody = document.getElementById('catalog-table-body');
+    if (catalogTbody) {
+      catalogTbody.addEventListener('click', (e) => {
+        const toggleBtn = e.target.closest('.btn-status-toggle');
+        if (toggleBtn) {
+          const row = toggleBtn.closest('tr[data-sku]');
+          if (row && row.dataset.sku) {
+            this.toggleSkuActive(row.dataset.sku);
+          }
+          return;
+        }
+        const saveBtn = e.target.closest('.btn-row-save');
+        if (saveBtn) {
+          const row = saveBtn.closest('tr[data-sku]');
+          if (row && row.dataset.sku) {
+            this.saveSingleCatalogRow(row.dataset.sku);
+          }
+          return;
+        }
       });
     }
 
@@ -561,8 +592,9 @@ class MrpApp {
     let totalBoxes = 0;
 
     const q = (this.searchQuery || '').toLowerCase().trim();
+    const activeProducts = this.items.filter(prod => prod.is_active !== false && prod.isActive !== false);
 
-    this.calculatedItems = this.items.map(prod => {
+    this.calculatedItems = activeProducts.map(prod => {
       const calc = window.MrpEngine.calculateItem(prod, this.executionDay, this.activeOrders, this.safetyStock);
 
       // Accumulate totals across all products
@@ -996,6 +1028,10 @@ class MrpApp {
           const k3 = (item.codeSku || '').toString().trim().toUpperCase();
           const ov = overrides[k1] || overrides[k2] || overrides[k3];
           if (ov) {
+            if (ov.is_active !== undefined) {
+              item.is_active = ov.is_active;
+              item.isActive = ov.is_active;
+            }
             if (ov.pack_multiple !== undefined) {
               item.pack_multiple = Number(ov.pack_multiple);
               item.packMultiple = Number(ov.pack_multiple);
@@ -1005,11 +1041,11 @@ class MrpApp {
               item.minCoverageUnits = Number(ov.min_coverage_qty);
               item.safety_stock_units = Number(ov.min_coverage_qty);
             }
-            if (ov.code_frumusa) {
+            if (ov.code_frumusa !== undefined) {
               item.code_frumusa = ov.code_frumusa;
               item.codeFrumusa = ov.code_frumusa;
             }
-            if (ov.code_country) {
+            if (ov.code_country !== undefined) {
               item.code_country = ov.code_country;
               item.codeCountry = ov.code_country;
             }
@@ -1023,12 +1059,52 @@ class MrpApp {
     }
   }
 
+  toggleSkuActive(skuKey) {
+    const item = this.items.find(i => {
+      const k1 = (i.code_frumusa || i.codeFrumusa || '').toString().trim().toUpperCase();
+      const k2 = (i.code_country || i.codeCountry || '').toString().trim().toUpperCase();
+      const k3 = (i.codeSku || '').toString().trim().toUpperCase();
+      return k1 === skuKey.toUpperCase() || k2 === skuKey.toUpperCase() || k3 === skuKey.toUpperCase();
+    });
+
+    if (!item) return;
+
+    const currentStatus = item.is_active !== false && item.isActive !== false;
+    const newStatus = !currentStatus;
+
+    item.is_active = newStatus;
+    item.isActive = newStatus;
+
+    // Save to overrides in localStorage
+    let overrides = {};
+    try {
+      overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
+    } catch(e) {}
+
+    overrides[skuKey.toUpperCase()] = {
+      ...(overrides[skuKey.toUpperCase()] || {}),
+      is_active: newStatus
+    };
+    localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
+
+    this.renderCatalogEditor();
+    this.recalculateAndRender();
+
+    if (window.Toast) {
+      window.Toast.show(
+        `Artículo ${item.description || skuKey} marcado como ${newStatus ? 'ACTIVO (Visible en MRP)' : 'DESACTIVADO (Oculto en MRP)'}.`,
+        newStatus ? 'success' : 'info'
+      );
+    }
+  }
+
   renderCatalogEditor() {
     const tbody = document.getElementById('catalog-table-body');
     if (!tbody) return;
 
     const q = (this.catalogSearchQuery || '').toLowerCase().trim();
     const cat = this.catalogSelectedCategory || 'all';
+    const status = this.catalogSelectedStatus || 'all';
 
     const filtered = this.items.filter(item => {
       const sku1 = (item.code_frumusa || item.codeFrumusa || '').toString().toLowerCase();
@@ -1036,13 +1112,15 @@ class MrpApp {
       const desc = (item.description || item.ARTICULO || '').toString().toLowerCase();
       const matchQuery = !q || sku1.includes(q) || sku2.includes(q) || desc.includes(q);
       const matchCat = cat === 'all' || item.category === cat;
-      return matchQuery && matchCat;
+      const isActive = item.is_active !== false && item.isActive !== false;
+      const matchStatus = status === 'all' || (status === 'active' && isActive) || (status === 'inactive' && !isActive);
+      return matchQuery && matchCat && matchStatus;
     });
 
     if (filtered.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="7" class="table-empty-state" style="text-align: center; padding: 30px;">
+          <td colspan="8" class="table-empty-state" style="text-align: center; padding: 30px;">
             <i class="fa-solid fa-box-open" style="font-size: 2rem; color: var(--text-dim); margin-bottom: 8px;"></i>
             <p>No se encontraron artículos en el maestro con los filtros seleccionados.</p>
           </td>
@@ -1053,16 +1131,25 @@ class MrpApp {
 
     tbody.innerHTML = filtered.map(item => {
       const skuKey = (item.code_frumusa || item.codeFrumusa || item.code_country || item.codeCountry || item.codeSku || '').toString().trim();
-      const frumusaVal = item.code_frumusa || item.codeFrumusa || item.codeSku || '';
+      const frumusaVal = item.code_frumusa || item.codeFrumusa || '';
       const countryVal = item.code_country || item.codeCountry || item.codeSku || '';
       const descVal = item.description || item.ARTICULO || '';
       const unitVal = item.unit_eq || item.UNIDAD_EQ || 'UD';
       const packVal = Number(item.pack_multiple || item.packMultiple || 1);
       const minQty = Math.round(Number(item.min_coverage_qty || item.minCoverageUnits || item.safety_stock_units || packVal || 1));
+      const isActive = item.is_active !== false && item.isActive !== false;
+
       return `
-        <tr data-sku="${skuKey}">
+        <tr data-sku="${skuKey}" class="${!isActive ? 'catalog-row-inactive' : ''}">
+          <td class="text-center">
+            <button type="button" class="btn-status-toggle ${isActive ? 'status-active' : 'status-inactive'}" 
+                    title="${isActive ? 'Artículo Activo en MRP (Clic para desactivar)' : 'Artículo Desactivado (Clic para activar)'}">
+              <i class="fa-solid ${isActive ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
+              <span>${isActive ? 'Activo' : 'Inactivo'}</span>
+            </button>
+          </td>
           <td>
-            <input type="text" class="input-catalog font-mono field-frumusa" data-sku="${skuKey}" value="${frumusaVal}" title="Código Frumusa (Proveedor)">
+            <input type="text" class="input-catalog font-mono field-frumusa" data-sku="${skuKey}" value="${frumusaVal}" placeholder="-" title="Código Frumusa (Proveedor)">
           </td>
           <td>
             <input type="text" class="input-catalog font-mono field-country" data-sku="${skuKey}" value="${countryVal}" title="Código Country (CODISA)">
@@ -1080,7 +1167,7 @@ class MrpApp {
             <input type="number" step="1" min="0" class="input-catalog font-mono text-center field-ss" data-sku="${skuKey}" value="${minQty}" style="max-width: 90px;" title="Cobertura Mínima en Unidades (Stock de Seguridad requerido)">
           </td>
           <td class="text-center">
-            <button class="btn-row-save" onclick="window.MrpAppInstance.saveSingleCatalogRow('${skuKey}')" title="Guardar fila">
+            <button class="btn-row-save" title="Guardar cambios de esta fila">
               <i class="fa-solid fa-check"></i>
             </button>
           </td>
@@ -1100,12 +1187,20 @@ class MrpApp {
     const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
     const minQty = Math.round(parseFloat(row.querySelector('.field-ss').value) || 0);
 
+    const item = this.items.find(i => (
+      i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
+      i.code_country === skuKey || i.codeCountry === skuKey || 
+      i.codeSku === skuKey
+    ));
+    const isActive = item ? (item.is_active !== false && item.isActive !== false) : true;
+
     let overrides = {};
     try {
       overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
     } catch(e) {}
 
     overrides[skuKey.toUpperCase()] = {
+      is_active: isActive,
       code_frumusa: frumusa,
       code_country: country,
       description: desc,
@@ -1118,11 +1213,6 @@ class MrpApp {
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
     // Update in-memory item
-    const item = this.items.find(i => (
-      i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
-      i.code_country === skuKey || i.codeCountry === skuKey || 
-      i.codeSku === skuKey
-    ));
     if (item) {
       item.code_frumusa = frumusa;
       item.codeFrumusa = frumusa;
@@ -1157,7 +1247,15 @@ class MrpApp {
       const pack = parseFloat(row.querySelector('.field-pack').value) || 1;
       const minQty = Math.round(parseFloat(row.querySelector('.field-ss').value) || 0);
 
+      const item = this.items.find(i => (
+        i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
+        i.code_country === skuKey || i.codeCountry === skuKey || 
+        i.codeSku === skuKey
+      ));
+      const isActive = item ? (item.is_active !== false && item.isActive !== false) : true;
+
       overrides[skuKey.toUpperCase()] = {
+        is_active: isActive,
         code_frumusa: frumusa,
         code_country: country,
         description: desc,
@@ -1167,11 +1265,6 @@ class MrpApp {
         safety_stock_units: minQty
       };
 
-      const item = this.items.find(i => (
-        i.code_frumusa === skuKey || i.codeFrumusa === skuKey || 
-        i.code_country === skuKey || i.codeCountry === skuKey || 
-        i.codeSku === skuKey
-      ));
       if (item) {
         item.code_frumusa = frumusa;
         item.codeFrumusa = frumusa;
@@ -1189,7 +1282,7 @@ class MrpApp {
 
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
     this.recalculateAndRender();
-    window.Toast.show('¡Todos los cambios del Maestro de Artículos fueron guardados exitosamente!', 'success');
+    window.Toast.show('✅ Todos los parámetros del Maestro de Artículos han sido guardados con éxito.', 'success');
   }
 
   resetCatalogToFactory() {

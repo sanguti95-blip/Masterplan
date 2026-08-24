@@ -313,7 +313,7 @@
         <div class="section-header">
           <div>
             <h2>Maestro de Artículos & Parámetros Base</h2>
-            <p>Configuración directa de códigos de venta (Country), códigos de pedido (Frumusa), unidades, múltiplos de bulto y cobertura mínima (unidades).</p>
+            <p>Configuración directa de estado (Activo/Inactivo), códigos Frumusa/Country, múltiplos de bulto y cobertura mínima.</p>
           </div>
         </div>
 
@@ -321,6 +321,15 @@
           <div class="search-box search-box-catalog">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <input type="text" id="catalog-search-input" placeholder="Buscar por código Frumusa, Country o descripción...">
+          </div>
+
+          <div class="category-select-wrapper">
+            <i class="fa-solid fa-toggle-on select-icon"></i>
+            <select id="catalog-status-filter" class="category-select" title="Filtrar por Estado en el Plan MRP">
+              <option value="all">Todos los Estados</option>
+              <option value="active" selected>Solo Activos en MRP</option>
+              <option value="inactive">Solo Desactivados</option>
+            </select>
           </div>
 
           <div class="category-select-wrapper">
@@ -353,6 +362,7 @@
             <table class="mrp-table catalog-table" id="catalog-table">
               <thead>
                 <tr class="header-main">
+                  <th style="width: 110px;" class="text-center">ESTADO</th>
                   <th style="width: 120px;">CÓDIGO PEDIDO (FRUMUSA)</th>
                   <th style="width: 120px;">CÓDIGO VENTA (COUNTRY)</th>
                   <th>DESCRIPCIÓN DEL ARTÍCULO</th>

@@ -1518,6 +1518,67 @@ body.theme-light .btn-row-save:hover {
   color: #ffffff;
 }
 
+/* Status Toggle Button (Activo / Inactivo) */
+.btn-status-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn-status-toggle.status-active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+body.theme-light .btn-status-toggle.status-active {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+
+.btn-status-toggle.status-active:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.btn-status-toggle.status-inactive {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+body.theme-light .btn-status-toggle.status-inactive {
+  background: #f1f5f9;
+  color: #64748b;
+  border-color: #cbd5e1;
+}
+
+.btn-status-toggle.status-inactive:hover {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.catalog-row-inactive {
+  opacity: 0.55;
+  background: rgba(15, 23, 42, 0.35) !important;
+}
+
+body.theme-light .catalog-row-inactive {
+  background: #f8fafc !important;
+  opacity: 0.6;
+}
+
 .row-modified {
   background: rgba(245, 158, 11, 0.05);
 }
