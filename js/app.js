@@ -518,7 +518,18 @@ class MrpApp {
           localStorage.setItem('codisa_catalog_overrides', JSON.stringify(mergedOv));
         }
 
-        // Smart-Merge In-Transit Orders (Never wipe out local/initial orders with an empty server array)
+        // Smart-Merge In-Transit Orders (Never wipe out local/initial orders, but respect user deletions)
+        const deletedIds = new Set();
+        try {
+          const arr = JSON.parse(localStorage.getItem('mrp_deleted_orders') || '[]');
+          if (Array.isArray(arr)) arr.forEach(id => deletedIds.add(id));
+        } catch(e) {}
+
+        const isDeleted = (o) => {
+          if (!o) return true;
+          return deletedIds.has(o.id) || deletedIds.has(o.orderCode) || deletedIds.has(o.orderNumber);
+        };
+
         const serverOrders = (transitRes.status === 'fulfilled' && transitRes.value && Array.isArray(transitRes.value.orders)) ? transitRes.value.orders : [];
         let localOrders = [];
         try {
@@ -529,19 +540,19 @@ class MrpApp {
         if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
           INITIAL_ORDERS.forEach(o => {
             const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
-            if (key) orderMap.set(key, o);
+            if (key && !isDeleted(o)) orderMap.set(key, o);
           });
         }
         if (Array.isArray(localOrders)) {
           localOrders.forEach(o => {
             const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
-            if (key) orderMap.set(key, o);
+            if (key && !isDeleted(o)) orderMap.set(key, o);
           });
         }
         if (Array.isArray(serverOrders)) {
           serverOrders.forEach(o => {
             const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
-            if (key) orderMap.set(key, o);
+            if (key && !isDeleted(o)) orderMap.set(key, o);
           });
         }
 
@@ -561,18 +572,25 @@ class MrpApp {
 
     // Fallback active orders from localStorage or INITIAL_ORDERS if offline
     try {
+      const deletedIds = new Set();
+      try {
+        const arr = JSON.parse(localStorage.getItem('mrp_deleted_orders') || '[]');
+        if (Array.isArray(arr)) arr.forEach(id => deletedIds.add(id));
+      } catch(e) {}
+      const isDeleted = (o) => !o || deletedIds.has(o.id) || deletedIds.has(o.orderCode) || deletedIds.has(o.orderNumber);
+
       const savedOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
       const orderMap = new Map();
       if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
         INITIAL_ORDERS.forEach(o => {
           const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
-          if (key) orderMap.set(key, o);
+          if (key && !isDeleted(o)) orderMap.set(key, o);
         });
       }
       if (Array.isArray(savedOrders)) {
         savedOrders.forEach(o => {
           const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
-          if (key) orderMap.set(key, o);
+          if (key && !isDeleted(o)) orderMap.set(key, o);
         });
       }
       this.activeOrders = Array.from(orderMap.values());
@@ -1155,14 +1173,35 @@ class MrpApp {
   }
 
   async clearAllTransit() {
-    if (!confirm('¿Estás seguro de que deseas eliminar TODOS los pedidos en tránsito del servidor? Esta acción liberará el stock en tránsito.')) {
+    if (!confirm('¿Estás seguro de que deseas eliminar TODOS los pedidos en tránsito? Esta acción liberará el stock en tránsito.')) {
       return;
     }
     try {
       if (window.ApiClient) {
         await window.ApiClient.clearAllTransitOrders().catch(() => {});
       }
+
+      // Record all order IDs in deleted
+      const deletedIds = new Set();
+      try {
+        const arr = JSON.parse(localStorage.getItem('mrp_deleted_orders') || '[]');
+        if (Array.isArray(arr)) arr.forEach(id => deletedIds.add(id));
+      } catch(e) {}
+      this.activeOrders.forEach(o => {
+        if (o.id) deletedIds.add(o.id);
+        if (o.orderCode) deletedIds.add(o.orderCode);
+        if (o.orderNumber) deletedIds.add(o.orderNumber);
+      });
+      if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
+        INITIAL_ORDERS.forEach(o => {
+          if (o.id) deletedIds.add(o.id);
+          if (o.orderCode) deletedIds.add(o.orderCode);
+          if (o.orderNumber) deletedIds.add(o.orderNumber);
+        });
+      }
+
       this.activeOrders = [];
+      localStorage.setItem('mrp_deleted_orders', JSON.stringify(Array.from(deletedIds)));
       localStorage.removeItem('mrp_active_orders');
       Object.keys(localStorage).forEach(k => {
         if (k.startsWith('mrp_transit_')) localStorage.removeItem(k);
@@ -1174,7 +1213,7 @@ class MrpApp {
       });
       this.renderTransitTab();
       this.recalculateAndRender();
-      window.Toast.show('Todos los pedidos en tránsito han sido eliminados del servidor.', 'success');
+      window.Toast.show('Todos los pedidos en tránsito han sido eliminados.', 'success');
     } catch(e) {
       window.Toast.show('Error al eliminar pedidos en tránsito: ' + e.message, 'error');
     }
@@ -1186,15 +1225,48 @@ class MrpApp {
       if (window.ApiClient) {
         await window.ApiClient.deleteTransitOrder(orderId).catch(() => {});
       }
+
+      // 1. Record deleted order ID
+      const deletedIds = new Set();
+      try {
+        const arr = JSON.parse(localStorage.getItem('mrp_deleted_orders') || '[]');
+        if (Array.isArray(arr)) arr.forEach(id => deletedIds.add(id));
+      } catch(e) {}
+      deletedIds.add(orderId);
+
       const idx = this.activeOrders.findIndex(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
       if (idx !== -1) {
         const [deleted] = this.activeOrders.splice(idx, 1);
-        if (deleted && deleted.items) {
-          deleted.items.forEach(item => {
-            localStorage.removeItem(`mrp_transit_${item.codeSku}`);
-          });
+        if (deleted) {
+          if (deleted.id) deletedIds.add(deleted.id);
+          if (deleted.orderCode) deletedIds.add(deleted.orderCode);
+          if (deleted.orderNumber) deletedIds.add(deleted.orderNumber);
+
+          if (deleted.items && Array.isArray(deleted.items)) {
+            deleted.items.forEach(item => {
+              const itemKey = (item.codeSku || item.codeFrumusa || item.codeCountry || '').toString().trim().toUpperCase();
+              const prod = this.items.find(p => {
+                const k1 = (p.code_frumusa || p.codeFrumusa || '').toString().trim().toUpperCase();
+                const k2 = (p.code_country || p.codeCountry || '').toString().trim().toUpperCase();
+                const k3 = (p.codeSku || '').toString().trim().toUpperCase();
+                return k1 === itemKey || k2 === itemKey || k3 === itemKey;
+              });
+              if (prod) {
+                prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - (item.finalQty || item.quantity || 0));
+                prod.transit = prod.transit_qty;
+                prod.activeTransit = prod.transit_qty;
+                if (prod.transit_qty === 0) {
+                  localStorage.removeItem(`mrp_transit_${itemKey}`);
+                } else {
+                  localStorage.setItem(`mrp_transit_${itemKey}`, prod.transit_qty);
+                }
+              }
+            });
+          }
         }
       }
+
+      localStorage.setItem('mrp_deleted_orders', JSON.stringify(Array.from(deletedIds)));
       localStorage.setItem('mrp_active_orders', JSON.stringify(this.activeOrders));
       this.renderTransitTab();
       this.recalculateAndRender();

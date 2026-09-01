@@ -273,21 +273,20 @@ router.post('/transit/clear', (req, res) => {
 router.delete('/transit/:orderId', (req, res) => {
   try {
     const { orderId } = req.params;
-    const orderIndex = db.memoryStore.orders.findIndex(o => o.id === orderId || o.orderCode === orderId);
+    const orderIndex = db.memoryStore.orders.findIndex(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
     if (orderIndex === -1) {
       return res.status(404).json({ error: 'Orden no encontrada.' });
     }
     const [deleted] = db.memoryStore.orders.splice(orderIndex, 1);
     if (deleted && deleted.items) {
       deleted.items.forEach(item => {
-        const prod = db.memoryStore.products.find(p => (
-          (p.code_frumusa && p.code_frumusa.toString() === item.codeSku) ||
-          (p.codeFrumusa && p.codeFrumusa.toString() === item.codeSku) ||
-          (p.code_country && p.code_country.toString() === item.codeSku) ||
-          (p.codeCountry && p.codeCountry.toString() === item.codeSku) ||
-          (p.codeSku && p.codeSku.toString() === item.codeSku) ||
-          (p.NO_ARTI && p.NO_ARTI.toString() === item.codeSku)
-        ));
+        const itemKey = (item.codeSku || item.codeFrumusa || item.codeCountry || '').toString().trim().toUpperCase();
+        const prod = db.memoryStore.products.find(p => {
+          const k1 = (p.code_frumusa || p.codeFrumusa || '').toString().trim().toUpperCase();
+          const k2 = (p.code_country || p.codeCountry || '').toString().trim().toUpperCase();
+          const k3 = (p.codeSku || '').toString().trim().toUpperCase();
+          return k1 === itemKey || k2 === itemKey || k3 === itemKey;
+        });
         if (prod) {
           prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - (item.finalQty || item.quantity || 0));
           prod.transit = prod.transit_qty;
