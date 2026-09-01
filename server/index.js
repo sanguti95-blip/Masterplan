@@ -238,10 +238,18 @@ function bootstrapCatalog() {
 }
 
 bootstrapCatalog();
+if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
+  productsRoutes.applyOverridesToProducts(db.memoryStore.products);
+}
 
 // Auto-sync with live Google Sheets feed on boot
 syncService.syncFromGoogleAppsScript()
-  .then(res => console.log(`🔄 [Live Sync Boot]: Sincronización inicial completada (${res.log.matchedSkus} SKUs actualizados).`))
+  .then(res => {
+    if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
+      productsRoutes.applyOverridesToProducts(db.memoryStore.products);
+    }
+    console.log(`🔄 [Live Sync Boot]: Sincronización inicial completada (${res.log.matchedSkus} SKUs actualizados con overrides preservados).`);
+  })
   .catch(e => console.warn('⚠️ [Live Sync Boot Warning]:', e.message));
 
 // Security Middlewares (Helmet with relaxed CSP for CDN dependencies)

@@ -267,6 +267,17 @@ class MrpApp {
           return;
         }
       });
+
+      // Auto-save on input change (typing or stepper)
+      catalogTbody.addEventListener('change', (e) => {
+        const input = e.target.closest('.input-catalog');
+        if (input) {
+          const row = input.closest('tr[data-sku]');
+          if (row && row.dataset.sku) {
+            this.saveSingleCatalogRow(row.dataset.sku, true); // silent auto-save
+          }
+        }
+      });
     }
 
     // Search Input
@@ -489,28 +500,56 @@ class MrpApp {
 
   async loadInitialData() {
     try {
-      // 1. Try fetching from Backend API
+      // 1. Try fetching from Backend API (Planning calculation, Active transit orders, and Catalog overrides)
       if (window.ApiClient) {
-        const [planRes, transitRes] = await Promise.allSettled([
+        const [planRes, transitRes, overridesRes] = await Promise.allSettled([
           window.ApiClient.getPlanningCalculation(this.executionDay, this.safetyStock, this.vdpDays),
-          window.ApiClient.getTransitOrders()
+          window.ApiClient.getTransitOrders(),
+          window.ApiClient.request ? window.ApiClient.request('/api/products/overrides') : Promise.resolve(null)
         ]);
+
+        // Merge Catalog Overrides from Server + LocalStorage
+        if (overridesRes.status === 'fulfilled' && overridesRes.value && overridesRes.value.overrides) {
+          let localOv = {};
+          try {
+            localOv = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
+          } catch(e) {}
+          const mergedOv = { ...overridesRes.value.overrides, ...localOv };
+          localStorage.setItem('codisa_catalog_overrides', JSON.stringify(mergedOv));
+        }
+
+        // Smart-Merge In-Transit Orders (Never wipe out local/initial orders with an empty server array)
+        const serverOrders = (transitRes.status === 'fulfilled' && transitRes.value && Array.isArray(transitRes.value.orders)) ? transitRes.value.orders : [];
+        let localOrders = [];
+        try {
+          localOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
+        } catch(e) {}
+
+        const orderMap = new Map();
+        if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
+          INITIAL_ORDERS.forEach(o => {
+            const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
+            if (key) orderMap.set(key, o);
+          });
+        }
+        if (Array.isArray(localOrders)) {
+          localOrders.forEach(o => {
+            const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
+            if (key) orderMap.set(key, o);
+          });
+        }
+        if (Array.isArray(serverOrders)) {
+          serverOrders.forEach(o => {
+            const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
+            if (key) orderMap.set(key, o);
+          });
+        }
+
+        this.activeOrders = Array.from(orderMap.values());
+        localStorage.setItem('mrp_active_orders', JSON.stringify(this.activeOrders));
 
         if (planRes.status === 'fulfilled' && planRes.value && planRes.value.items) {
           this.items = planRes.value.items;
-          if (transitRes.status === 'fulfilled' && transitRes.value && Array.isArray(transitRes.value.orders)) {
-            this.activeOrders = transitRes.value.orders;
-            localStorage.setItem('mrp_active_orders', JSON.stringify(this.activeOrders));
-          } else {
-            try {
-              const savedOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
-              if (Array.isArray(savedOrders) && savedOrders.length > 0) {
-                this.activeOrders = savedOrders;
-              } else if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
-                this.activeOrders = JSON.parse(JSON.stringify(INITIAL_ORDERS));
-              }
-            } catch(e) {}
-          }
           this.loadCatalogOverrides();
           this.loadDraftOverrides();
           return;
@@ -523,11 +562,20 @@ class MrpApp {
     // Fallback active orders from localStorage or INITIAL_ORDERS if offline
     try {
       const savedOrders = JSON.parse(localStorage.getItem('mrp_active_orders') || '[]');
-      if (Array.isArray(savedOrders) && savedOrders.length > 0) {
-        this.activeOrders = savedOrders;
-      } else if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
-        this.activeOrders = JSON.parse(JSON.stringify(INITIAL_ORDERS));
+      const orderMap = new Map();
+      if (typeof INITIAL_ORDERS !== 'undefined' && Array.isArray(INITIAL_ORDERS)) {
+        INITIAL_ORDERS.forEach(o => {
+          const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
+          if (key) orderMap.set(key, o);
+        });
       }
+      if (Array.isArray(savedOrders)) {
+        savedOrders.forEach(o => {
+          const key = o ? (o.id || o.orderCode || o.orderNumber) : null;
+          if (key) orderMap.set(key, o);
+        });
+      }
+      this.activeOrders = Array.from(orderMap.values());
     } catch(e) {}
 
     // Fallback to local data.js
@@ -709,8 +757,11 @@ class MrpApp {
       const drafts = {};
       this.items.forEach(p => {
         if (p.pedidoFinalOverride !== null && p.pedidoFinalOverride !== undefined) {
-          const sku = p.code_frumusa || p.codeFrumusa || p.code_country || p.codeSku;
-          if (sku) drafts[sku] = p.pedidoFinalOverride;
+          const skuKey = ((p.code_frumusa && p.code_frumusa.trim()) ? p.code_frumusa.trim() : (p.code_country ? p.code_country.trim() : (p.codeSku || ''))).toUpperCase();
+          if (skuKey) drafts[skuKey] = p.pedidoFinalOverride;
+          if (p.code_frumusa) drafts[p.code_frumusa.toString().trim().toUpperCase()] = p.pedidoFinalOverride;
+          if (p.code_country) drafts[p.code_country.toString().trim().toUpperCase()] = p.pedidoFinalOverride;
+          if (p.codeSku) drafts[p.codeSku.toString().trim().toUpperCase()] = p.pedidoFinalOverride;
         }
       });
       localStorage.setItem(`mrp_draft_overrides_${this.executionDay}`, JSON.stringify(drafts));
@@ -723,9 +774,18 @@ class MrpApp {
       if (saved) {
         const drafts = JSON.parse(saved);
         this.items.forEach(p => {
-          const sku = p.code_frumusa || p.codeFrumusa || p.code_country || p.codeSku;
-          if (sku && drafts[sku] !== undefined) {
-            p.pedidoFinalOverride = drafts[sku];
+          const skuKey = ((p.code_frumusa && p.code_frumusa.trim()) ? p.code_frumusa.trim() : (p.code_country ? p.code_country.trim() : (p.codeSku || ''))).toUpperCase();
+          const k1 = (p.code_frumusa || p.codeFrumusa || '').toString().trim().toUpperCase();
+          const k2 = (p.code_country || p.codeCountry || '').toString().trim().toUpperCase();
+          const k3 = (p.codeSku || '').toString().trim().toUpperCase();
+
+          const val = drafts[skuKey] !== undefined ? drafts[skuKey] : 
+                      (k1 && drafts[k1] !== undefined ? drafts[k1] : 
+                      (k3 && drafts[k3] !== undefined ? drafts[k3] : 
+                      (k2 && drafts[k2] !== undefined ? drafts[k2] : undefined)));
+
+          if (val !== undefined) {
+            p.pedidoFinalOverride = val;
           }
         });
       }
@@ -838,22 +898,26 @@ class MrpApp {
 
     // 2. Transfer approved order to transit for matching products
     itemsToOrder.forEach(orderItem => {
-      const prod = this.items.find(p => (
-        (p.code_frumusa && p.code_frumusa.toString() === orderItem.codeSku) ||
-        (p.codeFrumusa && p.codeFrumusa.toString() === orderItem.codeSku) ||
-        (p.code_country && p.code_country.toString() === orderItem.codeSku) ||
-        (p.codeSku && p.codeSku.toString() === orderItem.codeSku)
-      ));
+      const itemKey = (orderItem.codeSku || orderItem.codeFrumusa || orderItem.codeCountry || '').toString().trim().toUpperCase();
+      const prod = this.items.find(p => {
+        const k1 = (p.code_frumusa || p.codeFrumusa || '').toString().trim().toUpperCase();
+        const k2 = (p.code_country || p.codeCountry || '').toString().trim().toUpperCase();
+        const k3 = (p.codeSku || '').toString().trim().toUpperCase();
+        return k1 === itemKey || k2 === itemKey || k3 === itemKey;
+      });
       if (prod) {
         prod.transit_qty = (Number(prod.transit_qty || 0)) + orderItem.finalQty;
         prod.transit = prod.transit_qty;
-        localStorage.setItem(`mrp_transit_${orderItem.codeSku}`, prod.transit_qty);
+        prod.activeTransit = prod.transit_qty;
+        localStorage.setItem(`mrp_transit_${itemKey}`, prod.transit_qty);
         prod.pedidoFinalOverride = null; // Clear override
       }
     });
 
     // Clear draft overrides for this day
     localStorage.removeItem(`mrp_draft_overrides_${this.executionDay}`);
+
+    this.renderTransitTab();
 
     // 3. Persist to Backend Server & Disk
     if (window.ApiClient && window.ApiClient.approveOrder) {
@@ -1239,10 +1303,18 @@ class MrpApp {
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
     // 2. Persist to Backend Server & Disk
-    if (window.ApiClient && window.ApiClient.toggleProductActive) {
-      window.ApiClient.toggleProductActive(exactKey, newStatus).catch(err => {
-        console.warn('Sync toggle to server deferred:', err.message);
-      });
+    if (window.ApiClient) {
+      if (window.ApiClient.request) {
+        window.ApiClient.request('/api/products/overrides', {
+          method: 'POST',
+          body: JSON.stringify({ overrides: { [exactKey]: { is_active: newStatus } } })
+        }).catch(() => {});
+      }
+      if (window.ApiClient.toggleProductActive) {
+        window.ApiClient.toggleProductActive(exactKey, newStatus).catch(err => {
+          console.warn('Sync toggle to server deferred:', err.message);
+        });
+      }
     }
 
     this.renderCatalogEditor();
@@ -1334,7 +1406,7 @@ class MrpApp {
     }).join('');
   }
 
-  saveSingleCatalogRow(skuKey) {
+  saveSingleCatalogRow(skuKey, silent = false) {
     const row = document.querySelector(`#catalog-table-body tr[data-sku="${skuKey}"]`);
     if (!row) return;
 
@@ -1364,7 +1436,7 @@ class MrpApp {
     } catch(e) {}
 
     const exactKey = ((frumusa || country || skuKey)).toUpperCase();
-    overrides[exactKey] = {
+    const overrideObj = {
       is_active: isActive,
       code_frumusa: frumusa,
       code_country: country,
@@ -1374,22 +1446,31 @@ class MrpApp {
       min_coverage_qty: minQty,
       safety_stock_units: minQty
     };
+    overrides[exactKey] = overrideObj;
 
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
-    // 2. Persist to Backend Server & Disk
-    if (window.ApiClient && window.ApiClient.updateProduct) {
-      window.ApiClient.updateProduct(exactKey, {
-        isActive,
-        codeFrumusa: frumusa,
-        codeCountry: country,
-        description: desc,
-        unitEq: unit,
-        packMultiple: pack,
-        minCoverageQty: minQty
-      }).catch(err => {
-        console.warn('Sync row to server deferred:', err.message);
-      });
+    // 2. Persist to Backend Server & Disk via dedicated overrides endpoint
+    if (window.ApiClient) {
+      if (window.ApiClient.request) {
+        window.ApiClient.request('/api/products/overrides', {
+          method: 'POST',
+          body: JSON.stringify({ overrides: { [exactKey]: overrideObj } })
+        }).catch(() => {});
+      }
+      if (window.ApiClient.updateProduct) {
+        window.ApiClient.updateProduct(exactKey, {
+          isActive,
+          codeFrumusa: frumusa,
+          codeCountry: country,
+          description: desc,
+          unitEq: unit,
+          packMultiple: pack,
+          minCoverageQty: minQty
+        }).catch(err => {
+          console.warn('Sync row to server deferred:', err.message);
+        });
+      }
     }
 
     // Update in-memory item
@@ -1408,7 +1489,9 @@ class MrpApp {
     }
 
     this.recalculateAndRender();
-    window.Toast.show(`Artículo ${desc || skuKey} guardado en el maestro (Bulto: ${pack} | Cobertura Mín: ${minQty}).`, 'success');
+    if (!silent && window.Toast) {
+      window.Toast.show(`Artículo ${desc || skuKey} guardado en el maestro (Bulto: ${pack} | Cobertura Mín: ${minQty}).`, 'success');
+    }
   }
 
   saveAllCatalogChanges() {
@@ -1469,11 +1552,19 @@ class MrpApp {
     // 1. Save to LocalStorage
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
-    // 2. Persist to Backend Server & Disk
-    if (window.ApiClient && window.ApiClient.batchUpdateProducts) {
-      window.ApiClient.batchUpdateProducts(overrides).catch(err => {
-        console.warn('Sync batch update to server deferred:', err.message);
-      });
+    // 2. Persist to Backend Server & Disk via dedicated overrides endpoint
+    if (window.ApiClient) {
+      if (window.ApiClient.request) {
+        window.ApiClient.request('/api/products/overrides', {
+          method: 'POST',
+          body: JSON.stringify({ overrides })
+        }).catch(() => {});
+      }
+      if (window.ApiClient.batchUpdateProducts) {
+        window.ApiClient.batchUpdateProducts(overrides).catch(err => {
+          console.warn('Sync batch update to server deferred:', err.message);
+        });
+      }
     }
 
     this.recalculateAndRender();
