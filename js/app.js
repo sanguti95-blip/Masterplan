@@ -280,6 +280,38 @@ class MrpApp {
       });
     }
 
+    // Transit Orders List Delegation (Delete, Load, Excel)
+    const transitGrid = document.getElementById('transit-orders-list');
+    if (transitGrid) {
+      transitGrid.addEventListener('click', (e) => {
+        const delBtn = e.target.closest('.btn-delete-order');
+        if (delBtn) {
+          const orderId = delBtn.dataset.orderId || (delBtn.closest('.transit-card') ? delBtn.closest('.transit-card').dataset.orderId : null);
+          if (orderId) this.deleteTransitOrder(orderId);
+          return;
+        }
+        const loadBtn = e.target.closest('.btn-load-order');
+        if (loadBtn) {
+          const orderId = loadBtn.dataset.orderId || (loadBtn.closest('.transit-card') ? loadBtn.closest('.transit-card').dataset.orderId : null);
+          if (orderId) this.loadOrderIntoPlanning(orderId);
+          return;
+        }
+        const excelBtn = e.target.closest('.btn-excel-order');
+        if (excelBtn) {
+          const orderCode = excelBtn.dataset.orderCode;
+          if (orderCode) this.downloadOrderXlsx(orderCode);
+          return;
+        }
+      });
+    }
+
+    const btnClearTransit = document.getElementById('btn-clear-all-transit');
+    if (btnClearTransit) {
+      btnClearTransit.addEventListener('click', () => {
+        this.clearAllTransit();
+      });
+    }
+
     // Search Input
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
@@ -1113,13 +1145,13 @@ class MrpApp {
             </div>
           </div>
           <div class="transit-card-footer" style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; flex-wrap: wrap;">
-            <button class="btn-primary btn-small" onclick="window.MrpAppInstance.loadOrderIntoPlanning('${order.id}')" title="Cargar y revisar estos ${order.totalItems} artículos en la mesa de pedidos">
+            <button type="button" class="btn-primary btn-small btn-load-order" data-order-id="${order.id}" title="Cargar y revisar estos ${order.totalItems} artículos en la mesa de pedidos">
               <i class="fa-solid fa-pen-to-square"></i> Cargar en Mesa de Pedidos
             </button>
-            <button class="btn-secondary btn-small" onclick="window.MrpAppInstance.downloadOrderXlsx('${orderCode}')" title="Descargar Excel de la orden">
+            <button type="button" class="btn-secondary btn-small btn-excel-order" data-order-code="${orderCode}" title="Descargar Excel de la orden">
               <i class="fa-solid fa-file-excel"></i> Excel
             </button>
-            <button class="btn-danger btn-small" onclick="window.MrpAppInstance.deleteTransitOrder('${order.id}')" title="Eliminar orden del tránsito">
+            <button type="button" class="btn-danger btn-small btn-delete-order" data-order-id="${order.id}" title="Eliminar orden del tránsito">
               <i class="fa-solid fa-trash"></i> Eliminar
             </button>
           </div>
