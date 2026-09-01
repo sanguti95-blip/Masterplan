@@ -26380,6 +26380,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 
 
+
 const INITIAL_ORDERS = [
   {
     "id": "ORD-MARTES-20260831-0001",
@@ -27307,15 +27308,15 @@ const INITIAL_ORDERS = [
     "day": "Jueves",
     "executionDay": "Lunes",
     "deliveryDay": "Jueves",
-    "createdAt": "2026-09-01T02:55:19.490Z",
+    "createdAt": "2026-09-01T02:57:04.586Z",
     "expectedDeliveryDate": "2026-09-04",
     "status": "EN_TRANSITO",
-    "totalItems": 43,
+    "totalItems": 44,
     "totalUnits": 1028,
     "totalBoxes": 279,
     "totalCost": 549372.8500000001,
     "createdBy": "Milton Sánchez Gutiérrez",
-    "notes": "Pedido registrado para entrega en Bodega Jueves (72h)",
+    "notes": "Pedido revisado y confirmado para ingreso en Bodega Jueves (72h)",
     "items": [
       {
         "codeSku": "704",
@@ -27408,9 +27409,9 @@ const INITIAL_ORDERS = [
         "packMultiple": 1
       },
       {
-        "codeSku": "16874",
+        "codeSku": "16875",
         "codeCountry": "16875",
-        "codeFrumusa": "16874",
+        "codeFrumusa": "16875",
         "description": "ZAPALLO ESMERALDA BAND 4 UNDS",
         "category": "Otros Perecederos",
         "unit": "BAND",
@@ -27484,7 +27485,7 @@ const INITIAL_ORDERS = [
       },
       {
         "codeSku": "11522",
-        "codeCountry": "11523",
+        "codeCountry": "11522N",
         "codeFrumusa": "11522",
         "description": "CULANTRO CASTILLA 1X3",
         "category": "Hierbas y Aromáticas",
@@ -27564,12 +27565,27 @@ const INITIAL_ORDERS = [
         "description": "GUANABANA KILOS",
         "category": "Frutas Frescas",
         "unit": "KG",
-        "boxes": 2,
-        "quantity": 10,
-        "finalQty": 10,
-        "finalBoxes": 2,
+        "boxes": 1,
+        "quantity": 5,
+        "finalQty": 5,
+        "finalBoxes": 1,
         "unitCost": 1000,
-        "totalCost": 10000,
+        "totalCost": 5000,
+        "packMultiple": 5
+      },
+      {
+        "codeSku": "14551",
+        "codeCountry": "14561",
+        "codeFrumusa": "14551",
+        "description": "GUANABANA KILOS",
+        "category": "Frutas Frescas",
+        "unit": "KG",
+        "boxes": 1,
+        "quantity": 5,
+        "finalQty": 5,
+        "finalBoxes": 1,
+        "unitCost": 1000,
+        "totalCost": 5000,
         "packMultiple": 5
       },
       {
@@ -27588,9 +27604,9 @@ const INITIAL_ORDERS = [
         "packMultiple": 1
       },
       {
-        "codeSku": "13580H",
+        "codeSku": "13584",
         "codeCountry": "13580H",
-        "codeFrumusa": "13580H",
+        "codeFrumusa": "13584",
         "description": "SABILA HOJA UNIDAD",
         "category": "Otros Perecederos",
         "unit": "UND",
@@ -27723,9 +27739,9 @@ const INITIAL_ORDERS = [
         "packMultiple": 10
       },
       {
-        "codeSku": "13521S",
+        "codeSku": "13521",
         "codeCountry": "13521",
-        "codeFrumusa": "13521S",
+        "codeFrumusa": "13521",
         "description": "NAMPI KG PREMIUM",
         "category": "Tubérculos y Raíces",
         "unit": "KG",
@@ -27948,9 +27964,9 @@ const INITIAL_ORDERS = [
         "packMultiple": 1
       },
       {
-        "codeSku": "2125",
+        "codeSku": "144402",
         "codeCountry": "2125",
-        "codeFrumusa": "2125",
+        "codeFrumusa": "144402",
         "description": "UVA MIXTA BANDEJA 500 GR",
         "category": "Frutas Frescas",
         "unit": "BAND",
