@@ -510,7 +510,10 @@ class MrpApp {
 
     if (bannerDay) bannerDay.innerText = matrix.dayName;
     if (bannerDelivery) bannerDelivery.innerText = matrix.deliveryDay;
-    if (bannerCoverage) bannerCoverage.innerText = `${matrix.coverageDays} día(s)`;
+    if (bannerCoverage) {
+      const weightText = matrix.demandWeight ? ` (${matrix.demandWeight}x VDP ponderado)` : '';
+      bannerCoverage.innerText = `${matrix.coverageDays} día(s)${weightText}`;
+    }
     if (bannerTransit) bannerTransit.innerText = matrix.activeTransitDays.join(', ');
   }
 

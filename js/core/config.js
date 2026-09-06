@@ -19,29 +19,37 @@ const APP_CONFIG = {
       dayName: 'Lunes',
       deliveryDay: 'Jueves',
       coverageDays: 1,
+      demandWeight: 0.89,
+      coveredDays: ['Jueves'],
       activeTransitDays: ['Jueves'],
-      description: 'Cubre venta de Jueves (1 orden activa: jueves anterior)'
+      description: 'Cubre venta de Jueves (Demanda estimada: 0.89x VDP)'
     },
     Martes: {
       dayName: 'Martes',
       deliveryDay: 'Viernes',
       coverageDays: 1,
+      demandWeight: 0.88,
+      coveredDays: ['Viernes'],
       activeTransitDays: ['Lunes'],
-      description: 'Cubre venta de Viernes (1 orden activa: lunes)'
+      description: 'Cubre venta de Viernes (Demanda estimada: 0.88x VDP)'
     },
     Miercoles: {
       dayName: 'Miércoles',
       deliveryDay: 'Sábado',
       coverageDays: 3,
+      demandWeight: 3.55,
+      coveredDays: ['Sábado', 'Domingo', 'Lunes'],
       activeTransitDays: ['Lunes', 'Martes'],
-      description: 'Cubre venta de Sáb, Dom y Lun (2 órdenes activas: lunes y martes)'
+      description: 'Cubre venta de Sáb, Dom y Lun (Pico fin de semana: 3.55x VDP)'
     },
     Jueves: {
       dayName: 'Jueves',
       deliveryDay: 'Martes',
       coverageDays: 2,
+      demandWeight: 1.84,
+      coveredDays: ['Martes', 'Miércoles'],
       activeTransitDays: ['Martes', 'Miercoles'],
-      description: 'Cubre venta de Mar y Mié (2 órdenes activas: martes y miércoles)'
+      description: 'Cubre venta de Mar y Mié (Valle entre semana: 1.84x VDP)'
     }
   }
 };

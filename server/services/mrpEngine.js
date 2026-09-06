@@ -4,38 +4,56 @@
  * Versión: 2.0 (Lógica Min/Max + Tránsito Dinámico 72h + Frecuencia 4 pedidos semanales)
  */
 
+const WEEKDAY_FACTORS = {
+  Lunes: 1.13,
+  Martes: 0.97,
+  Miercoles: 0.87,
+  Jueves: 0.89,
+  Viernes: 0.88,
+  Sabado: 1.11,
+  Domingo: 1.31
+};
+
 const PLANNING_MATRIX = {
   Lunes: {
     dayName: 'Lunes',
     deliveryDay: 'Jueves',
     coverageDays: 1, // Jueves
+    coveredDays: ['Jueves'],
+    demandWeight: 0.89, // Jueves: 0.89x
     activeTransitDays: ['Jueves'], // La del jueves anterior
     leadTimeHours: 72,
-    description: 'Cubre venta de Jueves. Considera 1 orden en tránsito (Jueves anterior).'
+    description: 'Cubre venta de Jueves (Demanda estimada: 0.89x VDP).'
   },
   Martes: {
     dayName: 'Martes',
     deliveryDay: 'Viernes',
     coverageDays: 1, // Viernes
+    coveredDays: ['Viernes'],
+    demandWeight: 0.88, // Viernes: 0.88x
     activeTransitDays: ['Lunes'], // La del lunes
     leadTimeHours: 72,
-    description: 'Cubre venta de Viernes. Considera 1 orden en tránsito (Lunes).'
+    description: 'Cubre venta de Viernes (Demanda estimada: 0.88x VDP).'
   },
   Miercoles: {
     dayName: 'Miércoles',
     deliveryDay: 'Sábado',
     coverageDays: 3, // Sábado, Domingo, Lunes
+    coveredDays: ['Sábado', 'Domingo', 'Lunes'],
+    demandWeight: 3.55, // Sábado (1.11) + Domingo (1.31) + Lunes (1.13) = 3.55x (+18.3% pico fin de semana)
     activeTransitDays: ['Lunes', 'Martes'], // Lunes y Martes
     leadTimeHours: 72,
-    description: 'Cubre venta de Sábado, Domingo y Lunes. Considera 2 órdenes en tránsito (Lunes y Martes).'
+    description: 'Cubre venta de Sábado, Domingo y Lunes (Pico fin de semana: 3.55x VDP).'
   },
   Jueves: {
     dayName: 'Jueves',
     deliveryDay: 'Martes',
     coverageDays: 2, // Martes y Miércoles
+    coveredDays: ['Martes', 'Miércoles'],
+    demandWeight: 1.84, // Martes (0.97) + Miércoles (0.87) = 1.84x (-8.0% valle entre semana)
     activeTransitDays: ['Martes', 'Miercoles'], // Martes y Miércoles
     leadTimeHours: 72,
-    description: 'Cubre venta de Martes y Miércoles. Considera 2 órdenes en tránsito (Martes y Miércoles).'
+    description: 'Cubre venta de Martes y Miércoles (Valle entre semana: 1.84x VDP).'
   }
 };
 
@@ -175,9 +193,16 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
   const activeTransit = calculateActiveTransitForSku(skuCode, normDay, activeOrders, transitManual);
   const projectedStock = stockActual + activeTransit;
 
-  // === PASO 2: Demanda del Ciclo e Inventario Meta Total (Unidades) ===
+  // === PASO 2: Demanda del Ciclo con Ponderación de Fin de Semana & Ajuste por Merma ===
   const daysToCover = matrix.coverageDays;
-  const cycleDemand = vdp * daysToCover;
+  const demandWeight = Number(matrix.demandWeight || daysToCover);
+
+  // Factor de protección por merma histórica (máximo 15% de holgura preventiva para perecederos)
+  const mermaUnits = Number(product.merma_units || product.mermaUnits || product.UNIDADES_MERMA || 0);
+  const mermaRatio = (salesPeriod > 0 && mermaUnits > 0) ? Math.min(0.15, mermaUnits / salesPeriod) : 0;
+
+  // Demanda del ciclo calculada con el índice empírico de Country House Santo Domingo
+  const cycleDemand = Math.round(vdp * demandWeight * (1 + mermaRatio) * 100) / 100;
   const targetStockUnits = cycleDemand + minCoverageUnits;
 
   // === PASO 3: Faltante / Pedido Base (Unidades) ===
@@ -239,6 +264,8 @@ function calculateSkuReplenishment(product, executionDay = 'Lunes', activeOrders
     safety_stock_units: minCoverageUnits,
     safetyStockDays: vdp > 0 ? (minCoverageUnits / vdp) : 0,
     daysToCover,
+    demandWeight,
+    mermaRatio,
     cycleDemand,
     targetStockUnits,
     baseOrder,

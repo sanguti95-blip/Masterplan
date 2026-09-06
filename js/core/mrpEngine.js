@@ -5,10 +5,10 @@
 const MrpEngine = {
   // Matrix definitions
   matrix: window.APP_CONFIG ? window.APP_CONFIG.planningMatrix : {
-    Lunes: { dayName: 'Lunes', deliveryDay: 'Jueves', coverageDays: 1, activeTransitDays: ['Jueves'] },
-    Martes: { dayName: 'Martes', deliveryDay: 'Viernes', coverageDays: 1, activeTransitDays: ['Lunes'] },
-    Miercoles: { dayName: 'Miércoles', deliveryDay: 'Sábado', coverageDays: 3, activeTransitDays: ['Lunes', 'Martes'] },
-    Jueves: { dayName: 'Jueves', deliveryDay: 'Martes', coverageDays: 2, activeTransitDays: ['Martes', 'Miercoles'] }
+    Lunes: { dayName: 'Lunes', deliveryDay: 'Jueves', coverageDays: 1, demandWeight: 0.89, coveredDays: ['Jueves'], activeTransitDays: ['Jueves'] },
+    Martes: { dayName: 'Martes', deliveryDay: 'Viernes', coverageDays: 1, demandWeight: 0.88, coveredDays: ['Viernes'], activeTransitDays: ['Lunes'] },
+    Miercoles: { dayName: 'Miércoles', deliveryDay: 'Sábado', coverageDays: 3, demandWeight: 3.55, coveredDays: ['Sábado', 'Domingo', 'Lunes'], activeTransitDays: ['Lunes', 'Martes'] },
+    Jueves: { dayName: 'Jueves', deliveryDay: 'Martes', coverageDays: 2, demandWeight: 1.84, coveredDays: ['Martes', 'Miércoles'], activeTransitDays: ['Martes', 'Miercoles'] }
   },
 
   normalizeDayName(day) {
@@ -129,9 +129,16 @@ const MrpEngine = {
     const activeTransit = this.calculateActiveTransit(skuCode, normDay, activeOrders, transitSaved);
     const projectedStock = stockActual + activeTransit;
 
-    // === PASO 2: Demanda del Ciclo e Inventario Meta Total (Unidades) ===
+    // === PASO 2: Demanda del Ciclo con Ponderación de Fin de Semana & Ajuste por Merma ===
     const daysToCover = matrixRule.coverageDays;
-    const cycleDemand = vdp * daysToCover;
+    const demandWeight = Number(matrixRule.demandWeight || daysToCover);
+
+    // Factor de protección por merma histórica (máximo 15% de holgura preventiva para perecederos)
+    const mermaUnits = Number(product.merma_units || product.mermaUnits || product.UNIDADES_MERMA || 0);
+    const mermaRatio = (salesPeriod > 0 && mermaUnits > 0) ? Math.min(0.15, mermaUnits / salesPeriod) : 0;
+
+    // Demanda del ciclo calculada con el índice empírico de Country House Santo Domingo
+    const cycleDemand = Math.round(vdp * demandWeight * (1 + mermaRatio) * 100) / 100;
     const targetStockUnits = cycleDemand + minCoverageUnits;
 
     // === PASO 3: Faltante / Pedido Base (Unidades) ===
@@ -192,6 +199,8 @@ const MrpEngine = {
       safety_stock_units: minCoverageUnits,
       safetyStockDays: vdp > 0 ? (minCoverageUnits / vdp) : 0,
       daysToCover,
+      demandWeight,
+      mermaRatio,
       cycleDemand,
       targetStockUnits,
       baseOrder,
