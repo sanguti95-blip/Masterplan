@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const db = require('../db/pool');
+const kvStore = require('../db/keyValueStore');
 
 const syncedCatalogPath = path.join(__dirname, '..', '..', 'data', 'synced_catalog.json');
 
@@ -18,44 +19,48 @@ function persistCatalogToDisk() {
 
 const overridesFilePath = path.join(__dirname, '..', '..', 'data', 'catalog_overrides.json');
 
-function loadOverridesFromDisk() {
+async function loadOverrides() {
+  // 1. Try DB first
+  const dbOverrides = await kvStore.get('catalog_overrides');
+  if (dbOverrides) return dbOverrides;
+
+  // 2. Fallback to Local FS
   try {
     if (fs.existsSync(overridesFilePath)) {
       return JSON.parse(fs.readFileSync(overridesFilePath, 'utf8')) || {};
     }
-  } catch (e) {
-    console.warn('⚠️ Error al leer catalog_overrides.json:', e.message);
-  }
+  } catch (e) {}
   return {};
 }
 
-function persistOverridesToDisk(overrides) {
+async function persistOverrides(overrides) {
   try {
+    await kvStore.set('catalog_overrides', overrides);
     const dataDir = path.dirname(overridesFilePath);
     if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
     fs.writeFileSync(overridesFilePath, JSON.stringify(overrides || {}, null, 2), 'utf8');
   } catch (e) {
-    console.warn('⚠️ Error al persistir catalog_overrides.json:', e.message);
+    console.warn('⚠️ Error al persistir catalog_overrides:', e.message);
   }
 }
 
 // GET /api/products/overrides - Get all persistent catalog overrides
-router.get('/overrides', (req, res) => {
-  const overrides = loadOverridesFromDisk();
+router.get('/overrides', async (req, res) => {
+  const overrides = await loadOverrides();
   res.json({ overrides });
 });
 
 // POST /api/products/overrides - Save/Merge catalog overrides
-router.post('/overrides', (req, res) => {
+router.post('/overrides', async (req, res) => {
   try {
     const { overrides } = req.body || {};
     if (!overrides || typeof overrides !== 'object') {
       return res.status(400).json({ error: 'Formato de overrides inválido.' });
     }
 
-    const current = loadOverridesFromDisk();
+    const current = await loadOverrides();
     const merged = { ...current, ...overrides };
-    persistOverridesToDisk(merged);
+    await persistOverrides(merged);
 
     // Apply to in-memory products
     const products = db.memoryStore.products || [];
@@ -106,6 +111,62 @@ router.post('/overrides', (req, res) => {
     res.status(500).json({ error: 'Error al guardar overrides.' });
   }
 });
+
+router.reloadOverrides = async () => {
+  try {
+    const overrides = await loadOverrides();
+    // No need to apply here, index.js will call applyOverridesToProducts 
+    // immediately after this completes.
+  } catch (e) {
+    console.warn('⚠️ Error reloading overrides in bootstrap:', e.message);
+  }
+};
+
+// Apply overrides helper function (called on boot and post-sync)
+router.applyOverridesToProducts = async (products) => {
+  try {
+    const merged = await loadOverrides();
+    if (!products || !Array.isArray(products)) return;
+    
+    let appliedCount = 0;
+    products.forEach(item => {
+      const skuKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || ''))).toUpperCase();
+      const k1 = (item.code_frumusa || item.codeFrumusa || '').toString().trim().toUpperCase();
+      const k2 = (item.code_country || item.codeCountry || '').toString().trim().toUpperCase();
+      const k3 = (item.codeSku || '').toString().trim().toUpperCase();
+      
+      const ov = merged[skuKey] || (k1 ? merged[k1] : null) || (k3 ? merged[k3] : null) || merged[k2];
+      if (ov) {
+        if (ov.is_active !== undefined) {
+          item.is_active = Boolean(ov.is_active);
+          item.isActive = Boolean(ov.is_active);
+        }
+        if (ov.pack_multiple !== undefined) {
+          item.pack_multiple = Number(ov.pack_multiple);
+          item.packMultiple = Number(ov.pack_multiple);
+        }
+        if (ov.min_coverage_qty !== undefined) {
+          item.min_coverage_qty = Number(ov.min_coverage_qty);
+          item.minCoverageUnits = Number(ov.min_coverage_qty);
+          item.safety_stock_units = Number(ov.min_coverage_qty);
+        }
+        if (ov.code_frumusa !== undefined) {
+          item.code_frumusa = ov.code_frumusa;
+          item.codeFrumusa = ov.code_frumusa;
+        }
+        if (ov.code_country !== undefined) {
+          item.code_country = ov.code_country;
+          item.codeCountry = ov.code_country;
+        }
+        if (ov.unit_eq) item.unit_eq = ov.unit_eq;
+        if (ov.description) item.description = ov.description;
+        appliedCount++;
+      }
+    });
+  } catch (e) {
+    console.warn('⚠️ Error applying overrides:', e.message);
+  }
+};
 
 // GET /api/products - Get all catalog products
 router.get('/', (req, res) => {
@@ -261,7 +322,7 @@ router.post('/:sku/toggle-active', (req, res) => {
 });
 
 // PUT /api/products/:sku - Update product parameters and persist on server
-router.put('/:sku', (req, res) => {
+router.put('/:sku', async (req, res) => {
   const sku = req.params.sku;
   const product = findProduct(db.memoryStore.products, sku);
 
@@ -314,7 +375,7 @@ router.put('/:sku', (req, res) => {
 
   // Persist to overrides file
   const skuKey = ((product.code_frumusa && product.code_frumusa.trim()) ? product.code_frumusa.trim() : (product.code_country ? product.code_country.trim() : (product.codeSku || sku))).toUpperCase();
-  const current = loadOverridesFromDisk();
+  const current = await loadOverrides();
   current[skuKey] = {
     ...(current[skuKey] || {}),
     is_active: product.is_active,
@@ -326,7 +387,7 @@ router.put('/:sku', (req, res) => {
     code_country: product.code_country,
     unit_eq: product.unit_eq
   };
-  persistOverridesToDisk(current);
+  await persistOverrides(current);
 
   persistCatalogToDisk();
 
@@ -338,41 +399,3 @@ router.put('/:sku', (req, res) => {
 });
 
 module.exports = router;
-module.exports.loadOverridesFromDisk = loadOverridesFromDisk;
-module.exports.applyOverridesToProducts = function(products) {
-  const overrides = loadOverridesFromDisk();
-  if (!overrides || Object.keys(overrides).length === 0) return;
-  products.forEach(item => {
-    const skuKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || ''))).toUpperCase();
-    const k1 = (item.code_frumusa || item.codeFrumusa || '').toString().trim().toUpperCase();
-    const k2 = (item.code_country || item.codeCountry || '').toString().trim().toUpperCase();
-    const k3 = (item.codeSku || '').toString().trim().toUpperCase();
-    
-    const ov = overrides[skuKey] || (k1 ? overrides[k1] : null) || (k3 ? overrides[k3] : null) || overrides[k2];
-    if (ov) {
-      if (ov.is_active !== undefined) {
-        item.is_active = Boolean(ov.is_active);
-        item.isActive = Boolean(ov.is_active);
-      }
-      if (ov.pack_multiple !== undefined) {
-        item.pack_multiple = Number(ov.pack_multiple);
-        item.packMultiple = Number(ov.pack_multiple);
-      }
-      if (ov.min_coverage_qty !== undefined) {
-        item.min_coverage_qty = Number(ov.min_coverage_qty);
-        item.minCoverageUnits = Number(ov.min_coverage_qty);
-        item.safety_stock_units = Number(ov.min_coverage_qty);
-      }
-      if (ov.code_frumusa !== undefined) {
-        item.code_frumusa = ov.code_frumusa;
-        item.codeFrumusa = ov.code_frumusa;
-      }
-      if (ov.code_country !== undefined) {
-        item.code_country = ov.code_country;
-        item.codeCountry = ov.code_country;
-      }
-      if (ov.unit_eq) item.unit_eq = ov.unit_eq;
-      if (ov.description) item.description = ov.description;
-    }
-  });
-};

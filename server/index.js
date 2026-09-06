@@ -1,4 +1,6 @@
 const express = require('express');
+const http = require('http');
+const https = require('https');
 const path = require('path');
 const fs = require('fs');
 const helmet = require('helmet');
@@ -6,6 +8,7 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const config = require('./config');
 const db = require('./db/pool');
+const kvStore = require('./db/keyValueStore');
 
 const authRoutes = require('./routes/auth');
 const planningRoutes = require('./routes/planning');
@@ -68,7 +71,8 @@ function getProduceCategory(desc) {
 }
 
 // Load Initial Data from data.js or synced_catalog.json into Memory Store
-function bootstrapCatalog() {
+async function initApp() {
+  await kvStore.initDb();
   try {
     const syncedCatalogPath = path.join(__dirname, '..', 'data', 'synced_catalog.json');
     if (fs.existsSync(syncedCatalogPath)) {
@@ -218,16 +222,27 @@ function bootstrapCatalog() {
         db.initMemoryStore(merged);
         console.log(`✅ [Master MRP]: Catálogo inicial cargado con ${merged.length} SKUs.`);
 
-        const ordersFilePath = path.join(__dirname, '..', 'data', 'active_orders.json');
-        if (fs.existsSync(ordersFilePath)) {
-          try {
-            const savedOrders = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
-            if (Array.isArray(savedOrders) && savedOrders.length > 0) {
-              db.memoryStore.orders = savedOrders;
-              console.log(`📦 [Orders Store]: ${savedOrders.length} órdenes cargadas desde almacenamiento.`);
+        // 1. Load Orders from DB first
+        let ordersLoaded = false;
+        const dbOrders = await kvStore.get('active_orders');
+        if (dbOrders && Array.isArray(dbOrders)) {
+          db.memoryStore.orders = dbOrders;
+          ordersLoaded = true;
+          console.log(`📦 [Orders Store]: ${dbOrders.length} órdenes cargadas desde DB.`);
+        }
+
+        if (!ordersLoaded) {
+          const ordersFilePath = path.join(__dirname, '..', 'data', 'active_orders.json');
+          if (fs.existsSync(ordersFilePath)) {
+            try {
+              const savedOrders = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
+              if (Array.isArray(savedOrders) && savedOrders.length > 0) {
+                db.memoryStore.orders = savedOrders;
+                console.log(`📦 [Orders Store]: ${savedOrders.length} órdenes cargadas desde FS.`);
+              }
+            } catch (e) {
+              console.warn('⚠️ Error al cargar órdenes persistidas:', e.message);
             }
-          } catch (e) {
-            console.warn('⚠️ Error al cargar órdenes persistidas:', e.message);
           }
         }
       }
@@ -235,22 +250,28 @@ function bootstrapCatalog() {
   } catch (err) {
     console.warn('⚠️ [Bootstrap Warning]:', err.message);
   }
+
+  // Reload Overrides from DB or FS
+  if (productsRoutes.reloadOverrides) {
+    await productsRoutes.reloadOverrides();
+  }
+  
+  if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
+    productsRoutes.applyOverridesToProducts(db.memoryStore.products);
+  }
+
+  // Auto-sync with live Google Sheets feed on boot
+  syncService.syncFromGoogleAppsScript()
+    .then(res => {
+      if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
+        productsRoutes.applyOverridesToProducts(db.memoryStore.products);
+      }
+      console.log(`🔄 [Live Sync Boot]: Sincronización inicial completada (${res.log.matchedSkus} SKUs actualizados con overrides preservados).`);
+    })
+    .catch(e => console.warn('⚠️ [Live Sync Boot Warning]:', e.message));
 }
 
-bootstrapCatalog();
-if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
-  productsRoutes.applyOverridesToProducts(db.memoryStore.products);
-}
-
-// Auto-sync with live Google Sheets feed on boot
-syncService.syncFromGoogleAppsScript()
-  .then(res => {
-    if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
-      productsRoutes.applyOverridesToProducts(db.memoryStore.products);
-    }
-    console.log(`🔄 [Live Sync Boot]: Sincronización inicial completada (${res.log.matchedSkus} SKUs actualizados con overrides preservados).`);
-  })
-  .catch(e => console.warn('⚠️ [Live Sync Boot Warning]:', e.message));
+initApp();
 
 // Security Middlewares (Helmet with relaxed CSP for CDN dependencies)
 app.use(

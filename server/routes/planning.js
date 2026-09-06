@@ -4,21 +4,27 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 const db = require('../db/pool');
+const kvStore = require('../db/keyValueStore');
 const mrpEngine = require('../services/mrpEngine');
 const config = require('../config');
 
 const ordersFilePath = path.join(__dirname, '..', '..', 'data', 'active_orders.json');
 
-function persistOrdersToDisk(orders) {
+async function persistOrdersToDisk(orders) {
   try {
+    // 1. Persist to Postgres Key-Value Store if DB is connected
+    const savedToDb = await kvStore.set('active_orders', orders);
+
+    // 2. Fallback / Sync to Local File System
     const dataDir = path.dirname(ordersFilePath);
     if (!fs.existsSync(dataDir)) {
       fs.mkdirSync(dataDir, { recursive: true });
     }
     fs.writeFileSync(ordersFilePath, JSON.stringify(orders || [], null, 2), 'utf8');
-    console.log(`📦 [Orders Store]: ${orders ? orders.length : 0} órdenes guardadas en disco.`);
+    
+    console.log(`📦 [Orders Store]: ${orders ? orders.length : 0} órdenes guardadas en disco${savedToDb ? ' y DB' : ''}.`);
   } catch (e) {
-    console.warn('⚠️ Error al persistir órdenes en disco:', e.message);
+    console.warn('⚠️ Error al persistir órdenes:', e.message);
   }
 }
 
