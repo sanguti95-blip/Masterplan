@@ -199,9 +199,10 @@ const TableRenderer = {
           <td class="col-desc">
             <span class="product-name" title="${item.description}">${item.description}</span>
             <span class="product-category-tag ${catClass}">${cat}</span>
+            ${item.isOverShelfLife ? `<span class="status-pill pill-danger" style="font-size: 0.65rem; padding: 1px 5px; margin-left: 4px; display: inline-block;" title="${item.shelfLifeWarning}">⚠️ Vida útil (${item.shelfLifeDays}d)</span>` : ''}
           </td>
-          <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio (VDP): ${item.vdp.toFixed(2)} ${item.unit_eq || 'und'}/día">
-            ${item.vdp > 0 ? item.vdp.toFixed(2) : '<span class="text-dim">-</span>'}
+          <td class="col-vdp font-mono text-right" title="Venta Diaria Promedio (VDP): ${item.vdp.toFixed(2)} ${item.unit_eq || 'und'}/día ${item.isStockout ? '(Demanda des-restringida por quiebre de stock: +15%)' : ''}">
+            ${item.vdp > 0 ? `${item.vdp.toFixed(2)}${item.isStockout ? '<span class="text-primary font-bold" style="color:#38bdf8; margin-left:2px;" title="VDP ajustado por agotamiento">+15%</span>' : ''}` : '<span class="text-dim">-</span>'}
           </td>
           <td class="col-stock text-right">
             <input type="number" step="any" min="0" class="input-table stock-input font-mono" 
@@ -218,7 +219,7 @@ const TableRenderer = {
           <td class="col-coverage-days text-center font-mono" title="Cobertura Inicial: ${preCoverage.toFixed(1)} días ➔ Cobertura con Pedido: ${finalCoverage.toFixed(1)} días">
             ${coverageBadge}
           </td>
-          <td class="col-target-cov text-center font-mono" title="Stock de Seguridad Mínimo: ${item.minCoverageUnits} ${item.unit_eq || 'und'} (colchón fijo anti-rotura)">
+          <td class="col-target-cov text-center font-mono" title="Stock de Seguridad Mínimo: ${item.minCoverageUnits} ${item.unit_eq || 'und'} (Cálculo estadístico 95% servicio: ${item.statisticalSafetyStock || item.minCoverageUnits})">
             <strong>${AppFormatter.number(item.minCoverageUnits, 0)}</strong>
           </td>
           <td class="col-multiple text-center font-mono" title="Bulto Maestro: ${item.packMultiple} ${item.unit_eq || 'UD'} por caja/saco">
