@@ -126,6 +126,17 @@ const ModalManager = {
       }
     }
 
+    const elShelfAlert = document.getElementById('confirm-shelflife-alert');
+    const elShelfMsg = document.getElementById('confirm-shelflife-msg');
+    if (elShelfAlert && elShelfMsg) {
+      if (summary.shelfLifeRiskCount > 0) {
+        elShelfAlert.style.display = 'block';
+        elShelfMsg.innerText = `Se detectaron ${summary.shelfLifeRiskCount} artículo(s) cuyo pedido supera su vida útil estimada (riesgo de caducidad y merma). Revise si requiere ajustar las cantidades antes de autorizar.`;
+      } else {
+        elShelfAlert.style.display = 'none';
+      }
+    }
+
     this.open('modal-confirm-approval');
   },
 

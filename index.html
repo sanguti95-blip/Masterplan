@@ -105,10 +105,22 @@
           <div class="day-matrix-selector">
             <span class="selector-label">Día de Pedido:</span>
             <div class="day-button-group">
-              <button class="day-btn active" data-day="Lunes" title="Pedido Lunes -> Entrega Jueves (72h)">Lun</button>
-              <button class="day-btn" data-day="Martes" title="Pedido Martes -> Entrega Viernes (72h)">Mar</button>
-              <button class="day-btn" data-day="Miercoles" title="Pedido Miércoles -> Entrega Sábado (72h / 3 días)">Mié</button>
-              <button class="day-btn" data-day="Jueves" title="Pedido Jueves -> Entrega Martes (72h / 2 días)">Jue</button>
+              <button class="day-btn active" data-day="Lunes" title="Pedido Lunes -> Entrega Jueves (72h)" aria-pressed="true">
+                <span class="day-code">Lun</span>
+                <span class="day-meta">➔ Jue</span>
+              </button>
+              <button class="day-btn" data-day="Martes" title="Pedido Martes -> Entrega Viernes (72h)" aria-pressed="false">
+                <span class="day-code">Mar</span>
+                <span class="day-meta">➔ Vie</span>
+              </button>
+              <button class="day-btn" data-day="Miercoles" title="Pedido Miércoles -> Entrega Sábado (Pico Fin de Semana)" aria-pressed="false">
+                <span class="day-code">Mié</span>
+                <span class="day-meta">➔ Sáb 🔥</span>
+              </button>
+              <button class="day-btn" data-day="Jueves" title="Pedido Jueves -> Entrega Martes (Valle Entre Semana)" aria-pressed="false">
+                <span class="day-code">Jue</span>
+                <span class="day-meta">➔ Mar</span>
+              </button>
             </div>
           </div>
 
@@ -245,8 +257,11 @@
               <button class="filter-btn" data-filter="to-order">
                 <span class="pill-dot green"></span>Con Pedido
               </button>
-              <button class="filter-btn" data-filter="critical">
-                <span class="pill-dot red"></span>Alertas
+              <button class="filter-btn" data-filter="critical" title="Filtrar artículos con quiebre de stock o cobertura insuficiente">
+                <span class="pill-dot red"></span>Agotados
+              </button>
+              <button class="filter-btn" data-filter="shelf-life" title="Filtrar artículos cuyo pedido o stock supera su vida útil estimada">
+                <span class="pill-dot amber"></span>⚠️ Caducidad
               </button>
               <button class="filter-btn" data-filter="transit">
                 <span class="pill-dot blue"></span>Tránsito
@@ -334,22 +349,22 @@
             <table class="mrp-table" id="orders-table">
               <thead>
                 <tr class="header-main">
-                  <th class="text-center col-checkbox">
+                  <th scope="col" class="text-center col-checkbox">
                     <input type="checkbox" id="chk-select-all" title="Seleccionar todos">
                   </th>
-                  <th class="sortable col-sku" data-sort="codeSku" title="Código Frumusa (Proveedor) y Código Country (CODISA)">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="sortable col-desc" data-sort="description" title="Nombre comercial oficial y familia de perecederos">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-vdp" data-sort="vdp" title="Venta Diaria Promedio (VDP) en la ventana estadística seleccionada">VENTA/DÍA <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-stock" data-sort="stockActual" title="Existencia física disponible en Bodega 401">STOCK 401 <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-transit" data-sort="activeTransit" title="Pedidos en ruta con arribo programado en 72 horas">TRÁNSITO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-projected" data-sort="projectedStock" title="Disponibilidad Total = Stock Físico (Bodega 401) + Tránsito Activo">PROYECTADO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-coverage-days" data-sort="coverageDaysResult" title="Días de Cobertura Total = (Stock + Tránsito + Pedido Final) / VDP">COBERTURA (DÍAS) <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-target-cov" data-sort="minCoverageUnits" title="Stock de Seguridad Mínimo Fijo en Unidades">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center sortable col-multiple" data-sort="packMultiple" title="Múltiplo de empaque / Unidades totales por bulto o caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-suggested" data-sort="suggestedUnits" title="Sugerido de compra calculado por el motor MRP para el ciclo">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-final-order" data-sort="finalQty" title="Cantidad autorizada de compra (editable, presiona Enter para avanzar)">PEDIDO FINAL <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-right sortable col-total-cost" data-sort="totalOrderCost" title="Inversión total autorizada en Colones = Pedido Final × Costo Unitario">INVERSIÓN (₡) <i class="fa-solid fa-sort sort-icon"></i></th>
-                  <th class="text-center col-actions" title="Abrir ficha técnica y analítica del artículo">VER</th>
+                  <th scope="col" class="sortable col-sku" data-sort="codeSku" title="Código Frumusa (Proveedor) y Código Country (CODISA)">CÓDIGO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="sortable col-desc" data-sort="description" title="Nombre comercial oficial y familia de perecederos">ARTÍCULO & FAMILIA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-right sortable col-vdp" data-sort="vdp" title="Venta Diaria Promedio (VDP) en la ventana estadística seleccionada">VENTA/DÍA <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-right sortable col-stock" data-sort="stockActual" title="Existencia física disponible en Bodega 401">STOCK 401 <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-right sortable col-transit" data-sort="activeTransit" title="Pedidos en ruta con arribo programado en 72 horas">TRÁNSITO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-right sortable col-projected" data-sort="projectedStock" title="Disponibilidad Total = Stock Físico (Bodega 401) + Tránsito Activo">PROYECTADO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-center sortable col-coverage-days" data-sort="coverageDaysResult" title="Días de Cobertura Total = (Stock + Tránsito + Pedido Final) / VDP">COBERTURA (DÍAS) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-center sortable col-target-cov" data-sort="minCoverageUnits" title="Stock de Seguridad Mínimo Fijo en Unidades">COB. MÍN <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-center sortable col-multiple" data-sort="packMultiple" title="Múltiplo de empaque / Unidades totales por bulto o caja">BULTO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-right sortable col-suggested" data-sort="suggestedUnits" title="Sugerido de compra calculado por el motor MRP para el ciclo">SUGERIDO <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-right sortable col-final-order" data-sort="finalQty" title="Cantidad autorizada de compra (editable, presiona Enter para avanzar)">PEDIDO FINAL <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-right sortable col-total-cost" data-sort="totalOrderCost" title="Inversión total autorizada en Colones = Pedido Final × Costo Unitario">INVERSIÓN (₡) <i class="fa-solid fa-sort sort-icon"></i></th>
+                  <th scope="col" class="text-center col-actions" title="Abrir ficha técnica y analítica del artículo">VER</th>
                 </tr>
               </thead>
               <tbody id="table-body">
@@ -663,6 +678,17 @@
           <div class="confirm-item span-2 variance-box">
             <span class="stat-label">Varianza de Ajustes vs. Sugerido de Compra</span>
             <span id="confirm-variance-text" class="font-mono font-semibold">Sin varianza (100% apego al sugerido)</span>
+          </div>
+        </div>
+        <div id="confirm-shelflife-alert" class="confirm-shelflife-box" style="display: none; margin: 12px 0; padding: 12px 14px; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: var(--radius-sm);">
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <i class="fa-solid fa-triangle-exclamation text-danger" style="margin-top: 2px; font-size: 1.1rem;"></i>
+            <div>
+              <strong class="text-danger" style="font-size: 0.88rem; display: block; margin-bottom: 2px;">Alerta de Vida Útil / Riesgo de Caducidad</strong>
+              <p id="confirm-shelflife-msg" class="text-muted" style="font-size: 0.80rem; margin: 0; line-height: 1.35;">
+                Se detectaron productos cuyo pedido sobrepasa los días de frescura estimada.
+              </p>
+            </div>
           </div>
         </div>
         <p class="confirm-disclaimer">

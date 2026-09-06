@@ -539,15 +539,30 @@ h4 { font-size: 0.90rem; line-height: 1.4; }
 }
 
 .day-btn {
-  padding: 6px 11px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   background: transparent;
   color: var(--text-muted);
-  font-size: 0.8rem;
-  font-weight: 700;
   cursor: pointer;
+  line-height: 1.15;
   transition: all 0.15s ease;
+}
+
+.day-btn .day-code {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.day-btn .day-meta {
+  font-size: 0.62rem;
+  font-weight: 600;
+  opacity: 0.85;
+  margin-top: 1px;
 }
 
 .day-btn:hover {
@@ -558,8 +573,16 @@ h4 { font-size: 0.90rem; line-height: 1.4; }
 .day-btn.active {
   background: var(--primary);
   color: #000000;
-  font-weight: 800;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.day-btn.active .day-code {
+  font-weight: 800;
+}
+
+.day-btn.active .day-meta {
+  opacity: 1;
+  font-weight: 800;
 }
 
 .currency-badge {
@@ -1346,8 +1369,8 @@ body.theme-light .badge-sku-frumusa {
 }
 
 body.theme-light .badge-sku-country {
-  background: #e2e8f0;
-  color: #475569;
+  background: #cbd5e1;
+  color: #0f172a;
 }
 
 .badge-transit {

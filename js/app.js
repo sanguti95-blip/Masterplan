@@ -498,7 +498,9 @@ class MrpApp {
   updateDaySelectorUi(day) {
     // Update day buttons
     document.querySelectorAll('.day-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.day === day);
+      const isActive = btn.dataset.day === day;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
     // Update Day Metadata Banner
@@ -727,6 +729,7 @@ class MrpApp {
       }
 
       if (this.activeFilter === 'critical') return item.isCritical;
+      if (this.activeFilter === 'shelf-life') return Boolean(item.isOverShelfLife);
       if (this.activeFilter === 'transit') return item.activeTransit > 0;
       if (this.activeFilter === 'to-order') return item.finalQty > 0;
 
@@ -898,11 +901,13 @@ class MrpApp {
     let grandTotalUnits = 0;
     let grandTotalBoxes = 0;
 
+    let shelfLifeRiskCount = 0;
     itemsToOrder.forEach(i => {
       grandTotalCost += i.totalOrderCost;
       suggestedTotalCost += (i.suggestedUnits * i.unitCost);
       grandTotalUnits += i.finalQty;
       grandTotalBoxes += i.finalBoxes;
+      if (i.isOverShelfLife) shelfLifeRiskCount++;
     });
 
     const varianceCost = grandTotalCost - suggestedTotalCost;
@@ -914,7 +919,8 @@ class MrpApp {
       boxCount: grandTotalBoxes,
       totalCost: grandTotalCost,
       suggestedCost: suggestedTotalCost,
-      varianceCost: varianceCost
+      varianceCost: varianceCost,
+      shelfLifeRiskCount: shelfLifeRiskCount
     };
 
     // Open Executive Confirmation Modal
