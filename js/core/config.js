@@ -14,6 +14,16 @@ const APP_CONFIG = {
   defaultVdpDays: 60,
   cacheTTL: 5 * 60 * 1000, // 5 minutes in memory/localstorage
   googleAppsScriptUrl: 'https://script.google.com/macros/s/AKfycbxNLOOjTlzp-WLcIiQXpoxw510xMvu3hgXF1Bec8mvhdVR3Kpi8GVN2VcIFZKnAvH21Cg/exec',
+  storeHours: {
+    Lunes: { open: '08:00', close: '19:00', hours: 11 },
+    Martes: { open: '08:00', close: '19:00', hours: 11 },
+    Miercoles: { open: '08:00', close: '19:00', hours: 11 },
+    Jueves: { open: '08:00', close: '19:00', hours: 11 },
+    Viernes: { open: '08:00', close: '19:00', hours: 11 },
+    Sabado: { open: '08:00', close: '19:00', hours: 11 },
+    Domingo: { open: '08:00', close: '16:00', hours: 8 }
+  },
+  weeklyOperatingHours: 74,
   planningMatrix: {
     Lunes: {
       dayName: 'Lunes',

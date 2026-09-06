@@ -14,5 +14,15 @@ module.exports = {
   DEFAULT_VDP_DAYS: Number(process.env.DEFAULT_VDP_DAYS) || 60,
   DEFAULT_LEAD_TIME_HOURS: 72,
   CURRENCY: 'CRC',
-  CURRENCY_SYMBOL: '₡'
+  CURRENCY_SYMBOL: '₡',
+  STORE_HOURS: {
+    Lunes: { open: '08:00', close: '19:00', hours: 11 },
+    Martes: { open: '08:00', close: '19:00', hours: 11 },
+    Miercoles: { open: '08:00', close: '19:00', hours: 11 },
+    Jueves: { open: '08:00', close: '19:00', hours: 11 },
+    Viernes: { open: '08:00', close: '19:00', hours: 11 },
+    Sabado: { open: '08:00', close: '19:00', hours: 11 },
+    Domingo: { open: '08:00', close: '16:00', hours: 8 }
+  },
+  WEEKLY_OPERATING_HOURS: 74
 };
