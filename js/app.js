@@ -546,13 +546,25 @@ class MrpApp {
         ]);
 
         // Merge Catalog Overrides from Server + LocalStorage
+        let localOv = {};
+        try {
+          localOv = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
+        } catch(e) {}
+
+        let serverOv = {};
         if (overridesRes.status === 'fulfilled' && overridesRes.value && overridesRes.value.overrides) {
-          let localOv = {};
-          try {
-            localOv = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
-          } catch(e) {}
-          const mergedOv = { ...overridesRes.value.overrides, ...localOv };
-          localStorage.setItem('codisa_catalog_overrides', JSON.stringify(mergedOv));
+          serverOv = overridesRes.value.overrides;
+        }
+
+        const mergedOv = { ...serverOv, ...localOv };
+        localStorage.setItem('codisa_catalog_overrides', JSON.stringify(mergedOv));
+
+        // Automatically sync merged overrides to server & cloud database
+        if (Object.keys(mergedOv).length > 0 && window.ApiClient && window.ApiClient.request) {
+          window.ApiClient.request('/api/products/overrides', {
+            method: 'POST',
+            body: JSON.stringify({ overrides: mergedOv })
+          }).catch(() => {});
         }
 
         // Smart-Merge In-Transit Orders (Never wipe out local/initial orders, but respect user deletions)
@@ -1408,23 +1420,31 @@ class MrpApp {
       overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
     } catch(e) {}
 
-    const exactKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || skuKey))).toUpperCase();
-    overrides[exactKey] = {
-      ...(overrides[exactKey] || {}),
-      is_active: newStatus
-    };
+    const kFrumusa = (item.code_frumusa || item.codeFrumusa || '').toString().trim().toUpperCase();
+    const kCountry = (item.code_country || item.codeCountry || '').toString().trim().toUpperCase();
+    const kSku = (item.codeSku || skuKey || '').toString().trim().toUpperCase();
+    const keys = Array.from(new Set([kFrumusa, kCountry, kSku].filter(Boolean)));
+
+    const payload = {};
+    keys.forEach(k => {
+      overrides[k] = {
+        ...(overrides[k] || {}),
+        is_active: newStatus
+      };
+      payload[k] = { is_active: newStatus };
+    });
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
-    // 2. Persist to Backend Server & Disk
+    // 2. Persist to Backend Server & PostgreSQL DB
     if (window.ApiClient) {
       if (window.ApiClient.request) {
         window.ApiClient.request('/api/products/overrides', {
           method: 'POST',
-          body: JSON.stringify({ overrides: { [exactKey]: { is_active: newStatus } } })
+          body: JSON.stringify({ overrides: payload })
         }).catch(() => {});
       }
       if (window.ApiClient.toggleProductActive) {
-        window.ApiClient.toggleProductActive(exactKey, newStatus).catch(err => {
+        window.ApiClient.toggleProductActive(kFrumusa || kCountry || kSku, newStatus).catch(err => {
           console.warn('Sync toggle to server deferred:', err.message);
         });
       }
@@ -1548,7 +1568,11 @@ class MrpApp {
       overrides = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
     } catch(e) {}
 
-    const exactKey = ((frumusa || country || skuKey)).toUpperCase();
+    const kFrumusa = (frumusa || (item && (item.code_frumusa || item.codeFrumusa)) || '').toString().trim().toUpperCase();
+    const kCountry = (country || (item && (item.code_country || item.codeCountry)) || '').toString().trim().toUpperCase();
+    const kSku = (skuKey || '').toString().trim().toUpperCase();
+    const keys = Array.from(new Set([kFrumusa, kCountry, kSku].filter(Boolean)));
+
     const overrideObj = {
       is_active: isActive,
       code_frumusa: frumusa,
@@ -1559,20 +1583,25 @@ class MrpApp {
       min_coverage_qty: minQty,
       safety_stock_units: minQty
     };
-    overrides[exactKey] = overrideObj;
+
+    const payload = {};
+    keys.forEach(k => {
+      overrides[k] = overrideObj;
+      payload[k] = overrideObj;
+    });
 
     localStorage.setItem('codisa_catalog_overrides', JSON.stringify(overrides));
 
-    // 2. Persist to Backend Server & Disk via dedicated overrides endpoint
+    // 2. Persist to Backend Server & PostgreSQL DB
     if (window.ApiClient) {
       if (window.ApiClient.request) {
         window.ApiClient.request('/api/products/overrides', {
           method: 'POST',
-          body: JSON.stringify({ overrides: { [exactKey]: overrideObj } })
+          body: JSON.stringify({ overrides: payload })
         }).catch(() => {});
       }
       if (window.ApiClient.updateProduct) {
-        window.ApiClient.updateProduct(exactKey, {
+        window.ApiClient.updateProduct(kFrumusa || kCountry || kSku, {
           isActive,
           codeFrumusa: frumusa,
           codeCountry: country,
@@ -1633,10 +1662,12 @@ class MrpApp {
         (i.codeSku && i.codeSku.toString().toUpperCase() === cleanSku)
       ));
 
-      const isActive = item ? (item.is_active !== false && item.isActive !== false) : true;
-      const exactKey = (frumusa || country || skuKey).toUpperCase();
+      const kFrumusa = (frumusa || (item && (item.code_frumusa || item.codeFrumusa)) || '').toString().trim().toUpperCase();
+      const kCountry = (country || (item && (item.code_country || item.codeCountry)) || '').toString().trim().toUpperCase();
+      const kSku = (skuKey || '').toString().trim().toUpperCase();
+      const keys = Array.from(new Set([kFrumusa, kCountry, kSku].filter(Boolean)));
 
-      overrides[exactKey] = {
+      const overrideObj = {
         is_active: isActive,
         code_frumusa: frumusa,
         code_country: country,
@@ -1646,6 +1677,10 @@ class MrpApp {
         min_coverage_qty: minQty,
         safety_stock_units: minQty
       };
+
+      keys.forEach(k => {
+        overrides[k] = overrideObj;
+      });
 
       if (item) {
         item.code_frumusa = frumusa;
@@ -1659,6 +1694,8 @@ class MrpApp {
         item.min_coverage_qty = minQty;
         item.minCoverageUnits = minQty;
         item.safety_stock_units = minQty;
+        item.is_active = isActive;
+        item.isActive = isActive;
       }
     });
 

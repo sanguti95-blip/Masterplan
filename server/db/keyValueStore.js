@@ -1,7 +1,8 @@
 const db = require('./pool');
 
 async function initDb() {
-  if (db.isDbConnected()) {
+  await db.testConnection();
+  if (db.pool) {
     try {
       await db.query(`
         CREATE TABLE IF NOT EXISTS mrp_store (
@@ -10,7 +11,7 @@ async function initDb() {
           updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
       `);
-      console.log('✅ [DB] Tabla mrp_store verificada/creada.');
+      console.log('✅ [DB] Tabla mrp_store verificada/creada en PostgreSQL (Supabase).');
     } catch (err) {
       console.warn('⚠️ [DB] Error creando tabla mrp_store:', err.message);
     }
@@ -18,7 +19,7 @@ async function initDb() {
 }
 
 async function get(key) {
-  if (db.isDbConnected()) {
+  if (db.pool) {
     try {
       const res = await db.query('SELECT data FROM mrp_store WHERE key = $1', [key]);
       if (res && res.rows && res.rows.length > 0) {
@@ -32,15 +33,15 @@ async function get(key) {
 }
 
 async function set(key, data) {
-  if (db.isDbConnected()) {
+  if (db.pool) {
     try {
-      await db.query(`
+      const res = await db.query(`
         INSERT INTO mrp_store (key, data, updated_at)
         VALUES ($1, $2, CURRENT_TIMESTAMP)
         ON CONFLICT (key) DO UPDATE
         SET data = EXCLUDED.data, updated_at = CURRENT_TIMESTAMP
       `, [key, JSON.stringify(data)]);
-      return true;
+      return Boolean(res && res.rowCount !== undefined);
     } catch (err) {
       console.warn(`⚠️ [DB] Error guardando key ${key}:`, err.message);
     }

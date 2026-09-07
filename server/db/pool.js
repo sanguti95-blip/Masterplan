@@ -8,7 +8,7 @@ if (config.DATABASE_URL) {
   try {
     pool = new Pool({
       connectionString: config.DATABASE_URL,
-      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+      ssl: { rejectUnauthorized: false },
       max: 10,
       idleTimeoutMillis: 30000,
       connectionTimeoutMillis: 5000,
@@ -47,23 +47,41 @@ function initMemoryStore(initialItems = []) {
 }
 
 async function query(text, params = []) {
-  if (pool && isConnected) {
+  if (pool) {
     try {
       const start = Date.now();
       const res = await pool.query(text, params);
+      isConnected = true;
       const duration = Date.now() - start;
       return { rows: res.rows, rowCount: res.rowCount, duration };
     } catch (error) {
-      console.warn('⚠️ PostgreSQL query failed, using memory store fallback:', error.message);
+      console.warn('⚠️ PostgreSQL query failed:', error.message);
+      isConnected = false;
     }
   }
   return null;
 }
 
+async function testConnection() {
+  if (!pool) return false;
+  try {
+    const res = await query('SELECT 1 as connected');
+    if (res && res.rows && res.rows.length > 0) {
+      isConnected = true;
+      console.log('✅ [PostgreSQL Pool]: Conexión exitosa y verificada con base de datos.');
+      return true;
+    }
+  } catch (e) {
+    isConnected = false;
+  }
+  return false;
+}
+
 module.exports = {
   pool,
   query,
+  testConnection,
   memoryStore,
   initMemoryStore,
-  isDbConnected: () => isConnected
+  isDbConnected: () => Boolean(pool && isConnected)
 };

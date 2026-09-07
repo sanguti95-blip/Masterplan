@@ -86,37 +86,80 @@ async function initApp() {
           db.initMemoryStore(synced);
           console.log(`✅ [Master MRP]: Catálogo oficial cargado desde synced_catalog.json con ${synced.length} SKUs.`);
 
-          const ordersFilePath = path.join(__dirname, '..', 'data', 'active_orders.json');
-          if (fs.existsSync(ordersFilePath)) {
-            try {
-              const savedOrders = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
-              if (Array.isArray(savedOrders) && savedOrders.length > 0) {
-                db.memoryStore.orders = savedOrders;
-                console.log(`📦 [Orders Store]: ${savedOrders.length} órdenes cargadas desde almacenamiento.`);
-
-                // Reconcile active in-transit stock onto catalog products
-                savedOrders.forEach(ord => {
-                  if (ord.status === 'EN_TRANSITO' && Array.isArray(ord.items)) {
-                    ord.items.forEach(it => {
-                      const prod = db.memoryStore.products.find(p => (
-                        (p.code_frumusa && p.code_frumusa.toString() === it.codeSku) ||
-                        (p.codeFrumusa && p.codeFrumusa.toString() === it.codeSku) ||
-                        (p.code_country && p.code_country.toString() === it.codeSku) ||
-                        (p.codeCountry && p.codeCountry.toString() === it.codeSku) ||
-                        (p.codeSku && p.codeSku.toString() === it.codeSku) ||
-                        (p.NO_ARTI && p.NO_ARTI.toString() === it.codeSku)
-                      ));
-                      if (prod) {
-                        prod.transit_qty = (Number(prod.transit_qty || 0)) + (Number(it.finalQty || it.quantity || 0));
-                        prod.transit = prod.transit_qty;
-                      }
-                    });
-                  }
-                });
-              }
-            } catch (e) {
-              console.warn('⚠️ Error al cargar órdenes persistidas:', e.message);
+          // 1. Reconcile persistent catalog overrides (from PostgreSQL DB or disk) onto memory store
+          try {
+            const overridesFilePath = path.join(__dirname, '..', 'data', 'catalog_overrides.json');
+            const dbOverrides = await kvStore.get('catalog_overrides');
+            let overrides = dbOverrides;
+            if (!overrides && fs.existsSync(overridesFilePath)) {
+              overrides = JSON.parse(fs.readFileSync(overridesFilePath, 'utf8')) || {};
             }
+            if (overrides && typeof overrides === 'object' && Object.keys(overrides).length > 0) {
+              let appliedCount = 0;
+              db.memoryStore.products.forEach(item => {
+                const skuKey = ((item.code_frumusa && item.code_frumusa.trim()) ? item.code_frumusa.trim() : (item.code_country ? item.code_country.trim() : (item.codeSku || ''))).toUpperCase();
+                const k1 = (item.code_frumusa || item.codeFrumusa || '').toString().trim().toUpperCase();
+                const k2 = (item.code_country || item.codeCountry || '').toString().trim().toUpperCase();
+                const k3 = (item.codeSku || '').toString().trim().toUpperCase();
+                
+                const ov = overrides[skuKey] || (k1 ? overrides[k1] : null) || (k3 ? overrides[k3] : null) || overrides[k2];
+                if (ov) {
+                  if (ov.is_active !== undefined) {
+                    item.is_active = Boolean(ov.is_active);
+                    item.isActive = Boolean(ov.is_active);
+                  }
+                  if (ov.pack_multiple !== undefined) {
+                    item.pack_multiple = Number(ov.pack_multiple);
+                    item.packMultiple = Number(ov.pack_multiple);
+                  }
+                  if (ov.min_coverage_qty !== undefined) {
+                    item.min_coverage_qty = Number(ov.min_coverage_qty);
+                    item.minCoverageUnits = Number(ov.min_coverage_qty);
+                    item.safety_stock_units = Number(ov.min_coverage_qty);
+                  }
+                  appliedCount++;
+                }
+              });
+              console.log(`🎯 [Master MRP]: ${appliedCount} productos inicializados con parámetros y estados personalizados.`);
+            }
+          } catch (e) {
+            console.warn('⚠️ Error al aplicar overrides iniciales al catálogo:', e.message);
+          }
+
+          // 2. Reconcile active in-transit orders (from PostgreSQL DB or local disk)
+          const ordersFilePath = path.join(__dirname, '..', 'data', 'active_orders.json');
+          try {
+            const dbOrders = await kvStore.get('active_orders');
+            let savedOrders = Array.isArray(dbOrders) && dbOrders.length > 0 ? dbOrders : null;
+            if (!savedOrders && fs.existsSync(ordersFilePath)) {
+              savedOrders = JSON.parse(fs.readFileSync(ordersFilePath, 'utf8'));
+            }
+            if (Array.isArray(savedOrders) && savedOrders.length > 0) {
+              db.memoryStore.orders = savedOrders;
+              console.log(`📦 [Orders Store]: ${savedOrders.length} órdenes cargadas desde almacenamiento.`);
+
+              // Reconcile active in-transit stock onto catalog products
+              savedOrders.forEach(ord => {
+                if (ord.status === 'EN_TRANSITO' && Array.isArray(ord.items)) {
+                  ord.items.forEach(it => {
+                    const prod = db.memoryStore.products.find(p => (
+                      (p.code_frumusa && p.code_frumusa.toString() === it.codeSku) ||
+                      (p.codeFrumusa && p.codeFrumusa.toString() === it.codeSku) ||
+                      (p.code_country && p.code_country.toString() === it.codeSku) ||
+                      (p.codeCountry && p.codeCountry.toString() === it.codeSku) ||
+                      (p.codeSku && p.codeSku.toString() === it.codeSku) ||
+                      (p.NO_ARTI && p.NO_ARTI.toString() === it.codeSku)
+                    ));
+                    if (prod) {
+                      prod.transit_qty = (Number(prod.transit_qty || 0)) + (Number(it.finalQty || it.quantity || 0));
+                      prod.transit = prod.transit_qty;
+                    }
+                  });
+                }
+              });
+            }
+          } catch (e) {
+            console.warn('⚠️ Error al cargar órdenes persistidas:', e.message);
           }
           return;
         }

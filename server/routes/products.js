@@ -217,16 +217,16 @@ function findProduct(products, sku) {
 }
 
 // POST /api/products/batch-update - Batch update catalog parameters and persist on server
-router.post('/batch-update', (req, res) => {
+router.post('/batch-update', async (req, res) => {
   try {
     const { overrides } = req.body || {};
     if (!overrides || typeof overrides !== 'object') {
       return res.status(400).json({ error: 'Formato de overrides inválido.' });
     }
 
-    const current = loadOverridesFromDisk();
+    const current = await loadOverrides();
     const merged = { ...current, ...overrides };
-    persistOverridesToDisk(merged);
+    await persistOverrides(merged);
 
     const products = db.memoryStore.products || [];
     let updatedCount = 0;
@@ -291,7 +291,7 @@ router.get('/:sku', (req, res) => {
 });
 
 // POST /api/products/:sku/toggle-active - Toggle active status for SKU on server
-router.post('/:sku/toggle-active', (req, res) => {
+router.post('/:sku/toggle-active', async (req, res) => {
   const sku = req.params.sku;
   const product = findProduct(db.memoryStore.products, sku);
 
@@ -305,11 +305,11 @@ router.post('/:sku/toggle-active', (req, res) => {
   product.is_active = newStatus;
   product.isActive = newStatus;
 
-  // Persist to overrides file
+  // Persist to overrides file and DB
   const skuKey = ((product.code_frumusa && product.code_frumusa.trim()) ? product.code_frumusa.trim() : (product.code_country ? product.code_country.trim() : (product.codeSku || sku))).toUpperCase();
-  const current = loadOverridesFromDisk();
+  const current = await loadOverrides();
   current[skuKey] = { ...(current[skuKey] || {}), is_active: newStatus };
-  persistOverridesToDisk(current);
+  await persistOverrides(current);
 
   persistCatalogToDisk();
 
