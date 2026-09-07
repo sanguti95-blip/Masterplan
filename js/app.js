@@ -545,26 +545,26 @@ class MrpApp {
           window.ApiClient.request ? window.ApiClient.request('/api/products/overrides') : Promise.resolve(null)
         ]);
 
-        // Merge Catalog Overrides from Server + LocalStorage
-        let localOv = {};
-        try {
-          localOv = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
-        } catch(e) {}
-
-        let serverOv = {};
+        // Server / Cloud Database (Supabase) is the single source of truth for overrides
+        let serverOv = null;
         if (overridesRes.status === 'fulfilled' && overridesRes.value && overridesRes.value.overrides) {
           serverOv = overridesRes.value.overrides;
         }
 
-        const mergedOv = { ...serverOv, ...localOv };
-        localStorage.setItem('codisa_catalog_overrides', JSON.stringify(mergedOv));
-
-        // Automatically sync merged overrides to server & cloud database
-        if (Object.keys(mergedOv).length > 0 && window.ApiClient && window.ApiClient.request) {
-          window.ApiClient.request('/api/products/overrides', {
-            method: 'POST',
-            body: JSON.stringify({ overrides: mergedOv })
-          }).catch(() => {});
+        if (serverOv && typeof serverOv === 'object' && Object.keys(serverOv).length > 0) {
+          // Cloud database is authoritative: replace local storage cache with cloud truth
+          localStorage.setItem('codisa_catalog_overrides', JSON.stringify(serverOv));
+        } else {
+          // Offline fallback only: read from localStorage if server returned nothing
+          try {
+            const localOv = JSON.parse(localStorage.getItem('codisa_catalog_overrides') || '{}');
+            if (localOv && Object.keys(localOv).length > 0 && window.ApiClient && window.ApiClient.request) {
+              window.ApiClient.request('/api/products/overrides', {
+                method: 'POST',
+                body: JSON.stringify({ overrides: localOv })
+              }).catch(() => {});
+            }
+          } catch(e) {}
         }
 
         // Smart-Merge In-Transit Orders (Never wipe out local/initial orders, but respect user deletions)
