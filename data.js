@@ -6964,7 +6964,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 12,
     "code_sku": "5125",
-    "pedidoFinalOverride": 24
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "5125B",
@@ -7427,7 +7427,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 40,
     "code_sku": "704",
-    "pedidoFinalOverride": 160
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "684p",
@@ -7470,7 +7470,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 10,
     "code_sku": "670",
-    "pedidoFinalOverride": 60
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "911",
@@ -7680,7 +7680,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 4,
     "code_sku": "11554X",
-    "pedidoFinalOverride": 20
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "11554",
@@ -7723,7 +7723,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "11554",
-    "pedidoFinalOverride": 4
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "11556",
@@ -7766,7 +7766,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 1,
     "code_sku": "11556",
-    "pedidoFinalOverride": 2
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "11555B",
@@ -7850,7 +7850,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 15,
     "code_sku": "11511",
-    "pedidoFinalOverride": 30
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "16579",
@@ -8061,7 +8061,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "12512",
-    "pedidoFinalOverride": 4
+    "pedidoFinalOverride": null
   },
   {
     "code_frumusa": "1064U",
@@ -8314,7 +8314,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "12521",
-    "pedidoFinalOverride": 4
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "12531",
@@ -8357,7 +8357,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 7,
     "code_sku": "12531",
-    "pedidoFinalOverride": 10
+    "pedidoFinalOverride": null
   },
   {
     "code_frumusa": "14524",
@@ -8441,7 +8441,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 18,
     "code_sku": "1351",
-    "pedidoFinalOverride": 15
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "1353",
@@ -8734,7 +8734,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 15,
     "code_sku": "12554P",
-    "pedidoFinalOverride": 15
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "12554",
@@ -8777,7 +8777,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 25,
     "code_sku": "12554",
-    "pedidoFinalOverride": 15
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "125542",
@@ -8946,7 +8946,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 15,
     "code_sku": "12552",
-    "pedidoFinalOverride": 15
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "12561",
@@ -8989,7 +8989,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "12561",
-    "pedidoFinalOverride": 6
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "12562",
@@ -9074,7 +9074,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 3,
     "code_sku": "12563",
-    "pedidoFinalOverride": 20
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "12613",
@@ -9117,7 +9117,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "12613",
-    "pedidoFinalOverride": 6
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "125641",
@@ -9579,7 +9579,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 40,
     "code_sku": "12603",
-    "pedidoFinalOverride": 60
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "12588",
@@ -9748,7 +9748,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 3,
     "code_sku": "12591",
-    "pedidoFinalOverride": 6
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "11523",
@@ -10001,7 +10001,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 8,
     "code_sku": "11531",
-    "pedidoFinalOverride": 15
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "15524A",
@@ -10044,7 +10044,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "15524A",
-    "pedidoFinalOverride": 12
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "15521",
@@ -10087,7 +10087,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "15521",
-    "pedidoFinalOverride": 4
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "17558",
@@ -10172,7 +10172,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "17557",
-    "pedidoFinalOverride": 20
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "15531",
@@ -10423,7 +10423,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 5,
     "code_sku": "16624X",
-    "pedidoFinalOverride": 20
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "16624",
@@ -10466,7 +10466,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "16624",
-    "pedidoFinalOverride": 12
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "5536",
@@ -10551,7 +10551,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 1,
     "code_sku": "5533",
-    "pedidoFinalOverride": 4
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "5535",
@@ -10636,7 +10636,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 1,
     "code_sku": "5538",
-    "pedidoFinalOverride": 2
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "13513",
@@ -10763,7 +10763,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 1,
     "code_sku": "125972",
-    "pedidoFinalOverride": 4
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "11541",
@@ -10848,7 +10848,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 12,
     "code_sku": "115412",
-    "pedidoFinalOverride": 60
+    "pedidoFinalOverride": null
   },
   {
     "code_frumusa": "16580X",
@@ -11058,7 +11058,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 12,
     "code_sku": "11548",
-    "pedidoFinalOverride": 12
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "11547",
@@ -11101,7 +11101,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 12,
     "code_sku": "11547",
-    "pedidoFinalOverride": 12
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "11540",
@@ -11144,7 +11144,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 12,
     "code_sku": "11540",
-    "pedidoFinalOverride": 6
+    "pedidoFinalOverride": null
   },
   {
     "code_frumusa": "14571",
@@ -11311,7 +11311,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 10,
     "code_sku": "14587",
-    "pedidoFinalOverride": 40
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "14575P",
@@ -11354,7 +11354,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 10,
     "code_sku": "14574",
-    "pedidoFinalOverride": 10
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "14575",
@@ -12483,7 +12483,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 15,
     "code_sku": "13557",
-    "pedidoFinalOverride": 15
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "1451633",
@@ -12526,7 +12526,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 18,
     "code_sku": "1451633",
-    "pedidoFinalOverride": 40
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "16510",
@@ -13780,7 +13780,7 @@ const INITIAL_PEDIDOS = [
     "isActive": true,
     "multiplo": 6,
     "code_sku": "13543",
-    "pedidoFinalOverride": 6
+    "pedidoFinalOverride": null
   },
   {
     "code_frumusa": "13546",
@@ -15121,7 +15121,7 @@ const INITIAL_PEDIDOS = [
     "isActive": false,
     "multiplo": 15,
     "code_sku": "13582",
-    "pedidoFinalOverride": 15
+    "pedidoFinalOverride": null
   },
   {
     "code_country": "13581",
@@ -16607,7 +16607,7 @@ const INITIAL_PEDIDOS = [
     "code_sku": "11522N",
     "activeTransit": 40,
     "unit_fromusa": "UD",
-    "pedidoFinalOverride": 40
+    "pedidoFinalOverride": null
   },
   {
     "code_frumusa": "",
