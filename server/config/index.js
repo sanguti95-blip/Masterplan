@@ -5,7 +5,7 @@ module.exports = {
   NODE_ENV: process.env.NODE_ENV || 'development',
   JWT_SECRET: process.env.JWT_SECRET || 'mrp_codisa_super_secret_jwt_key_2026_milton',
   CORS_ORIGIN: process.env.CORS_ORIGIN || '*',
-  DATABASE_URL: process.env.DATABASE_URL || 'postgresql://postgres:Sofias110621sanguti9527@db.igfwjhuwxsdsjwbsuvxm.supabase.co:5432/postgres',
+  DATABASE_URL: process.env.DATABASE_URL || 'postgresql://postgres.igfwjhuwxsdsjwbsuvxm:Sofias110621sanguti9527@aws-0-ca-central-1.pooler.supabase.com:6543/postgres',
   SUPABASE_URL: process.env.SUPABASE_URL || 'https://igfwjhuwxsdsjwbsuvxm.supabase.co',
   SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || '',
   SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
