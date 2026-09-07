@@ -119,7 +119,7 @@ router.get('/calculate', (req, res) => {
 });
 
 // POST /api/planning/approve - Approve Planned Order and add to In-Transit
-router.post('/approve', (req, res) => {
+router.post('/approve', async (req, res) => {
   try {
     const { executionDay, items, order, notes, createdBy } = req.body;
     const rawItems = items || (order ? order.items : []);
@@ -170,16 +170,23 @@ router.post('/approve', (req, res) => {
     }
 
     const now = new Date();
-    const orderId = `ORD-${normDay.toUpperCase()}-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}-${Date.now().toString().slice(-4)}`;
+    // Prioritize client-generated orderId so client and server remain identical and avoid duplicate cards
+    const orderId = (order && (order.id || order.orderCode)) 
+      ? (order.id || order.orderCode) 
+      : `ORD-${normDay.toUpperCase()}-${now.getFullYear()}${(now.getMonth()+1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}-${Date.now().toString().slice(-4)}`;
+
+    const orderNumber = (order && order.orderNumber)
+      ? order.orderNumber
+      : `PED-${normDay.slice(0, 3).toUpperCase()}-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${String(db.memoryStore.orders.length + 1).padStart(2, '0')}`;
 
     const newOrder = {
       id: orderId,
       orderCode: orderId,
-      orderNumber: `PED-${normDay.slice(0, 3).toUpperCase()}-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${String(db.memoryStore.orders.length + 1).padStart(2, '0')}`,
+      orderNumber,
       day: normDay,
       executionDay: normDay,
       deliveryDay: matrixRule.deliveryDay,
-      createdAt: now.toISOString(),
+      createdAt: (order && order.createdAt) ? order.createdAt : now.toISOString(),
       expectedDeliveryDate: new Date(Date.now() + 72 * 3600 * 1000).toISOString().slice(0, 10),
       status: 'EN_TRANSITO',
       totalCost,
@@ -191,7 +198,13 @@ router.post('/approve', (req, res) => {
       items: formattedItems
     };
 
-    db.memoryStore.orders.unshift(newOrder);
+    // Deduplicate: replace existing order with same ID if present
+    const existingIdx = db.memoryStore.orders.findIndex(o => o.id === orderId || o.orderCode === orderId);
+    if (existingIdx >= 0) {
+      db.memoryStore.orders[existingIdx] = newOrder;
+    } else {
+      db.memoryStore.orders.unshift(newOrder);
+    }
 
     // Update in-memory product transit
     formattedItems.forEach(item => {
@@ -209,7 +222,7 @@ router.post('/approve', (req, res) => {
       }
     });
 
-    persistOrdersToDisk(db.memoryStore.orders);
+    await persistOrdersToDisk(db.memoryStore.orders);
 
     res.status(201).json({
       success: true,
