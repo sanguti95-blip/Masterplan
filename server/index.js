@@ -305,13 +305,30 @@ async function initApp() {
 
   // Auto-sync with live Google Sheets feed on boot
   syncService.syncFromGoogleAppsScript()
-    .then(res => {
+    .then(async res => {
       if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
-        productsRoutes.applyOverridesToProducts(db.memoryStore.products);
+        await productsRoutes.applyOverridesToProducts(db.memoryStore.products);
       }
       console.log(`🔄 [Live Sync Boot]: Sincronización inicial completada (${res.log.matchedSkus} SKUs actualizados con overrides preservados).`);
     })
     .catch(e => console.warn('⚠️ [Live Sync Boot Warning]:', e.message));
+
+  // Sincronización periódica en segundo plano cada 30 minutos
+  const SYNC_INTERVAL_MS = 30 * 60 * 1000;
+  setInterval(async () => {
+    try {
+      console.log('⏰ [Auto Sync]: Ejecutando sincronización programada desde Google Sheets...');
+      const res = await syncService.syncFromGoogleAppsScript();
+      if (res && res.success) {
+        if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
+          await productsRoutes.applyOverridesToProducts(db.memoryStore.products);
+        }
+        console.log(`✅ [Auto Sync]: Actualización periódica exitosa (${res.log?.matchedSkus || 0} SKUs actualizados).`);
+      }
+    } catch (err) {
+      console.warn('⚠️ [Auto Sync Warning]:', err.message);
+    }
+  }, SYNC_INTERVAL_MS);
 }
 
 initApp();

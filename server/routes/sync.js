@@ -11,6 +11,10 @@ router.post('/trigger', async (req, res) => {
     const result = await syncService.syncFromGoogleAppsScript(customUrl);
 
     if (result.success) {
+      const productsRoutes = require('./products');
+      if (productsRoutes.applyOverridesToProducts && Array.isArray(db.memoryStore.products)) {
+        await productsRoutes.applyOverridesToProducts(db.memoryStore.products);
+      }
       res.json({
         success: true,
         message: '¡Sincronización con Google Sheets / CODISA completada con éxito!',
