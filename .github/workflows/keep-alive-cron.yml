@@ -1,0 +1,25 @@
+name: Masterplan MRP 3.0 - Anti-Sleep & Auto-Sync Cron
+
+on:
+  schedule:
+    # Runs every 14 minutes (Render sleeps after 15 min of HTTP inactivity)
+    - cron: '*/14 * * * *'
+  workflow_dispatch:
+
+jobs:
+  keepalive-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Keep-Alive Ping to Render & Supabase
+        run: |
+          echo "⏰ Sending keep-alive heartbeat to Masterplan MRP 3.0 on Render..."
+          RESPONSE=$(curl -s -w "\nHTTP_CODE:%{http_code}" https://masterplan-mrp-codisa.onrender.com/api/health)
+          echo "$RESPONSE"
+          HTTP_STATUS=$(echo "$RESPONSE" | grep "HTTP_CODE" | cut -d':' -f2)
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "⚠️ Health check returned $HTTP_STATUS, retrying..."
+            sleep 5
+            curl -s -f https://masterplan-mrp-codisa.onrender.com/api/health
+          else
+            echo "✅ Render and Supabase are warm, active, and online."
+          fi

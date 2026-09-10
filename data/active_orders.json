@@ -1,7 +1,18 @@
 [
   {
     "id": "ORD-LUNES-20260906-3778",
+    "orderCode": "ORD-LUNES-20260906-3778",
+    "orderNumber": "PED-LUN-20260907-03",
     "day": "Lunes",
+    "executionDay": "Lunes",
+    "deliveryDay": "Jueves",
+    "status": "EN_TRANSITO",
+    "totalCost": 794411.2300000001,
+    "totalBoxes": 93,
+    "totalUnits": 1573,
+    "totalItems": 49,
+    "createdBy": "Milton Sánchez Gutiérrez",
+    "notes": "Orden generada en cálculo de Lunes para entrega en Jueves (Importada desde Excel oficial)",
     "items": [
       {
         "vdp": 20.68,
@@ -935,22 +946,22 @@
         "projectedStock": 97
       }
     ],
-    "notes": "Orden generada en cálculo de Lunes para entrega en Jueves (Importada desde Excel oficial)",
-    "status": "EN_TRANSITO",
-    "createdAt": "2026-09-07T01:55:22.000Z",
-    "createdBy": "Milton Sánchez Gutiérrez",
-    "orderCode": "ORD-LUNES-20260906-3778",
-    "totalCost": 794411.2300000001,
-    "totalBoxes": 93,
-    "totalItems": 49,
-    "totalUnits": 1573,
-    "deliveryDay": "Jueves",
-    "orderNumber": "PED-LUN-20260907-03",
-    "executionDay": "Lunes"
+    "createdAt": "2026-09-07T01:55:22.000Z"
   },
   {
     "id": "PED-JUE-20260907-MARTES",
+    "orderCode": "PED-JUE-20260907-MARTES",
+    "orderNumber": "PED-JUE-20260907-01",
     "day": "Jueves",
+    "executionDay": "Jueves",
+    "deliveryDay": "Martes",
+    "status": "EN_TRANSITO",
+    "totalCost": 1451740.7399999998,
+    "totalBoxes": 694,
+    "totalUnits": 2533,
+    "totalItems": 100,
+    "createdBy": "Milton Sánchez Gutiérrez",
+    "notes": "",
     "items": [
       {
         "codeSku": "699K",
@@ -2953,22 +2964,22 @@
         "totalOrderCost": 13860.96
       }
     ],
-    "notes": "",
-    "status": "EN_TRANSITO",
-    "createdAt": "2026-09-07T00:34:31.086Z",
-    "createdBy": "Milton Sánchez Gutiérrez",
-    "orderCode": "PED-JUE-20260907-MARTES",
-    "totalCost": 1451740.7399999998,
-    "totalBoxes": 694,
-    "totalItems": 100,
-    "totalUnits": 2533,
-    "deliveryDay": "Martes",
-    "orderNumber": "PED-JUE-20260907-01",
-    "executionDay": "Jueves"
+    "createdAt": "2026-09-07T00:34:31.086Z"
   },
   {
     "id": "ORD-JUEVES-20260831-0002",
+    "orderCode": "ORD-JUEVES-20260831-0002",
+    "orderNumber": "PED-JUE-20260831-02",
     "day": "Jueves",
+    "executionDay": "Lunes",
+    "deliveryDay": "Jueves",
+    "status": "EN_TRANSITO",
+    "totalCost": 549372.8500000001,
+    "totalBoxes": 279,
+    "totalUnits": 1028,
+    "totalItems": 44,
+    "createdBy": "Milton Sánchez Gutiérrez",
+    "notes": "Pedido revisado y confirmado para ingreso en Bodega Jueves (72h)",
     "items": [
       {
         "unit": "CAJA",
@@ -3631,17 +3642,6 @@
         "packMultiple": 1
       }
     ],
-    "notes": "Pedido revisado y confirmado para ingreso en Bodega Jueves (72h)",
-    "status": "EN_TRANSITO",
-    "createdAt": "2026-09-01T02:57:04.586Z",
-    "createdBy": "Milton Sánchez Gutiérrez",
-    "orderCode": "ORD-JUEVES-20260831-0002",
-    "totalCost": 549372.8500000001,
-    "totalBoxes": 279,
-    "totalItems": 44,
-    "totalUnits": 1028,
-    "deliveryDay": "Jueves",
-    "orderNumber": "PED-JUE-20260831-02",
-    "executionDay": "Lunes"
+    "createdAt": "2026-09-01T02:57:04.586Z"
   }
 ]

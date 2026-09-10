@@ -313,9 +313,10 @@ async function initApp() {
     })
     .catch(e => console.warn('⚠️ [Live Sync Boot Warning]:', e.message));
 
-  // Sincronización periódica en segundo plano cada 30 minutos
-  const SYNC_INTERVAL_MS = 30 * 60 * 1000;
-  setInterval(async () => {
+  // Sincronización periódica en segundo plano cada 15 minutos (configurable)
+  const syncMinutes = Number(process.env.SYNC_INTERVAL_MINUTES) || 15;
+  const SYNC_INTERVAL_MS = syncMinutes * 60 * 1000;
+  const syncTimer = setInterval(async () => {
     try {
       console.log('⏰ [Auto Sync]: Ejecutando sincronización programada desde Google Sheets...');
       const res = await syncService.syncFromGoogleAppsScript();
@@ -329,6 +330,36 @@ async function initApp() {
       console.warn('⚠️ [Auto Sync Warning]:', err.message);
     }
   }, SYNC_INTERVAL_MS);
+  if (syncTimer && typeof syncTimer.unref === 'function') syncTimer.unref();
+
+  // Heartbeat & Anti-Sleep Ping cada 10 minutos para mantener Render y Supabase despiertos
+  // Render Free suspende servicios tras 15 min de inactividad de tráfico entrante.
+  // Realizar una petición a su URL pública resetea el contador de inactividad.
+  const appUrl = process.env.RENDER_EXTERNAL_URL || 'https://masterplan-mrp-codisa.onrender.com';
+  const HEARTBEAT_INTERVAL_MS = 10 * 60 * 1000; // 10 minutos (< 15 min límite de Render)
+  const heartbeatTimer = setInterval(async () => {
+    try {
+      // 1. Keep-alive a PostgreSQL en Supabase
+      if (db.isDbConnected()) {
+        await db.query('SELECT 1 as keepalive');
+        console.log('💓 [Heartbeat]: Conexión a PostgreSQL (Supabase) verificada y activa.');
+      }
+
+      // 2. Ping HTTP público a Render para evitar hibernación
+      if (process.env.NODE_ENV === 'production' || process.env.RENDER) {
+        const pingUrl = `${appUrl}/api/health`;
+        const res = await fetch(pingUrl, {
+          headers: { 'User-Agent': 'Masterplan-KeepAlive-Cron/3.0' }
+        });
+        if (res.ok) {
+          console.log(`💓 [Heartbeat]: Ping de actividad a ${pingUrl} exitoso (HTTP ${res.status}). Render activo.`);
+        }
+      }
+    } catch (err) {
+      console.warn('⚠️ [Heartbeat Warning]:', err.message);
+    }
+  }, HEARTBEAT_INTERVAL_MS);
+  if (heartbeatTimer && typeof heartbeatTimer.unref === 'function') heartbeatTimer.unref();
 }
 
 initApp();
@@ -397,13 +428,19 @@ app.use('/api/products', productsRoutes);
 app.use('/api/sync', syncRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
-// Health Check
-app.get('/api/health', (req, res) => {
+// Health Check & Database Keep-Alive
+app.get('/api/health', async (req, res) => {
+  let dbActive = false;
+  try {
+    const q = await db.query('SELECT 1 as alive');
+    dbActive = Boolean(q && q.rows && q.rows.length > 0);
+  } catch (e) {}
+
   res.json({
     status: 'online',
-    version: '2.0.0',
+    version: '3.0.0',
     timestamp: new Date().toISOString(),
-    dbConnected: db.isDbConnected(),
+    dbConnected: dbActive || db.isDbConnected(),
     totalProducts: db.memoryStore.products.length,
     totalOrders: db.memoryStore.orders.length
   });
