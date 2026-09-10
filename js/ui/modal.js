@@ -241,6 +241,157 @@ const ModalManager = {
         };
       }
     }, 1900);
+  },
+
+  showOrderReception(order, onConfirmReception) {
+    const modal = document.getElementById('modal-order-reception');
+    if (!modal) return;
+
+    const orderCode = order.orderCode || order.orderNumber || order.id;
+    const codeEl = document.getElementById('reception-order-code');
+    const dayEl = document.getElementById('reception-delivery-day');
+    const expectedEl = document.getElementById('reception-boxes-expected');
+    const totalEl = document.getElementById('reception-boxes-total');
+    const varEl = document.getElementById('reception-variance-boxes');
+    const tbody = document.getElementById('reception-items-body');
+
+    if (codeEl) codeEl.textContent = orderCode;
+    if (dayEl) dayEl.textContent = `${order.deliveryDay || 'Jueves'} (Pedido: ${order.executionDay || order.day || 'Lunes'})`;
+
+    const expectedBoxes = Number(order.totalBoxes || 0);
+    if (expectedEl) expectedEl.textContent = `${expectedBoxes} cjas`;
+
+    // Render items table
+    const items = Array.isArray(order.items) ? order.items : [];
+    if (tbody) {
+      tbody.innerHTML = items.map((it, idx) => {
+        const desc = it.description || it.descripcion || it.codeSku;
+        const pack = Number(it.packMultiple || it.multiplo || 1);
+        const boxes = Math.ceil(Number(it.finalQty || it.quantity || 0) / pack);
+        return `
+          <tr data-item-idx="${idx}" data-sku="${it.codeSku || it.codeFrumusa || it.codeCountry}">
+            <td>
+              <strong style="color: var(--text);">${desc}</strong>
+              <div class="font-mono text-dim" style="font-size: 0.72rem;">${it.codeFrumusa || it.codeSku || ''}</div>
+            </td>
+            <td class="text-center font-mono">${pack} ${it.unit_eq || 'UD'}/cja</td>
+            <td class="text-right font-mono font-semibold">${boxes} cjas</td>
+            <td class="text-right">
+              <input type="number" step="any" min="0" class="input-table font-mono rec-boxes-input"
+                     data-idx="${idx}" data-expected="${boxes}" data-pack="${pack}"
+                     value="${boxes}" style="width: 70px; text-align: right; padding: 4px 6px;">
+            </td>
+            <td class="text-center rec-diff-cell">
+              <span class="status-pill pill-success font-mono">0</span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    const updateTotals = () => {
+      let sumBoxes = 0;
+      let hasDiscrepancy = false;
+      const inputs = modal.querySelectorAll('.rec-boxes-input');
+      inputs.forEach(inp => {
+        const exp = Number(inp.dataset.expected || 0);
+        const val = Number(inp.value || 0);
+        sumBoxes += val;
+
+        const row = inp.closest('tr');
+        const diffCell = row ? row.querySelector('.rec-diff-cell') : null;
+        if (diffCell) {
+          const diff = val - exp;
+          if (diff === 0) {
+            diffCell.innerHTML = '<span class="status-pill pill-success font-mono">0</span>';
+          } else if (diff < 0) {
+            hasDiscrepancy = true;
+            diffCell.innerHTML = `<span class="status-pill pill-danger font-mono font-bold">${diff} cja</span>`;
+          } else {
+            hasDiscrepancy = true;
+            diffCell.innerHTML = `<span class="status-pill pill-warning font-mono">+${diff} cja</span>`;
+          }
+        }
+      });
+
+      if (totalEl) totalEl.textContent = `${sumBoxes} cjas`;
+      const diffTotal = sumBoxes - expectedBoxes;
+      if (varEl) {
+        if (diffTotal === 0) {
+          varEl.textContent = '0 (Conforme)';
+          varEl.className = 'stat-val font-mono text-emerald font-semibold';
+        } else if (diffTotal < 0) {
+          varEl.textContent = `${diffTotal} cjas (Faltante)`;
+          varEl.className = 'stat-val font-mono text-danger font-bold';
+        } else {
+          varEl.textContent = `+${diffTotal} cjas (Sobrante)`;
+          varEl.className = 'stat-val font-mono text-amber font-bold';
+        }
+      }
+    };
+
+    // Attach change listeners to inputs
+    const inputs = modal.querySelectorAll('.rec-boxes-input');
+    inputs.forEach(inp => {
+      inp.addEventListener('input', updateTotals);
+    });
+
+    // "Recibir Todo Conforme" button
+    const btnMatchAll = document.getElementById('btn-reception-match-all');
+    if (btnMatchAll) {
+      btnMatchAll.onclick = () => {
+        inputs.forEach(inp => {
+          inp.value = inp.dataset.expected;
+        });
+        updateTotals();
+        window.Toast.show('Cantidades restablecidas conforme a la orden.', 'info');
+      };
+    }
+
+    updateTotals();
+
+    // Confirm button
+    const submitBtn = document.getElementById('btn-reception-submit');
+    if (submitBtn) {
+      submitBtn.onclick = () => {
+        const receivedBy = (document.getElementById('reception-received-by') || {}).value || 'Bodega Santo Domingo';
+        const invoiceVariance = Number((document.getElementById('reception-invoice-variance') || {}).value || 0);
+        const notes = (document.getElementById('reception-notes') || {}).value || '';
+
+        const itemsReceived = [];
+        inputs.forEach(inp => {
+          const idx = Number(inp.dataset.idx);
+          const origItem = items[idx] || {};
+          const boxesReceived = Number(inp.value || 0);
+          const pack = Number(inp.dataset.pack || 1);
+          const unitsReceived = boxesReceived * pack;
+          const expectedBoxes = Number(inp.dataset.expected || 0);
+
+          itemsReceived.push({
+            codeSku: origItem.codeSku || origItem.codeFrumusa || origItem.codeCountry,
+            description: origItem.description,
+            boxesExpected: expectedBoxes,
+            boxesReceived,
+            unitsReceived,
+            packMultiple: pack,
+            varianceBoxes: boxesReceived - expectedBoxes
+          });
+        });
+
+        this.close('modal-order-reception');
+        if (typeof onConfirmReception === 'function') {
+          onConfirmReception({
+            orderId: order.id || order.orderCode,
+            receivedBy,
+            notes,
+            invoiceVarianceCost: invoiceVariance,
+            itemsReceived
+          });
+        }
+      };
+    }
+
+    this.open('modal-order-reception');
   }
 };
 

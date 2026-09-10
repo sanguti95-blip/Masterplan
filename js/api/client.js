@@ -98,6 +98,17 @@ const ApiClient = {
     });
   },
 
+  receiveOrder(payload) {
+    return this.request('/api/planning/receive', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+  },
+
+  getReceptions() {
+    return this.request('/api/planning/receptions');
+  },
+
   // Products API
   getProducts(params = {}) {
     const qs = new URLSearchParams(params).toString();

@@ -115,10 +115,10 @@ function calculateActiveTransitForSku(skuCode, executionDay, activeOrdersList = 
     activeOrdersList.forEach(order => {
       if (order.status === 'EN_TRANSITO' && Array.isArray(order.items)) {
         const item = order.items.find(i => {
-          const k1 = (i.code_sku || i.codeSku || '').toString().trim().toUpperCase();
-          const k2 = (i.codeFrumusa || '').toString().trim().toUpperCase();
-          const k3 = (i.codeCountry || '').toString().trim().toUpperCase();
-          return k1 === cleanSku || k2 === cleanSku || k3 === cleanSku;
+          const k1 = (i.code_sku || i.codeSku || i.NO_ARTI || '').toString().trim().toUpperCase();
+          const k2 = (i.code_frumusa || i.codeFrumusa || '').toString().trim().toUpperCase();
+          const k3 = (i.code_country || i.codeCountry || '').toString().trim().toUpperCase();
+          return (k1 && k1 === cleanSku) || (k2 && k2 === cleanSku) || (k3 && k3 === cleanSku);
         });
 
         if (item) {

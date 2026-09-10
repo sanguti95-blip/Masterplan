@@ -463,6 +463,35 @@
         <div id="transit-orders-list" class="transit-grid">
           <!-- Injected dynamically -->
         </div>
+
+        <!-- Historial de Recepciones y Conciliaciones en Bodega -->
+        <div class="receptions-section" style="margin-top: 36px;">
+          <div class="section-header" style="border-top: 1px solid var(--border); padding-top: 24px; margin-bottom: 16px;">
+            <div>
+              <h3><i class="fa-solid fa-clock-rotate-left text-emerald"></i> Historial de Mercadería Recepcionada en Tienda</h3>
+              <p>Registro formal de pedidos descargados del camión de Frumusa, bultos auditados y conciliación con factura.</p>
+            </div>
+          </div>
+          <div id="receptions-history-container" style="overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;">
+            <table class="mrp-table" style="width: 100%; font-size: 0.85rem;">
+              <thead>
+                <tr>
+                  <th>Código de Pedido</th>
+                  <th>Día / Entrega</th>
+                  <th>Fecha de Recepción</th>
+                  <th>Responsable</th>
+                  <th class="text-right">Cajas Recibidas</th>
+                  <th class="text-right">Varianza Factura</th>
+                  <th>Observaciones</th>
+                  <th class="text-center">Estado</th>
+                </tr>
+              </thead>
+              <tbody id="receptions-table-body">
+                <tr><td colspan="8" class="text-center text-dim" style="padding: 24px;">No hay recepciones registradas aún.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
 
       <!-- VIEW 5: SINCRONIZACIÓN GOOGLE SHEETS / CODISA -->
@@ -788,6 +817,92 @@
         </button>
         <button id="btn-sync-go-transit" class="btn-primary">
           <i class="fa-solid fa-truck-fast"></i> Ver mi Pedido en Tránsito ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Recepción de Mercadería en Tienda (Store Intake / Reconciliación) -->
+  <div id="modal-order-reception" class="modal-overlay">
+    <div class="modal-card modal-large" style="max-width: 850px;">
+      <div class="modal-header">
+        <div>
+          <h3><i class="fa-solid fa-truck-ramp-box text-emerald"></i> Recepción de Mercadería en Tienda</h3>
+          <span id="reception-order-code" class="modal-subtitle font-mono">ORD-0000</span>
+        </div>
+        <button class="modal-close" data-close-modal>&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Summary Cards -->
+        <div class="modal-stats-grid" style="margin-bottom: 16px;">
+          <div class="stat-box">
+            <span class="stat-label">Día de Entrega</span>
+            <span class="stat-val font-semibold" id="reception-delivery-day">Jueves (72h)</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Cajas Solicitadas</span>
+            <span class="stat-val font-mono" id="reception-boxes-expected">0 cjas</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Cajas a Ingresar</span>
+            <span class="stat-val font-mono text-emerald font-bold" id="reception-boxes-total">0 cjas</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Varianza de Cajas</span>
+            <span class="stat-val font-mono" id="reception-variance-boxes">0</span>
+          </div>
+        </div>
+
+        <!-- Quick Fill Action Banner -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;">
+          <div style="font-size: 0.85rem; color: var(--text-dim);">
+            <i class="fa-solid fa-circle-info text-primary"></i> Verifica las cajas físicas recibidas del camión de Frumusa.
+          </div>
+          <button type="button" id="btn-reception-match-all" class="btn-secondary btn-small" title="Copiar todas las cantidades pedidas como recibidas">
+            <i class="fa-solid fa-check-double text-emerald"></i> Recibir Todo Conforme
+          </button>
+        </div>
+
+        <!-- Receiving Items Table Container -->
+        <div style="max-height: 280px; overflow-y: auto; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 16px;">
+          <table class="mrp-table" style="width: 100%; font-size: 0.85rem;">
+            <thead>
+              <tr>
+                <th style="width: 40%;">Artículo</th>
+                <th class="text-center" style="width: 15%;">Múltiplo</th>
+                <th class="text-right" style="width: 15%;">Pedido</th>
+                <th class="text-right" style="width: 18%;">Recibido (Cjas)</th>
+                <th class="text-center" style="width: 12%;">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="reception-items-body">
+              <!-- Injected dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Reception Metadata & Discrepancies -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label for="reception-received-by">Responsable de Recepción en Bodega:</label>
+            <input type="text" id="reception-received-by" value="Bodega Santo Domingo">
+          </div>
+          <div class="form-group">
+            <label for="reception-invoice-variance">Diferencia de Factura (₡ CRC si aplica):</label>
+            <input type="number" id="reception-invoice-variance" placeholder="0" value="0" class="font-mono">
+          </div>
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+          <label for="reception-notes">Observaciones de Entrega / Mermas en Tránsito:</label>
+          <input type="text" id="reception-notes" placeholder="Ej: Camión llegó a tiempo, 1 caja de tomate con daño mecánico">
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px;">
+        <button type="button" class="btn-secondary" data-close-modal>Cancelar</button>
+        <button type="button" id="btn-reception-submit" class="btn-primary" style="background: var(--emerald); border-color: var(--emerald);">
+          <i class="fa-solid fa-circle-check"></i> Confirmar Recepción y Liberar Tránsito
         </button>
       </div>
     </div>

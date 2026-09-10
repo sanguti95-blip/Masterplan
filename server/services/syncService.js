@@ -352,6 +352,9 @@ async function syncFromGoogleAppsScript(customUrl) {
       });
     }
 
+    // Persist to relational Postgres tables (mrp_skus and mrp_inventory_snapshots)
+    await persistCatalogToPostgres(memoryProducts);
+
     const logEntry = {
       id: Date.now(),
       source: 'Google Apps Script / Codisa Raw Feed',
@@ -360,7 +363,7 @@ async function syncFromGoogleAppsScript(customUrl) {
       matchedSkus: updatedCount,
       durationMs: Date.now() - startTime,
       timestamp: new Date().toISOString(),
-      details: `Sincronización exitosa. Se procesaron ${parsedRows.length} registros y se actualizaron ${updatedCount} SKUs del catálogo.`
+      details: `Sincronización exitosa. Se procesaron ${parsedRows.length} registros y se actualizaron ${updatedCount} SKUs en memoria y PostgreSQL.`
     };
 
     db.memoryStore.syncLogs.unshift(logEntry);
@@ -393,8 +396,68 @@ async function syncFromGoogleAppsScript(customUrl) {
   }
 }
 
+async function persistCatalogToPostgres(products) {
+  if (!products || !Array.isArray(products) || products.length === 0) return;
+  try {
+    for (const prod of products) {
+      const skuKey = ((prod.code_frumusa && prod.code_frumusa.trim()) ? prod.code_frumusa.trim() : (prod.code_country ? prod.code_country.trim() : (prod.codeSku || ''))).toUpperCase();
+      if (!skuKey) continue;
+
+      const codeCountry = (prod.code_country || prod.codeCountry || '').toString().trim();
+      const codeFrumusa = (prod.code_frumusa || prod.codeFrumusa || '').toString().trim();
+      const description = prod.description || prod.descripcion || prod.ARTICULO || skuKey;
+      const category = prod.category || prod.categoria || 'Perecederos';
+      const unitMeasure = prod.unit_eq || prod.UNIDAD_EQ || 'UD';
+      const packMultiple = Number(prod.pack_multiple || prod.packMultiple || 1);
+      const minCoverage = Number(prod.min_coverage_qty || prod.minCoverageUnits || 1);
+      const safetyStock = Number(prod.safety_stock_units || prod.min_coverage_qty || 1);
+      const shelfLife = Number(prod.shelf_life_days || 14);
+      const isActive = prod.is_active !== false && prod.isActive !== false;
+      const unitCost = Number(prod.unit_cost || prod.cost || 0);
+      const unitPrice = Number(prod.unit_price || prod.PRECIO || 0);
+
+      const stockActual = Number(prod.stock_actual !== undefined ? prod.stock_actual : (prod.stock || 0));
+      const salesPeriod = Number(prod.sales_period || prod.ventas || 0);
+      const sales60d = Number(prod.sales_60d || salesPeriod);
+      const daysInCut = Number(prod.days_in_month_cut || 19);
+      const mermaUnits = Number(prod.merma_units || 0);
+      const mermaCost = Number(prod.merma_cost || 0);
+
+      await db.query(`
+        INSERT INTO mrp_skus (
+          sku_key, code_country, code_frumusa, description, category,
+          unit_measure, pack_multiple, min_coverage_qty, safety_stock_units,
+          shelf_life_days, is_active, unit_cost, unit_price, updated_at
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, CURRENT_TIMESTAMP)
+        ON CONFLICT (sku_key) DO UPDATE SET
+          description = EXCLUDED.description,
+          category = EXCLUDED.category,
+          unit_cost = EXCLUDED.unit_cost,
+          unit_price = EXCLUDED.unit_price,
+          updated_at = CURRENT_TIMESTAMP;
+      `, [
+        skuKey, codeCountry, codeFrumusa, description, category, unitMeasure,
+        packMultiple, minCoverage, safetyStock, shelfLife, isActive, unitCost, unitPrice
+      ]);
+
+      await db.query(`
+        INSERT INTO mrp_inventory_snapshots (
+          sku_key, warehouse_id, stock_actual, sales_period, sales_60d,
+          days_in_month_cut, merma_units, merma_cost, recorded_at
+        ) VALUES ($1, '401', $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP);
+      `, [
+        skuKey, stockActual, salesPeriod, sales60d, daysInCut, mermaUnits, mermaCost
+      ]);
+    }
+    console.log(`📦 [Postgres ETL]: Catálogo y snapshots sincronizados en PostgreSQL (${products.length} SKUs).`);
+  } catch (err) {
+    console.warn('⚠️ [Postgres ETL Warning]: Error al persistir catálogo en PostgreSQL:', err.message);
+  }
+}
+
 module.exports = {
   syncFromGoogleAppsScript,
+  persistCatalogToPostgres,
   parseCSV,
   parseLocaleNumber
 };

@@ -1133,6 +1133,7 @@ class MrpApp {
           <span style="font-size: 0.85rem; color: var(--text-dim);">Cuando apruebes un pedido en el Planeador, aparecerá aquí como tránsito activo de 72h.</span>
         </div>
       `;
+      this.loadReceptionsHistory();
       return;
     }
 
@@ -1166,8 +1167,11 @@ class MrpApp {
             </div>
           </div>
           <div class="transit-card-footer" style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; flex-wrap: wrap;">
-            <button type="button" class="btn-primary btn-small btn-load-order" data-order-id="${order.id}" title="Cargar y revisar estos ${order.totalItems} artículos en la mesa de pedidos">
-              <i class="fa-solid fa-pen-to-square"></i> Cargar en Mesa de Pedidos
+            <button type="button" class="btn-primary btn-small btn-receive-order" data-order-id="${order.id}" style="background: var(--emerald); border-color: var(--emerald);" title="Recepcionar mercadería del camión en tienda y conciliar">
+              <i class="fa-solid fa-truck-ramp-box"></i> Recepcionar en Tienda
+            </button>
+            <button type="button" class="btn-secondary btn-small btn-load-order" data-order-id="${order.id}" title="Cargar y revisar estos ${order.totalItems} artículos en la mesa de pedidos">
+              <i class="fa-solid fa-pen-to-square"></i> Cargar en Mesa
             </button>
             <button type="button" class="btn-secondary btn-small btn-excel-order" data-order-code="${orderCode}" title="Descargar Excel de la orden">
               <i class="fa-solid fa-file-excel"></i> Excel
@@ -1179,6 +1183,118 @@ class MrpApp {
         </div>
       `;
     }).join('');
+
+    // Attach button click events
+    grid.querySelectorAll('.btn-receive-order').forEach(btn => {
+      btn.onclick = () => this.openOrderReception(btn.dataset.orderId);
+    });
+    grid.querySelectorAll('.btn-load-order').forEach(btn => {
+      btn.onclick = () => this.loadOrderIntoPlanning(btn.dataset.orderId);
+    });
+    grid.querySelectorAll('.btn-excel-order').forEach(btn => {
+      btn.onclick = () => this.downloadOrderXlsx(btn.dataset.orderCode);
+    });
+    grid.querySelectorAll('.btn-delete-order').forEach(btn => {
+      btn.onclick = () => this.deleteTransitOrder(btn.dataset.orderId);
+    });
+
+    this.loadReceptionsHistory();
+  }
+
+  openOrderReception(orderId) {
+    const order = (this.activeOrders || []).find(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
+    if (!order) {
+      window.Toast.show('No se encontró la orden a recepcionar.', 'warning');
+      return;
+    }
+
+    window.ModalManager.showOrderReception(order, async (receptionData) => {
+      try {
+        window.Toast.show(`Procesando recepción de orden ${order.orderCode || order.id}...`, 'info');
+        if (window.ApiClient) {
+          await window.ApiClient.receiveOrder(receptionData);
+        }
+
+        // Remove order from active in-memory list
+        const idx = this.activeOrders.findIndex(o => o.id === order.id || o.orderCode === order.orderCode);
+        if (idx !== -1) {
+          this.activeOrders.splice(idx, 1);
+        }
+
+        // Deduct in-transit balances
+        if (order.items && Array.isArray(order.items)) {
+          order.items.forEach(item => {
+            const skuKey = (item.codeSku || item.codeFrumusa || item.codeCountry || '').toString().trim().toUpperCase();
+            const prod = this.items.find(p => {
+              const k1 = (p.code_frumusa || p.codeFrumusa || '').toString().trim().toUpperCase();
+              const k2 = (p.code_country || p.codeCountry || '').toString().trim().toUpperCase();
+              const k3 = (p.codeSku || '').toString().trim().toUpperCase();
+              return k1 === skuKey || k2 === skuKey || k3 === skuKey;
+            });
+            if (prod) {
+              prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - (item.finalQty || item.quantity || 0));
+              prod.transit = prod.transit_qty;
+              prod.activeTransit = prod.transit_qty;
+              if (prod.transit_qty === 0) {
+                localStorage.removeItem(`mrp_transit_${skuKey}`);
+              } else {
+                localStorage.setItem(`mrp_transit_${skuKey}`, prod.transit_qty);
+              }
+            }
+          });
+        }
+
+        localStorage.setItem('mrp_active_orders', JSON.stringify(this.activeOrders));
+        this.renderTransitTab();
+        this.loadReceptionsHistory();
+        this.recalculateAndRender();
+
+        window.Toast.show(`¡Orden ${order.orderCode || order.id} recepcionada exitosamente! Tránsito liberado.`, 'success', 5000);
+      } catch (err) {
+        window.Toast.show(`Error al recepcionar orden: ${err.message}`, 'error');
+      }
+    });
+  }
+
+  async loadReceptionsHistory() {
+    const tbody = document.getElementById('receptions-table-body');
+    if (!tbody) return;
+
+    try {
+      if (window.ApiClient) {
+        const res = await window.ApiClient.getReceptions();
+        if (res && Array.isArray(res.receptions) && res.receptions.length > 0) {
+          tbody.innerHTML = res.receptions.map(rec => {
+            const dateStr = rec.received_at ? new Date(rec.received_at).toLocaleString('es-CR', { dateStyle: 'short', timeStyle: 'short' }) : '-';
+            const variance = Number(rec.invoice_variance_cost || 0);
+            let varianceHtml = '<span class="text-dim">₡0</span>';
+            if (variance > 0) {
+              varianceHtml = `<span class="text-amber font-mono font-semibold">+${AppFormatter.currency(variance)}</span>`;
+            } else if (variance < 0) {
+              varianceHtml = `<span class="text-emerald font-mono font-semibold">-${AppFormatter.currency(Math.abs(variance))}</span>`;
+            }
+
+            return `
+              <tr>
+                <td class="font-mono font-semibold text-primary">${rec.order_code || rec.order_id}</td>
+                <td><span class="badge-day">${rec.day || 'Lunes'} ➔ ${rec.delivery_day || 'Jueves'}</span></td>
+                <td class="font-mono text-dim">${dateStr}</td>
+                <td><i class="fa-solid fa-user-check text-emerald" style="font-size: 0.75rem; margin-right: 4px;"></i>${rec.received_by || 'Bodega'}</td>
+                <td class="text-right font-mono font-semibold">${rec.total_boxes_received} cjas</td>
+                <td class="text-right">${varianceHtml}</td>
+                <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${rec.notes || ''}">${rec.notes || '<span class="text-dim">Sin notas</span>'}</td>
+                <td class="text-center"><span class="status-pill pill-success"><i class="fa-solid fa-check"></i> RECEPCIONADO</span></td>
+              </tr>
+            `;
+          }).join('');
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn('Error loading receptions history:', e.message);
+    }
+
+    tbody.innerHTML = `<tr><td colspan="8" class="text-center text-dim" style="padding: 24px;">No hay recepciones registradas en la base de datos todavía.</td></tr>`;
   }
 
   loadOrderIntoPlanning(orderId) {

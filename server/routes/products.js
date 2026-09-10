@@ -44,6 +44,44 @@ async function persistOverrides(overrides) {
   }
 }
 
+async function syncOverridesToPostgres(overrides) {
+  if (!overrides || typeof overrides !== 'object') return;
+  for (const [skuKey, ov] of Object.entries(overrides)) {
+    try {
+      const cleanKey = (skuKey || '').toString().trim().toUpperCase();
+      await db.query(`
+        UPDATE mrp_skus SET
+          is_active = COALESCE($1, is_active),
+          pack_multiple = COALESCE($2, pack_multiple),
+          min_coverage_qty = COALESCE($3, min_coverage_qty),
+          safety_stock_units = COALESCE($3, safety_stock_units),
+          code_frumusa = COALESCE($4, code_frumusa),
+          code_country = COALESCE($5, code_country),
+          unit_measure = COALESCE($6, unit_measure),
+          description = COALESCE($7, description),
+          updated_at = CURRENT_TIMESTAMP
+        WHERE UPPER(sku_key) = $8 OR UPPER(code_frumusa) = $8 OR UPPER(code_country) = $8;
+      `, [
+        ov.is_active !== undefined ? Boolean(ov.is_active) : null,
+        ov.pack_multiple !== undefined ? Number(ov.pack_multiple) : null,
+        ov.min_coverage_qty !== undefined ? Number(ov.min_coverage_qty) : null,
+        ov.code_frumusa || null,
+        ov.code_country || null,
+        ov.unit_eq || null,
+        ov.description || null,
+        cleanKey
+      ]);
+
+      await db.query(`
+        INSERT INTO mrp_audit_logs (entity_type, entity_id, action, user_name, changes)
+        VALUES ('SKU_OVERRIDE', $1, 'UPDATE', 'Planner', $2);
+      `, [cleanKey, JSON.stringify(ov)]);
+    } catch (e) {
+      // Non-blocking postgres log
+    }
+  }
+}
+
 // GET /api/products/overrides - Get all persistent catalog overrides
 router.get('/overrides', async (req, res) => {
   const overrides = await loadOverrides();
@@ -61,6 +99,7 @@ router.post('/overrides', async (req, res) => {
     const current = await loadOverrides();
     const merged = { ...current, ...overrides };
     await persistOverrides(merged);
+    await syncOverridesToPostgres(overrides);
 
     // Apply to in-memory products
     const products = db.memoryStore.products || [];
@@ -227,6 +266,7 @@ router.post('/batch-update', async (req, res) => {
     const current = await loadOverrides();
     const merged = { ...current, ...overrides };
     await persistOverrides(merged);
+    await syncOverridesToPostgres(overrides);
 
     const products = db.memoryStore.products || [];
     let updatedCount = 0;

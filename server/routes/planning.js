@@ -28,6 +28,99 @@ async function persistOrdersToDisk(orders) {
   }
 }
 
+async function syncOrderToPostgres(order) {
+  try {
+    const text = `
+      INSERT INTO mrp_purchase_orders (
+        id, order_code, order_number, day, execution_day, delivery_day, status,
+        total_cost, total_boxes, total_units, total_items, created_by, notes, items, created_at, updated_at
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, CURRENT_TIMESTAMP)
+      ON CONFLICT (id) DO UPDATE SET
+        status = EXCLUDED.status,
+        total_cost = EXCLUDED.total_cost,
+        total_boxes = EXCLUDED.total_boxes,
+        total_units = EXCLUDED.total_units,
+        total_items = EXCLUDED.total_items,
+        notes = EXCLUDED.notes,
+        items = EXCLUDED.items,
+        updated_at = CURRENT_TIMESTAMP;
+    `;
+    const params = [
+      order.id || order.orderCode,
+      order.orderCode || order.id,
+      order.orderNumber || order.id,
+      order.day || order.executionDay || 'Lunes',
+      order.executionDay || order.day || 'Lunes',
+      order.deliveryDay || 'Jueves',
+      order.status || 'EN_TRANSITO',
+      Number(order.totalCost || 0),
+      Number(order.totalBoxes || 0),
+      Number(order.totalUnits || 0),
+      Number(order.totalItems || (order.items ? order.items.length : 0)),
+      order.createdBy || 'Milton Sánchez Gutiérrez',
+      order.notes || '',
+      JSON.stringify(order.items || []),
+      order.createdAt ? new Date(order.createdAt) : new Date()
+    ];
+    await db.query(text, params);
+
+    await db.query(`
+      INSERT INTO mrp_audit_logs (entity_type, entity_id, action, user_name, changes)
+      VALUES ('PURCHASE_ORDER', $1, 'APPROVE', $2, $3);
+    `, [order.id || order.orderCode, order.createdBy || 'Milton Sánchez', JSON.stringify({ totalCost: order.totalCost, totalItems: order.totalItems, day: order.executionDay })]);
+  } catch (err) {
+    console.warn('⚠️ [Postgres Order Sync Warning]:', err.message);
+  }
+}
+
+async function syncOrderReceptionToPostgres(orderId, receptionData) {
+  try {
+    await db.query(`
+      UPDATE mrp_purchase_orders
+      SET status = 'RECEPCIONADO', updated_at = CURRENT_TIMESTAMP
+      WHERE id = $1 OR order_code = $1;
+    `, [orderId]);
+
+    await db.query(`
+      INSERT INTO mrp_order_receptions (
+        order_id, received_by, total_boxes_received, total_units_received, invoice_variance_cost, notes, items_received
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7);
+    `, [
+      orderId,
+      receptionData.receivedBy || 'Bodega Santo Domingo',
+      Number(receptionData.totalBoxesReceived || 0),
+      Number(receptionData.totalUnitsReceived || 0),
+      Number(receptionData.invoiceVarianceCost || 0),
+      receptionData.notes || '',
+      JSON.stringify(receptionData.itemsReceived || [])
+    ]);
+
+    await db.query(`
+      INSERT INTO mrp_audit_logs (entity_type, entity_id, action, user_name, changes)
+      VALUES ('PURCHASE_ORDER', $1, 'RECEIVE', $2, $3);
+    `, [orderId, receptionData.receivedBy || 'Bodega Santo Domingo', JSON.stringify(receptionData)]);
+  } catch (err) {
+    console.warn('⚠️ [Postgres Reception Sync Warning]:', err.message);
+  }
+}
+
+async function updateOrderPostgresStatus(orderId, status) {
+  try {
+    await db.query(`
+      UPDATE mrp_purchase_orders
+      SET status = $1, updated_at = CURRENT_TIMESTAMP
+      WHERE id = $2 OR order_code = $2;
+    `, [status, orderId]);
+
+    await db.query(`
+      INSERT INTO mrp_audit_logs (entity_type, entity_id, action, user_name, changes)
+      VALUES ('PURCHASE_ORDER', $1, $2, 'Planner', $3);
+    `, [orderId, status, JSON.stringify({ status })]);
+  } catch (err) {
+    console.warn('⚠️ [Postgres Status Update Warning]:', err.message);
+  }
+}
+
 // GET /api/planning/matrix
 router.get('/matrix', (req, res) => {
   res.json({
@@ -223,6 +316,7 @@ router.post('/approve', async (req, res) => {
     });
 
     await persistOrdersToDisk(db.memoryStore.orders);
+    await syncOrderToPostgres(newOrder);
 
     res.status(201).json({
       success: true,
@@ -236,7 +330,41 @@ router.post('/approve', async (req, res) => {
 });
 
 // GET /api/planning/transit - List Active In-Transit Orders
-router.get('/transit', (req, res) => {
+router.get('/transit', async (req, res) => {
+  try {
+    const dbRes = await db.query("SELECT * FROM mrp_purchase_orders WHERE status = 'EN_TRANSITO' ORDER BY created_at DESC");
+    if (dbRes && Array.isArray(dbRes.rows) && dbRes.rows.length > 0) {
+      const dbOrders = dbRes.rows.map(row => ({
+        id: row.id,
+        orderCode: row.order_code,
+        orderNumber: row.order_number,
+        day: row.day,
+        executionDay: row.execution_day,
+        deliveryDay: row.delivery_day,
+        status: row.status,
+        totalCost: Number(row.total_cost || 0),
+        totalBoxes: Number(row.total_boxes || 0),
+        totalUnits: Number(row.total_units || 0),
+        totalItems: Number(row.total_items || 0),
+        createdBy: row.created_by,
+        notes: row.notes,
+        items: row.items || [],
+        createdAt: row.created_at
+      }));
+
+      // Keep memoryStore updated with DB truth
+      db.memoryStore.orders = dbOrders;
+
+      return res.json({
+        totalActiveOrders: dbOrders.length,
+        orders: dbOrders
+      });
+    }
+  } catch (err) {
+    console.warn('⚠️ [Postgres Transit Query Warning]:', err.message);
+  }
+
+  // Fallback to memoryStore
   const activeOrders = (db.memoryStore.orders || []).filter(o => o.status === 'EN_TRANSITO');
   res.json({
     totalActiveOrders: activeOrders.length,
@@ -245,7 +373,7 @@ router.get('/transit', (req, res) => {
 });
 
 // DELETE /api/planning/transit - Clear all In-Transit orders
-router.delete('/transit', (req, res) => {
+router.delete('/transit', async (req, res) => {
   try {
     db.memoryStore.orders = [];
     if (Array.isArray(db.memoryStore.products)) {
@@ -254,10 +382,12 @@ router.delete('/transit', (req, res) => {
         p.transit = 0;
       });
     }
-    persistOrdersToDisk([]);
+    await persistOrdersToDisk([]);
+    await db.query("UPDATE mrp_purchase_orders SET status = 'CANCELADO', updated_at = CURRENT_TIMESTAMP WHERE status = 'EN_TRANSITO'");
+
     res.json({
       success: true,
-      message: 'Todos los pedidos en tránsito han sido eliminados del servidor.',
+      message: 'Todos los pedidos en tránsito han sido eliminados del servidor y base de datos.',
       totalActiveOrders: 0,
       orders: []
     });
@@ -267,7 +397,7 @@ router.delete('/transit', (req, res) => {
 });
 
 // POST /api/planning/transit/clear - Clear all In-Transit orders (POST alias)
-router.post('/transit/clear', (req, res) => {
+router.post('/transit/clear', async (req, res) => {
   try {
     db.memoryStore.orders = [];
     if (Array.isArray(db.memoryStore.products)) {
@@ -276,10 +406,12 @@ router.post('/transit/clear', (req, res) => {
         p.transit = 0;
       });
     }
-    persistOrdersToDisk([]);
+    await persistOrdersToDisk([]);
+    await db.query("UPDATE mrp_purchase_orders SET status = 'CANCELADO', updated_at = CURRENT_TIMESTAMP WHERE status = 'EN_TRANSITO'");
+
     res.json({
       success: true,
-      message: 'Todos los pedidos en tránsito han sido eliminados del servidor.',
+      message: 'Todos los pedidos en tránsito han sido eliminados del servidor y base de datos.',
       totalActiveOrders: 0,
       orders: []
     });
@@ -289,14 +421,15 @@ router.post('/transit/clear', (req, res) => {
 });
 
 // DELETE /api/planning/transit/:orderId - Delete single transit order
-router.delete('/transit/:orderId', (req, res) => {
+router.delete('/transit/:orderId', async (req, res) => {
   try {
     const { orderId } = req.params;
     const orderIndex = db.memoryStore.orders.findIndex(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
-    if (orderIndex === -1) {
-      return res.status(404).json({ error: 'Orden no encontrada.' });
+    let deleted = null;
+    if (orderIndex >= 0) {
+      [deleted] = db.memoryStore.orders.splice(orderIndex, 1);
     }
-    const [deleted] = db.memoryStore.orders.splice(orderIndex, 1);
+
     if (deleted && deleted.items) {
       deleted.items.forEach(item => {
         const itemKey = (item.codeSku || item.codeFrumusa || item.codeCountry || '').toString().trim().toUpperCase();
@@ -312,10 +445,13 @@ router.delete('/transit/:orderId', (req, res) => {
         }
       });
     }
-    persistOrdersToDisk(db.memoryStore.orders);
+
+    await persistOrdersToDisk(db.memoryStore.orders);
+    await updateOrderPostgresStatus(orderId, 'CANCELADO');
+
     res.json({
       success: true,
-      message: `Orden ${orderId} eliminada del servidor.`,
+      message: `Orden ${orderId} eliminada del servidor y actualizada en base de datos.`,
       orders: db.memoryStore.orders
     });
   } catch (error) {
@@ -323,47 +459,112 @@ router.delete('/transit/:orderId', (req, res) => {
   }
 });
 
-// POST /api/planning/transit/reconcile - Mark order as received in physical warehouse
-router.post('/transit/reconcile', (req, res) => {
+// Helper for receiving an order in store intake
+async function handleOrderReception(req, res) {
   try {
-    const { orderId } = req.body;
-    const order = db.memoryStore.orders.find(o => o.id === orderId || o.orderCode === orderId);
-
-    if (!order) {
-      return res.status(404).json({ error: 'Orden no encontrada en el registro de tránsito.' });
+    const { orderId, receivedBy, notes, itemsReceived, invoiceVarianceCost } = req.body;
+    if (!orderId) {
+      return res.status(400).json({ error: 'Falta el identificador de la orden (orderId).' });
     }
 
-    order.status = 'RECIBIDO';
-    order.receivedAt = new Date().toISOString();
+    const order = db.memoryStore.orders.find(o => o.id === orderId || o.orderCode === orderId || o.orderNumber === orderId);
 
-    // Adjust product transit
-    if (order.items && Array.isArray(order.items)) {
-      order.items.forEach(item => {
-        const prod = db.memoryStore.products.find(p => (
-          (p.code_frumusa && p.code_frumusa.toString() === item.codeSku) ||
-          (p.codeFrumusa && p.codeFrumusa.toString() === item.codeSku) ||
-          (p.code_country && p.code_country.toString() === item.codeSku) ||
-          (p.codeCountry && p.codeCountry.toString() === item.codeSku) ||
-          (p.codeSku && p.codeSku.toString() === item.codeSku) ||
-          (p.NO_ARTI && p.NO_ARTI.toString() === item.codeSku)
-        ));
-        if (prod) {
-          prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - (item.finalQty || item.quantity || 0));
-          prod.transit = prod.transit_qty;
-        }
+    // Calculate totals received
+    let totalBoxesReceived = 0;
+    let totalUnitsReceived = 0;
+    if (Array.isArray(itemsReceived) && itemsReceived.length > 0) {
+      itemsReceived.forEach(it => {
+        totalBoxesReceived += Number(it.boxesReceived || it.boxes || 0);
+        totalUnitsReceived += Number(it.unitsReceived || it.quantity || it.finalQty || 0);
       });
+    } else if (order) {
+      totalBoxesReceived = Number(order.totalBoxes || 0);
+      totalUnitsReceived = Number(order.totalUnits || 0);
     }
 
-    persistOrdersToDisk(db.memoryStore.orders);
+    if (order) {
+      order.status = 'RECEPCIONADO';
+      order.receivedAt = new Date().toISOString();
+      order.receivedBy = receivedBy || 'Bodega Santo Domingo';
+
+      // Deduct order from active in-transit product balances
+      if (order.items && Array.isArray(order.items)) {
+        order.items.forEach(item => {
+          const prod = db.memoryStore.products.find(p => (
+            (p.code_frumusa && p.code_frumusa.toString() === item.codeSku) ||
+            (p.codeFrumusa && p.codeFrumusa.toString() === item.codeSku) ||
+            (p.code_country && p.code_country.toString() === item.codeSku) ||
+            (p.codeCountry && p.codeCountry.toString() === item.codeSku) ||
+            (p.codeSku && p.codeSku.toString() === item.codeSku) ||
+            (p.NO_ARTI && p.NO_ARTI.toString() === item.codeSku)
+          ));
+          if (prod) {
+            prod.transit_qty = Math.max(0, (Number(prod.transit_qty || 0)) - (item.finalQty || item.quantity || 0));
+            prod.transit = prod.transit_qty;
+          }
+        });
+      }
+
+      await persistOrdersToDisk(db.memoryStore.orders);
+    }
+
+    // Persist to relational Postgres tables
+    await syncOrderReceptionToPostgres(orderId, {
+      receivedBy: receivedBy || 'Bodega Santo Domingo',
+      totalBoxesReceived,
+      totalUnitsReceived,
+      invoiceVarianceCost: Number(invoiceVarianceCost || 0),
+      notes: notes || '',
+      itemsReceived: itemsReceived || (order ? order.items : [])
+    });
 
     res.json({
       success: true,
-      message: `Orden ${orderId} marcada como RECIBIDA. Saldo liberado del inventario en tránsito.`,
-      order
+      message: `¡Orden ${orderId} recepcionada y conciliada exitosamente en bodega! Tránsito liberado.`,
+      orderId,
+      status: 'RECEPCIONADO',
+      receivedAt: new Date().toISOString(),
+      totalBoxesReceived,
+      totalUnitsReceived
     });
   } catch (error) {
-    res.status(500).json({ error: 'Error al conciliar la orden.' });
+    console.error('Error in order reception:', error);
+    res.status(500).json({ error: 'Error al registrar la recepción de la orden.' });
   }
+}
+
+// POST /api/planning/receive - Store Intake / Warehouse Reception
+router.post('/receive', handleOrderReception);
+
+// POST /api/planning/transit/reconcile - Alias for backwards compatibility
+router.post('/transit/reconcile', handleOrderReception);
+
+// GET /api/planning/receptions - List Historical Receptions & Invoice Variance
+router.get('/receptions', async (req, res) => {
+  try {
+    const dbRes = await db.query(`
+      SELECT 
+        r.id, r.order_id, r.received_at, r.received_by,
+        r.total_boxes_received, r.total_units_received, r.invoice_variance_cost,
+        r.notes, r.items_received,
+        po.order_code, po.day, po.delivery_day, po.total_cost as order_cost, po.total_boxes as order_boxes
+      FROM mrp_order_receptions r
+      LEFT JOIN mrp_purchase_orders po ON r.order_id = po.id
+      ORDER BY r.received_at DESC
+      LIMIT 100;
+    `);
+
+    if (dbRes && dbRes.rows) {
+      return res.json({
+        totalReceptions: dbRes.rows.length,
+        receptions: dbRes.rows
+      });
+    }
+  } catch (err) {
+    console.warn('⚠️ [Postgres Receptions Query Warning]:', err.message);
+  }
+
+  res.json({ totalReceptions: 0, receptions: [] });
 });
 
 // POST /api/planning/export-excel - Generate Excel XLSX file buffer
